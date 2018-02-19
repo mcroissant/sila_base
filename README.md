@@ -14,8 +14,8 @@ documents can be accessed on google drive:
 
 For more information, visit our [website](http://sila-standard.com/).
 
-In case of general questions, contact either Max ([max@unitelabs.ch](mailto:max@unitelabs.ch)) or Daniel ([daniel.juchli@sila-standard.org](daniel.juchli@sila-standard.org)).
+In case of general questions, contact either Max ([max@unitelabs.ch](mailto:max@unitelabs.ch)) or Daniel ([daniel.juchli@sila-standard.org](mailto:daniel.juchli@sila-standard.org)).
 
 # SiLA Features
 
-TODO: Move definitions over.
+Definitions of common SiLA Features. Will be mantained and maintained with a proper process after the first public release candidate.

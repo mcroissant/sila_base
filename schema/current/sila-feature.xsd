@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.sila-standard.org"
+        targetNamespace="http://www.sila-standard.org" elementFormDefault="qualified">
+    <element name="SiLA">
+        <complexType>
+            <sequence>
+                <element name="Feature" type="tns:Feature" minOccurs="1" maxOccurs="1"/>
+            </sequence>
+            <attribute name="version">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="2.0"/>
+                    </restriction>
+                </simpleType>
+            </attribute>
+        </complexType>
+    </element>
+
+    <simpleType name="identifier">
+        <restriction base="string">
+            <pattern value="[A-Z][a-zA-Z0-9]*"/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="Base">
+        <sequence >
+            <element type="tns:identifier" name="Identifier" minOccurs="1" maxOccurs="1"/>
+            <element type="string" name="DisplayName" minOccurs="1" maxOccurs="1"/>
+            <element type="string" name="Description" minOccurs="1" maxOccurs="1"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="DataObject">
+        <complexContent>
+            <extension base="tns:Base">
+                <sequence>
+                    <element name="DataType">
+                        <simpleType>
+                            <restriction base="string">
+                                <enumeration value="String"/>
+                                <enumeration value="Integer"/>
+                                <enumeration value="Real"/>
+                                <enumeration value="Binary"/>
+                                <enumeration value="Boolean"/>
+                                <enumeration value="Date"/>
+                                <enumeration value="Time"/>
+                                <enumeration value="Timestamp"/>
+                                <enumeration value="String[]"/>
+                                <enumeration value="Integer[]"/>
+                                <enumeration value="Real[]"/>
+                                <enumeration value="Boolean[]"/>
+                                <enumeration value="Date[]"/>
+                                <enumeration value="Time[]"/>
+                                <enumeration value="Timestamp[]"/>
+                            </restriction>
+                        </simpleType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="Feature">
+        <complexContent>
+            <extension base="tns:Base">
+                <sequence>
+                    <element name="Command" maxOccurs="unbounded" minOccurs="0"
+                             type="tns:Command"/>
+                    <element name="Property" maxOccurs="unbounded" minOccurs="0"
+                             type="tns:Property"/>
+                    <element name="StandardError" maxOccurs="unbounded" minOccurs="0"
+                             type="tns:StandardError"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="Command">
+        <complexContent>
+            <extension base="tns:Base">
+                <sequence>
+                    <element name="ExecutionBehaviour">
+                        <simpleType>
+                            <restriction base="string">
+                                <enumeration value="Immediate"/>
+                            </restriction>
+                        </simpleType>
+                    </element>
+                    <element name="Parameter" maxOccurs="unbounded" minOccurs="0"
+                             type="tns:DataObject"/>
+                    <element name="Response" maxOccurs="1" minOccurs="0"
+                             type="tns:DataObject"/>
+                    <element name="StandardErrors" maxOccurs="1" minOccurs="0">
+                        <complexType>
+                            <sequence>
+                                <element name="Identifier" type="tns:identifier" maxOccurs="unbounded" minOccurs="0"/>
+                            </sequence>
+                        </complexType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="Property">
+        <complexContent>
+            <extension base="tns:DataObject">
+                <sequence>
+                    <element name="PropertyType">
+                        <simpleType>
+                            <restriction base="string">
+                                <enumeration value="Static"/>
+                                <enumeration value="Dynamic"/>
+                            </restriction>
+                        </simpleType>
+                    </element>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="StandardError">
+        <complexContent>
+            <extension base="tns:Base">
+            </extension>
+        </complexContent>
+    </complexType>
+
+    <complexType name="DataType">
+        <sequence>
+            <element type="tns:identifier" name="Identifier"/>
+            <element type="string" name="Definition"/>
+        </sequence>
+    </complexType>
+</schema>

@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<SiLA version="2.0"
+      xmlns="http://www.sila-standard.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sila-standard.org ../current/sila-feature.xsd">
+    <Feature>
+        <Identifier>Feature1</Identifier>
+        <DisplayName>string</DisplayName>
+        <Description>string</Description>
+        <Command>
+            <Identifier>Command1</Identifier>
+            <DisplayName>Command No 1</DisplayName>
+            <Description>Some Command Description</Description>
+            <ExecutionBehaviour>Immediate</ExecutionBehaviour>
+            <Parameter>
+                <Identifier>P1</Identifier>
+                <DisplayName>Parameter 1</DisplayName>
+                <Description>Some String Array</Description>
+                <DataType>String[]</DataType>
+            </Parameter>
+            <Parameter>
+                <Identifier>P2</Identifier>
+                <DisplayName>Boolean</DisplayName>
+                <Description>Boolean</Description>
+                <DataType>Boolean</DataType>
+            </Parameter>
+            <Response>
+                <Identifier>R1</Identifier>
+                <DisplayName>Integer</DisplayName>
+                <Description>Integer</Description>
+                <DataType>Integer</DataType>
+            </Response>
+            <StandardErrors>
+                <Identifier>SomeError</Identifier>
+                <Identifier>SomeErro2</Identifier>
+            </StandardErrors>
+        </Command>
+        <!--Zero or more repetitions:-->
+        <Property>
+            <Identifier>MyProperty</Identifier>
+            <DisplayName>string</DisplayName>
+            <Description>string</Description>
+            <DataType>string</DataType>
+            <PropertyType>Static</PropertyType>
+        </Property>
+        <StandardError>
+            <Identifier>SomeError</Identifier>
+            <DisplayName>Some Error</DisplayName>
+            <Description>It is an Error</Description>
+        </StandardError>
+        <StandardError>
+            <Identifier>SomeError2</Identifier>
+            <DisplayName>Some Error2</DisplayName>
+            <Description>It is an Error2</Description>
+        </StandardError>
+    </Feature>
+</SiLA>

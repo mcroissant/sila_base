@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<SiLA version="2.0" xmlns="http://www.sila-standard.org"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sila-standard.org ../current/sila-feature.xsd">
+    <Feature>
+        <Identifier>MyOtherFeature</Identifier>
+        <DisplayName>My Other Feature</DisplayName>
+        <Description>Some Description</Description>
+        <Command>
+            <Identifier>CommandNoResponse</Identifier>
+            <DisplayName>Command No Response</DisplayName>
+            <Description>Command without a response or parameters</Description>
+            <ExecutionBehaviour>Immediate</ExecutionBehaviour>
+        </Command>
+    </Feature>
+</SiLA>
