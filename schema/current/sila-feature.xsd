@@ -79,10 +79,11 @@
         <complexContent>
             <extension base="tns:Base">
                 <sequence>
-                    <element name="ExecutionBehaviour">
+                    <element name="Observable">
                         <simpleType>
                             <restriction base="string">
-                                <enumeration value="Immediate"/>
+                                <!-- <enumeration value="Yes"/> -->
+                                <enumeration value="No"/>
                             </restriction>
                         </simpleType>
                     </element>
@@ -110,7 +111,7 @@
                         <simpleType>
                             <restriction base="string">
                                 <enumeration value="Static"/>
-                                <enumeration value="Dynamic"/>
+                                <!-- <enumeration value="Dynamic"/> -->
                             </restriction>
                         </simpleType>
                     </element>
