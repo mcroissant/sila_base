@@ -3,18 +3,18 @@
 <SiLA version="2.0"
       xmlns="http://www.sila-standard.org"
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sila-standard.org ../schema/current/sila-feature.xsd">
+      xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/current/sila-feature.xsd">
+    <!-- @Note: Currently only with Basic SiLA Types, should be done with complex types -->
 
     <Feature>
         <Identifier>SiLAService</Identifier>
         <DisplayName>SiLA Service</DisplayName>
-        <Description>The Feature each SiLA Device MUST implement. It is the entry point to a SiLA Device and
-            helps to discover the Features it implements.</Description>
+        <Description>The Feature each SiLA Device MUST implement. It is the entry point to a SiLA Device and helps to discover the Features it implements.</Description>
         <Command>
             <Identifier>GetFeatureDefinition</Identifier>
             <DisplayName>Get Feature Definition</DisplayName>
             <Description>Get all details on one Feature through the Feature id.</Description>
-            <ExecutionBehaviour>Immediate</ExecutionBehaviour>
+            <Observable>No</Observable>
             <Parameter>
                 <Identifier>FeatureIdentifier</Identifier>
                 <DisplayName>Feature Identifier</DisplayName>
@@ -37,11 +37,17 @@
             <PropertyType>Static</PropertyType>
         </Property>
         <Property>
-            <Identifier>ImplementedFeatures</Identifier>
-            <DisplayName>Implemented Features</DisplayName>
-            <Description>Returns a list of qualified Feature identifiers of all implemented Features of
-                this SiLA Device.</Description>
-            <DataType>String[]</DataType>
+            <Identifier>DeviceDescription</Identifier>
+            <DisplayName>Device Description</DisplayName>
+            <Description>Description of the SiLA Device as a whole.</Description>
+            <DataType>String</DataType>
+            <PropertyType>Static</PropertyType>
+        </Property>
+        <Property>
+            <Identifier>DeviceVendorName</Identifier>
+            <DisplayName>Name of the Device Vendor</DisplayName>
+            <Description>The name of the device vendor</Description>
+            <DataType>String</DataType>
             <PropertyType>Static</PropertyType>
         </Property>
         <Property>
@@ -50,6 +56,14 @@
             <Description>Returns the URI to the website of the vendor or the
                 website of the product of this SiLA Device.</Description>
             <DataType>String</DataType>
+            <PropertyType>Static</PropertyType>
+        </Property>
+        <Property>
+            <Identifier>ImplementedFeatures</Identifier>
+            <DisplayName>Implemented Features</DisplayName>
+            <Description>Returns a list of qualified Feature identifiers of all implemented Features of
+                this SiLA Device.</Description>
+            <DataType>String[]</DataType>
             <PropertyType>Static</PropertyType>
         </Property>
     </Feature>
