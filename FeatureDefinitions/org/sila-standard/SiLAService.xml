@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Verified" Originator="org.sila-standard">
+  <Identifier>SiLAService</Identifier>
+  <DisplayName>SiLA Service</DisplayName>
+  <Description>
+    The Feature each SiLA Device MUST implement. It is the entry point to a SiLA Device and helps to discover the Features it implements. These Features provides basic capabilities of a SiLA 2 Device. The Features are advertised with a discovery mechanism to highlight the existence of the SiLA Device. Thus making it easier for the user to find the devices and connect them to their network.
+    SiLAService makes the Device available for integration within the network providing necessary information to understand all Features and therefore capabilities of the said Device.
+    The Feature only has one Command: “Get Feature Definition” which using an identifier finds and outputs the entire Feature Definition of said Feature. During Discovery this would be all Features, but this can therefore also be used to get specific Feature Definitions. While the Discovery should be as automatic as possible, to make it as easy as possible for the user to connect the correct Device, SiLAService can be customly used as a means of specifically showing information on a Feature.
+  </Description>
+  <Command>
+    <Identifier>GetFeatureDefinition</Identifier>
+    <DisplayName>Get Feature Definition</DisplayName>
+    <Description>Get all details on one Feature through the Feature id.</Description>
+    <Observable>No</Observable>
+    <Parameter>
+      <Identifier>FeatureIdentifier</Identifier>
+      <DisplayName>Feature Identifier</DisplayName>
+      <Description>The Feature identifier for which the Feature description should be retrieved.</Description>
+      <DataType>
+        <DataTypeIdentifier>Identifier</DataTypeIdentifier>
+      </DataType>
+    </Parameter>
+    <Response>
+      <Identifier>FeatureDefinition</Identifier>
+      <DisplayName>Feature Definition</DisplayName>
+      <Description>The Feature Definition as XML File. (temporary)</Description>
+      <DataType>
+        <Constrained>
+          <DataType>
+            <Basic>Binary</Basic>
+          </DataType>
+          <Constraints>
+            <ContentType>
+              <Type>application</Type>
+              <Subtype>x-sila-feature-definition</Subtype>
+            </ContentType>
+          </Constraints>
+        </Constrained>
+      </DataType>
+    </Response>
+  </Command>
+  <Property>
+    <Identifier>DeviceDisplayName</Identifier>
+    <DisplayName>Device Display Name</DisplayName>
+    <Description>Human readable name of the SiLA Device.</Description>
+    <DataType>
+      <Basic>String</Basic>
+    </DataType>
+    <PropertyType>Static</PropertyType>
+  </Property>
+  <Property>
+    <Identifier>ImplementedFeatures</Identifier>
+    <DisplayName>Implemented Features</DisplayName>
+    <Description>Returns a list of qualified Feature identifiers of all implemented Features of this SiLA Device.</Description>
+    <DataType>
+      <List>
+        <DataTypeIdentifier>Identifier</DataTypeIdentifier>
+      </List>
+    </DataType>
+    <PropertyType>Static</PropertyType>
+  </Property>
+  <Property>
+    <Identifier>DeviceVendorURI</Identifier>
+    <DisplayName>URI of Device Vendor</DisplayName>
+    <Description>Returns the URI to the website of the vendor or the website of the product of this SiLA Device.</Description>
+    <DataType>
+      <DataTypeIdentifier>URI</DataTypeIdentifier>
+    </DataType>
+    <PropertyType>Static</PropertyType>
+  </Property>
+  <Property>
+    <Identifier>DeviceVersion</Identifier>
+    <DisplayName>Device Version </DisplayName>
+    <Description>Returns the URI to the website of the vendor or the website of the product of this SiLA Device.</Description>
+    <DataType>
+      <Constrained>
+        <DataType>
+          <Basic>String</Basic>
+        </DataType>
+        <Constraints>
+          <Pattern>[0-9]*.[0-9]*</Pattern>
+        </Constraints>
+      </Constrained>
+    </DataType>
+    <PropertyType>Static</PropertyType>
+  </Property>
+  <DataTypeDefinition>
+    <Identifier>Identifier</Identifier>
+    <DisplayName>Identifier</DisplayName>
+    <Description></Description>
+    <DataType>
+      <Constrained>
+        <DataType>
+          <Basic>String</Basic>
+        </DataType>
+        <Constraints>
+          <Pattern>[A-Z][a-zA-Z0-9]*</Pattern>
+        </Constraints>
+      </Constrained>
+    </DataType>
+  </DataTypeDefinition>
+  <DataTypeDefinition>
+    <Identifier>URI</Identifier>
+    <DisplayName>URI</DisplayName>
+    <Description></Description>
+    <DataType>
+      <Constrained>
+        <DataType>
+          <Basic>String</Basic>
+        </DataType>
+        <Constraints>
+          <!-- Constraints need to be defined here-->
+        </Constraints>
+      </Constrained>
+    </DataType>
+  </DataTypeDefinition>
+</Feature>
