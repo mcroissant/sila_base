@@ -1,0 +1,124 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Feature">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element type="identifier" name="Identifier" />
+        <xs:element type="displayName" name="DisplayName" />
+        <xs:element type="xs:string" name="Description" />
+        <xs:element name="Command" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="identifier" name="Identifier" />
+              <xs:element type="displayName" name="DisplayName" />
+              <xs:element type="xs:string" name="Description" />
+              <xs:element name="Observable">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Yes" />
+                    <xs:enumeration value="No" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Parameter" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="identifier" name="Identifier" />
+                    <xs:element type="displayName" name="DisplayName" />
+                    <xs:element type="xs:string" name="Description" />
+                    <xs:element type="xs:string" name="DataType" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Response" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="identifier" name="Identifier" />
+                    <xs:element type="displayName" name="DisplayName" />
+                    <xs:element type="xs:string" name="Description" />
+                    <xs:element type="xs:string" name="DataType" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="StandardErrors">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="identifier" name="StandardErrorIdentifier" maxOccurs="unbounded" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="StandardError" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="identifier" name="Identifier" />
+              <xs:element type="displayName" name="DisplayName" />
+              <xs:element type="xs:string" name="Description" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Property" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="identifier" name="Identifier" />
+              <xs:element type="displayName" name="DisplayName" />
+              <xs:element type="xs:string" name="Description" />
+              <xs:element type="xs:string" name="DataType" />
+              <xs:element name="PropertyType">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:enumeration value="Static" />
+                    <xs:enumeration value="Dynamic" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DataType" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="identifier" name="Identifier" />
+              <xs:element type="displayName" name="DisplayName" />
+              <xs:element type="xs:string" name="Description" />
+              <xs:element type="xs:string" name="Definition" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+      <xs:attribute type="xs:float" name="SiLAVersion" use="required" />
+      <xs:attribute type="xs:string" name="Locale" use="optional" default="en-us" />
+      <xs:attribute type="xs:byte" name="MajorVersion" use="required" />
+      <xs:attribute type="xs:byte" name="MinorVersion" use="required" />
+      <xs:attribute name="MaturityLevel" use="optional" default="Draft">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Draft" />
+            <xs:enumeration value="Verified" />
+            <xs:enumeration value="Normative" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="Originator" use="optional">
+        <xs:simpleType>
+          <xs:restriction base ="xs:string">
+            <xs:pattern value="[a-z][a-zA-Z0-9\.]*" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute type="xs:string" name="UseCase" use="optional" />
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="identifier">
+    <xs:restriction base ="xs:string">
+      <xs:pattern value="[A-Z][a-zA-Z0-9]*" />
+      <xs:maxLength value="255" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="displayName">
+    <xs:restriction base ="xs:string">
+      <xs:maxLength value="255" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
