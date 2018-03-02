@@ -307,10 +307,10 @@
                 <xs:sequence>
                   <xs:element type="xs:string" name="Type"/>
                   <xs:element type="xs:string" name="Subtype"/>
-                  <xs:element name="Parameters">
+                  <xs:element name="Parameters" minOccurs="0">
                     <xs:complexType>
                       <xs:sequence>
-                        <xs:element name="Parameter" minOccurs="0" maxOccurs="unbounded">
+                        <xs:element name="Parameter" minOccurs="1" maxOccurs="unbounded">
                           <xs:complexType>
                             <xs:sequence>
                               <xs:element type="xs:string" name="Attribute"/>
