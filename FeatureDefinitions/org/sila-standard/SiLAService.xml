@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Verified" Originator="org.sila-standard">
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Verified" Originator="org.sila-standard" 
+    xmlns="http://www.sila-standard.org" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.sila-standard.org/sila-feature-definition.xsd"
+>
   <Identifier>SiLAService</Identifier>
   <DisplayName>SiLA Service</DisplayName>
   <Description>
