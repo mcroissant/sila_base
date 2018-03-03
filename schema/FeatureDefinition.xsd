@@ -254,7 +254,7 @@
                               <xs:enumeration value="Meter"/>
                               <xs:enumeration value="Kilogram"/>
                               <xs:enumeration value="Second"/>
-                              <xs:enumeration value="Amper"/>
+                              <xs:enumeration value="Ampere"/>
                               <xs:enumeration value="Kelvin"/>
                               <xs:enumeration value="Mole"/>
                               <xs:enumeration value="Candela"/>
