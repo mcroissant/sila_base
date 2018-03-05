@@ -101,9 +101,9 @@
           </xs:complexType>
         </xs:element>
       </xs:sequence>
-      <xs:attribute type="xs:positiveInteger" name="SiLAVersion" use="required" />
+      <xs:attribute type="xs:positiveInteger" name="SiLAVersion" use="required" default="2" />
       <xs:attribute type="xs:string" name="Locale" use="optional" default="en-us" />
-      <xs:attribute type="xs:positiveInteger" name="MajorVersion" use="required" />
+      <xs:attribute type="xs:nonNegativeInteger" name="MajorVersion" use="required" />
       <xs:attribute type="xs:nonNegativeInteger" name="MinorVersion" use="required" />
       <xs:attribute name="MaturityLevel" use="optional" default="Draft">
         <xs:simpleType>
