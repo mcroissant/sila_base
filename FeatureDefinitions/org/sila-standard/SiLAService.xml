@@ -2,8 +2,7 @@
 <Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Draft" Originator="org.sila-standard" 
     xmlns="http://www.sila-standard.org" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.sila-standard.org/sila-feature-definition.xsd"
->
+    xsi:schemaLocation="http://www.sila-standard.org/sila-feature-definition.xsd">
   <Identifier>SiLAService</Identifier>
   <DisplayName>SiLA Service</DisplayName>
   <Description>
@@ -64,7 +63,7 @@
     <Identifier>DeviceVersion</Identifier>
     <DisplayName>Device Version</DisplayName>
     <Description>Returns the version of the SiLA device. A "Major" and a "Minor" version number (e.g. 1.0) MUST be provided, a Patch version number MAY be provided. Optionally, an arbitrary text, separated by an underscore MAY be appended, e.g. “3.19.373_mighty_lab_devices”
-</Description>
+    </Description>
     <DataType>
       <Constrained>
         <DataType>
@@ -87,7 +86,7 @@
           <Basic>String</Basic>
         </DataType>
         <Constraints>
-		  <MaximalLength>255</MaximalLength>
+          <MaximalLength>255</MaximalLength>
           <Pattern>[A-Z][a-zA-Z0-9]*</Pattern>
         </Constraints>
       </Constrained>
@@ -97,7 +96,7 @@
     <Identifier>FeatureDefinition</Identifier>
     <DisplayName>Feature Definition</DisplayName>
     <Description></Description>
-	<DataType>
+  <DataType>
         <Constrained>
           <DataType>
             <Basic>Binary</Basic>
