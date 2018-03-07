@@ -16,5 +16,11 @@ For more information, visit our [website](http://sila-standard.com/).
 
 In case of general questions, contact either Max ([max@unitelabs.ch](mailto:max@unitelabs.ch)) or Daniel ([daniel.juchli@sila-standard.org](mailto:daniel.juchli@sila-standard.org)).
 
+# SiLA Features
+This repository contains several SiLA Features. It does not contain specifications.
+
+## Style Guidelines
+The tabbing in the xml documents is done with 4 spaces.
+
 # License
 This code is licensed under the [MIT License](https://en.wikipedia.org/wiki/MIT_License)
