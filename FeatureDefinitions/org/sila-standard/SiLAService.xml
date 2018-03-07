@@ -64,6 +64,15 @@
         <PropertyType>Static</PropertyType>
     </Property>
     <Property>
+        <Identifier>DeviceVendorURL</Identifier>
+        <DisplayName>URL of Device Vendor</DisplayName>
+        <Description>Returns the URL to the website of the vendor or the website of the product of this SiLA Device.</Description>
+        <DataType>
+            <DataTypeIdentifier>URL</DataTypeIdentifier>
+        </DataType>
+        <PropertyType>Static</PropertyType>
+    </Property>
+    <Property>
         <Identifier>ImplementedFeatures</Identifier>
         <DisplayName>Implemented Features</DisplayName>
         <Description>Returns a list of Feature identifiers of all implemented Features of this SiLA Device.</Description>
@@ -71,15 +80,6 @@
             <List>
                 <DataTypeIdentifier>Identifier</DataTypeIdentifier>
             </List>
-        </DataType>
-        <PropertyType>Static</PropertyType>
-    </Property>
-    <Property>
-        <Identifier>DeviceVendorURL</Identifier>
-        <DisplayName>URL of Device Vendor</DisplayName>
-        <Description>Returns the URL to the website of the vendor or the website of the product of this SiLA Device.</Description>
-        <DataType>
-            <DataTypeIdentifier>URL</DataTypeIdentifier>
         </DataType>
         <PropertyType>Static</PropertyType>
     </Property>
