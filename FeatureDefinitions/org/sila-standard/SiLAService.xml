@@ -43,7 +43,9 @@
         <Identifier>DeviceDescription</Identifier>
         <DisplayName>Device Description</DisplayName>
         <Description>Description of the SiLA Device.</Description>
-        <DataType>String</DataType>
+        <DataType>
+            <Basic>String</Basic>
+        </DataType>
         <PropertyType>Static</PropertyType>
     </Property>
     <Property>
