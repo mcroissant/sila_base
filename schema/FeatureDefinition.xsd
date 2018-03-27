@@ -2,6 +2,8 @@
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:tns="http://www.sila-standard.org"
+    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+    jaxb:version="1.0"
     targetNamespace="http://www.sila-standard.org">
   <xs:element name="Feature">
     <xs:complexType>
@@ -137,8 +139,14 @@
   </xs:simpleType>
   <xs:complexType name="DataTypeType">
     <xs:choice>
+      <xs:annotation>
+        <xs:appinfo>
+          <jaxb:property name="SiLAType"/>
+        </xs:appinfo>
+      </xs:annotation>
+
       <xs:element type="tns:BasicType" name="Basic" minOccurs="0"/>
-      <xs:element type="tns:DataTypeType" name="List" minOccurs="0"/>
+      <xs:element type="tns:ListType" name="List" minOccurs="0"/>
       <xs:element type="tns:StructureType" name="Structure" minOccurs="0"/>
       <xs:element type="tns:ConstrainedType" name="Constrained" minOccurs="0"/>
       <xs:element type="tns:IdentifierType" name="DataTypeIdentifier" minOccurs="0"/>
@@ -156,6 +164,11 @@
       <xs:enumeration value="Timestamp"/>
     </xs:restriction>
   </xs:simpleType>
+  <xs:complexType name="ListType">
+    <xs:sequence>
+      <xs:element type="tns:DataTypeType" name="DataType"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="StructureType">
     <xs:sequence>
       <xs:element name="Element" maxOccurs="unbounded" minOccurs="0">

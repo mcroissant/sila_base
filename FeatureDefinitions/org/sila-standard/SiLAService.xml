@@ -78,7 +78,9 @@
         <Description>Returns a list of Feature identifiers of all implemented Features of this SiLA Device.</Description>
         <DataType>
             <List>
-                <DataTypeIdentifier>Identifier</DataTypeIdentifier>
+                <DataType>
+                    <DataTypeIdentifier>Identifier</DataTypeIdentifier>
+                </DataType>
             </List>
         </DataType>
         <PropertyType>Static</PropertyType>
