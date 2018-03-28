@@ -174,7 +174,7 @@
       <xs:element name="Element" maxOccurs="unbounded" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
-            <xs:element type="xs:string" name="ElementIdentifier"/>
+            <xs:element type="tns:IdentifierType" name="Identifier"/>
             <xs:element type="tns:DataTypeType" name="DataType"/>
           </xs:sequence>
         </xs:complexType>
