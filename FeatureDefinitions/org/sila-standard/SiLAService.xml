@@ -2,7 +2,7 @@
 <Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Verified" Originator="org.sila-standard" UseCase="Core"
         xmlns="http://www.sila-standard.org" 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sila-standard.org/sila-feature-definition.xsd">
+        xsi:schemaLocation="https://gitlab.com/SiLA2/sila_features/raw/master/schema/ https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>SiLAService</Identifier>
     <DisplayName>SiLA Service</DisplayName>
     <Description>
