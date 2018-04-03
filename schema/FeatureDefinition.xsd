@@ -138,7 +138,7 @@
   <xs:complexType name="DataTypeType">
     <xs:choice>
       <xs:element type="tns:BasicType" name="Basic" minOccurs="0"/>
-      <xs:element type="tns:DataTypeType" name="List" minOccurs="0"/>
+      <xs:element type="tns:ListType" name="List" minOccurs="0"/>
       <xs:element type="tns:StructureType" name="Structure" minOccurs="0"/>
       <xs:element type="tns:ConstrainedType" name="Constrained" minOccurs="0"/>
       <xs:element type="tns:IdentifierType" name="DataTypeIdentifier" minOccurs="0"/>
@@ -156,12 +156,17 @@
       <xs:enumeration value="Timestamp"/>
     </xs:restriction>
   </xs:simpleType>
+  <xs:complexType name="ListType">
+    <xs:sequence>
+      <xs:element type="tns:DataTypeType" name="DataType"/>
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="StructureType">
     <xs:sequence>
       <xs:element name="Element" maxOccurs="unbounded" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
-            <xs:element type="xs:string" name="ElementIdentifier"/>
+            <xs:element type="tns:IdentifierType" name="Identifier"/>
             <xs:element type="tns:DataTypeType" name="DataType"/>
           </xs:sequence>
         </xs:complexType>
