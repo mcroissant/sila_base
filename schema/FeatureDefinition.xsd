@@ -2,8 +2,6 @@
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:tns="http://www.sila-standard.org"
-    xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
-    jaxb:version="1.0"
     targetNamespace="http://www.sila-standard.org">
   <xs:element name="Feature">
     <xs:complexType>
@@ -139,12 +137,6 @@
   </xs:simpleType>
   <xs:complexType name="DataTypeType">
     <xs:choice>
-      <xs:annotation>
-        <xs:appinfo>
-          <jaxb:property name="SiLAType"/>
-        </xs:appinfo>
-      </xs:annotation>
-
       <xs:element type="tns:BasicType" name="Basic" minOccurs="0"/>
       <xs:element type="tns:ListType" name="List" minOccurs="0"/>
       <xs:element type="tns:StructureType" name="Structure" minOccurs="0"/>
