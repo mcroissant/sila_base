@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Draft" Originator="org.sila-standard" 
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Verified" Originator="org.sila-standard" UseCase="Core"
         xmlns="http://www.sila-standard.org" 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
@@ -11,12 +11,12 @@
     <Command>
         <Identifier>GetFeatureDefinition</Identifier>
         <DisplayName>Get Feature Definition</DisplayName>
-        <Description>Get all details on one Feature through the Feature Identifier.</Description>
+        <Description>Get all details on one Feature through the qualified Feature id.</Description>
         <Observable>No</Observable>
         <Parameter>
-            <Identifier>FeatureIdentifier</Identifier>
-            <DisplayName>Feature Identifier</DisplayName>
-            <Description>The Feature Identifier for which the Feature description should be retrieved.</Description>
+            <Identifier>QualifiedFeatureIdentifier</Identifier>
+            <DisplayName>Qualified Feature Identifier</DisplayName>
+            <Description>The qualified Feature identifier for which the Feature description should be retrieved.</Description>
             <DataType>
                 <DataTypeIdentifier>Identifier</DataTypeIdentifier>
             </DataType>
@@ -29,7 +29,15 @@
                 <DataTypeIdentifier>FeatureDefinition</DataTypeIdentifier>
             </DataType>
         </Response>
+        <StandardErrors>
+            <StandardErrorIdentifier>FeatureNotImplemented</StandardErrorIdentifier>
+        </StandardErrors>
     </Command>
+    <StandardError>
+        <Identifier>FeatureNotImplemented</Identifier>
+        <DisplayName>Feature Not Implemented</DisplayName>
+        <Description>The feature specified by the given feature identifier is not implemented by the device.</Description>
+    </StandardError>
     <Property>
         <Identifier>DeviceDisplayName</Identifier>
         <DisplayName>Device Display Name</DisplayName>
@@ -43,7 +51,9 @@
         <Identifier>DeviceDescription</Identifier>
         <DisplayName>Device Description</DisplayName>
         <Description>Description of the SiLA Device.</Description>
-        <DataType>String</DataType>
+        <DataType>
+            <Basic>String</Basic>
+        </DataType>
         <PropertyType>Static</PropertyType>
     </Property>
     <Property>
@@ -75,7 +85,7 @@
     <Property>
         <Identifier>ImplementedFeatures</Identifier>
         <DisplayName>Implemented Features</DisplayName>
-        <Description>Returns a list of Feature identifiers of all implemented Features of this SiLA Device.</Description>
+        <Description>Returns a list of qualified Feature identifiers of all implemented Features of this SiLA Device.</Description>
         <DataType>
             <List>
                 <DataType>
@@ -129,7 +139,7 @@
                     <Basic>String</Basic>
                 </DataType>
                 <Constraints>
-                    <!-- Constraint need to be defined here to only allow proper URLs -->
+                    <Pattern>https?://.+</Pattern>
                 </Constraints>
             </Constrained>
         </DataType>
