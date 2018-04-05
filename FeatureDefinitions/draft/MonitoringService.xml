@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Verified" Originator="org.sila-standard" UseCase="Core"
+        xmlns="http://www.sila-standard.org"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
+  <Identifier>MonitoringService</Identifier>
+  <DisplayName>Monitoring Service</DisplayName>
+  <Description>
+    A Feature that allows the user to monitor commands processed by the SiLA device.
+  </Description>
+  <Property>
+    <Identifier>Subscribe</Identifier>
+    <DisplayName>Monitor Feature</DisplayName>
+    <Description>Allow client to receive call information on Device.</Description>
+    <DataType>
+      <DataTypeIdentifier>MonitoredCommandData</DataTypeIdentifier>
+    </DataType>
+    <PropertyType>Dynamic</PropertyType>
+  </Property>
+  <DataTypeDefinition>
+    <Identifier>MonitoredCommandData</Identifier>
+    <DisplayName>Monitored Command Data</DisplayName>
+    <Description></Description>
+    <DataType>
+      <Structure>
+        <Element>
+          <Identifier>FeatureId</Identifier>
+          <DataType>
+            <Basic>String</Basic>
+          </DataType>
+        </Element>
+        <Element>
+          <Identifier>CommandId</Identifier>
+          <DataType>
+            <Basic>String</Basic>
+          </DataType>
+        </Element>
+        <Element>
+          <Identifier>ParameterPayload</Identifier>
+          <DataType>
+            <DataTypeIdentifier>SiLADataType</DataTypeIdentifier>
+          </DataType>
+        </Element>
+        <Element>
+          <Identifier>ResultPayload</Identifier>
+          <DataType>
+            <DataTypeIdentifier>SiLADataType</DataTypeIdentifier>
+          </DataType>
+        </Element>
+      </Structure>
+    </DataType>
+  </DataTypeDefinition>
+  <DataTypeDefinition>
+    <Identifier>SiLADataType</Identifier>
+    <DisplayName>SiLA Data Type</DisplayName>
+    <Description>A generic description of SiLA data type.</Description>
+    <DataType>
+      <Structure>
+        <Element>
+          <Identifier>DataTypeDefinition</Identifier>
+          <DataType>
+            <Basic>String</Basic>
+          </DataType>
+        </Element>
+        <Element>
+          <Identifier>DataPayload</Identifier>
+          <DataType>
+            <Basic>Binary</Basic>
+          </DataType>
+        </Element>
+      </Structure>
+    </DataType>
+  </DataTypeDefinition>
+</Feature>
