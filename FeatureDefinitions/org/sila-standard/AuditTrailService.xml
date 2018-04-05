@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Draft" Originator="org.sila-standard"
+        xmlns="http://www.sila-standard.org"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
+  <Identifier>AuditTrailService</Identifier>
+  <DisplayName>Audit Trail Service</DisplayName>
+  <Description>
+    Always ON,
+    Persistance, 
+    Protected against modification, 
+    Time normal (device timestamp), 
+    Triggers: Power up/down, command execution, property change    
+    Error if trail is full
+    When is the entry recorded
+    Exculde SilaService and AuditTrail service
+  </Description>
+  <Command>
+    <Identifier>GetAuditTrailEntries</Identifier>
+    <DisplayName>Get Audit Trail Entries</DisplayName>
+    <Description>Get audit trail details from first(start) to last(end)</Description>
+    <Observable>Yes</Observable>
+    <Parameter>
+      <Identifier>From</Identifier>
+      <DisplayName>From</DisplayName>
+      <Description>time stamp where you want to get entry from</Description>
+      <DataType>
+        <Basic>Timestamp</Basic>  
+      </DataType>
+    </Parameter>
+    <Parameter>
+      <Identifier>To</Identifier>
+      <DisplayName>To</DisplayName>
+      <Description>time stamp where you want to get entry till</Description>
+      <DataType>
+        <Basic>Timestamp</Basic>
+      </DataType>
+    </Parameter>
+    <Response>
+      <Identifier>AuditTrailEntries</Identifier>
+      <DisplayName>Audit Trail Entries</DisplayName>
+     <Description>Get audit trail details from first(start) to last(end)</Description>
+     <DataType>
+        <List>
+          <DataType> 
+            <DataTypeIdentifier>AuditTrailEntry</DataTypeIdentifier> 
+        </DataType>
+        </List>
+      </DataType>
+    </Response>
+  </Command>
+  <Command>
+    <Identifier>GetFirstAuditTrailEntry</Identifier>
+    <DisplayName>Get First Audit Trail Entry</DisplayName>
+    <Description>Get first audit trail detail </Description>
+    <Observable>No</Observable>
+    <Response>
+      <Identifier>AuditTrailEntries</Identifier>
+      <DisplayName>Get First Audit Trail Entry</DisplayName>
+      <Description>Get first audit trail detail </Description>      
+      <DataType>
+        <DataTypeIdentifier>AuditTrailEntry</DataTypeIdentifier> 
+      </DataType>
+    </Response>
+  </Command>
+  <Command>
+    <Identifier>GetLastAuditTrailEntry</Identifier>
+    <DisplayName>Get Last Audit Trail Entry</DisplayName>
+    <Description>Get last audit trail detail </Description>
+    <Observable>No</Observable>
+    <Response>
+      <Identifier>AuditTrailEntries</Identifier>
+      <DisplayName>Get Last Audit Trail Entry</DisplayName>
+      <Description>Get last audit trail detail </Description>
+      <DataType>
+        <DataTypeIdentifier>AuditTrailEntry</DataTypeIdentifier> 
+      </DataType>
+    </Response>
+  </Command> 
+  <Property>
+    <Identifier>UsedCapacity</Identifier>
+    <DisplayName>Used Capacity</DisplayName>
+    <Description>Used capacity of the audit trail file</Description>
+    <DataType>
+    <Constrained>
+      <DataType><Basic>Real</Basic> </DataType>
+      <Constraints>  
+        <Unit>
+          <Label>% </Label>
+          <UnitComponent>
+            <SIUnit>Dimensionless</SIUnit>
+            <Exponent>1</Exponent>
+            <Factor>0.01</Factor>
+            <Offset>0</Offset>
+          </UnitComponent>
+        </Unit> 
+      </Constraints>
+    </Constrained>
+    </DataType>
+    <PropertyType>Dynamic</PropertyType>
+  </Property>
+  <DataTypeDefinition>
+    <Identifier>AuditTrailEntry</Identifier>
+    <DisplayName>Audit Trail Entry</DisplayName>
+    <Description></Description>
+    <DataType>
+        <Structure>
+          <Element>
+            <Identifier>ClientIdentification</Identifier>
+            <DataType> 
+              <Basic>String</Basic> 
+            </DataType>
+          </Element>
+            <Element>
+            <Identifier>TimeStamp</Identifier>
+            <DataType> 
+              <Basic>Timestamp</Basic> 
+            </DataType>
+          </Element>
+            <Element>
+            <Identifier>Details</Identifier>
+            <DataType> 
+              <Basic>String</Basic> 
+            </DataType>
+          </Element>
+        </Structure>
+    </DataType>
+  </DataTypeDefinition>
+</Feature>
