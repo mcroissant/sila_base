@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+message String {
+    string value = 1;
+}
+
+message Integer {
+    int64 value = 1;
+}
+
+message Real {
+    double value = 1;
+}
+
+message Boolean {
+    bool value = 1;
+}
+
+message Binary {
+    bytes value = 1;
+}
+
+message Date {
+    uint32 day = 1;
+    uint32 month = 2;
+    uint64 year = 3;
+    Timezone timezone = 4;
+}
+
+message Time {
+    uint32 second = 1;
+    uint32 minute = 2;
+    uint32 hour = 3;
+    Timezone timezone = 4;
+}
+
+message DateTime {
+    int64 second = 1;
+    int64 minute = 2;
+    int64 hour = 3;
+    int64 day = 4;
+    int64 month = 5;
+    int64 year = 6;
+    Timezone timezone = 7;
+}
+
+message Timezone {
+    int32 hours = 2;
+    uint32 minutes = 3; 
+}
+
+
