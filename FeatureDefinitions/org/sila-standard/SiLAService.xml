@@ -29,15 +29,15 @@
                 <DataTypeIdentifier>FeatureDefinition</DataTypeIdentifier>
             </DataType>
         </Response>
-        <StandardErrors>
-            <StandardErrorIdentifier>FeatureNotImplemented</StandardErrorIdentifier>
-        </StandardErrors>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>UnimplementedFeature</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
     </Command>
-    <StandardError>
-        <Identifier>FeatureNotImplemented</Identifier>
-        <DisplayName>Feature Not Implemented</DisplayName>
+    <StandardExecutionError>
+        <Identifier>UnimplementedFeature</Identifier>
+        <DisplayName>Unimplemented Feature</DisplayName>
         <Description>The feature specified by the given feature identifier is not implemented by the device.</Description>
-    </StandardError>
+    </StandardExecutionError>
     <Property>
         <Identifier>DeviceDisplayName</Identifier>
         <DisplayName>Device Display Name</DisplayName>
