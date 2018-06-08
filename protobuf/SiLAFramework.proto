@@ -1,5 +1,9 @@
 syntax = "proto3";
 
+package org.silastandard;
+
+option java_outer_classname = "SiLAFramework";
+
 message String {
     string value = 1;
 }
