@@ -43,7 +43,7 @@ message Time {
     Timezone timezone = 4;
 }
 
-message DateTime {
+message Timestamp {
     int64 second = 1;
     int64 minute = 2;
     int64 hour = 3;
