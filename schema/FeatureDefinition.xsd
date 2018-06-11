@@ -23,16 +23,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Parameter" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="tns:IdentifierType" name="Identifier" />
-                    <xs:element type="tns:DisplayNameType" name="DisplayName" />
-                    <xs:element type="xs:string" name="Description" />
-                    <xs:element type="tns:DataTypeType" name="DataType" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
+              <xs:element type="tns:ParameterType" name="Parameter" maxOccurs="unbounded" minOccurs="0" />
               <xs:element name="Response" maxOccurs="unbounded" minOccurs="0">
                 <xs:complexType>
                   <xs:sequence>
@@ -53,22 +44,23 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="StandardErrors" maxOccurs="unbounded" minOccurs="0">
+              <xs:element name="StandardExecutionErrors" maxOccurs="unbounded" minOccurs="0">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element type="tns:IdentifierType" name="StandardErrorIdentifier" maxOccurs="unbounded" minOccurs="0" />
+                    <xs:element type="tns:IdentifierType" name="StandardExecutionErrorIdentifier" maxOccurs="unbounded" minOccurs="0" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="StandardError" maxOccurs="unbounded" minOccurs="0">
+        <xs:element name="StandardExecutionError" maxOccurs="unbounded" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
               <xs:element type="tns:IdentifierType" name="Identifier" />
               <xs:element type="tns:DisplayNameType" name="DisplayName" />
               <xs:element type="xs:string" name="Description" />
+              <xs:element type="tns:ParameterType" name="Parameter" maxOccurs="unbounded" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -135,6 +127,14 @@
       <xs:maxLength value="255" />
     </xs:restriction>
   </xs:simpleType>
+  <xs:complexType name="ParameterType">
+    <xs:sequence>
+      <xs:element type="tns:IdentifierType" name="Identifier" />
+      <xs:element type="tns:DisplayNameType" name="DisplayName" />
+      <xs:element type="xs:string" name="Description" />
+      <xs:element type="tns:DataTypeType" name="DataType" />
+    </xs:sequence>
+  </xs:complexType>
   <xs:complexType name="DataTypeType">
     <xs:choice>
       <xs:element type="tns:BasicType" name="Basic" minOccurs="0"/>
