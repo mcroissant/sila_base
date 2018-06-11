@@ -4,6 +4,7 @@ package org.silastandard;
 
 option java_outer_classname = "SiLAFramework";
 
+// SiLA Basic Types
 message String {
     string value = 1;
 }
@@ -20,8 +21,12 @@ message Boolean {
     bool value = 1;
 }
 
-message Binary {
+message SmallBinary {
     bytes value = 1;
+}
+
+message LargeBinary {
+    string BinaryIdentifier = 1;
 }
 
 message Date {
@@ -52,5 +57,12 @@ message Timezone {
     int32 hours = 2;
     uint32 minutes = 3; 
 }
+
+message Any {
+    string definition = 1;
+    bytes payload = 2;
+}
+
+
 
 
