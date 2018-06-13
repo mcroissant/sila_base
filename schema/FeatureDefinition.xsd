@@ -44,10 +44,10 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="StandardExecutionErrors" maxOccurs="unbounded" minOccurs="0">
+              <xs:element name="StandardExecutionErrors" maxOccurs="1" minOccurs="0">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element type="tns:IdentifierType" name="StandardExecutionErrorIdentifier" maxOccurs="unbounded" minOccurs="0" />
+                    <xs:element type="tns:IdentifierType" name="StandardExecutionErrorIdentifier" maxOccurs="unbounded" minOccurs="1" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -79,17 +79,17 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Filters" maxOccurs="unbounded" minOccurs="0">
+              <xs:element name="Filters" maxOccurs="1" minOccurs="0">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element type="tns:IdentifierType" name="FilterIdentifier" maxOccurs="unbounded" minOccurs="0" />
+                    <xs:element type="tns:IdentifierType" name="FilterIdentifier" maxOccurs="unbounded" minOccurs="1" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="StandardReadErrors" maxOccurs="unbounded" minOccurs="0">
+              <xs:element name="StandardReadErrors" maxOccurs="1" minOccurs="0">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element type="tns:IdentifierType" name="StandardReadErrorIdentifier" maxOccurs="unbounded" minOccurs="0" />
+                    <xs:element type="tns:IdentifierType" name="StandardReadErrorIdentifier" maxOccurs="unbounded" minOccurs="1" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -205,7 +205,7 @@
   </xs:complexType>
   <xs:complexType name="StructureType">
     <xs:sequence>
-      <xs:element name="Element" maxOccurs="unbounded" minOccurs="0">
+      <xs:element name="Element" maxOccurs="unbounded" minOccurs="1">
         <xs:complexType>
           <xs:sequence>
             <xs:element type="tns:IdentifierType" name="Identifier"/>
@@ -379,7 +379,7 @@
               </xs:annotation>
               <xs:complexType>
                 <xs:sequence>
-                  <xs:element type="tns:IdentifierType" name="DataTypeIdentifier" minOccurs="0" />
+                  <xs:element type="tns:IdentifierType" name="DataTypeIdentifier" minOccurs="1" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>

@@ -86,8 +86,8 @@ message ExecutionState {
         finished_with_error = 3;
     }
     CommandStatus commandStatus = 1;
-    oneof pProgress { double progress = 2; }
-    oneof pEstimatedRemainingTime { Duration estimatedRemainingTime = 3; }
+    Real progress = 2;
+    Duration estimatedRemainingTime = 3;
 }
 
 // Error Handling
