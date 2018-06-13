@@ -86,6 +86,13 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
+              <xs:element name="StandardReadErrors" maxOccurs="unbounded" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="tns:IdentifierType" name="StandardReadErrorIdentifier" maxOccurs="unbounded" minOccurs="0" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -96,6 +103,16 @@
               <xs:element type="tns:DisplayNameType" name="DisplayName" />
               <xs:element type="xs:string" name="Description" />
               <xs:element type="tns:DataTypeType" name="DataType" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="StandardReadError" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="tns:IdentifierType" name="Identifier" />
+              <xs:element type="tns:DisplayNameType" name="DisplayName" />
+              <xs:element type="xs:string" name="Description" />
+              <xs:element type="tns:ParameterType" name="Parameter" maxOccurs="unbounded" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

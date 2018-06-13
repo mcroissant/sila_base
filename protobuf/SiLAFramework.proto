@@ -26,7 +26,7 @@ message SmallBinary {
 }
 
 message LargeBinary {
-    string BinaryIdentifier = 1;
+    string binaryIdentifier = 1;
 }
 
 message Date {
@@ -63,6 +63,46 @@ message Any {
     bytes payload = 2;
 }
 
+// Framework
+message Duration {
+    int64 seconds = 1;
+    int32 nanos = 2;
+}
 
+message CommandExecutionUUID {
+    string commandId = 1;
+}
+
+message CommandConfirmation {
+    CommandExecutionUUID commandId = 1;
+    Duration lifetimeOfResponse = 2;
+}
+
+message ExecutionState {
+    enum CommandStatus {
+        waiting = 0 ;
+        running = 1;
+        finished_successfully = 2;
+        finished_with_error = 3;
+    }
+    CommandStatus commandStatus = 1;
+    oneof pProgress { double progress = 2; }
+    oneof pEstimatedRemainingTime { Duration estimatedRemainingTime = 3; }
+}
+
+// Error Handling
+message SiLAError {
+    enum ErrorType {
+        VALIDATION = 0;
+        EXECUTION = 1;
+        READ = 2;
+        FRAMEWORK = 3;
+    }
+    ErrorType errorType = 1;
+    string identifier = 2;
+    string message = 3;
+    string details = 4;
+    Any parameters = 5;
+}
 
 
