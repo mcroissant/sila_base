@@ -44,10 +44,10 @@
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
-              <xs:element name="StandardExecutionErrors" maxOccurs="unbounded" minOccurs="0">
+              <xs:element name="StandardExecutionErrors" maxOccurs="1" minOccurs="0">
                 <xs:complexType>
                   <xs:sequence>
-                    <xs:element type="tns:IdentifierType" name="StandardExecutionErrorIdentifier" maxOccurs="unbounded" minOccurs="0" />
+                    <xs:element type="tns:IdentifierType" name="StandardExecutionErrorIdentifier" maxOccurs="unbounded" minOccurs="1" />
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
@@ -79,6 +79,40 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Filters" maxOccurs="1" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="tns:IdentifierType" name="FilterIdentifier" maxOccurs="unbounded" minOccurs="1" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="StandardReadErrors" maxOccurs="1" minOccurs="0">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element type="tns:IdentifierType" name="StandardReadErrorIdentifier" maxOccurs="unbounded" minOccurs="1" />
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Filter" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="tns:IdentifierType" name="Identifier" />
+              <xs:element type="tns:DisplayNameType" name="DisplayName" />
+              <xs:element type="xs:string" name="Description" />
+              <xs:element type="tns:DataTypeType" name="DataType" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="StandardReadError" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="tns:IdentifierType" name="Identifier" />
+              <xs:element type="tns:DisplayNameType" name="DisplayName" />
+              <xs:element type="xs:string" name="Description" />
+              <xs:element type="tns:ParameterType" name="Parameter" maxOccurs="unbounded" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -109,11 +143,17 @@
       <xs:attribute name="Originator" use="required">
         <xs:simpleType>
           <xs:restriction base ="xs:string">
-            <xs:pattern value="[a-z][a-zA-Z0-9\.\-]*" />
+            <xs:pattern value="[a-z][a-z\.]*" />
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
-      <xs:attribute type="xs:string" name="UseCase" use="optional" />
+      <xs:attribute name="UseCase" use="optional">
+        <xs:simpleType>
+          <xs:restriction base ="xs:string">
+            <xs:pattern value="[a-z][a-z\.]*" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
     </xs:complexType>
   </xs:element>
   <xs:simpleType name="IdentifierType">
@@ -150,10 +190,12 @@
       <xs:enumeration value="Integer"/>
       <xs:enumeration value="Real"/>
       <xs:enumeration value="Boolean"/>
-      <xs:enumeration value="Binary"/>
+      <xs:enumeration value="SmallBinary"/>
+      <xs:enumeration value="LargeBinary"/>
       <xs:enumeration value="Date"/>
       <xs:enumeration value="Time"/>
       <xs:enumeration value="Timestamp"/>
+      <xs:enumeration value="Any"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="ListType">
@@ -163,7 +205,7 @@
   </xs:complexType>
   <xs:complexType name="StructureType">
     <xs:sequence>
-      <xs:element name="Element" maxOccurs="unbounded" minOccurs="0">
+      <xs:element name="Element" maxOccurs="unbounded" minOccurs="1">
         <xs:complexType>
           <xs:sequence>
             <xs:element type="tns:IdentifierType" name="Identifier"/>
@@ -328,6 +370,16 @@
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+            <xs:element name="AllowedTypes" minOccurs="0">
+              <xs:annotation>
+                <xs:documentation>Applicable to SiLA basic type: Any</xs:documentation>
+              </xs:annotation>
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element type="tns:IdentifierType" name="DataTypeIdentifier" minOccurs="1" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
