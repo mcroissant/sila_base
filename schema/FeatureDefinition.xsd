@@ -5,128 +5,133 @@
     targetNamespace="http://www.sila-standard.org">
   <xs:element name="Feature">
     <xs:complexType>
+      <!-- Feature Content -->
       <xs:sequence>
         <xs:element type="tns:IdentifierType" name="Identifier" />
         <xs:element type="tns:DisplayNameType" name="DisplayName" />
         <xs:element type="xs:string" name="Description" />
-        <xs:element name="Command" maxOccurs="unbounded" minOccurs="0">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element type="tns:IdentifierType" name="Identifier" />
-              <xs:element type="tns:DisplayNameType" name="DisplayName" />
-              <xs:element type="xs:string" name="Description" />
-              <xs:element name="Observable">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:enumeration value="Yes" />
-                    <xs:enumeration value="No" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element type="tns:ParameterType" name="Parameter" maxOccurs="unbounded" minOccurs="0" />
-              <xs:element name="Response" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="tns:IdentifierType" name="Identifier" />
-                    <xs:element type="tns:DisplayNameType" name="DisplayName" />
-                    <xs:element type="xs:string" name="Description" />
-                    <xs:element type="tns:DataTypeType" name="DataType" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="IntermediateResponse" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="tns:IdentifierType" name="Identifier" />
-                    <xs:element type="tns:DisplayNameType" name="DisplayName" />
-                    <xs:element type="xs:string" name="Description" />
-                    <xs:element type="tns:DataTypeType" name="DataType" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="StandardExecutionErrors" maxOccurs="1" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="tns:IdentifierType" name="StandardExecutionErrorIdentifier" maxOccurs="unbounded" minOccurs="1" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="StandardExecutionError" maxOccurs="unbounded" minOccurs="0">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element type="tns:IdentifierType" name="Identifier" />
-              <xs:element type="tns:DisplayNameType" name="DisplayName" />
-              <xs:element type="xs:string" name="Description" />
-              <xs:element type="tns:ParameterType" name="Parameter" maxOccurs="unbounded" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Property" maxOccurs="unbounded" minOccurs="0">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element type="tns:IdentifierType" name="Identifier" />
-              <xs:element type="tns:DisplayNameType" name="DisplayName" />
-              <xs:element type="xs:string" name="Description" />
-              <xs:element type="tns:DataTypeType" name="DataType" />
-              <xs:element name="PropertyType">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:enumeration value="Static" />
-                    <xs:enumeration value="Dynamic" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="Filters" maxOccurs="1" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="tns:IdentifierType" name="FilterIdentifier" maxOccurs="unbounded" minOccurs="1" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-              <xs:element name="StandardReadErrors" maxOccurs="1" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="tns:IdentifierType" name="StandardReadErrorIdentifier" maxOccurs="unbounded" minOccurs="1" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="Filter" maxOccurs="unbounded" minOccurs="0">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element type="tns:IdentifierType" name="Identifier" />
-              <xs:element type="tns:DisplayNameType" name="DisplayName" />
-              <xs:element type="xs:string" name="Description" />
-              <xs:element type="tns:DataTypeType" name="DataType" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="StandardReadError" maxOccurs="unbounded" minOccurs="0">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element type="tns:IdentifierType" name="Identifier" />
-              <xs:element type="tns:DisplayNameType" name="DisplayName" />
-              <xs:element type="xs:string" name="Description" />
-              <xs:element type="tns:ParameterType" name="Parameter" maxOccurs="unbounded" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="DataTypeDefinition" maxOccurs="unbounded" minOccurs="0">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element type="tns:IdentifierType" name="Identifier" />
-              <xs:element type="tns:DisplayNameType" name="DisplayName" />
-              <xs:element type="xs:string" name="Description" />
-              <xs:element type="tns:DataTypeType" name="DataType" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element name="Command" maxOccurs="unbounded" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element type="tns:IdentifierType" name="Identifier" />
+                <xs:element type="tns:DisplayNameType" name="DisplayName" />
+                <xs:element type="xs:string" name="Description" />
+                <xs:element name="Observable">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:enumeration value="Yes" />
+                      <xs:enumeration value="No" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element type="tns:ParameterType" name="Parameter" maxOccurs="unbounded" minOccurs="0" />
+                <xs:element name="Response" maxOccurs="unbounded" minOccurs="0">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element type="tns:IdentifierType" name="Identifier" />
+                      <xs:element type="tns:DisplayNameType" name="DisplayName" />
+                      <xs:element type="xs:string" name="Description" />
+                      <xs:element type="tns:DataTypeType" name="DataType" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="IntermediateResponse" maxOccurs="unbounded" minOccurs="0">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element type="tns:IdentifierType" name="Identifier" />
+                      <xs:element type="tns:DisplayNameType" name="DisplayName" />
+                      <xs:element type="xs:string" name="Description" />
+                      <xs:element type="tns:DataTypeType" name="DataType" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="StandardExecutionErrors" maxOccurs="1" minOccurs="0">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element type="tns:IdentifierType" name="StandardExecutionErrorIdentifier" maxOccurs="unbounded" minOccurs="1" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="StandardExecutionError" maxOccurs="unbounded" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element type="tns:IdentifierType" name="Identifier" />
+                <xs:element type="tns:DisplayNameType" name="DisplayName" />
+                <xs:element type="xs:string" name="Description" />
+                <xs:element type="tns:ParameterType" name="Parameter" maxOccurs="unbounded" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Property" maxOccurs="unbounded" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element type="tns:IdentifierType" name="Identifier" />
+                <xs:element type="tns:DisplayNameType" name="DisplayName" />
+                <xs:element type="xs:string" name="Description" />
+                <xs:element type="tns:DataTypeType" name="DataType" />
+                <xs:element name="PropertyType">
+                  <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                      <xs:enumeration value="Static" />
+                      <xs:enumeration value="Dynamic" />
+                    </xs:restriction>
+                  </xs:simpleType>
+                </xs:element>
+                <xs:element name="Filters" maxOccurs="1" minOccurs="0">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element type="tns:IdentifierType" name="FilterIdentifier" maxOccurs="unbounded" minOccurs="1" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+                <xs:element name="StandardReadErrors" maxOccurs="1" minOccurs="0">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element type="tns:IdentifierType" name="StandardReadErrorIdentifier" maxOccurs="unbounded" minOccurs="1" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Filter" maxOccurs="unbounded" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element type="tns:IdentifierType" name="Identifier" />
+                <xs:element type="tns:DisplayNameType" name="DisplayName" />
+                <xs:element type="xs:string" name="Description" />
+                <xs:element type="tns:DataTypeType" name="DataType" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="StandardReadError" maxOccurs="unbounded" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element type="tns:IdentifierType" name="Identifier" />
+                <xs:element type="tns:DisplayNameType" name="DisplayName" />
+                <xs:element type="xs:string" name="Description" />
+                <xs:element type="tns:ParameterType" name="Parameter" maxOccurs="unbounded" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="DataTypeDefinition" maxOccurs="unbounded" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element type="tns:IdentifierType" name="Identifier" />
+                <xs:element type="tns:DisplayNameType" name="DisplayName" />
+                <xs:element type="xs:string" name="Description" />
+                <xs:element type="tns:DataTypeType" name="DataType" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
       </xs:sequence>
+
+      <!-- Attributes -->
       <xs:attribute type="xs:positiveInteger" name="SiLAVersion" use="required" />
       <xs:attribute type="xs:string" name="Locale" use="optional" default="en-us" />
       <xs:attribute type="xs:nonNegativeInteger" name="MajorVersion" use="required" />
@@ -156,6 +161,8 @@
       </xs:attribute>
     </xs:complexType>
   </xs:element>
+
+  <!-- XSD Types -->
   <xs:simpleType name="IdentifierType">
     <xs:restriction base ="xs:string">
       <xs:pattern value="[A-Z][a-zA-Z0-9]*" />
@@ -220,7 +227,8 @@
       <xs:element type="tns:DataTypeType" name="DataType"/>
       <xs:element name="Constraints">
         <xs:complexType>
-          <xs:sequence>
+          <!-- All contraints should be unique for a constrained type -->
+          <xs:all>
             <xs:element type="xs:positiveInteger" name="Length" minOccurs="0">
               <xs:annotation>
                 <xs:documentation>Applicable to SiLA basic type: String</xs:documentation>
@@ -393,7 +401,7 @@
                 <xs:documentation>Applicable to SiLA derived type: List</xs:documentation>
               </xs:annotation>
             </xs:element>
-          </xs:sequence>
+          </xs:all>
         </xs:complexType>
       </xs:element>
     </xs:sequence>
