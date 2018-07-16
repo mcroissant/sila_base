@@ -4,6 +4,11 @@ package org.silastandard;
 
 option java_outer_classname = "SiLAFramework";
 
+// Framework Services
+service Framework_ObservableCommands {
+    rpc GetState(CommandExecutionUUID) returns (stream ExecutionState) {}
+}
+
 // SiLA Basic Types
 message String {
     string value = 1;
