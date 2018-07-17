@@ -43,12 +43,18 @@
         </Parameter>
         <StandardExecutionErrors>
             <StandardExecutionErrorIdentifier>TemperatureNotReachable</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>ControlInterrupted</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
     <StandardExecutionError>
         <Identifier>TemperatureNotReachable</Identifier>
         <DisplayName>Temperature Not Reachable</DisplayName>
         <Description>The ambient conditions prohibit the device from teaching the target temperature.</Description>
+    </StandardExecutionError>
+    <StandardExecutionError>
+        <Identifier>ControlInterrupted</Identifier>
+        <DisplayName>Control Interrupted</DisplayName>
+        <Description>The control of temperature coulnt be finished as it was interrupted by another target temperature.</Description>
     </StandardExecutionError>
     <Property>
         <Identifier>CurrentTemperature</Identifier>

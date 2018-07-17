@@ -93,6 +93,7 @@ message ExecutionState {
     CommandStatus commandStatus = 1;
     Real progress = 2;
     Duration estimatedRemainingTime = 3;
+    SiLAError error = 4;
 }
 
 // Error Handling
