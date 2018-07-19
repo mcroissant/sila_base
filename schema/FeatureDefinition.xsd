@@ -10,6 +10,7 @@
         <xs:element type="tns:IdentifierType" name="Identifier" />
         <xs:element type="tns:DisplayNameType" name="DisplayName" />
         <xs:element type="xs:string" name="Description" />
+        <!-- @Note: xs:all can not be used here, as it doesn't allow unbounded occurences -->
         <xs:choice maxOccurs="unbounded">
           <xs:element name="Command" maxOccurs="unbounded" minOccurs="0">
             <xs:complexType>

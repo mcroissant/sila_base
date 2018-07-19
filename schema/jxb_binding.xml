@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- This Binding is used by the maven-jaxb2-plugin -->
+<jaxb:bindings
+        version="2.1"
+        xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:simplify="http://jaxb2-commons.dev.java.net/basic/simplify"
+        jaxb:extensionBindingPrefixes="... simplify">
+    <jaxb:bindings schemaLocation="FeatureDefinition.xsd">
+        <jaxb:schemaBindings>
+            <jaxb:package name="sila_library.models" />
+        </jaxb:schemaBindings>
+
+        <jaxb:bindings node="/xs:schema/xs:element[@name='Feature']/xs:complexType/xs:sequence/xs:choice">
+            <simplify:as-element-property/>
+        </jaxb:bindings>
+    </jaxb:bindings>
+</jaxb:bindings>

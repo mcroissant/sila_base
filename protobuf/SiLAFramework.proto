@@ -1,13 +1,8 @@
 syntax = "proto3";
 
-package org.silastandard;
+package sila2.org.silastandard;
 
 option java_outer_classname = "SiLAFramework";
-
-// Framework Services
-service Framework_ObservableCommands {
-    rpc GetState(CommandExecutionUUID) returns (stream ExecutionState) {}
-}
 
 // SiLA Basic Types
 message String {
@@ -80,7 +75,7 @@ message CommandExecutionUUID {
 
 message CommandConfirmation {
     CommandExecutionUUID commandId = 1;
-    Duration lifetimeOfResponse = 2;
+    Duration lifetimeOfExecution = 2;
 }
 
 message ExecutionState {
