@@ -9,7 +9,7 @@
     <Command>
         <Identifier>SayHello</Identifier>
         <DisplayName>Say Hello</DisplayName>
-        <Description>Does what it sais</Description>
+        <Description>Does what it says</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>Name</Identifier>
