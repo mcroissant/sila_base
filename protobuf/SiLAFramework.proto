@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package org.silastandard;
+package sila2.org.silastandard;
 
 option java_outer_classname = "SiLAFramework";
 
@@ -75,7 +75,7 @@ message CommandExecutionUUID {
 
 message CommandConfirmation {
     CommandExecutionUUID commandId = 1;
-    Duration lifetimeOfResponse = 2;
+    Duration lifetimeOfExecution = 2;
 }
 
 message ExecutionState {
@@ -88,6 +88,7 @@ message ExecutionState {
     CommandStatus commandStatus = 1;
     Real progress = 2;
     Duration estimatedRemainingTime = 3;
+    SiLAError error = 4;
 }
 
 // Error Handling
