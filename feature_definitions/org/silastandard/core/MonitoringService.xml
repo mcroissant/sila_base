@@ -1,74 +1,45 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Verified" Originator="org.sila-standard" UseCase="Core"
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Draft" Originator="org.silastandard" UseCase="core"
         xmlns="http://www.sila-standard.org"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>MonitoringService</Identifier>
     <DisplayName>Monitoring Service</DisplayName>
     <Description>
-        A Feature that allows the user to monitor command execution processed by the SiLA device.
+        Provides the monitoring of activity around feature executions of SiLA Devices.
     </Description>
     <Property>
-        <Identifier>SubscribeCommands</Identifier>
-        <DisplayName>Subscribe Commands</DisplayName>
-        <Description>Allow the user to receive command execution information from the Device.</Description>
+        <Identifier>CommandExecution</Identifier>
+        <DisplayName>Command Execution</DisplayName>
+        <Description>Recent Command Execution triggered and finished on the SiLA Device</Description>
         <DataType>
-            <DataTypeIdentifier>MonitoredCommandData</DataTypeIdentifier>
+            <Structure>
+                <Element>
+                    <Identifier>FeatureIdentifier</Identifier>
+                    <DataType>
+                        <Basic>String</Basic>
+                    </DataType>
+                </Element>
+                <Element>
+                    <Identifier>CommandIdentifier</Identifier>
+                    <DataType>
+                        <Basic>String</Basic>
+                    </DataType>
+                </Element>
+                <Element>
+                    <Identifier>Parameters</Identifier>
+                    <DataType>
+                        <Basic>Any</Basic>
+                    </DataType>
+                </Element>
+                <Element>
+                    <Identifier>Results</Identifier>
+                    <DataType>
+                        <Basic>Any</Basic>
+                    </DataType>
+                </Element>
+            </Structure>
         </DataType>
         <PropertyType>Dynamic</PropertyType>
     </Property>
-    <DataTypeDefinition>
-        <Identifier>MonitoredCommandData</Identifier>
-        <DisplayName>Monitored Command Data</DisplayName>
-        <Description></Description>
-        <DataType>
-            <Structure>
-                <Element>
-                    <Identifier>FeatureId</Identifier>
-                    <DataType>
-                        <Basic>String</Basic>
-                    </DataType>
-                </Element>
-                <Element>
-                    <Identifier>CommandId</Identifier>
-                    <DataType>
-                        <Basic>String</Basic>
-                    </DataType>
-                </Element>
-                <Element>
-                    <Identifier>ParametersPayload</Identifier>
-                    <DataType>
-                        <DataTypeIdentifier>SiLAMessage</DataTypeIdentifier>
-                    </DataType>
-                </Element>
-                <Element>
-                    <Identifier>ResultsPayload</Identifier>
-                    <DataType>
-                        <DataTypeIdentifier>SiLAMessage</DataTypeIdentifier>
-                    </DataType>
-                </Element>
-            </Structure>
-        </DataType>
-    </DataTypeDefinition>
-    <DataTypeDefinition>
-        <Identifier>SiLAMessage</Identifier>
-        <DisplayName>SiLA Message</DisplayName>
-        <Description>A generic SiLA message.</Description>
-        <DataType>
-            <Structure>
-                <Element>
-                    <Identifier>DataTypeDefinition</Identifier>
-                    <DataType>
-                        <Basic>String</Basic>
-                    </DataType>
-                </Element>
-                <Element>
-                    <Identifier>Data</Identifier>
-                    <DataType>
-                        <Basic>Binary</Basic>
-                    </DataType>
-                </Element>
-            </Structure>
-        </DataType>
-    </DataTypeDefinition>
 </Feature>
