@@ -1,0 +1,109 @@
+syntax = "proto3";
+
+package sila2.org.silastandard;
+
+option java_outer_classname = "SiLAFramework";
+
+// SiLA Basic Types
+message String {
+    string value = 1;
+}
+
+message Integer {
+    int64 value = 1;
+}
+
+message Real {
+    double value = 1;
+}
+
+message Boolean {
+    bool value = 1;
+}
+
+message SmallBinary {
+    bytes value = 1;
+}
+
+message LargeBinary {
+    string binaryIdentifier = 1;
+}
+
+message Date {
+    uint32 day = 1;
+    uint32 month = 2;
+    uint64 year = 3;
+    Timezone timezone = 4;
+}
+
+message Time {
+    uint32 second = 1;
+    uint32 minute = 2;
+    uint32 hour = 3;
+    Timezone timezone = 4;
+}
+
+message Timestamp {
+    int64 second = 1;
+    int64 minute = 2;
+    int64 hour = 3;
+    int64 day = 4;
+    int64 month = 5;
+    int64 year = 6;
+    Timezone timezone = 7;
+}
+
+message Timezone {
+    int32 hours = 2;
+    uint32 minutes = 3; 
+}
+
+message Any {
+    string definition = 1;
+    bytes payload = 2;
+}
+
+// Framework
+message Duration {
+    int64 seconds = 1;
+    int32 nanos = 2;
+}
+
+message CommandExecutionUUID {
+    string commandId = 1;
+}
+
+message CommandConfirmation {
+    CommandExecutionUUID commandId = 1;
+    Duration lifetimeOfExecution = 2;
+}
+
+message ExecutionState {
+    enum CommandStatus {
+        waiting = 0 ;
+        running = 1;
+        finished_successfully = 2;
+        finished_with_error = 3;
+    }
+    CommandStatus commandStatus = 1;
+    Real progress = 2;
+    Duration estimatedRemainingTime = 3;
+    SiLAError error = 4;
+}
+
+// Error Handling
+message SiLAError {
+    enum ErrorType {
+        VALIDATION = 0;
+        EXECUTION = 1;
+        READ = 2;
+        FRAMEWORK = 3;
+    }
+    ErrorType errorType = 1;
+    string identifier = 2;
+    string message = 3;
+    string details = 4;
+    Any parameters = 5;
+}
+
+

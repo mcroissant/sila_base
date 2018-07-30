@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Verified" Originator="org.sila-standard" UseCase="Core"
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Verified" Originator="org.silastandard" UseCase="core"
         xmlns="http://www.sila-standard.org" 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
+        xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>SiLAService</Identifier>
     <DisplayName>SiLA Service</DisplayName>
     <Description>
@@ -29,15 +29,15 @@
                 <DataTypeIdentifier>FeatureDefinition</DataTypeIdentifier>
             </DataType>
         </Response>
-        <StandardErrors>
-            <StandardErrorIdentifier>FeatureNotImplemented</StandardErrorIdentifier>
-        </StandardErrors>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>UnimplementedFeature</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
     </Command>
-    <StandardError>
-        <Identifier>FeatureNotImplemented</Identifier>
-        <DisplayName>Feature Not Implemented</DisplayName>
+    <StandardExecutionError>
+        <Identifier>UnimplementedFeature</Identifier>
+        <DisplayName>Unimplemented Feature</DisplayName>
         <Description>The feature specified by the given feature identifier is not implemented by the device.</Description>
-    </StandardError>
+    </StandardExecutionError>
     <Property>
         <Identifier>DeviceDisplayName</Identifier>
         <DisplayName>Device Display Name</DisplayName>
@@ -114,11 +114,11 @@
     <DataTypeDefinition>
         <Identifier>FeatureDefinition</Identifier>
         <DisplayName>Feature Definition</DisplayName>
-        <Description></Description>
+        <Description>An Feature definition serialised</Description>
         <DataType>
             <Constrained>
                 <DataType>
-                    <Basic>Binary</Basic>
+                    <Basic>SmallBinary</Basic>
                 </DataType>
                 <Constraints>
                     <ContentType>
