@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Draft" Originator="org.silastandard" UseCase="core"
+        xmlns="http://www.sila-standard.org"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>MonitoringService</Identifier>
+    <DisplayName>Monitoring Service</DisplayName>
+    <Description>
+        Provides the monitoring of activity around feature executions of SiLA Devices.
+    </Description>
+    <Property>
+        <Identifier>CommandExecution</Identifier>
+        <DisplayName>Command Execution</DisplayName>
+        <Description>Recent Command Execution triggered and finished on the SiLA Device</Description>
+        <DataType>
+            <Structure>
+                <Element>
+                    <Identifier>FeatureIdentifier</Identifier>
+                    <DataType>
+                        <Basic>String</Basic>
+                    </DataType>
+                </Element>
+                <Element>
+                    <Identifier>CommandIdentifier</Identifier>
+                    <DataType>
+                        <Basic>String</Basic>
+                    </DataType>
+                </Element>
+                <Element>
+                    <Identifier>Parameters</Identifier>
+                    <DataType>
+                        <Basic>Any</Basic>
+                    </DataType>
+                </Element>
+                <Element>
+                    <Identifier>Results</Identifier>
+                    <DataType>
+                        <Basic>Any</Basic>
+                    </DataType>
+                </Element>
+            </Structure>
+        </DataType>
+        <PropertyType>Dynamic</PropertyType>
+    </Property>
+</Feature>
