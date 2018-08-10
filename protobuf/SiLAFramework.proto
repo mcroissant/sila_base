@@ -82,8 +82,8 @@ message ExecutionState {
     enum CommandStatus {
         waiting = 0 ;
         running = 1;
-        finished_successfully = 2;
-        finished_with_error = 3;
+        finishedSuccessfully = 2;
+        finishedWithError = 3;
     }
     CommandStatus commandStatus = 1;
     Real progress = 2;
