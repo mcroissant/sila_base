@@ -6,7 +6,7 @@
     <Identifier>SiLAService</Identifier>
     <DisplayName>SiLA Service</DisplayName>
     <Description>
-        The Feature each SiLA Device MUST implement. It is the entry point to a SiLA Device and helps to discover the Features it implements.
+        The Feature each SiLA Server MUST implement. It is the entry point to a SiLA Server and helps to discover the Features it implements.
     </Description>
     <Command>
         <Identifier>GetFeatureDefinition</Identifier>
@@ -24,7 +24,7 @@
         <Response>
             <Identifier>FeatureDefinition</Identifier>
             <DisplayName>Feature Definition</DisplayName>
-            <Description>The Feature Definition in XML format.</Description>
+            <Description>The Feature Definition in UTF-8 encoded XML format.</Description>
             <DataType>
                 <DataTypeIdentifier>FeatureDefinition</DataTypeIdentifier>
             </DataType>
@@ -36,30 +36,30 @@
     <StandardExecutionError>
         <Identifier>UnimplementedFeature</Identifier>
         <DisplayName>Unimplemented Feature</DisplayName>
-        <Description>The feature specified by the given feature identifier is not implemented by the device.</Description>
+        <Description>The feature specified by the given feature identifier is not implemented by the server.</Description>
     </StandardExecutionError>
     <Property>
-        <Identifier>DeviceDisplayName</Identifier>
-        <DisplayName>Device Display Name</DisplayName>
-        <Description>Human readable name of the SiLA Device.</Description>
+        <Identifier>ServerDisplayName</Identifier>
+        <DisplayName>Server Display Name</DisplayName>
+        <Description>Human readable name of the SiLA Server.</Description>
         <DataType>
             <Basic>String</Basic>
         </DataType>
         <PropertyType>Static</PropertyType>
     </Property>
     <Property>
-        <Identifier>DeviceDescription</Identifier>
-        <DisplayName>Device Description</DisplayName>
-        <Description>Description of the SiLA Device.</Description>
+        <Identifier>ServerDescription</Identifier>
+        <DisplayName>Server Description</DisplayName>
+        <Description>Description of the SiLA Server.</Description>
         <DataType>
             <Basic>String</Basic>
         </DataType>
         <PropertyType>Static</PropertyType>
     </Property>
     <Property>
-        <Identifier>DeviceVersion</Identifier>
-        <DisplayName>Device Version</DisplayName>
-        <Description>Returns the version of the SiLA device. A "Major" and a "Minor" version number (e.g. 1.0) MUST be provided, a Patch version number MAY be provided. Optionally, an arbitrary text, separated by an underscore MAY be appended, e.g. “3.19.373_mighty_lab_devices”
+        <Identifier>ServerVersion</Identifier>
+        <DisplayName>Server Version</DisplayName>
+        <Description>Returns the version of the SiLA Server. A "Major" and a "Minor" version number (e.g. 1.0) MUST be provided, a Patch version number MAY be provided. Optionally, an arbitrary text, separated by an underscore MAY be appended, e.g. “3.19.373_mighty_lab_devices”
         </Description>
         <DataType>
             <Constrained>
@@ -74,9 +74,9 @@
         <PropertyType>Static</PropertyType>
     </Property>
     <Property>
-        <Identifier>DeviceVendorURL</Identifier>
-        <DisplayName>URL of Device Vendor</DisplayName>
-        <Description>Returns the URL to the website of the vendor or the website of the product of this SiLA Device.</Description>
+        <Identifier>ServerVendorURL</Identifier>
+        <DisplayName>URL of Server Vendor</DisplayName>
+        <Description>Returns the URL to the website of the vendor or the website of the product of this SiLA Server.</Description>
         <DataType>
             <DataTypeIdentifier>URL</DataTypeIdentifier>
         </DataType>
@@ -85,7 +85,7 @@
     <Property>
         <Identifier>ImplementedFeatures</Identifier>
         <DisplayName>Implemented Features</DisplayName>
-        <Description>Returns a list of qualified Feature identifiers of all implemented Features of this SiLA Device.</Description>
+        <Description>Returns a list of qualified Feature identifiers of all implemented Features of this SiLA Server.</Description>
         <DataType>
             <List>
                 <DataType>
@@ -114,7 +114,7 @@
     <DataTypeDefinition>
         <Identifier>FeatureDefinition</Identifier>
         <DisplayName>Feature Definition</DisplayName>
-        <Description>An Feature definition serialised</Description>
+        <Description>A serialised and UTF-8 encoded Feature definition</Description>
         <DataType>
             <Constrained>
                 <DataType>
