@@ -6,12 +6,12 @@
     <Identifier>MonitoringService</Identifier>
     <DisplayName>Monitoring Service</DisplayName>
     <Description>
-        Provides the monitoring of activity around feature executions of SiLA Devices.
+        Provides the monitoring of activity around feature executions of SiLA Servers.
     </Description>
     <Property>
         <Identifier>CommandExecution</Identifier>
         <DisplayName>Command Execution</DisplayName>
-        <Description>Recent Command Execution triggered and finished on the SiLA Device</Description>
+        <Description>Recent Command Execution triggered and finished on the SiLA Server</Description>
         <DataType>
             <Structure>
                 <Element>

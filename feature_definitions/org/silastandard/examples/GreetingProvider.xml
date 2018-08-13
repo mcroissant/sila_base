@@ -29,9 +29,9 @@
         </Response>
     </Command>
     <Property>
-        <Identifier>CurrentYear</Identifier>
-        <DisplayName>Current Year</DisplayName>
-        <Description>The year the device was started</Description>
+        <Identifier>StartYear</Identifier>
+        <DisplayName>Start Year</DisplayName>
+        <Description>The year the server has been started</Description>
         <DataType>
             <Basic>Integer</Basic>
         </DataType>
