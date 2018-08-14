@@ -76,7 +76,8 @@
     <Property>
         <Identifier>ServerVendorURL</Identifier>
         <DisplayName>URL of Server Vendor</DisplayName>
-        <Description>Returns the URL to the website of the vendor or the website of the product of this SiLA Server.</Description>
+        <Description>Returns the URL to the website of the vendor or the website 
+            of the product of this SiLA Server.</Description>
         <DataType>
             <DataTypeIdentifier>URL</DataTypeIdentifier>
         </DataType>
@@ -85,7 +86,8 @@
     <Property>
         <Identifier>ImplementedFeatures</Identifier>
         <DisplayName>Implemented Features</DisplayName>
-        <Description>Returns a list of qualified Feature identifiers of all implemented Features of this SiLA Server.</Description>
+        <Description>Returns a list of qualified Feature identifiers of all 
+            implemented Features of this SiLA Server.</Description>
         <DataType>
             <List>
                 <DataType>
@@ -98,7 +100,8 @@
     <DataTypeDefinition>
         <Identifier>Identifier</Identifier>
         <DisplayName>Identifier</DisplayName>
-        <Description></Description>
+        <Description>Qualified Feature Identifier as provided by the 
+            ImplementedFeatures property.</Description>
         <DataType>
             <Constrained>
                 <DataType>
@@ -114,19 +117,10 @@
     <DataTypeDefinition>
         <Identifier>FeatureDefinition</Identifier>
         <DisplayName>Feature Definition</DisplayName>
-        <Description>A serialised and UTF-8 encoded Feature definition</Description>
+        <Description>The content of a Feature Definition conforming 
+            with the XML Schema</Description>
         <DataType>
-            <Constrained>
-                <DataType>
-                    <Basic>SmallBinary</Basic>
-                </DataType>
-                <Constraints>
-                    <ContentType>
-                        <Type>application</Type>
-                        <Subtype>x-sila-feature-definition</Subtype>
-                    </ContentType>
-                </Constraints>
-            </Constrained>
+            <Basic>String</Basic>
         </DataType>
     </DataTypeDefinition>
     <DataTypeDefinition>
