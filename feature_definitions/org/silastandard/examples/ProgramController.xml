@@ -5,14 +5,6 @@
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>ProgramController</Identifier>
     <DisplayName>Program  Controller</DisplayName>
-    <!-- Start -->
-    <!-- Stop  -->
-    <!-- Reset  -->
-    <!-- List Programs -->
-    <!-- Get Progress -->
-
-    <!-- Device Status (dynamic property) IDLE, INITIALIZED, RUNNING, PAUSED, ERROR -->
-    <!-- Progress -->
     <Description>
         Exposes the ability to start, stop and pause pre-defined programs saved in the
         instrument. For example: a liquid handling machine, microscope, plate reader.
