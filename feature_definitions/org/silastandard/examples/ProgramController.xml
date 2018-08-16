@@ -30,25 +30,25 @@
         <Parameter>
             <Identifier>ProgramName</Identifier>
             <DisplayName>ProgramName</DisplayName>
-            <Description>The name of the program to start</Description>
+            <Description>The name of the program to start.</Description>
             <DataType>
                 <Basic>String</Basic>
             </DataType>
         </Parameter>
         <StandardExecutionErrors>
             <StandardExecutionErrorIdentifier>InvalidDeviceState</StandardExecutionErrorIdentifier>
-            <StandardExecutionErrorIdentifier>CommanddUnavailable</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>CommandUnavailable</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
 
     <Command>
         <Identifier>Stop</Identifier>
         <DisplayName>Stop</DisplayName>
-        <Description>Stops a currently running program</Description>
+        <Description>Stops a currently running program.</Description>
         <Observable>No</Observable>
         <StandardExecutionErrors>
             <StandardExecutionErrorIdentifier>InvalidDeviceState</StandardExecutionErrorIdentifier>
-            <StandardExecutionErrorIdentifier>CommanddUnavailable</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>CommandUnavailable</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
 
@@ -61,19 +61,19 @@
         <Observable>No</Observable>
         <StandardExecutionErrors>
             <StandardExecutionErrorIdentifier>InvalidDeviceState</StandardExecutionErrorIdentifier>
-            <StandardExecutionErrorIdentifier>CommanddUnavailable</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>CommandUnavailable</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
 
     <Command>
-        <Identifier>ListPrograms</Identifier>
-        <DisplayName>List Programs</DisplayName>
-        <Description>Retrieves a list of available programs to run in instrument</Description>
+        <Identifier>ProgramList</Identifier>
+        <DisplayName>Program List</DisplayName>
+        <Description>List of currently available programs saved in the device.</Description>
         <Observable>No</Observable>
         <Response>
             <Identifier>Status</Identifier>
             <DisplayName>Status</DisplayName>
-            <Description>The state of the current runtime</Description>
+            <Description>The state of the current runtime.</Description>
             <DataType>
                 <List>
                     <DataType>
@@ -84,29 +84,7 @@
         </Response>
         <StandardExecutionErrors>
             <StandardExecutionErrorIdentifier>InvalidDeviceState</StandardExecutionErrorIdentifier>
-            <StandardExecutionErrorIdentifier>CommanddUnavailable</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
-    </Command>
-
-    <Command>
-        <Identifier>GetProgress</Identifier>
-        <DisplayName>GetProgress</DisplayName>
-        <Description>
-            Gets the progress of the currently running program
-        </Description>
-        <Response>
-            <DataType>
-                <Basic>Integer</Basic>
-            </DataType>
-            <Constrained>
-                <Label>%</Label>
-                <MaximalInclusive>0</MaximalInclusive>
-                <MinimalExclusive>100</MinimalExclusive>
-            </Constrained>
-        </Response>
-        <StandardExecutionErrors>
-            <StandardExecutionError>InvalidDeviceState</StandardExecutionError>
-            <StandardExecutionError>CommanddUnavailable</StandardExecutionError>
+            <StandardExecutionErrorIdentifier>CommandUnavailable</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
 
@@ -114,7 +92,7 @@
     <Property>
         <Identifier>DeviceState</Identifier>
         <DisplayName>Device State</DisplayName>
-        <Description>Periodically returns the state of the current program runtime</Description>
+        <Description>Returns the state of the current program runtime.</Description>
         <PropertyType>Dynamic</PropertyType>
         <DataType>
             <Basic>String</Basic>
@@ -132,17 +110,16 @@
     </Property>
 
     <Property>
-        <Identifier>Progress</Identifier>
-        <DisplayName>Progress</DisplayName>
+        <Identifier>ProgramProgress</Identifier>
+        <DisplayName>ProgramProgress</DisplayName>
         <Description>
-            Specifies the completion progress of the currently running program
-        </Description>
+            Specifies the execution progress of the currently running program.</Description>
         <DataType>
             <Basic>Integer</Basic>
         </DataType>
         <Constrained>
             <Label>%</Label>
-            <MaximalInclusive>0</MaximalInclusive>
+            <MaximalInclusive>1</MaximalInclusive>
             <MinimalExclusive>100</MinimalExclusive>
         </Constrained>
         <PropertyType>Dynamic</PropertyType>
