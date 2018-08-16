@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" Originator="ch.unitelabs" UseCase="fluent"
+         xmlns="http://www.sila-standard.org"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>ProgramController</Identifier>
+    <DisplayName>Program  Controller</DisplayName>
+    <!-- Start -->
+    <!-- Stop  -->
+    <!-- Reset  -->
+    <!-- List Programs -->
+    <!-- Get Progress -->
+
+    <!-- Device Status (dynamic property) IDLE, INITIALIZED, RUNNING, PAUSED, ERROR -->
+    <!-- Progress -->
+    <Description>
+        Exposes the ability to start, stop and pause pre-defined programs saved in the
+        instrument. For example: a liquid handling machine, microscope, plate reader.
+    </Description>
+
+    <!-- Commands -->
+    <Command>
+        <Identifier>Start</Identifier>
+        <DisplayName>Start</DisplayName>
+        <Description>
+            Starts a program with a known name, see List Programs command to get the 
+            list of existing programs.
+        </Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>ProgramName</Identifier>
+            <DisplayName>ProgramName</DisplayName>
+            <Description>The name of the program to start</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Parameter>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>InvalidDeviceState</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>CommanddUnavailable</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+
+    <Command>
+        <Identifier>Stop</Identifier>
+        <DisplayName>Stop</DisplayName>
+        <Description>Stops a currently running program</Description>
+        <Observable>No</Observable>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>InvalidDeviceState</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>CommanddUnavailable</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+
+    <Command>
+        <Identifier>Reset</Identifier>
+        <DisplayName>Reset</DisplayName>
+        <Description>
+            Reset the device to its IDLE state. E.g. homing a robot or flushing the liquid handler
+        </Description>
+        <Observable>No</Observable>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>InvalidDeviceState</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>CommanddUnavailable</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+
+    <Command>
+        <Identifier>ListPrograms</Identifier>
+        <DisplayName>List Programs</DisplayName>
+        <Description>Retrieves a list of available programs to run in instrument</Description>
+        <Observable>No</Observable>
+        <Response>
+            <Identifier>Status</Identifier>
+            <DisplayName>Status</DisplayName>
+            <Description>The state of the current runtime</Description>
+            <DataType>
+                <List>
+                    <DataType>
+                        <Basic>Srting</Basic>
+                    </DataType>
+                </List>
+            </DataType>
+        </Response>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>InvalidDeviceState</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>CommanddUnavailable</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+
+    <Command>
+        <Identifier>GetProgress</Identifier>
+        <DisplayName>GetProgress</DisplayName>
+        <Description>
+            Gets the progress of the currently running program
+        </Description>
+        <Response>
+            <DataType>
+                <Basic>Integer</Basic>
+            </DataType>
+            <Constrained>
+                <Label>%</Label>
+                <MaximalInclusive>0</MaximalInclusive>
+                <MinimalExclusive>100</MinimalExclusive>
+            </Constrained>
+        </Response>
+        <StandardExecutionErrors>
+            <StandardExecutionError>InvalidDeviceState</StandardExecutionError>
+            <StandardExecutionError>CommanddUnavailable</StandardExecutionError>
+        </StandardExecutionErrors>
+    </Command>
+
+    <!-- Properties  -->
+    <Property>
+        <Identifier>DeviceState</Identifier>
+        <DisplayName>Device State</DisplayName>
+        <Description>Periodically returns the state of the current program runtime</Description>
+        <PropertyType>Dynamic</PropertyType>
+        <DataType>
+            <Basic>String</Basic>
+        </DataType>
+        <Constrained>
+            <Enumeration>
+                <Value>IDLE</Value>
+                <Value>INITIALIZED</Value>
+                <Value>RUNNING</Value>
+                <Value>PAUSED</Value>
+                <Value>ERROR</Value>
+                <Value>UNKNOWN</Value>
+            </Enumeration>
+        </Constrained>
+    </Property>
+
+    <Property>
+        <Identifier>Progress</Identifier>
+        <DisplayName>Progress</DisplayName>
+        <Description>
+            Specifies the completion progress of the currently running program
+        </Description>
+        <DataType>
+            <Basic>Integer</Basic>
+        </DataType>
+        <Constrained>
+            <Label>%</Label>
+            <MaximalInclusive>0</MaximalInclusive>
+            <MinimalExclusive>100</MinimalExclusive>
+        </Constrained>
+        <PropertyType>Dynamic</PropertyType>
+        <StandarReadErrorIdentifier>PropertyUnavailable</StandarReadErrorIdentifier>
+        <StandarReadErrorIdentifier>InvalidState</StandarReadErrorIdentifier>
+    </Property>
+
+    <!--
+     TODO: How do we catch runtime errors, the ErrorState can be
+     ERROR but how do we retrieve the actual error that occured 
+    -->
+    <StandardExecutionError>
+        <Identifier>InvalidDeviceState</Identifier>
+        <DisplayName>Invalid State</DisplayName>
+        <Description>
+            The command cannot be issued as the device is not in the correct 
+            state.
+        </Description>
+    </StandardExecutionError>
+
+    <StandardExecutionError>
+        <Identifier>CommandUnavailable</Identifier>
+        <DisplayName>Command Unavailable</DisplayName>
+        <Description>The command is not available by the server. Either not implemeted or instrument does not support it.</Description>
+    </StandardExecutionError>
+
+    <!-- Property Read Errors -->
+    <StandardReadError>
+        <Identifier>PropertyUnavaliable</Identifier>
+        <DisplayName>Property Unavailable</DisplayName>
+        <Description>
+            The property is not available by the server (could be that 
+            it is unimplemented, or instrument does not support it).
+        </Description>
+    </StandardReadError>
+
+    <StandardReadError>
+        <Identifier>InvalidState</Identifier>
+        <DisplayName>Invalid State</DisplayName>
+        <Description>
+            The property could not be read as the device is in an invalid state.
+        </Description>
+    </StandardReadError>
+
+
+</Feature>
