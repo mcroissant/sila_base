@@ -24,7 +24,7 @@
         <Response>
             <Identifier>FeatureDefinition</Identifier>
             <DisplayName>Feature Definition</DisplayName>
-            <Description>The Feature Definition in UTF-8 encoded XML format.</Description>
+            <Description>The Feature Definition in XML format.</Description>
             <DataType>
                 <DataTypeIdentifier>FeatureDefinition</DataTypeIdentifier>
             </DataType>
