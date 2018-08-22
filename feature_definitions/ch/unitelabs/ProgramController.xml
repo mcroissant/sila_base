@@ -12,13 +12,12 @@
 
     <!-- Commands -->
     <Command>
-        <Identifier>Start</Identifier>
-        <DisplayName>Start</DisplayName>
+        <Identifier>Run</Identifier>
+        <DisplayName>Run</DisplayName>
         <Description>
-            Starts a program with a known name, see List Programs command to get the 
-            list of existing programs.
+            Starts a program with a known name and provides an optional stream for progress updates. There shall be no response. See List Programs command to get the list of existing programs.
         </Description>
-        <Observable>No</Observable>
+        <Observable>Yes</Observable>
         <Parameter>
             <Identifier>ProgramName</Identifier>
             <DisplayName>ProgramName</DisplayName>
@@ -29,100 +28,42 @@
         </Parameter>
         <StandardExecutionErrors>
             <StandardExecutionErrorIdentifier>InvalidDeviceState</StandardExecutionErrorIdentifier>
-            <StandardExecutionErrorIdentifier>CommandUnavailable</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
 
     <Command>
         <Identifier>Stop</Identifier>
         <DisplayName>Stop</DisplayName>
-        <Description>Stops a currently running program.</Description>
+        <Description>Stops a currently running program, without a possibility to resume.</Description>
         <Observable>No</Observable>
         <StandardExecutionErrors>
             <StandardExecutionErrorIdentifier>InvalidDeviceState</StandardExecutionErrorIdentifier>
-            <StandardExecutionErrorIdentifier>CommandUnavailable</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
 
     <Command>
-        <Identifier>Reset</Identifier>
-        <DisplayName>Reset</DisplayName>
-        <Description>
-            Reset the device to its IDLE state. E.g. homing a robot or flushing the liquid handler
-        </Description>
-        <Observable>No</Observable>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>InvalidDeviceState</StandardExecutionErrorIdentifier>
-            <StandardExecutionErrorIdentifier>CommandUnavailable</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
-    </Command>
-
-    <Command>
-        <Identifier>ProgramList</Identifier>
-        <DisplayName>Program List</DisplayName>
-        <Description>List of currently available programs saved in the device.</Description>
+        <Identifier>ListPrograms</Identifier>
+        <DisplayName>List Programs</DisplayName>
+        <Description>Returns the list of currently available programs saved in the device.</Description>
         <Observable>No</Observable>
         <Response>
-            <Identifier>Status</Identifier>
-            <DisplayName>Status</DisplayName>
-            <Description>The state of the current runtime.</Description>
+            <Identifier>ProgramList</Identifier>
+            <DisplayName>Program list</DisplayName>
+            <Description>List of the saved programs available to run on the device.</Description>
             <DataType>
                 <List>
                     <DataType>
-                        <Basic>Srting</Basic>
+                        <Basic>String</Basic>
                     </DataType>
                 </List>
             </DataType>
         </Response>
         <StandardExecutionErrors>
             <StandardExecutionErrorIdentifier>InvalidDeviceState</StandardExecutionErrorIdentifier>
-            <StandardExecutionErrorIdentifier>CommandUnavailable</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
 
-    <!-- Properties  -->
-    <Property>
-        <Identifier>DeviceState</Identifier>
-        <DisplayName>Device State</DisplayName>
-        <Description>Returns the state of the current program runtime.</Description>
-        <PropertyType>Dynamic</PropertyType>
-        <DataType>
-            <Basic>String</Basic>
-        </DataType>
-        <Constrained>
-            <Enumeration>
-                <Value>IDLE</Value>
-                <Value>INITIALIZED</Value>
-                <Value>RUNNING</Value>
-                <Value>PAUSED</Value>
-                <Value>ERROR</Value>
-                <Value>UNKNOWN</Value>
-            </Enumeration>
-        </Constrained>
-    </Property>
-
-    <Property>
-        <Identifier>ProgramProgress</Identifier>
-        <DisplayName>ProgramProgress</DisplayName>
-        <Description>
-            Specifies the execution progress of the currently running program.</Description>
-        <DataType>
-            <Basic>Integer</Basic>
-        </DataType>
-        <Constrained>
-            <Label>%</Label>
-            <MaximalInclusive>1</MaximalInclusive>
-            <MinimalExclusive>100</MinimalExclusive>
-        </Constrained>
-        <PropertyType>Dynamic</PropertyType>
-        <StandarReadErrorIdentifier>PropertyUnavailable</StandarReadErrorIdentifier>
-        <StandarReadErrorIdentifier>InvalidState</StandarReadErrorIdentifier>
-    </Property>
-
-    <!--
-     TODO: How do we catch runtime errors, the ErrorState can be
-     ERROR but how do we retrieve the actual error that occured 
-    -->
+    <!-- Command Execution Errors -->
     <StandardExecutionError>
         <Identifier>InvalidDeviceState</Identifier>
         <DisplayName>Invalid State</DisplayName>
@@ -132,22 +73,8 @@
         </Description>
     </StandardExecutionError>
 
-    <StandardExecutionError>
-        <Identifier>CommandUnavailable</Identifier>
-        <DisplayName>Command Unavailable</DisplayName>
-        <Description>The command is not available by the server. Either not implemeted or instrument does not support it.</Description>
-    </StandardExecutionError>
 
     <!-- Property Read Errors -->
-    <StandardReadError>
-        <Identifier>PropertyUnavaliable</Identifier>
-        <DisplayName>Property Unavailable</DisplayName>
-        <Description>
-            The property is not available by the server (could be that 
-            it is unimplemented, or instrument does not support it).
-        </Description>
-    </StandardReadError>
-
     <StandardReadError>
         <Identifier>InvalidState</Identifier>
         <DisplayName>Invalid State</DisplayName>
