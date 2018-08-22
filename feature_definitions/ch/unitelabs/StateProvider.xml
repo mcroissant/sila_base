@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" Originator="ch.unitelabs"
+         xmlns="http://www.sila-standard.org"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>StateProvider</Identifier>
+    <DisplayName>State provider</DisplayName>
+    <Description>
+        Exposes the device state and a command to reset the device to IDLE.
+    </Description>
+    <!-- Commands -->
+    <Command>
+        <Identifier>Reset</Identifier>
+        <DisplayName>Reset</DisplayName>
+        <Description>
+            Reset the device to its IDLE state. E.g. homing a robot or flushing the liquid handler
+        </Description>
+        <Observable>Yes</Observable>
+    </Command>
+    <!-- Properties  -->
+    <Property>
+        <Identifier>DeviceState</Identifier>
+        <DisplayName>Device State</DisplayName>
+        <Description>Returns the state of the current program runtime.</Description>
+        <PropertyType>Dynamic</PropertyType>
+        <DataType>
+            <Basic>String</Basic>
+        </DataType>
+        <Constrained>
+            <Enumeration>
+                <Value>IDLE</Value>
+                <Value>RUNNING</Value>
+                <Value>PAUSED</Value>
+                <Value>ERROR</Value>
+                <Value>UNKNOWN</Value>
+            </Enumeration>
+        </Constrained>
+    </Property>
+</Feature>
+
