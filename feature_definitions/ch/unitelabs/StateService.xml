@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" Originator="ch.unitelabs"
+         xmlns="http://www.sila-standard.org"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>StateService</Identifier>
+    <DisplayName>State Service</DisplayName>
+    <Description>
+        Exposes the server state and a command to reset the server to IDLE.
+    </Description>
+    <Command>
+        <Identifier>Reset</Identifier>
+        <DisplayName>Reset</DisplayName>
+        <Description>
+            Reset the server to its IDLE state. E.g. homing a robot or flushing the liquid handler
+        </Description>
+        <Observable>Yes</Observable>
+    </Command>
+    <Property>
+        <Identifier>State</Identifier>
+        <DisplayName>State</DisplayName>
+        <Description>Returns the state of the server.</Description>
+        <DataType>
+            <Constrained>
+                <DataType>
+                    <Basic>String</Basic>
+                </DataType>
+                <Constraints>
+                    <Enumeration>
+                        <Value>Idle</Value>
+                        <Value>Running</Value>
+                        <Value>Paused</Value>
+                        <Value>Error</Value>
+                        <Value>Unknown</Value>
+                    </Enumeration>
+                </Constraints>
+            </Constrained>
+        </DataType>
+        <PropertyType>Dynamic</PropertyType>
+    </Property>
+</Feature>
+
