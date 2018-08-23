@@ -54,8 +54,8 @@ message Timestamp {
 }
 
 message Timezone {
-    int32 hours = 2;
-    uint32 minutes = 3; 
+    int32 hours = 1;
+    uint32 minutes = 2;
 }
 
 message Any {
