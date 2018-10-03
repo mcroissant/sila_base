@@ -8,6 +8,8 @@
     <Description>
         The Feature each SiLA Server MUST implement. It is the entry point to a SiLA Server and helps to discover the Features it implements.
     </Description>
+
+    <!-- Commands -->
     <Command>
         <Identifier>GetFeatureDefinition</Identifier>
         <DisplayName>Get Feature Definition</DisplayName>
@@ -38,6 +40,7 @@
         <DisplayName>Unimplemented Feature</DisplayName>
         <Description>The feature specified by the given feature identifier is not implemented by the server.</Description>
     </StandardExecutionError>
+    <!-- Properties -->
     <Property>
         <Identifier>ServerDisplayName</Identifier>
         <DisplayName>Server Display Name</DisplayName>

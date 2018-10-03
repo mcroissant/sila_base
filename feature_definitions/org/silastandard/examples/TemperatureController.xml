@@ -11,14 +11,14 @@
     <Command>
         <Identifier>ControlTemperature</Identifier>
         <DisplayName>Control Temperature</DisplayName>
-        <Description>Control the Temperature gradually to a set target,</Description>
+        <Description>Control the Temperature gradually to a set target</Description>
         <Observable>Yes</Observable>
         <Parameter>
             <Identifier>TargetTemperature</Identifier>
             <DisplayName>Target Temperature</DisplayName>
             <Description>
-                The target temperature that the device will try to reach. Note that the command might
-                be completed at a temperature that is close enough.
+                The target temperature that the server will try to reach.
+                Note that the command might be completed at a temperature that it evaluates to be close enough.
             </Description>
             <DataType>
                 <Constrained>

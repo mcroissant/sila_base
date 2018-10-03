@@ -78,7 +78,7 @@ message CommandConfirmation {
     Duration lifetimeOfExecution = 2;
 }
 
-message ExecutionState {
+message ExecutionInfo {
     enum CommandStatus {
         waiting = 0 ;
         running = 1;
@@ -86,9 +86,9 @@ message ExecutionState {
         finishedWithError = 3;
     }
     CommandStatus commandStatus = 1;
-    Real progress = 2;
+    Real progressInfo = 2;
     Duration estimatedRemainingTime = 3;
-    SiLAError error = 4;
+    Duration updatedLifetimeOfExecution = 4;
 }
 
 // Error Handling
@@ -97,7 +97,8 @@ message SiLAError {
         VALIDATION = 0;
         EXECUTION = 1;
         READ = 2;
-        FRAMEWORK = 3;
+        REQUEST = 3;
+        FRAMEWORK = 4;
     }
     ErrorType errorType = 1;
     string identifier = 2;
