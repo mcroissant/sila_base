@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" Originator="ch.unitelabs"
+         xmlns="http://www.sila-standard.org"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>InitializationController</Identifier>
+    <DisplayName>Initialization Controller</DisplayName>
+    <Description>
+        Exposes the generic ability of a complete reset and initialization of the SiLA Server.
+        This can be implemented by all SiLA Servers who have hardware parts that need to be initialized
+        prior to using, e.g. robotic axis, in order to work properly and safely.
+    </Description>
+
+    <!-- Commands -->
+    <Command>
+        <Identifier>Reset</Identifier>
+        <DisplayName>Reset</DisplayName>
+        <Description>
+            Resets the server to a valid "Standby" state from which initialization SHOULD be possible.
+            It MUST always be possible to reset the state of the Server.
+
+            This command should also free any resource being held for purposes of this SiLA Server as
+            e.g. a "remote mode" on an instrument.
+
+            This command MUST not cause any hardware actions, e.g. moving a robotic arm.
+        </Description>
+        <Observable>Yes</Observable>
+    </Command>
+
+    <Command>
+        <Identifier>Initialize</Identifier>
+        <DisplayName>Initialize</DisplayName>
+        <Description>
+            Initializing the SiLA Server to be in a "Ready" state from which all features related to
+            the hardware being controlled SHOULD be usable.
+        </Description>
+        <Observable>Yes</Observable>
+        <Parameter>
+            <Identifier>InitializationParameters</Identifier>
+            <DisplayName>Initialization Parameters</DisplayName>
+            <Description>
+                Any parameters related to the initialization, as e.g. connection parameters.
+            </Description>
+            <DataType>
+                <List>
+                    <DataType>
+                        <Structure>
+                            <Element>
+                                <Identifier>Key</Identifier>
+                                <DisplayName>Key</DisplayName>
+                                <Description>
+                                    Key of the parameter, retrieved from the
+                                    InitializationParameterDescription parameter.
+                                </Description>
+                                <DataType>
+                                    <Basic>String</Basic>
+                                </DataType>
+                            </Element>
+                            <Element>
+                                <Identifier>Value</Identifier>
+                                <DisplayName>Value</DisplayName>
+                                <Description>Value related to the key.</Description>
+                                <DataType>
+                                    <Basic>Any</Basic>
+                                </DataType>
+                            </Element>
+                        </Structure>
+                    </DataType>
+                </List>
+            </DataType>
+        </Parameter>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>ServerNotStandby</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+    
+    <StandardExecutionError>
+        <Identifier>ServerNotStandby</Identifier>
+        <DisplayName>Server Not Standby</DisplayName>
+        <Description>The Server is not in "Standby", so the Initialize command can not be executed.</Description>
+    </StandardExecutionError>
+
+    <!-- Properties -->
+    <Property>
+        <Identifier>InitializationParameterDescription</Identifier>
+        <DisplayName>Initialization Parameter Description</DisplayName>
+        <Description>
+            The description of all parameters that must be specified for the Initialize command.
+        </Description>
+        <DataType>
+            <List>
+                <DataType>
+                    <Structure>
+                        <Element>
+                            <Identifier>Key</Identifier>
+                            <DisplayName>Key</DisplayName>
+                            <Description>Key that has to be specified.</Description>
+                            <DataType>
+                                <Basic>String</Basic>
+                            </DataType>
+                        </Element>
+                        <Element>
+                            <Identifier>Definition</Identifier>
+                            <DisplayName>Definition</DisplayName>
+                            <Description>The type definition related to the key.</Description>
+                            <DataType>
+                                <Basic>TypeDefinition</Basic>
+                            </DataType>
+                        </Element>
+                    </Structure>
+                </DataType>
+            </List>
+        </DataType>
+        <PropertyType>Static</PropertyType>
+    </Property>
+
+    <Property>
+        <Identifier>Status</Identifier>
+        <DisplayName>Status</DisplayName>
+        <Description>
+            Status of the attached represented hardware by the SiLA Server.
+
+            The different statuses are described as:
+            - Resetting: The Server is currently resetting
+            - Standby: The Server has reset and is ready to be initialized
+            - Initializing: The Server is initializing, an error might still occur
+            - Ready: The Server is ready to be used by any client
+            - InError: Some Error happened on the hardware, reset to clear
+
+            Note that as the Server can not be required to poll the hardware status in realtime,
+            the communicated state might be wrong and additional errors can happen e.g. in
+            an Initializing Status.
+        </Description>
+        <DataType>
+            <Constrained>
+                <DataType>
+                    <Basic>String</Basic>
+                </DataType>
+                <Constraints>
+                    <Enumeration>
+                        <Value>Resetting</Value>
+                        <Value>Standby</Value>
+                        <Value>Initializing</Value>
+                        <Value>Ready</Value>
+                        <Value>InError</Value>
+                    </Enumeration>
+                </Constraints>
+            </Constrained>
+        </DataType>
+        <PropertyType>Dynamic</PropertyType>
+    </Property>
+</Feature>

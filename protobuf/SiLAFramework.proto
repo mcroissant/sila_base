@@ -59,11 +59,61 @@ message Timezone {
 }
 
 message Any {
-    string definition = 1;
+    TypeDefinition definition = 1;
     bytes payload = 2;
 }
 
+message TypeDefinition {
+    string description = 1;
+    SiLAType type = 2;
+}
+
 // Framework
+enum BasicType {
+    STRING = 0;
+    INTEGER = 1;
+    REAL = 2;
+    BOOLEAN = 3;
+    SMALL_BINARY = 4;
+    LARGE_BINARY = 5;
+    DATE = 6;
+    TIME = 7;
+    TIME_STAMP = 8;
+}
+
+message ListType {
+    SiLAType silaType = 1;
+}
+
+message StructureType {
+    message Element {
+        String identifier = 1;
+        SiLAType type = 2;
+    }
+    repeated Element elements = 1;
+}
+
+message ConstrainedType {
+    // @TODO: Add all possible constraints
+    message Constraints {
+        int64 length = 1;
+        int64 minimalLength = 2;
+        int64 maximalLength = 3;
+    }
+
+    Constraints constraints = 1;
+    SiLAType type = 2;
+}
+
+message SiLAType {
+    oneof dataType {
+        BasicType basicType = 1;
+        ListType listType = 2;
+        StructureType structureType = 3;
+        ConstrainedType constrainedType = 4;
+    }
+}
+
 message Duration {
     int64 seconds = 1;
     int32 nanos = 2;

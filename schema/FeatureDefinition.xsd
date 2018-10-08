@@ -224,6 +224,7 @@
       <xs:enumeration value="Time"/>
       <xs:enumeration value="Timestamp"/>
       <xs:enumeration value="Any"/>
+      <xs:enumeration value="TypeDefinition"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="ListType">
