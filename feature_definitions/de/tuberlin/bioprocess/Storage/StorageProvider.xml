@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Draft" Originator="de.tuberlin.bioprocess" UseCase="storing"
+        xmlns="http://www.sila-standard.org" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>StorageProvider</Identifier>
+    <DisplayName>Storage Provider</DisplayName>
+    <Description>Provides all information of a storage devices</Description>
+    <Command><!--GetLabwareInformation-->
+        <Identifier>GetLabwareInformation</Identifier>
+        <DisplayName>Get Labware Information</DisplayName>
+        <Description>Which labware is mounted in the differnt tower of the device</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>AttainablePosition</Identifier>
+            <DisplayName>Attainable Position</DisplayName>
+            <Description>Retuns the information of the labware at the requested position as Labware Type according to the SiLA Labware Specification Standard (Version 1.0)</Description>
+            <DataType>
+                 <Basic>Integer</Basic>
+            </DataType>
+        </Parameter>
+        <Response>
+            <Identifier>LabwareType</Identifier>
+            <DisplayName>Labware Type</DisplayName>
+            <Description>Labware Type according to the SiLA Labware Specification Standard (Version 1.0)</Description>
+            <DataType>
+                <Basic>Integer</Basic>
+            </DataType>
+        </Response>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>InvaldPosition</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+    <Command><!--SetLabwareInformation-->
+        <Identifier>SetLabwareInformation</Identifier>
+        <DisplayName>Set Labware Information</DisplayName>
+        <Description>Which labware is mounted in the different tower of the device</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>AttainablePosition</Identifier>
+            <DisplayName>Attainable Position</DisplayName>
+            <Description>Sets the information of the labware of the at the addressed position as Labware Type according to the SiLA Labware Specification Standard (Version 1.0)</Description>
+            <DataType>
+                 <Basic>Integer</Basic>
+            </DataType>
+        </Parameter>
+        <Response>
+            <Identifier>LabwareType</Identifier>
+            <DisplayName>Labware Type</DisplayName>
+            <Description>Labware Type according to the SiLA Labware Specification Standard (Version 1.0)</Description>
+            <DataType>
+                <Basic>Integer</Basic>
+            </DataType>
+        </Response>
+        <StandardExecutionErrors>
+          <StandardExecutionErrorIdentifier>InvaldPosition</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+    <StandardExecutionError><!--InvaldPosition-->
+        <Identifier>InvalidPosition</Identifier>
+        <DisplayName>Invalid Position</DisplayName>
+        <Description>Somethings happens what better should not happend</Description>
+    </StandardExecutionError>
+    <Property><!--TowerNumber -->
+        <Identifier>TowerNumber</Identifier>
+        <DisplayName>Tower Number</DisplayName>
+        <Description>The addressed Position is not attainable or unknown at this device</Description>
+        <DataType>
+            <Basic>Integer</Basic>
+        </DataType>
+        <PropertyType>Static</PropertyType>
+    </Property>
+    <Property><!--HandoverNumber-->
+        <Identifier>HandoverNumber</Identifier>
+        <DisplayName>Handover Number</DisplayName>
+        <Description>The number of positions where a labware could be committed</Description>
+        <DataType>
+            <Basic>Integer</Basic>
+        </DataType>
+        <PropertyType>Static</PropertyType>
+    </Property>
+    <Property><!--AttainablePositions-->
+        <Identifier>AttainablePositions</Identifier>
+        <DisplayName>Attainable Positions</DisplayName>
+        <Description>The number of positions which could be attained directly by the device</Description>
+        <DataType>
+            <Basic>Integer</Basic>
+        </DataType>
+        <PropertyType>Static</PropertyType>
+    </Property>
+</Feature>
