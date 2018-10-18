@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Draft" Originator="de.tuberlin.bioprocess" UseCase="communication"
+        xmlns="http://www.sila-standard.org" 
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>MessagingService</Identifier>
+    <DisplayName>Messaging Service</DisplayName>
+    <Description>Proviedes a messaging Service</Description>
+    <Command>
+      <!--SendMessage-->
+      <Identifier>SendTextMessage</Identifier>
+      <DisplayName>Send Text Message</DisplayName>
+      <Description>Sends a message to a recipient</Description>
+      <Observable>No</Observable>
+      <Parameter>
+        <Identifier>RecipientID</Identifier>
+        <DisplayName>RecipientID</DisplayName>
+        <Description>The Number, name, email or what ever in the implemented servied is needed to address a message to the recipient</Description>
+        <DataType>
+          <Basic>String</Basic>
+        </DataType>
+      </Parameter>
+      <Parameter>
+        <Identifier>MessageText</Identifier>
+        <DisplayName>MessageText</DisplayName>
+        <Description>The text for the message</Description>
+        <DataType>
+          <Basic>String</Basic>
+        </DataType>
+      </Parameter>
+      <StandardExecutionErrors>
+        <StandardExecutionErrorIdentifier>ExcecutionError</StandardExecutionErrorIdentifier>
+        <StandardExecutionErrorIdentifier>InvaldRecipientID</StandardExecutionErrorIdentifier>
+      </StandardExecutionErrors>
+    </Command>
+  </Feature>
