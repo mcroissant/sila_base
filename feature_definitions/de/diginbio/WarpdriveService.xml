@@ -1,5 +1,5 @@
-﻿<?xml version="1.0"?>
-<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Draft" Originator="de.diginbio" UseCase="mixing"
+<?xml version="1.0"?>
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Draft" Originator="de.diginbio" UseCase="examples"
     xmlns="http://www.sila-standard.org"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <Identifier>WarpdriveService</Identifier>
@@ -27,20 +27,28 @@
       </DataType>
     </Parameter>
   </Command>
-  <Command>
-    <Identifier>GetWarpingState</Identifier>
-    <DisplayName>Get Warping State</DisplayName>
-    <Description>Gets the current status of the warpdrive.</Description>
-    <Observable>No</Observable>
-    <Response>
-      <Identifier>Speed</Identifier>
-      <DisplayName>Speed</DisplayName>
-      <Description>This response contains the current speed.</Description>
-      <DataType>
-        <Basic>Real</Basic>
-      </DataType>
-    </Response>
-  </Command>
+  <Property>
+    <Identifier>WarpingState</Identifier>
+    <DisplayName>Warping State</DisplayName>
+    <Description>Current status of the warpdrive.</Description>
+    <DataType>
+      <Structure>
+        <Element>
+          <Identifier>Destination</Identifier>
+          <DataType>
+            <Basic>String</Basic>
+          </DataType>
+        </Element>
+        <Element>
+          <Identifier>Speed</Identifier>
+          <DataType>
+            <Basic>Real</Basic>
+          </DataType>
+        </Element>
+      </Structure>
+    </DataType>
+    <PropertyType>Dynamic</PropertyType>
+  </Property>
   <Command>
     <Identifier>Disengage</Identifier>
     <DisplayName>Disengage</DisplayName>
