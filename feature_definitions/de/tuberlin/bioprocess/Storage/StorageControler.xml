@@ -7,7 +7,6 @@
   <DisplayName>Storage Controller</DisplayName>
   <Description>Controles a storage device</Description>
   <Command>
-    <!--GetLabwareInformation-->
     <Identifier>GetFromPosition</Identifier>
     <DisplayName>Get From Position</DisplayName>
     <Description>Get a Labware from the specified position and presents it to the addressed handover position</Description>
@@ -33,7 +32,6 @@
     </StandardExecutionErrors>
   </Command>
   <Command>
-    <!--PutFromPosition-->
     <Identifier>PutToPosition</Identifier>
     <DisplayName>PutToPosition</DisplayName>
     <Description>Take a labware from the addressed handover position an stores it at the specified position</Description>

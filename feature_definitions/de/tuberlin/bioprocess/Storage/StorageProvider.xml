@@ -6,7 +6,7 @@
     <Identifier>StorageProvider</Identifier>
     <DisplayName>Storage Provider</DisplayName>
     <Description>Provides all information of a storage devices</Description>
-    <Command><!--GetLabwareInformation-->
+    <Command>
         <Identifier>GetLabwareInformation</Identifier>
         <DisplayName>Get Labware Information</DisplayName>
         <Description>Which labware is mounted in the differnt tower of the device</Description>
@@ -28,10 +28,10 @@
             </DataType>
         </Response>
         <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>InvaldPosition</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>InvalidPosition</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
-    <Command><!--SetLabwareInformation-->
+    <Command>
         <Identifier>SetLabwareInformation</Identifier>
         <DisplayName>Set Labware Information</DisplayName>
         <Description>Which labware is mounted in the different tower of the device</Description>
@@ -53,15 +53,15 @@
             </DataType>
         </Response>
         <StandardExecutionErrors>
-          <StandardExecutionErrorIdentifier>InvaldPosition</StandardExecutionErrorIdentifier>
+          <StandardExecutionErrorIdentifier>InvalidPosition</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
-    <StandardExecutionError><!--InvaldPosition-->
+    <StandardExecutionError>
         <Identifier>InvalidPosition</Identifier>
         <DisplayName>Invalid Position</DisplayName>
         <Description>Somethings happens what better should not happend</Description>
     </StandardExecutionError>
-    <Property><!--TowerNumber -->
+    <Property>
         <Identifier>TowerNumber</Identifier>
         <DisplayName>Tower Number</DisplayName>
         <Description>The addressed Position is not attainable or unknown at this device</Description>
@@ -70,7 +70,7 @@
         </DataType>
         <PropertyType>Static</PropertyType>
     </Property>
-    <Property><!--HandoverNumber-->
+    <Property>
         <Identifier>HandoverNumber</Identifier>
         <DisplayName>Handover Number</DisplayName>
         <Description>The number of positions where a labware could be committed</Description>
@@ -79,7 +79,7 @@
         </DataType>
         <PropertyType>Static</PropertyType>
     </Property>
-    <Property><!--AttainablePositions-->
+    <Property>
         <Identifier>AttainablePositions</Identifier>
         <DisplayName>Attainable Positions</DisplayName>
         <Description>The number of positions which could be attained directly by the device</Description>
