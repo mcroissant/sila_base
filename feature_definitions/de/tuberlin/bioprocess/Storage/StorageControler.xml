@@ -29,8 +29,7 @@
       </DataType>
     </Response>
     <StandardExecutionErrors>
-      <StandardExecutionErrorIdentifier>ExcecutionError</StandardExecutionErrorIdentifier>
-      <StandardExecutionErrorIdentifier>InvaldPosition</StandardExecutionErrorIdentifier>
+      <StandardExecutionErrorIdentifier>InvalidPosition</StandardExecutionErrorIdentifier>
     </StandardExecutionErrors>
   </Command>
   <Command>
@@ -56,8 +55,12 @@
       </DataType>
     </Response>
     <StandardExecutionErrors>
-      <StandardExecutionErrorIdentifier>InvaldPosition</StandardExecutionErrorIdentifier>
-      <StandardExecutionErrorIdentifier>ExcecutionError</StandardExecutionErrorIdentifier>
+      <StandardExecutionErrorIdentifier>InvalidPosition</StandardExecutionErrorIdentifier>
     </StandardExecutionErrors>
   </Command>
+  <StandardExecutionError>
+    <Identifier>InvalidPosition</Identifier>
+    <DisplayName>Invalid Position</DisplayName>
+    <Description>the given position number is invalid</Description>
+  </StandardExecutionError>
 </Feature>
