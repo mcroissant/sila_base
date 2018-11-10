@@ -2,10 +2,10 @@
 <Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Draft" Originator="de.tuberlin.bioprocess" UseCase="communication"
         xmlns="http://www.sila-standard.org" 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
-    <Identifier>MessagingService</Identifier>
-    <DisplayName>Messaging Service</DisplayName>
-    <Description>Proviedes a messaging Service</Description>
+        xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>MessagingController</Identifier>
+    <DisplayName>Messaging Controller</DisplayName>
+    <Description>Proviedes a service to send out messages.</Description>
     <Command>
       <!--SendMessage-->
       <Identifier>SendTextMessage</Identifier>
@@ -29,8 +29,18 @@
         </DataType>
       </Parameter>
       <StandardExecutionErrors>
-        <StandardExecutionErrorIdentifier>ExcecutionError</StandardExecutionErrorIdentifier>
-        <StandardExecutionErrorIdentifier>InvaldRecipientID</StandardExecutionErrorIdentifier>
+        <StandardExecutionErrorIdentifier>FailedSending</StandardExecutionErrorIdentifier>
+        <StandardExecutionErrorIdentifier>InvalidRecipientID</StandardExecutionErrorIdentifier>
       </StandardExecutionErrors>
     </Command>
+    <StandardExecutionError>
+      <Identifier>FailedSending</Identifier>
+      <DisplayName>Sending Failed</DisplayName>
+      <Description>It was not possible to submit the message</Description>
+    </StandardExecutionError>
+    <StandardExecutionError>
+      <Identifier>InvalidRecipientID</Identifier>
+      <DisplayName>Invalid Recipient ID</DisplayName>
+      <Description>The Recipient ID was not valid / has an unexpected format or size</Description>
+    </StandardExecutionError>
   </Feature>
