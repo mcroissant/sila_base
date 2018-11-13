@@ -97,6 +97,31 @@
         </DataType>
         <PropertyType>Static</PropertyType>
     </Property>
+    <Property>
+        <Identifier>ServerType</Identifier>
+        <DisplayName>Server Type</DisplayName>
+        <Description>The make and model of a given SiLAServer</Description>
+        <DataType>
+            <DataType>
+                <Structure>
+                    <Element>
+                        <Identifier>Make</Identifier>
+                        <DataType>
+                            <Basic>String</Basic>
+                        </DataType>
+                    </Element>
+                    <Element>
+                        <Identifier>Model</Identifier>
+                        <DataType>
+                            <Basic>String</Basic>
+                        </DataType>
+                    </Element>
+                </Structure>
+            </DataType>
+        </DataType>
+        <PropertyType>Static</PropertyType>
+    </Property>
+
     <DataTypeDefinition>
         <Identifier>Identifier</Identifier>
         <DisplayName>Identifier</DisplayName>
