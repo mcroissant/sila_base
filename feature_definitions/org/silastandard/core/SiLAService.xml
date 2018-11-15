@@ -39,9 +39,30 @@
         <Description>The feature specified by the given feature identifier is not implemented by the server.</Description>
     </StandardExecutionError>
     <Property>
-        <Identifier>ServerDisplayName</Identifier>
-        <DisplayName>Server Display Name</DisplayName>
+        <Identifier>ServerName</Identifier>
+        <DisplayName>Server Name</DisplayName>
         <Description>Human readable name of the SiLA Server.</Description>
+        <DataType>
+            <Basic>String</Basic>
+        </DataType>
+        <PropertyType>Static</PropertyType>
+    </Property>
+    <Property>
+        <Identifier>ServerType</Identifier>
+        <DisplayName>Server Type</DisplayName>
+        <Description>The type of Server this is, e.g. the Make and Model of the device</Description>
+        <DataType>
+            <Basic>String</Basic>
+        </DataType>
+        <PropertyType>Static</PropertyType>
+    </Property>
+    <Property>
+        <Identifier>ServerUUID</Identifier>
+        <DisplayName>Server UUID</DisplayName>
+        <Description>The type of Server this is, e.g. the Make and Model of the device</Description>
+        <!-- constraints needed -->
+        <!-- 32 Hex -->
+        <!-- <8>-<4>-<4>-<4>-<12> -->
         <DataType>
             <Basic>String</Basic>
         </DataType>
