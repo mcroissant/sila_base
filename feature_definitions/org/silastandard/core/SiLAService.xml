@@ -33,6 +33,20 @@
             <StandardExecutionErrorIdentifier>UnimplementedFeature</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
+    <Command>
+        <Identifier>SetServerName</Identifier>
+        <DisplayName>Set Server Name</DisplayName>
+        <Description>Sets a human readable name to the ServerName property</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>ServerName</Identifier>
+            <DisplayName>Server Name</DisplayName>
+            <Description>The human readable name of to assign to the SiLA Server</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Parameter>
+    </Command>
     <StandardExecutionError>
         <Identifier>UnimplementedFeature</Identifier>
         <DisplayName>Unimplemented Feature</DisplayName>
@@ -70,7 +84,6 @@
                     <Pattern>[0-9a-f{8}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{12}</Pattern>
                 </Constraints>
             </Constrained>
-            <Pattern></Pattern>
         </DataType>
         <PropertyType>Static</PropertyType>
     </Property>
@@ -124,31 +137,6 @@
         </DataType>
         <PropertyType>Static</PropertyType>
     </Property>
-    <Property>
-        <Identifier>ServerType</Identifier>
-        <DisplayName>Server Type</DisplayName>
-        <Description>The make and model of a given SiLAServer</Description>
-        <DataType>
-            <DataType>
-                <Structure>
-                    <Element>
-                        <Identifier>Make</Identifier>
-                        <DataType>
-                            <Basic>String</Basic>
-                        </DataType>
-                    </Element>
-                    <Element>
-                        <Identifier>Model</Identifier>
-                        <DataType>
-                            <Basic>String</Basic>
-                        </DataType>
-                    </Element>
-                </Structure>
-            </DataType>
-        </DataType>
-        <PropertyType>Static</PropertyType>
-    </Property>
-
     <DataTypeDefinition>
         <Identifier>Identifier</Identifier>
         <DisplayName>Identifier</DisplayName>
