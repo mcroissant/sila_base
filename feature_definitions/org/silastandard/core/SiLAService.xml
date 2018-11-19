@@ -81,7 +81,7 @@
                 </DataType>
                 <Constraints>
                     <Length>36</Length>
-                    <Pattern>[0-9a-f{8}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{12}</Pattern>
+                    <Pattern>[0-9a-f]{8}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{12}</Pattern>
                 </Constraints>
             </Constrained>
         </DataType>
