@@ -18,7 +18,7 @@
             <DisplayName>Qualified Feature Identifier</DisplayName>
             <Description>The qualified Feature identifier for which the Feature description should be retrieved.</Description>
             <DataType>
-                <DataTypeIdentifier>Identifier</DataTypeIdentifier>
+                <DataTypeIdentifier>FeatureIdentifier</DataTypeIdentifier>
             </DataType>
         </Parameter>
         <Response>
@@ -91,15 +91,15 @@
         <DataType>
             <List>
                 <DataType>
-                    <DataTypeIdentifier>Identifier</DataTypeIdentifier>
+                    <DataTypeIdentifier>FeatureIdentifier</DataTypeIdentifier>
                 </DataType>
             </List>
         </DataType>
         <PropertyType>Static</PropertyType>
     </Property>
     <DataTypeDefinition>
-        <Identifier>Identifier</Identifier>
-        <DisplayName>Identifier</DisplayName>
+        <Identifier>FeatureIdentifier</Identifier>
+        <DisplayName>Feature Identifier</DisplayName>
         <Description>Qualified Feature Identifier as provided by the 
             ImplementedFeatures property.</Description>
         <DataType>
@@ -109,7 +109,7 @@
                 </DataType>
                 <Constraints>
                     <MaximalLength>255</MaximalLength>
-                    <Pattern>[A-Z][a-zA-Z0-9]*</Pattern>
+                    <FullyQualifiedIdentifier>FeatureIdentifier</FullyQualifiedIdentifier>
                 </Constraints>
             </Constrained>
         </DataType>
