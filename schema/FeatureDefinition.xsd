@@ -416,6 +416,21 @@
                 <xs:documentation>Applicable to SiLA derived type: List</xs:documentation>
               </xs:annotation>
             </xs:element>
+            <xs:element name="FullyQualifiedIdentifier" minOccurs="0">
+              <xs:simpleType>
+                <xs:annotation>
+                  <xs:documentation>Applicable to SiLA basic type: String</xs:documentation>
+                </xs:annotation>
+                <xs:restriction base="xs:string">
+                  <xs:enumeration value="FeatureIdentifier"/>
+                  <xs:enumeration value="CommandIdentifier"/>
+                  <xs:enumeration value="ParameterIdentifier"/>
+                  <xs:enumeration value="CommandResponseIdentifier"/>
+                  <xs:enumeration value="StandardExecutionErrorIdentifier"/>
+                  <xs:enumeration value="TypeIdentifier"/>
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:element>
           </xs:all>
         </xs:complexType>
       </xs:element>
