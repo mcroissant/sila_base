@@ -64,7 +64,7 @@
     <Property>
         <Identifier>ServerType</Identifier>
         <DisplayName>Server Type</DisplayName>
-        <Description>The type of Server this is, e.g. the Make and Model of the device</Description>
+        <Description>The type of Server this is. Is specified by the implementer of the server and not unique.</Description>
         <DataType>
             <Basic>String</Basic>
         </DataType>
