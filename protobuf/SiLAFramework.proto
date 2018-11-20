@@ -141,8 +141,7 @@ message ValidationError {
 }
 
 message ExecutionError {
-    string featureIdentifier = 1;
-    string cause = 2;
+    string cause = 1;
 }
 
 message ReadError {
