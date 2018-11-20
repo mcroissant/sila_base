@@ -35,6 +35,6 @@
         <DataType>
             <Basic>Integer</Basic>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
 </Feature>

@@ -40,6 +40,6 @@
                 </Element>
             </Structure>
         </DataType>
-        <PropertyType>Dynamic</PropertyType>
+        <Observable>Yes</Observable>
     </Property>
 </Feature>

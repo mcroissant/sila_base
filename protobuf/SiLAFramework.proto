@@ -4,7 +4,7 @@ package sila2.org.silastandard;
 
 option java_outer_classname = "SiLAFramework";
 
-// SiLA Basic Types
+// -------- SiLA Basic Types --------
 message String {
     string value = 1;
 }
@@ -59,11 +59,43 @@ message Timezone {
 }
 
 message Any {
-    string definition = 1;
+    SiLAType type = 1;
     bytes payload = 2;
 }
 
-// Framework
+// -------- Framework Types --------
+enum BasicType {
+    STRING = 0;
+    INTEGER = 1;
+    REAL = 2;
+    BOOLEAN = 3;
+    SMALL_BINARY = 4;
+    LARGE_BINARY = 5;
+    DATE = 6;
+    TIME = 7;
+    TIME_STAMP = 8;
+}
+
+message ListType {
+    SiLAType silaType = 1;
+}
+
+message StructureType {
+    message Element {
+        String identifier = 1;
+        SiLAType type = 2;
+    }
+    repeated Element elements = 1;
+}
+
+message SiLAType {
+    oneof dataType {
+        BasicType basicType = 1;
+        ListType listType = 2;
+        StructureType structureType = 3;
+    }
+}
+
 message Duration {
     int64 seconds = 1;
     int32 nanos = 2;
@@ -78,7 +110,7 @@ message CommandConfirmation {
     Duration lifetimeOfExecution = 2;
 }
 
-message ExecutionState {
+message ExecutionInfo {
     enum CommandStatus {
         waiting = 0 ;
         running = 1;
@@ -86,24 +118,60 @@ message ExecutionState {
         finishedWithError = 3;
     }
     CommandStatus commandStatus = 1;
-    Real progress = 2;
+    Real progressInfo = 2;
     Duration estimatedRemainingTime = 3;
-    SiLAError error = 4;
+    Duration updatedLifetimeOfExecution = 4;
 }
 
-// Error Handling
+// -------- Error Handling --------
 message SiLAError {
-    enum ErrorType {
-        VALIDATION = 0;
-        EXECUTION = 1;
-        READ = 2;
-        FRAMEWORK = 3;
+    oneof error {
+        ValidationError validationError = 1;
+        ExecutionError executionError = 2;
+        ReadError readError = 3;
+        RequestError requestError = 4;
+        FrameworkError frameworkError = 5;
     }
-    ErrorType errorType = 1;
-    string identifier = 2;
-    string message = 3;
-    string details = 4;
-    Any parameters = 5;
 }
+
+message ValidationError {
+    string parameter = 1;
+    string cause = 2;
+    string action = 3;
+}
+
+message ExecutionError {
+    string cause = 1;
+}
+
+message ReadError {
+    string cause = 1;
+}
+
+message RequestError {
+    string cause = 1;
+}
+
+message FrameworkError {
+    enum ErrorType {
+        INVALID_COMMAND_EXECUTION_UUID = 0;
+        COMMAND_EXECUTION_NOT_FINISHED = 1;
+        MISSING_METADATA = 2;
+    }
+}
+
+/* TODO: Add ConstrainedType with all Constraints
+message ConstrainedType {
+    message Constraints {
+        int64 length = 1;
+        int64 minimalLength = 2;
+        int64 maximalLength = 3;
+    }
+
+    Constraints constraints = 1;
+    SiLAType type = 2;
+}
+*/
+
 
 

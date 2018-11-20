@@ -13,7 +13,7 @@
         <DataType>
           <Basic>String</Basic>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>RoomNumber</Identifier>
@@ -22,7 +22,7 @@
         <DataType>
             <Basic>String</Basic>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <Property>
       <Identifier>EmergencyContact</Identifier>
@@ -31,7 +31,7 @@
       <DataType>
         <Basic>String</Basic>
       </DataType>
-      <PropertyType>Static</PropertyType>
+      <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>FirmwareVersion</Identifier>
@@ -40,6 +40,6 @@
         <DataType>
             <Basic>String</Basic>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     </Feature>

@@ -8,6 +8,8 @@
     <Description>
         The Feature each SiLA Server MUST implement. It is the entry point to a SiLA Server and helps to discover the Features it implements.
     </Description>
+
+    <!-- Commands -->
     <Command>
         <Identifier>GetFeatureDefinition</Identifier>
         <DisplayName>Get Feature Definition</DisplayName>
@@ -52,6 +54,7 @@
         <DisplayName>Unimplemented Feature</DisplayName>
         <Description>The feature specified by the given feature identifier is not implemented by the server.</Description>
     </StandardExecutionError>
+    <!-- Properties -->
     <Property>
         <Identifier>ServerName</Identifier>
         <DisplayName>Server Name</DisplayName>
@@ -59,7 +62,7 @@
         <DataType>
             <Basic>String</Basic>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ServerType</Identifier>
@@ -68,7 +71,7 @@
         <DataType>
             <Basic>String</Basic>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ServerUUID</Identifier>
@@ -85,7 +88,7 @@
                 </Constraints>
             </Constrained>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ServerDescription</Identifier>
@@ -94,7 +97,7 @@
         <DataType>
             <Basic>String</Basic>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ServerVersion</Identifier>
@@ -111,7 +114,7 @@
                 </Constraints>
             </Constrained>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ServerVendorURL</Identifier>
@@ -121,7 +124,7 @@
         <DataType>
             <DataTypeIdentifier>URL</DataTypeIdentifier>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ImplementedFeatures</Identifier>
@@ -135,7 +138,7 @@
                 </DataType>
             </List>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <DataTypeDefinition>
         <Identifier>FeatureIdentifier</Identifier>
