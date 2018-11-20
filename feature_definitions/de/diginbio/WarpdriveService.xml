@@ -47,7 +47,7 @@
         </Element>
       </Structure>
     </DataType>
-    <PropertyType>Dynamic</PropertyType>
+    <Observable>Yes</Observable>
   </Property>
   <Command>
     <Identifier>Disengage</Identifier>

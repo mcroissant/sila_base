@@ -111,7 +111,7 @@
                 </DataType>
             </List>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
 
     <Property>
@@ -147,6 +147,6 @@
                 </Constraints>
             </Constrained>
         </DataType>
-        <PropertyType>Dynamic</PropertyType>
+        <Observable>Yes</Observable>
     </Property>
 </Feature>

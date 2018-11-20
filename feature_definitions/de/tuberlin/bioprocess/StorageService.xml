@@ -118,7 +118,7 @@
         <DataType>
             <Basic>Integer</Basic>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>HandoverNumber</Identifier>
@@ -127,7 +127,7 @@
         <DataType>
             <Basic>Integer</Basic>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>AttainablePositions</Identifier>
@@ -136,6 +136,6 @@
         <DataType>
             <Basic>Integer</Basic>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
 </Feature>

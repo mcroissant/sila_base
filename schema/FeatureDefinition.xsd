@@ -74,11 +74,11 @@
                 <xs:element type="tns:DisplayNameType" name="DisplayName" />
                 <xs:element type="xs:string" name="Description" />
                 <xs:element type="tns:DataTypeType" name="DataType" />
-                <xs:element name="PropertyType">
+                <xs:element name="Observable">
                   <xs:simpleType>
                     <xs:restriction base="xs:string">
-                      <xs:enumeration value="Static" />
-                      <xs:enumeration value="Dynamic" />
+                      <xs:enumeration value="Yes" />
+                      <xs:enumeration value="No" />
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:element>

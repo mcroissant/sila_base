@@ -36,7 +36,7 @@
         <DataType>
             <Basic>Boolean</Basic>
         </DataType>
-        <PropertyType>Dynamic</PropertyType>
+        <Observable>Yes</Observable>
     </Property>
     <!-- Command Execution Errors -->
     <StandardExecutionError>

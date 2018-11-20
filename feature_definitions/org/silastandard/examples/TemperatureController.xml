@@ -78,6 +78,6 @@
                 </Constraints>
             </Constrained>
         </DataType>
-        <PropertyType>Dynamic</PropertyType>
+        <Observable>Yes</Observable>
     </Property>
 </Feature>

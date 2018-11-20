@@ -62,7 +62,7 @@
         <DataType>
             <Basic>String</Basic>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ServerType</Identifier>
@@ -71,7 +71,7 @@
         <DataType>
             <Basic>String</Basic>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ServerUUID</Identifier>
@@ -88,7 +88,7 @@
                 </Constraints>
             </Constrained>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ServerDescription</Identifier>
@@ -97,7 +97,7 @@
         <DataType>
             <Basic>String</Basic>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ServerVersion</Identifier>
@@ -114,7 +114,7 @@
                 </Constraints>
             </Constrained>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ServerVendorURL</Identifier>
@@ -124,7 +124,7 @@
         <DataType>
             <DataTypeIdentifier>URL</DataTypeIdentifier>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ImplementedFeatures</Identifier>
@@ -138,7 +138,7 @@
                 </DataType>
             </List>
         </DataType>
-        <PropertyType>Static</PropertyType>
+        <Observable>No</Observable>
     </Property>
     <DataTypeDefinition>
         <Identifier>FeatureIdentifier</Identifier>
