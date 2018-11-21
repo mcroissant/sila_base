@@ -141,15 +141,14 @@ message ValidationError {
 }
 
 message ExecutionError {
-    string cause = 1;
+    string errorIdentifier = 1;
+    string cause = 2;
+    string action = 3;
 }
 
 message ReadError {
-    string cause = 1;
-}
-
-message RequestError {
-    string cause = 1;
+    string errorIdentifier = 1;
+    string cause = 2;
 }
 
 message FrameworkError {
