@@ -156,6 +156,7 @@ message FrameworkError {
         COMMAND_EXECUTION_NOT_FINISHED = 1;
         MISSING_METADATA = 2;
     }
+    ErrorType errorType = 1;
 }
 
 /* TODO: Add ConstrainedType with all Constraints
