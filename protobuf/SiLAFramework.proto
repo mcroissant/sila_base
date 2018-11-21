@@ -129,8 +129,7 @@ message SiLAError {
         ValidationError validationError = 1;
         ExecutionError executionError = 2;
         ReadError readError = 3;
-        RequestError requestError = 4;
-        FrameworkError frameworkError = 5;
+        FrameworkError frameworkError = 4;
     }
 }
 
