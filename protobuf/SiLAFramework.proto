@@ -150,12 +150,10 @@ message ReadError {
     string cause = 2;
 }
 
-message FrameworkError {
-    enum ErrorType {
-        INVALID_COMMAND_EXECUTION_UUID = 0;
-        COMMAND_EXECUTION_NOT_FINISHED = 1;
-        MISSING_METADATA = 2;
-    }
+enum FrameworkError {
+    INVALID_COMMAND_EXECUTION_UUID = 0;
+    COMMAND_EXECUTION_NOT_FINISHED = 1;
+    MISSING_METADATA = 2;
 }
 
 /* TODO: Add ConstrainedType with all Constraints
