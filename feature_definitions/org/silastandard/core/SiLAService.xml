@@ -38,7 +38,7 @@
     <Command>
         <Identifier>SetServerName</Identifier>
         <DisplayName>Set Server Name</DisplayName>
-        <Description>Sets a human readable name to the ServerName property</Description>
+        <Description>Sets a human readable name to the Server Name property</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>ServerName</Identifier>
@@ -118,7 +118,7 @@
     </Property>
     <Property>
         <Identifier>ServerVendorURL</Identifier>
-        <DisplayName>URL of Server Vendor</DisplayName>
+        <DisplayName>Server Vendor URL</DisplayName>
         <Description>Returns the URL to the website of the vendor or the website 
             of the product of this SiLA Server.</Description>
         <DataType>
