@@ -143,11 +143,14 @@ message ExecutionError {
     string errorIdentifier = 1;
     string cause = 2;
     string action = 3;
+    string featureIdentifier = 4;
+    Any parameters = 5;
 }
 
 message ReadError {
     string errorIdentifier = 1;
     string cause = 2;
+    string featureIdentifier = 3;
 }
 
 message FrameworkError {
