@@ -155,7 +155,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="UseCase" use="optional">
+      <xs:attribute name="Category" use="optional">
         <xs:simpleType>
           <xs:restriction base ="xs:string">
             <xs:pattern value="[a-z][a-z\.]*" />
