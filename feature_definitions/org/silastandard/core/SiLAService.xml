@@ -69,14 +69,7 @@
         <DisplayName>Server Type</DisplayName>
         <Description>The type of Server this is. Is specified by the implementer of the server and not unique.</Description>
         <DataType>
-            <Constrained>
-                <DataType>
-                    <Basic>String</Basic>
-                </DataType>
-                <Constraints>
-                    <Length>128</Length>
-                </Constraints>
-            </Constrained>
+            <Basic>String</Basic>
         </DataType>
         <Observable>No</Observable>
     </Property>
