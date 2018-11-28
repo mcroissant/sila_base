@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Verified" Originator="org.silastandard" UseCase="core"
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Verified" Originator="org.silastandard" Category="core"
         xmlns="http://www.sila-standard.org" 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
@@ -38,7 +38,7 @@
     <Command>
         <Identifier>SetServerName</Identifier>
         <DisplayName>Set Server Name</DisplayName>
-        <Description>Sets a human readable name to the ServerName property</Description>
+        <Description>Sets a human readable name to the Server Name property</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>ServerName</Identifier>
@@ -118,7 +118,7 @@
     </Property>
     <Property>
         <Identifier>ServerVendorURL</Identifier>
-        <DisplayName>URL of Server Vendor</DisplayName>
+        <DisplayName>Server Vendor URL</DisplayName>
         <Description>Returns the URL to the website of the vendor or the website 
             of the product of this SiLA Server.</Description>
         <DataType>
