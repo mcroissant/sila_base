@@ -20,7 +20,7 @@ join to ask for help and/or give feedback: [slack link](https://join.slack.com/t
 
 ## SiLA Ecosystem
 Various tools are published by different companies both for SiLA, but also for gRPC. For gRPC you can find 
-many links [here](https://join.slack.com/t/sila-standard/shared_invite/enQtNDI0ODcxMDg5NzkzLTc4YjdkNzgxYjM5NDIyMzAyNTJjMjE1ZWI5MzY0M2Y2NmY3ZGQ2NTI3YzJiMmIzNTFmZmJkMWI3ZTMyMTk5NGY).
+many links [here](https://github.com/grpc-ecosystem/awesome-grpc).
 
 For SiLA 2 the current tools are accessible, in addition to the reference implementations found in this GitLab group:
 
