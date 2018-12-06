@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Draft" Originator="org.silastandard" Category="core"
+         xmlns="http://www.sila-standard.org"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>AuthenticationService</Identifier>
+    <DisplayName>Authentication Service</DisplayName>
+    <Description>This Feature provides SiLA Clients with access tokens based in an identification and password</Description>
+    <Command>
+        <Identifier>Login</Identifier>
+        <DisplayName>Login</DisplayName>
+        <Description></Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>UserIdentification</Identifier>
+            <DisplayName>User Identification</DisplayName>
+            <Description>The user identification string</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Parameter>
+        <Parameter>
+            <Identifier>Password</Identifier>
+            <DisplayName>Password</DisplayName>
+            <Description>The (encrpted) password</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Parameter>
+        <Response>
+            <Identifier>AccessToken</Identifier>
+            <DisplayName>Access Token</DisplayName>
+            <Description>The token to be sent along with every SiLA Sserver call</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Response>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>AuhtenticationFailed</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+    <StandardExecutionError>
+        <Identifier>AuthenticationFailed</Identifier>
+        <DisplayName>Authentication Failed</DisplayName>
+        <Description>The provided credentials are not valid</Description>
+    </StandardExecutionError>
+    <Command>
+        <Identifier>Logout</Identifier>
+        <DisplayName>Logout</DisplayName>
+        <Description>Requires an access token in the meta data. Makes the sent access token invalid.</Description>
+        <Observable>No</Observable>
+    </Command>
+    <Property>
+        <Identifier>TokenLifeTime</Identifier>
+        <DisplayName>Token Life Time</DisplayName>
+        <Description>Returns the lifetime of the sent token as duration after last request</Description>
+        <DataType>
+            <Constrained>
+                <DataType>
+                    <Basic>Integer</Basic>
+                </DataType>
+                <Constraints>
+                    <Unit>
+                        <Label>s</Label>
+                        <UnitComponent>
+                            <SIUnit>Second</SIUnit>
+                            <Exponent>1</Exponent>
+                            <Factor>1</Factor>
+                            <Offset>0</Offset>
+                        </UnitComponent>
+                    </Unit>
+                </Constraints>
+            </Constrained>
+        </DataType>
+        <Observable>No</Observable>
+    </Property>
+</Feature>
