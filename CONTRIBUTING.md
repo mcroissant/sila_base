@@ -9,13 +9,13 @@ The [list of issues](https://gitlab.com/groups/SiLA2/-/boards/539734) is a good 
 
 ## Find a task/issue to tackle
 
-2. Find an issue to tackle in the (Open Issues)[https://gitlab.com/groups/SiLA2/-/boards/539734] list
-2. Notify `#development` slack channel that you will be working on this issue (see instructions to (Join Us)[#join-us])
+2. Find an issue to tackle in the [Open Issues](https://gitlab.com/groups/SiLA2/-/boards/539734) list
+2. Notify `#development` slack channel that you will be working on this issue (see instructions to [Join Us](#join-us))
 3. Assign yourself to the issue
 4. Change the issue label to *Todo*
 
 **Note:** If you cant find an issue for the task you would like to work on, feel free to just create an MR or create 
-a new issue by going (here)[https://gitlab.com/groups/SiLA2/-/issues] to open some discussion.
+a new issue by going [here](https://gitlab.com/groups/SiLA2/-/issues) to open some discussion.
 
 Additional tests are rewarded with an immense amount of positive karma.
 
