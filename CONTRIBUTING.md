@@ -29,13 +29,14 @@ problems for other users, please feel free to open an issue.
 
 If any help is needed during your effort to contribute on this project, please don't hesitate to join our community:
 
-* Chat: [slack](sila-standard.slack.com) (please request access from maintainers if you cannot register manually)
-* 
+
 **Join the SiLA2 Slack Community**
+
 Sign up to the [slack](sila-standard.slack.com) community and join the `#development` channel.
 
 **Join the Gitlab SiLA2 developer group**
-Request `developer` access to the (SiLA2 Group)[https://gitlab.com/SiLA2] via the `#development` slack channel
+
+Request `developer` access to the [SiLA2 Group](https://gitlab.com/SiLA2) via the `#development` slack channel
 
 
 # Merge-Request Guidelines
