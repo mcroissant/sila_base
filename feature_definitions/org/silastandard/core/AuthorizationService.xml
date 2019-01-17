@@ -6,7 +6,7 @@
     <Identifier>AuthorizationService</Identifier>
     <DisplayName>Authorization Service</DisplayName>
     <Description>This Feature provides access control for the implementing server.
-        Therefore it specifies the SiLA Client Meta Data for the access token, that has been granted by the AuthenticationService.
+        Therefore it specifies the SiLA Client Meta Data for the access token, that has been provided by the AuthenticationService.
         In order to use the servers functionlity, that access token has to be sent with every call to server.</Description>
     <StandardExecutionError>
         <Identifier>InvalidAccessToken</Identifier>
