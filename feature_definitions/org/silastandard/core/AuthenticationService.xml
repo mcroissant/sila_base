@@ -30,7 +30,7 @@
         <Response>
             <Identifier>AccessToken</Identifier>
             <DisplayName>Access Token</DisplayName>
-            <Description>The token to be sent along with every SiLA Sserver call</Description>
+            <Description>The token to be used along with accessing a Command or Property on a SiLA Sserver.</Description>
             <DataType>
                 <Basic>String</Basic>
             </DataType>
