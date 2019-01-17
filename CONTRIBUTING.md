@@ -32,7 +32,7 @@ If any help is needed during your effort to contribute on this project, please d
 
 **Join the SiLA2 Slack Community**
 
-Sign up to the [slack](sila-standard.slack.com) community and join the `#development` channel.
+Sign up to the [slack](https://join.slack.com/t/sila-standard/shared_invite/enQtNDI0ODcxMDg5NzkzLTc4YjdkNzgxYjM5NDIyMzAyNTJjMjE1ZWI5MzY0M2Y2NmY3ZGQ2NTI3YzJiMmIzNTFmZmJkMWI3ZTMyMTk5NGY) community and join the `#development` channel.
 
 **Join the Gitlab SiLA2 developer group**
 
