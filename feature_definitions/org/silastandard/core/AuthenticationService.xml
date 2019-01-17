@@ -5,7 +5,7 @@
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>AuthenticationService</Identifier>
     <DisplayName>Authentication Service</DisplayName>
-    <Description>This Feature provides SiLA Clients with access tokens based in an identification and password</Description>
+    <Description>This Feature provides SiLA Clients with access tokens based on a user identification and password.</Description>
     <Command>
         <Identifier>Login</Identifier>
         <DisplayName>Login</DisplayName>
