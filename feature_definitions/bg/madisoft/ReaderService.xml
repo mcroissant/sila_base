@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" Originator="org.silastandard" Category="examples"
+         xmlns="http://www.sila-standard.org"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>ReaderService</Identifier>
+    <DisplayName>Reader Service</DisplayName>
+    <Description>
+        SiLA 2 Reader example
+    </Description>
+    <Command>
+        <Identifier>ReadCell</Identifier>
+        <DisplayName>Read Cell</DisplayName>
+        <Description>Read and present data from one target cell</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>TargetCell</Identifier>
+            <DisplayName>Cell position on the plate</DisplayName>
+            <Description>
+				Position of the target cell on the plate which the reader will try to find, reach
+				and will try to read the cell data
+            </Description>
+            <DataType>
+				<Basic>String</Basic>
+            </DataType>
+        </Parameter>
+		<Response>
+            <Identifier>Value</Identifier>
+            <DisplayName>Value</DisplayName>
+            <Description>Result value of the cell</Description>
+            <DataType>
+                <Basic>Real</Basic>
+            </DataType>
+        </Response>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>CellNotFound</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>ReadInterrupted</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+	<Command>
+        <Identifier>OpenDoor</Identifier>
+        <DisplayName>Open Door</DisplayName>
+        <Description>Open the device door</Description>
+        <Observable>No</Observable>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>OpenDoorInterrupted</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+	<Command>
+        <Identifier>CloseDoor</Identifier>
+        <DisplayName>Close Door</DisplayName>
+        <Description>Close the device door</Description>
+        <Observable>No</Observable>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>CloseDoorInterrupted</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+    <StandardExecutionError>
+        <Identifier>CellNotFound</Identifier>
+        <DisplayName>Cell Not Found</DisplayName>
+        <Description>The destination of the cell not found or cell destination is invalid</Description>
+    </StandardExecutionError>
+    <StandardExecutionError>
+        <Identifier>ReadInterrupted</Identifier>
+        <DisplayName>Read Interrupted</DisplayName>
+        <Description>Reading the cell was impossible or interrupted</Description>
+    </StandardExecutionError>
+    <StandardExecutionError>
+        <Identifier>OpenDoorInterrupted</Identifier>
+        <DisplayName>Open Door Interrupted</DisplayName>
+        <Description>Opening the device door was interrupted</Description>
+    </StandardExecutionError>
+	<StandardExecutionError>
+        <Identifier>CloseDoorInterrupted</Identifier>
+        <DisplayName>Close Door Interrupted</DisplayName>
+        <Description>Closing the device door was interrupted</Description>
+    </StandardExecutionError>
+</Feature>
