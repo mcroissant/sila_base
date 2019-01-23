@@ -22,7 +22,7 @@
         <Parameter>
             <Identifier>Password</Identifier>
             <DisplayName>Password</DisplayName>
-            <Description>The (encrpted) password</Description>
+            <Description>The (encrypted) password</Description>
             <DataType>
                 <Basic>String</Basic>
             </DataType>
@@ -35,8 +35,31 @@
                 <Basic>String</Basic>
             </DataType>
         </Response>
+        <Response>
+            <Identifier>TokenLifetime</Identifier>
+            <DisplayName>Token Lifetime</DisplayName>
+            <Description>The lifetime of the provided access token as the maximum validity period after the last SiLA Server request.</Description>
+            <DataType>
+                <Constrained>
+                    <DataType>
+                        <Basic>Integer</Basic>
+                    </DataType>
+                    <Constraints>
+                        <Unit>
+                            <Label>s</Label>
+                            <UnitComponent>
+                                <SIUnit>Second</SIUnit>
+                                <Exponent>1</Exponent>
+                                <Factor>1</Factor>
+                                <Offset>0</Offset>
+                            </UnitComponent>
+                        </Unit>
+                    </Constraints>
+                </Constrained>
+            </DataType>
+        </Response>
         <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>AuhtenticationFailed</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>AuthenticationFailed</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
     <StandardExecutionError>
@@ -47,31 +70,29 @@
     <Command>
         <Identifier>Logout</Identifier>
         <DisplayName>Logout</DisplayName>
-        <Description>Requires an access token in the meta data. Makes the sent access token invalid.</Description>
+        <Description>Invalidates the given access token immediately.</Description>
         <Observable>No</Observable>
+        <Parameter>
+            <Identifier>AccessToken</Identifier>
+            <DisplayName>Access Token</DisplayName>
+            <Description>The access token to be invalidated.</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Parameter>
     </Command>
-    <Property>
-        <Identifier>TokenLifeTime</Identifier>
-        <DisplayName>Token Life Time</DisplayName>
-        <Description>Returns the lifetime of the sent token as duration after last request</Description>
-        <DataType>
-            <Constrained>
-                <DataType>
-                    <Basic>Integer</Basic>
-                </DataType>
-                <Constraints>
-                    <Unit>
-                        <Label>s</Label>
-                        <UnitComponent>
-                            <SIUnit>Second</SIUnit>
-                            <Exponent>1</Exponent>
-                            <Factor>1</Factor>
-                            <Offset>0</Offset>
-                        </UnitComponent>
-                    </Unit>
-                </Constraints>
-            </Constrained>
-        </DataType>
+    <Command>
+        <Identifier>HasAccessTokenExpired</Identifier>
+        <DisplayName>Has Access Token Expired</DisplayName>
+        <Description>Returns true if the lifetime of the given access token has expired.</Description>
         <Observable>No</Observable>
-    </Property>
+        <Response>
+            <Identifier>AccessTokenHasExpired</Identifier>
+            <DisplayName>Access Token Has Expired</DisplayName>
+            <Description>True if the lifetime of the given given access token has expired.</Description>
+            <DataType>
+                <Basic>Boolean</Basic>
+            </DataType>
+        </Response>
+    </Command>
 </Feature>
