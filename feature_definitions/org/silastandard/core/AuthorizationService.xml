@@ -11,17 +11,22 @@
     <StandardExecutionError>
         <Identifier>InvalidAccessToken</Identifier>
         <DisplayName>Invalid Access Token</DisplayName>
-        <Description>The sent access token is not valid (lifetime might have exceeded)</Description>
+        <Description>The sent access token is not valid.</Description>
+    </StandardExecutionError>
+    <StandardExecutionError>
+        <Identifier>AccessTokenExpired</Identifier>
+        <DisplayName>Access Token Expired</DisplayName>
+        <Description>The lifetime of the sent access token has expired.</Description>
     </StandardExecutionError>
     <StandardExecutionError>
         <Identifier>NotAuthorized</Identifier>
         <DisplayName>Not Authorized</DisplayName>
-        <Description>The sent access token does not authorize to access the required SiLA Server functionality</Description>
+        <Description>The sent access token does not authorize to access the required SiLA Server functionality.</Description>
     </StandardExecutionError>
     <Metadata>
         <Identifier>AccessToken</Identifier>
         <DisplayName>AccessToken</DisplayName>
-        <Description>Token to be sent with every call in order to get access to the SiLA Server functionality</Description>
+        <Description>Token to be sent with every call in order to get access to the SiLA Server functionality.</Description>
         <DataType>
             <Basic>String</Basic>
         </DataType>
