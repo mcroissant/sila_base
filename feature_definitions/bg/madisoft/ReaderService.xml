@@ -19,10 +19,11 @@
             <DisplayName>Well address on the plate</DisplayName>
             <Description>
 				Address of the target well on the plate which the reader will try to find, reach
-				and will try to read the well data
+				and will try to read the well data.
+				The plate is ordered list of wells and this addess is the corresponding index of this list
             </Description>
             <DataType>
-				<Basic>String</Basic>
+				<Basic>Integer</Basic>
             </DataType>
         </Parameter>
 		<Response>
