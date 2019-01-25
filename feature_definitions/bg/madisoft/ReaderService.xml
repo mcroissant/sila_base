@@ -8,17 +8,18 @@
     <Description>
         SiLA 2 Reader example
     </Description>
+	<!-- Commands -->
     <Command>
-        <Identifier>ReadCell</Identifier>
-        <DisplayName>Read Cell</DisplayName>
-        <Description>Read and present data from one target cell</Description>
+        <Identifier>ReadWell</Identifier>
+        <DisplayName>Read Well</DisplayName>
+        <Description>Read and present data from one target well</Description>
         <Observable>No</Observable>
         <Parameter>
-            <Identifier>TargetCell</Identifier>
-            <DisplayName>Cell position on the plate</DisplayName>
+            <Identifier>TargetWell</Identifier>
+            <DisplayName>Well address on the plate</DisplayName>
             <Description>
-				Position of the target cell on the plate which the reader will try to find, reach
-				and will try to read the cell data
+				Address of the target well on the plate which the reader will try to find, reach
+				and will try to read the well data
             </Description>
             <DataType>
 				<Basic>String</Basic>
@@ -27,13 +28,34 @@
 		<Response>
             <Identifier>Value</Identifier>
             <DisplayName>Value</DisplayName>
-            <Description>Result value of the cell</Description>
+            <Description>Result value of the well</Description>
             <DataType>
                 <Basic>Real</Basic>
             </DataType>
         </Response>
         <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>CellNotFound</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>WellNotFound</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>ReadInterrupted</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+	<Command>
+        <Identifier>ReadPlate</Identifier>
+        <DisplayName>Read Plate</DisplayName>
+        <Description>Go through every plate well and read its result</Description>
+        <Observable>Yes</Observable>
+		<Response>
+            <Identifier>ResultList</Identifier>
+            <DisplayName>Result List Values</DisplayName>
+            <Description>Result list of values of every well</Description>
+            <DataType>
+				<List>
+					<DataType>
+						<Basic>Real</Basic>
+					</DataType>
+				</List>
+            </DataType>
+        </Response>
+        <StandardExecutionErrors>
             <StandardExecutionErrorIdentifier>ReadInterrupted</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
@@ -55,15 +77,65 @@
             <StandardExecutionErrorIdentifier>CloseDoorInterrupted</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
+	<!-- Properties -->
+	<Property>
+		<Identifier>PlateType</Identifier>
+        <DisplayName>Plate Type</DisplayName>
+        <Description>
+            Support two types of plates: 96 and 384 wells
+        </Description>
+        <DataType>
+			<Constrained>
+                <DataType>
+                    <Basic>Integer</Basic>
+                </DataType>
+                <Constraints>
+                    <Enumeration>
+                        <Value>96</Value>
+                        <Value>384</Value>
+                    </Enumeration>
+                </Constraints>
+            </Constrained>
+		</DataType>
+		<Observable>No</Observable>
+	</Property>
+	<Property>
+		<Identifier>Status</Identifier>
+        <DisplayName>Reader Status</DisplayName>
+        <Description>
+            Current status of the Reader device
+			
+			Possible values are:
+			- Idle: Reader is online and ready for command execution
+			- Busy: Reader is executing a command and because of that is busy and cannot execute other command
+			- Unavailable: This combines Offline and Disconnected statuses which means that Reader cannot execute any command or get a property
+        </Description>
+        <DataType>
+			<Constrained>
+                <DataType>
+                    <Basic>String</Basic>
+                </DataType>
+                <Constraints>
+                    <Enumeration>
+                        <Value>Idle</Value>
+                        <Value>Busy</Value>
+                        <Value>Unavailable</Value>
+                    </Enumeration>
+                </Constraints>
+            </Constrained>
+		</DataType>
+		<Observable>Yes</Observable>
+	</Property>
+	<!-- Command Execution Errors -->
     <StandardExecutionError>
-        <Identifier>CellNotFound</Identifier>
-        <DisplayName>Cell Not Found</DisplayName>
-        <Description>The destination of the cell not found or cell destination is invalid</Description>
+        <Identifier>WellNotFound</Identifier>
+        <DisplayName>Well Not Found</DisplayName>
+        <Description>The destination of the well not found or well destination is invalid</Description>
     </StandardExecutionError>
     <StandardExecutionError>
         <Identifier>ReadInterrupted</Identifier>
         <DisplayName>Read Interrupted</DisplayName>
-        <Description>Reading the cell was impossible or interrupted</Description>
+        <Description>Reading the well was impossible or interrupted</Description>
     </StandardExecutionError>
     <StandardExecutionError>
         <Identifier>OpenDoorInterrupted</Identifier>
