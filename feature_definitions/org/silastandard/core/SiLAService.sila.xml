@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Verified" Originator="org.silastandard" Category="core"
+<Feature SiLA2Version="0.1" FeatureVersion="1.0" MaturityLevel="Verified" Originator="org.silastandard" Category="core"
         xmlns="http://www.sila-standard.org" 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
@@ -76,7 +76,8 @@
     <Property>
         <Identifier>ServerUUID</Identifier>
         <DisplayName>Server UUID</DisplayName>
-        <Description>Globally unique identifier that identifies a SiLA Server. The Server UUID MUST be generated once and always remain the same.</Description>
+        <Description>Globally unique identifier that identifies a SiLA Server. The Server UUID MUST
+            be generated once and always remain the same.</Description>
         <DataType>
             <Constrained>
                 <DataType>
@@ -102,7 +103,8 @@
     <Property>
         <Identifier>ServerVersion</Identifier>
         <DisplayName>Server Version</DisplayName>
-        <Description>Returns the version of the SiLA Server. A "Major" and a "Minor" version number (e.g. 1.0) MUST be provided, a Patch version number MAY be provided. Optionally, an arbitrary text, separated by an underscore MAY be appended, e.g. “3.19.373_mighty_lab_devices”
+        <Description>Returns the version of the SiLA Server. A "Major" and a "Minor" version number (e.g. 1.0) MUST be provided,
+            a Patch version number MAY be provided. Optionally, an arbitrary text, separated by an underscore MAY be appended, e.g. “3.19.373_mighty_lab_devices”
         </Description>
         <DataType>
             <Constrained>
@@ -161,7 +163,7 @@
         <Identifier>FeatureDefinition</Identifier>
         <DisplayName>Feature Definition</DisplayName>
         <Description>The content of a Feature Definition conforming 
-            with the XML Schema</Description>
+            with the XML Schema.</Description>
         <DataType>
             <Basic>String</Basic>
         </DataType>
@@ -169,7 +171,7 @@
     <DataTypeDefinition>
         <Identifier>URL</Identifier>
         <DisplayName>URL</DisplayName>
-        <Description></Description>
+        <Description>Uniform Resource Locator as defined in RFC 1738.</Description>
         <DataType>
             <Constrained>
                 <DataType>
