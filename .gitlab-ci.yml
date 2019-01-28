@@ -1,0 +1,3 @@
+xml_test:
+    stage: feature_test
+    script: ./validate_features.sh
