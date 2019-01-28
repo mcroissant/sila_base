@@ -2,5 +2,6 @@ stages:
   - test
 
 feature_test:
+    image: mribeiro/xmllint
     stage: test
     script: ./validate_features.sh
