@@ -1,3 +1,6 @@
-xml_test:
-    stage: feature_test
+stages:
+  - test
+
+feature_test:
+    stage: test
     script: ./validate_features.sh
