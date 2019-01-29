@@ -1,0 +1,7 @@
+stages:
+  - test
+
+feature_test:
+    image: vsasyan/xmllint
+    stage: test
+    script: ./validate_features.sh

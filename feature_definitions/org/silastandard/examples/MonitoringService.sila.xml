@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Draft" Originator="org.silastandard" Category="examples"
+<Feature SiLA2Version="0.1" FeatureVersion="1.0" MaturityLevel="Draft" Originator="org.silastandard" Category="examples"
         xmlns="http://www.sila-standard.org"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
@@ -16,24 +16,32 @@
             <Structure>
                 <Element>
                     <Identifier>FeatureIdentifier</Identifier>
+                    <DisplayName>Feature Identifier</DisplayName>
+                    <Description/>
                     <DataType>
                         <Basic>String</Basic>
                     </DataType>
                 </Element>
                 <Element>
                     <Identifier>CommandIdentifier</Identifier>
+                    <DisplayName>Command Identifier</DisplayName>
+                    <Description/>
                     <DataType>
                         <Basic>String</Basic>
                     </DataType>
                 </Element>
                 <Element>
                     <Identifier>Parameters</Identifier>
+                    <DisplayName>Parameters</DisplayName>
+                    <Description/>
                     <DataType>
                         <Basic>Any</Basic>
                     </DataType>
                 </Element>
                 <Element>
                     <Identifier>Results</Identifier>
+                    <DisplayName>Results</DisplayName>
+                    <Description/>
                     <DataType>
                         <Basic>Any</Basic>
                     </DataType>
