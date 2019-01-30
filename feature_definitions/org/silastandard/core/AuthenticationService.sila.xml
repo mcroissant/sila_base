@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" MaturityLevel="Draft" Originator="org.silastandard" Category="core"
+<Feature SiLA2Version="0.1" FeatureVersion="1.0" MaturityLevel="Draft" Originator="org.silastandard" Category="core"
          xmlns="http://www.sila-standard.org"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
@@ -9,7 +9,7 @@
     <Command>
         <Identifier>Login</Identifier>
         <DisplayName>Login</DisplayName>
-        <Description></Description>
+        <Description>Provides an access token based on user information.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>UserIdentification</Identifier>
@@ -30,7 +30,7 @@
         <Response>
             <Identifier>AccessToken</Identifier>
             <DisplayName>Access Token</DisplayName>
-            <Description>The token to be used along with accessing a Command or Property on a SiLA Sserver.</Description>
+            <Description>The token to be used along with accessing a Command or Property on a SiLA Server.</Description>
             <DataType>
                 <Basic>String</Basic>
             </DataType>
@@ -80,19 +80,5 @@
                 <Basic>String</Basic>
             </DataType>
         </Parameter>
-    </Command>
-    <Command>
-        <Identifier>HasAccessTokenExpired</Identifier>
-        <DisplayName>Has Access Token Expired</DisplayName>
-        <Description>Returns true if the lifetime of the given access token has expired.</Description>
-        <Observable>No</Observable>
-        <Response>
-            <Identifier>AccessTokenHasExpired</Identifier>
-            <DisplayName>Access Token Has Expired</DisplayName>
-            <Description>True if the lifetime of the given given access token has expired.</Description>
-            <DataType>
-                <Basic>Boolean</Basic>
-            </DataType>
-        </Response>
     </Command>
 </Feature>

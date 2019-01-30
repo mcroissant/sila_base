@@ -27,26 +27,8 @@
                   </xs:simpleType>
                 </xs:element>
                 <xs:element type="tns:SiLAElement" name="Parameter" maxOccurs="unbounded" minOccurs="0" />
-                <xs:element name="Response" maxOccurs="unbounded" minOccurs="0">
-                  <xs:complexType>
-                    <xs:sequence>
-                      <xs:element type="tns:IdentifierType" name="Identifier" />
-                      <xs:element type="tns:DisplayNameType" name="DisplayName" />
-                      <xs:element type="xs:string" name="Description" />
-                      <xs:element type="tns:DataTypeType" name="DataType" />
-                    </xs:sequence>
-                  </xs:complexType>
-                </xs:element>
-                <xs:element name="IntermediateResponse" maxOccurs="unbounded" minOccurs="0">
-                  <xs:complexType>
-                    <xs:sequence>
-                      <xs:element type="tns:IdentifierType" name="Identifier" />
-                      <xs:element type="tns:DisplayNameType" name="DisplayName" />
-                      <xs:element type="xs:string" name="Description" />
-                      <xs:element type="tns:DataTypeType" name="DataType" />
-                    </xs:sequence>
-                  </xs:complexType>
-                </xs:element>
+                <xs:element type="tns:SiLAElement" name="Response" maxOccurs="unbounded" minOccurs="0" />
+                <xs:element type="tns:SiLAElement" name="IntermediateResponse" maxOccurs="unbounded" minOccurs="0" />
                 <xs:element name="StandardExecutionErrors" maxOccurs="1" minOccurs="0">
                   <xs:complexType>
                     <xs:sequence>
@@ -101,16 +83,7 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-          <xs:element name="DataTypeDefinition" maxOccurs="unbounded" minOccurs="0">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element type="tns:IdentifierType" name="Identifier" />
-                <xs:element type="tns:DisplayNameType" name="DisplayName" />
-                <xs:element type="xs:string" name="Description" />
-                <xs:element type="tns:DataTypeType" name="DataType" />
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
+          <xs:element type="tns:SiLAElement" name="DataTypeDefinition" maxOccurs="unbounded" minOccurs="0" />
           <xs:element name="Metadata" maxOccurs="unbounded" minOccurs="0">
             <xs:complexType>
               <xs:sequence>
@@ -134,10 +107,21 @@
       </xs:sequence>
 
       <!-- Attributes -->
-      <xs:attribute type="xs:positiveInteger" name="SiLAVersion" use="required" />
       <xs:attribute type="xs:string" name="Locale" use="optional" default="en-us" />
-      <xs:attribute type="xs:nonNegativeInteger" name="MajorVersion" use="required" />
-      <xs:attribute type="xs:nonNegativeInteger" name="MinorVersion" use="required" />
+      <xs:attribute name="SiLA2Version" use="required">
+        <xs:simpleType>
+          <xs:restriction base ="xs:string">
+            <xs:pattern value="\d+\.\d+" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="FeatureVersion" use="required">
+        <xs:simpleType>
+          <xs:restriction base ="xs:string">
+            <xs:pattern value="\d+\.\d+" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
       <xs:attribute name="MaturityLevel" use="optional" default="Draft">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -164,7 +148,7 @@
     </xs:complexType>
   </xs:element>
 
-  <!-- XSD Types -->
+  <!-- XSD Internal Types -->
   <xs:simpleType name="IdentifierType">
     <xs:restriction base ="xs:string">
       <xs:pattern value="[A-Z][a-zA-Z0-9]*" />
@@ -224,7 +208,7 @@
       <xs:element type="tns:DataTypeType" name="DataType"/>
       <xs:element name="Constraints">
         <xs:complexType>
-          <!-- All contraints should be unique for a constrained type -->
+          <!-- All constraints should be unique for a constrained type -->
           <xs:all>
             <xs:element type="xs:positiveInteger" name="Length" minOccurs="0">
               <xs:annotation>
