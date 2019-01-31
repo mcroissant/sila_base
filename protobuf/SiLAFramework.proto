@@ -25,10 +25,6 @@ message SmallBinary {
     bytes value = 1;
 }
 
-message LargeBinary {
-    string binaryIdentifier = 1;
-}
-
 message Date {
     uint32 day = 1;
     uint32 month = 2;
@@ -58,44 +54,7 @@ message Timezone {
     uint32 minutes = 2;
 }
 
-message Any {
-    SiLAType type = 1;
-    bytes payload = 2;
-}
-
 // -------- Framework Types --------
-enum BasicType {
-    STRING = 0;
-    INTEGER = 1;
-    REAL = 2;
-    BOOLEAN = 3;
-    SMALL_BINARY = 4;
-    LARGE_BINARY = 5;
-    DATE = 6;
-    TIME = 7;
-    TIME_STAMP = 8;
-}
-
-message ListType {
-    SiLAType silaType = 1;
-}
-
-message StructureType {
-    message Element {
-        String identifier = 1;
-        SiLAType type = 2;
-    }
-    repeated Element elements = 1;
-}
-
-message SiLAType {
-    oneof dataType {
-        BasicType basicType = 1;
-        ListType listType = 2;
-        StructureType structureType = 3;
-    }
-}
-
 message Duration {
     int64 seconds = 1;
     int32 nanos = 2;
@@ -143,37 +102,22 @@ message ExecutionError {
     string errorIdentifier = 1;
     string cause = 2;
     string action = 3;
-    string featureIdentifier = 4;
-    Any parameters = 5;
 }
 
 message ReadError {
     string errorIdentifier = 1;
     string cause = 2;
-    string featureIdentifier = 3;
+    string action = 3;
 }
 
 message FrameworkError {
     enum ErrorType {
-        INVALID_COMMAND_EXECUTION_UUID = 0;
-        COMMAND_EXECUTION_NOT_FINISHED = 1;
-        MISSING_METADATA = 2;
+        COMMAND_EXECUTION_NOT_ACCEPTED = 0;
+        INVALID_COMMAND_EXECUTION_UUID = 1;
+        COMMAND_EXECUTION_NOT_FINISHED = 2;
     }
     ErrorType errorType = 1;
 }
-
-/* TODO: Add ConstrainedType with all Constraints
-message ConstrainedType {
-    message Constraints {
-        int64 length = 1;
-        int64 minimalLength = 2;
-        int64 maximalLength = 3;
-    }
-
-    Constraints constraints = 1;
-    SiLAType type = 2;
-}
-*/
 
 
 
