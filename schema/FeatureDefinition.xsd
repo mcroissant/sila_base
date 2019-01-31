@@ -181,15 +181,11 @@
       <xs:enumeration value="String"/>
       <xs:enumeration value="Integer"/>
       <xs:enumeration value="Real"/>
-      <xs:enumeration value="Quantity"/>
       <xs:enumeration value="Boolean"/>
       <xs:enumeration value="SmallBinary"/>
-      <xs:enumeration value="LargeBinary"/>
       <xs:enumeration value="Date"/>
       <xs:enumeration value="Time"/>
       <xs:enumeration value="Timestamp"/>
-      <xs:enumeration value="Any"/>
-      <xs:enumeration value="TypeDefinition"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="ListType">
@@ -216,12 +212,12 @@
             </xs:element>
             <xs:element type="xs:positiveInteger" name="MinimalLength" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>Applicable to SiLA basic type: String, LargeBinary, SmallBinary</xs:documentation>
+                <xs:documentation>Applicable to SiLA basic type: String, SmallBinary</xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element type="xs:positiveInteger" name="MaximalLength" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>Applicable to SiLA basic type: String, LargeBinary, SmallBinary</xs:documentation>
+                <xs:documentation>Applicable to SiLA basic type: String, SmallBinary</xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element name="Enumeration" minOccurs="0">
@@ -244,7 +240,7 @@
               <xs:annotation>
                 <xs:documentation>
                   Applicable to SiLA basic type: Integer[xs:integer], Real[xs:decimal],
-                  Quantity[xs:decimal], Date[xs:date], Time[xs:time] and Timestamp[xs:dateTime].
+                  Date[xs:date], Time[xs:time] and Timestamp[xs:dateTime].
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
@@ -252,7 +248,7 @@
               <xs:annotation>
                 <xs:documentation>
                   Applicable to SiLA basic type: Integer[xs:integer], Real[xs:decimal],
-                  Quantity[xs:decimal], Date[xs:date], Time[xs:time] and Timestamp[xs:dateTime].
+                  Date[xs:date], Time[xs:time] and Timestamp[xs:dateTime].
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
@@ -260,7 +256,7 @@
               <xs:annotation>
                 <xs:documentation>
                   Applicable to SiLA basic type: Integer[xs:integer], Real[xs:decimal],
-                  Quantity[xs:decimal], Date[xs:date], Time[xs:time] and Timestamp[xs:dateTime].
+                  Date[xs:date], Time[xs:time] and Timestamp[xs:dateTime].
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
@@ -268,13 +264,13 @@
               <xs:annotation>
                 <xs:documentation>
                   Applicable to SiLA basic type: Integer[xs:integer], Real[xs:decimal],
-                  Quantity[xs:decimal], Date[xs:date], Time[xs:time] and Timestamp[xs:dateTime].
+                  Date[xs:date], Time[xs:time] and Timestamp[xs:dateTime].
                 </xs:documentation>
               </xs:annotation>
             </xs:element>
             <xs:element name="Unit" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>Applicable to SiLA basic type: Integer[xs:integer], Real[xs:decimal], Quantity[xs:decimal]</xs:documentation>
+                <xs:documentation>Applicable to SiLA basic type: Integer[xs:integer] and Real[xs:decimal]</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:sequence>
@@ -305,40 +301,9 @@
                 </xs:sequence>
               </xs:complexType>
             </xs:element>
-            <xs:element name="Dimension" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Applicable to SiLA basic type: Quantity.</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element type="xs:string" name="Label"/>
-                  <xs:element name="DimensionComponent" minOccurs="1" maxOccurs="unbounded">
-                    <xs:complexType>
-                      <xs:sequence>
-                        <xs:element name="Dimension">
-                          <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                              <xs:enumeration value="Dimensionless"/>
-                              <xs:enumeration value="Length"/>
-                              <xs:enumeration value="Mass"/>
-                              <xs:enumeration value="Time"/>
-                              <xs:enumeration value="ElectricCurrent"/>
-                              <xs:enumeration value="ThermodynamicTemperature"/>
-                              <xs:enumeration value="AmountOfSubstance"/>
-                              <xs:enumeration value="LuminousIntensity"/>
-                            </xs:restriction>
-                          </xs:simpleType>
-                        </xs:element>
-                        <xs:element type="xs:integer" name="Exponent"/>
-                      </xs:sequence>
-                    </xs:complexType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
             <xs:element name="ContentType" minOccurs="0">
               <xs:annotation>
-                <xs:documentation>Applicable to SiLA basic type: String, LargeBinary, SmallBinary.</xs:documentation>
+                <xs:documentation>Applicable to SiLA basic type: String, SmallBinary.</xs:documentation>
               </xs:annotation>
               <xs:complexType>
                 <xs:sequence>
@@ -358,16 +323,6 @@
                       </xs:sequence>
                     </xs:complexType>
                   </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="AllowedTypes" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Applicable to SiLA basic type: Any</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element type="tns:IdentifierType" name="DataTypeIdentifier" minOccurs="1" />
                 </xs:sequence>
               </xs:complexType>
             </xs:element>

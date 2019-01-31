@@ -55,38 +55,6 @@ message Timezone {
 }
 
 // -------- Framework Types --------
-enum BasicType {
-    STRING = 0;
-    INTEGER = 1;
-    REAL = 2;
-    BOOLEAN = 3;
-    SMALL_BINARY = 4;
-    LARGE_BINARY = 5;
-    DATE = 6;
-    TIME = 7;
-    TIME_STAMP = 8;
-}
-
-message ListType {
-    SiLAType silaType = 1;
-}
-
-message StructureType {
-    message Element {
-        String identifier = 1;
-        SiLAType type = 2;
-    }
-    repeated Element elements = 1;
-}
-
-message SiLAType {
-    oneof dataType {
-        BasicType basicType = 1;
-        ListType listType = 2;
-        StructureType structureType = 3;
-    }
-}
-
 message Duration {
     int64 seconds = 1;
     int32 nanos = 2;
@@ -127,20 +95,17 @@ message SiLAError {
 message ValidationError {
     string parameter = 1;
     string cause = 2;
-    string action = 3;
 }
 
 message ExecutionError {
     string errorIdentifier = 1;
     string cause = 2;
     string action = 3;
-    string featureIdentifier = 4;
 }
 
 message ReadError {
     string errorIdentifier = 1;
     string cause = 2;
-    string featureIdentifier = 3;
 }
 
 message FrameworkError {
