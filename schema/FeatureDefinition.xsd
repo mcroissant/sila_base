@@ -45,7 +45,6 @@
                 <xs:element type="tns:IdentifierType" name="Identifier" />
                 <xs:element type="tns:DisplayNameType" name="DisplayName" />
                 <xs:element type="xs:string" name="Description" />
-                <xs:element type="tns:SiLAElement" name="Parameter" maxOccurs="unbounded" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
