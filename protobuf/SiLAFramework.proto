@@ -25,10 +25,6 @@ message SmallBinary {
     bytes value = 1;
 }
 
-message LargeBinary {
-    string binaryIdentifier = 1;
-}
-
 message Date {
     uint32 day = 1;
     uint32 month = 2;
@@ -56,11 +52,6 @@ message Timestamp {
 message Timezone {
     int32 hours = 1;
     uint32 minutes = 2;
-}
-
-message Any {
-    SiLAType type = 1;
-    bytes payload = 2;
 }
 
 // -------- Framework Types --------
@@ -144,7 +135,6 @@ message ExecutionError {
     string cause = 2;
     string action = 3;
     string featureIdentifier = 4;
-    Any parameters = 5;
 }
 
 message ReadError {
@@ -161,19 +151,6 @@ message FrameworkError {
     }
     ErrorType errorType = 1;
 }
-
-/* TODO: Add ConstrainedType with all Constraints
-message ConstrainedType {
-    message Constraints {
-        int64 length = 1;
-        int64 minimalLength = 2;
-        int64 maximalLength = 3;
-    }
-
-    Constraints constraints = 1;
-    SiLAType type = 2;
-}
-*/
 
 
 
