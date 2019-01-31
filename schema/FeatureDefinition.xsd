@@ -344,9 +344,10 @@
                 <xs:restriction base="xs:string">
                   <xs:enumeration value="FeatureIdentifier"/>
                   <xs:enumeration value="CommandIdentifier"/>
-                  <xs:enumeration value="ParameterIdentifier"/>
+                  <xs:enumeration value="CommandParameterIdentifier"/>
                   <xs:enumeration value="CommandResponseIdentifier"/>
                   <xs:enumeration value="StandardExecutionErrorIdentifier"/>
+                  <xs:enumeration value="PropertyIdentifier"/>
                   <xs:enumeration value="StandardReadErrorIdentifier"/>
                   <xs:enumeration value="TypeIdentifier"/>
                 </xs:restriction>
