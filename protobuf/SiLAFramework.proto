@@ -95,6 +95,7 @@ message SiLAError {
 message ValidationError {
     string parameter = 1;
     string cause = 2;
+    string action = 3;
 }
 
 message ExecutionError {
@@ -106,6 +107,7 @@ message ExecutionError {
 message ReadError {
     string errorIdentifier = 1;
     string cause = 2;
+    string action = 3;
 }
 
 message FrameworkError {
