@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" Originator="org.silastandard" Category="examples"
+<Feature SiLA2Version="0.1" FeatureVersion="1.0" Originator="bg.madisoft"
          xmlns="http://www.sila-standard.org"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>ReaderService</Identifier>
     <DisplayName>Reader Service</DisplayName>
     <Description>
-        SiLA 2 Reader example
+        SiLA 2 Device Reader example - Show basic operations for a device reader like reading from 
+		selected well of a plate, reading all wells in a plate and open/close device cover. There are two
+		types of plates with 96 and 384 wells.
     </Description>
 	<!-- Commands -->
     <Command>
@@ -61,21 +63,21 @@
         </StandardExecutionErrors>
     </Command>
 	<Command>
-        <Identifier>OpenDoor</Identifier>
-        <DisplayName>Open Door</DisplayName>
-        <Description>Open the device door</Description>
+        <Identifier>OpenCover</Identifier>
+        <DisplayName>Open Cover</DisplayName>
+        <Description>Open the device cover</Description>
         <Observable>No</Observable>
         <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>OpenDoorInterrupted</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>OpenCoverInterrupted</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
 	<Command>
-        <Identifier>CloseDoor</Identifier>
-        <DisplayName>Close Door</DisplayName>
-        <Description>Close the device door</Description>
+        <Identifier>CloseCover</Identifier>
+        <DisplayName>Close Cover</DisplayName>
+        <Description>Close the device cover</Description>
         <Observable>No</Observable>
         <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>CloseDoorInterrupted</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>CloseCoverInterrupted</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
 	<!-- Properties -->
@@ -83,6 +85,7 @@
 		<Identifier>PlateType</Identifier>
         <DisplayName>Plate Type</DisplayName>
         <Description>
+			The plate type for the device reader. Defines plate dimension. Number of wells in the plate.
             Support two types of plates: 96 and 384 wells
         </Description>
         <DataType>
@@ -139,13 +142,13 @@
         <Description>Reading the well was impossible or interrupted</Description>
     </StandardExecutionError>
     <StandardExecutionError>
-        <Identifier>OpenDoorInterrupted</Identifier>
-        <DisplayName>Open Door Interrupted</DisplayName>
-        <Description>Opening the device door was interrupted</Description>
+        <Identifier>OpenCoverInterrupted</Identifier>
+        <DisplayName>Open Cover Interrupted</DisplayName>
+        <Description>Opening the device cover was interrupted</Description>
     </StandardExecutionError>
 	<StandardExecutionError>
-        <Identifier>CloseDoorInterrupted</Identifier>
-        <DisplayName>Close Door Interrupted</DisplayName>
-        <Description>Closing the device door was interrupted</Description>
+        <Identifier>CloseCoverInterrupted</Identifier>
+        <DisplayName>Close Cover Interrupted</DisplayName>
+        <Description>Closing the device cover was interrupted</Description>
     </StandardExecutionError>
 </Feature>
