@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="http://www.sila-standard.org"
+    xmlns:cst="http://www.sila-standard.org/Constraint"
+    targetNamespace="http://www.sila-standard.org/Data">
+  <xs:import namespace="http://www.sila-standard.org/Constraint" schemaLocation="Constraint.xsd"/>
+  <xs:import namespace="http://www.sila-standard.org" schemaLocation="FeatureDefinition.xsd"/>
+  <xs:complexType name="DataTypeType">
+    <xs:choice>
+      <xs:element type="tns:BasicType" name="Basic" minOccurs="0"/>
+      <xs:element type="tns:ListType" name="List" minOccurs="0"/>
+      <xs:element type="tns:StructureType" name="Structure" minOccurs="0"/>
+      <xs:element type="cst:ConstrainedType" name="Constrained" minOccurs="0"/>
+      <xs:element type="tns:IdentifierType" name="DataTypeIdentifier" minOccurs="0"/>
+    </xs:choice>
+  </xs:complexType>
+</xs:schema>
