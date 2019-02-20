@@ -2,9 +2,9 @@
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:tns="http://www.sila-standard.org"
-    xmlns:dta="http://www.sila-standard.org/Data"
     targetNamespace="http://www.sila-standard.org">
-  <xs:import namespace="http://www.sila-standard.org/Data" schemaLocation="DataTypeType.xsd"/>
+  <xs:include schemaLocation="Constraint.xsd"/>
+  <xs:include schemaLocation="DataTypeType.xsd"/>
   <xs:element name="Feature">
     <xs:complexType>
       <!-- Feature Content -->
@@ -56,7 +56,7 @@
                 <xs:element type="tns:IdentifierType" name="Identifier" />
                 <xs:element type="tns:DisplayNameType" name="DisplayName" />
                 <xs:element type="xs:string" name="Description" />
-                <xs:element type="dta:DataTypeType" name="DataType" />
+                <xs:element type="tns:DataTypeType" name="DataType" />
                 <xs:element name="Observable">
                   <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -147,7 +147,7 @@
       <xs:element type="tns:IdentifierType" name="Identifier" />
       <xs:element type="tns:DisplayNameType" name="DisplayName" />
       <xs:element type="xs:string" name="Description" />
-      <xs:element type="dta:DataTypeType" name="DataType" />
+      <xs:element type="tns:DataTypeType" name="DataType" />
     </xs:sequence>
   </xs:complexType>
   <xs:simpleType name="BasicType">
@@ -164,7 +164,7 @@
   </xs:simpleType>
   <xs:complexType name="ListType">
     <xs:sequence>
-      <xs:element type="dta:DataTypeType" name="DataType"/>
+      <xs:element type="tns:DataTypeType" name="DataType"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="StructureType">
