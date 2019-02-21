@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" 
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    xmlns="http://www.sila-standard.org">
-  <xs:include schemaLocation="DataTypeType.xsd"/>
+    xmlns:tns="http://www.sila-standard.org"
+    targetNamespace="http://www.sila-standard.org">
+  <xs:include schemaLocation="Types.xsd"/>
   <xs:complexType name="ConstrainedType">
     <xs:sequence>
-      <xs:element type="DataTypeType" name="DataType"/>
+      <xs:element type="tns:DataTypeType" name="DataType"/>
       <xs:element name="Constraints">
         <xs:complexType>
           <!-- All constraints should be unique for a constrained type -->
