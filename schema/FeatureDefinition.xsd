@@ -3,7 +3,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:tns="http://www.sila-standard.org"
     targetNamespace="http://www.sila-standard.org">
-  <xs:include schemaLocation="Types.xsd"/>
+  <xs:include schemaLocation="https://gitlab.com/SiLA2/sila_features/raw/modular_schema/schema/DataTypes.xsd"/>
   <xs:element name="Feature">
     <xs:complexType>
       <!-- Feature Content -->
