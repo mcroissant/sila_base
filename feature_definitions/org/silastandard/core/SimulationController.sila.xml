@@ -10,7 +10,7 @@
 
         A SiLA Server can run in two modes:
         (a) a real mode - with real activities, e.g. addressing or controlling real hardware,
-        writing to real databeses, moving real plates etc.
+        writing to real databases, moving real plates etc.
         (b) a simulation mode - where every command is only simulated and responses are just example returns.
 
         Note that certain commands and properties might not be affected by this feature if they
