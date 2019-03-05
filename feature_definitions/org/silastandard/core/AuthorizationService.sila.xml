@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLA2Version="0.1" FeatureVersion="1.0" MaturityLevel="Draft" Originator="org.silastandard" Category="core"
+         xmlns="http://www.sila-standard.org"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>AuthorizationService</Identifier>
+    <DisplayName>Authorization Service</DisplayName>
+    <Description>This Feature provides access control for the implementing server.
+        Therefore it specifies the SiLA Client Meta Data for the access token, that has been provided by the AuthenticationService
+        core Feature.
+        In order to use the servers functionality, that access token has to be sent with every call to server.</Description>
+    <StandardExecutionError>
+        <Identifier>InvalidAccessToken</Identifier>
+        <DisplayName>Invalid Access Token</DisplayName>
+        <Description>The sent access token is not valid.</Description>
+    </StandardExecutionError>
+    <StandardExecutionError>
+        <Identifier>AccessTokenExpired</Identifier>
+        <DisplayName>Access Token Expired</DisplayName>
+        <Description>The lifetime of the sent access token has expired.</Description>
+    </StandardExecutionError>
+    <StandardExecutionError>
+        <Identifier>NotAuthorized</Identifier>
+        <DisplayName>Not Authorized</DisplayName>
+        <Description>The sent access token does not authorize to access the required SiLA Server functionality.</Description>
+    </StandardExecutionError>
+    <Metadata>
+        <Identifier>AccessToken</Identifier>
+        <DisplayName>AccessToken</DisplayName>
+        <Description>Token to be sent with every call in order to get access to the SiLA Server functionality.</Description>
+        <DataType>
+            <Basic>String</Basic>
+        </DataType>
+        <SendWith>All</SendWith>
+    </Metadata>
+</Feature>
