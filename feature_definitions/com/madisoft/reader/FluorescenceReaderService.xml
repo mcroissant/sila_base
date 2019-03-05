@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLA2Version="0.1" FeatureVersion="1.0" Originator="com.madisoft" Category="reader"
+        xmlns="http://www.sila-standard.org"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>FluorescenceReaderService</Identifier>
+    <DisplayName>Fluorescence Reader Service</DisplayName>
+    <Description>SiLA 2 Device Fluorescence Reader feature - Show basic operations for a device fluorescence reader: reading from
+        selected well of a plate and reading all wells in a plate. Fluorescence reading has excitation and emission properties.
+    </Description>
+    <!-- Commands -->
+    <Command>
+        <Identifier>FluorescenceReadWell</Identifier>
+        <DisplayName>Fluorescence Read Well</DisplayName>
+        <Description>Read and present data from one target well</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>TargetWell</Identifier>
+            <DisplayName>Target Well</DisplayName>
+            <Description>Address of the target well on the plate which the reader will try to find, reach
+                and will try to read the well data.
+            </Description>
+            <DataType>
+                <DataTypeIdentifier>WellAddress</DataTypeIdentifier>
+            </DataType>
+        </Parameter>
+        <Response>
+            <Identifier>Value</Identifier>
+            <DisplayName>Value</DisplayName>
+            <Description>Result value of the well</Description>
+            <DataType>
+                <Basic>Real</Basic>
+            </DataType>
+        </Response>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>WellNotFound</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>ReadInterrupted</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+    <Command>
+        <Identifier>FluorescenceReadPlate</Identifier>
+        <DisplayName>Fluorescence Read Plate</DisplayName>
+        <Description>Go through every plate well and read its result</Description>
+        <Observable>Yes</Observable>
+        <Response>
+            <Identifier>ResultList</Identifier>
+            <DisplayName>Result List Values</DisplayName>
+            <Description>Result list of values of every well</Description>
+            <DataType>
+                <List>
+                    <DataType>
+                        <Structure>
+                            <Element>
+                                <Identifier>WellAddress</Identifier>
+                                <DisplayName>WellAddress</DisplayName>
+                                <Description />
+                                <DataType>
+                                    <DataTypeIdentifier>WellAddress</DataTypeIdentifier>
+                                </DataType>
+                            </Element>
+                            <Element>
+                                <Identifier>Value</Identifier>
+                                <DisplayName>Value</DisplayName>
+                                <Description>The read fluorescence value in this well</Description>
+                                <DataType>
+                                    <Basic>Real</Basic>
+                                </DataType>
+                            </Element>
+                        </Structure>
+                    </DataType>
+                </List>
+            </DataType>
+        </Response>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>ReadInterrupted</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+    <!-- Properties -->
+    <Property>
+        <Identifier>Excitation</Identifier>
+        <DisplayName>Excitation</DisplayName>
+        <Description>Excitation filter for Fluorescence read in nanometers.</Description>
+        <DataType>
+            <Constrained>
+                <DataType>
+                    <Basic>Integer</Basic>
+                </DataType>
+                <Constraints>
+                    <Enumeration>
+                        <Value>365</Value>
+                        <Value>405</Value>
+                        <Value>475</Value>
+                        <Value>520</Value>
+                        <Value>627</Value>
+                    </Enumeration>
+                </Constraints>
+            </Constrained>
+        </DataType>
+        <Observable>No</Observable>
+    </Property>
+    <Property>
+        <Identifier>Emission</Identifier>
+        <DisplayName>Emission</DisplayName>
+        <Description>Emission filter for Fluorescence read.</Description>
+        <DataType>
+            <Constrained>
+                <DataType>
+                    <Basic>Integer</Basic>
+                </DataType>
+                <Constraints>
+                    <Enumeration>
+                        <Value>415</Value>
+                        <Value>500</Value>
+                        <Value>580</Value>
+                        <Value>660</Value>
+                        <Value>495</Value>
+                    </Enumeration>
+                </Constraints>
+            </Constrained>
+        </DataType>
+        <Observable>No</Observable>
+    </Property>
+</Feature>

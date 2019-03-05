@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLA2Version="0.1" FeatureVersion="1.0" Originator="com.madisoft" Category="reader"
+        xmlns="http://www.sila-standard.org"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>LuminescenceReaderService</Identifier>
+    <DisplayName>Luminescence Reader Service</DisplayName>
+    <Description>SiLA 2 Device Luminescence Reader feature - Show basic operations for a device luminescence reader: reading from
+        selected well of a plate and reading all wells in a plate. Luminescence reading has an integration property from 0.1 to 10 seconds.
+    </Description>
+    <!-- Commands -->
+    <Command>
+        <Identifier>LuminescenceReadWell</Identifier>
+        <DisplayName>Luminescence Read Well</DisplayName>
+        <Description>Read and present data from one target well</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>TargetWell</Identifier>
+            <DisplayName>Target Well</DisplayName>
+            <Description>Address of the target well on the plate which the reader will try to find, reach
+                and will try to read the well data.
+            </Description>
+            <DataType>
+                <DataTypeIdentifier>WellAddress</DataTypeIdentifier>
+            </DataType>
+        </Parameter>
+        <Response>
+            <Identifier>Value</Identifier>
+            <DisplayName>Value</DisplayName>
+            <Description>Result value of the well</Description>
+            <DataType>
+                <Basic>Integer</Basic>
+            </DataType>
+        </Response>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>WellNotFound</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>ReadInterrupted</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+    <Command>
+        <Identifier>LuminescenceReadPlate</Identifier>
+        <DisplayName>Luminescence Read Plate</DisplayName>
+        <Description>Go through every plate well and read its result</Description>
+        <Observable>Yes</Observable>
+            <Response>
+            <Identifier>ResultList</Identifier>
+            <DisplayName>Result List Values</DisplayName>
+            <Description>Result list of values of every well</Description>
+            <DataType>
+                <List>
+                    <DataType>
+                        <Structure>
+                            <Element>
+                                <Identifier>WellAddress</Identifier>
+                                <DisplayName>WellAddress</DisplayName>
+                                <Description />
+                                <DataType>
+                                    <DataTypeIdentifier>WellAddress</DataTypeIdentifier>
+                                </DataType>
+                            </Element>
+                            <Element>
+                                <Identifier>Value</Identifier>
+                                <DisplayName>Value</DisplayName>
+                                <Description>The read luminescence value in this well</Description>
+                                <DataType>
+                                    <Basic>Integer</Basic>
+                                </DataType>
+                            </Element>
+                        </Structure>
+                    </DataType>
+                </List>
+            </DataType>
+        </Response>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>ReadInterrupted</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+    <!-- Properties -->
+    <Property>
+        <Identifier>Integration</Identifier>
+        <DisplayName>Integration</DisplayName>
+        <Description>Integration time filter for Luminescence read. It accepts values from 0.1 to 10 seconds.</Description>
+        <DataType>
+            <Constrained>
+                <DataType>
+                    <Basic>Real</Basic>
+                </DataType>
+                <Constraints>
+                    <MinimalInclusive>0.1</MinimalInclusive>
+                    <MaximalInclusive>10.0</MaximalInclusive>
+                </Constraints>
+            </Constrained>
+        </DataType>
+        <Observable>No</Observable>
+    </Property>
+</Feature>

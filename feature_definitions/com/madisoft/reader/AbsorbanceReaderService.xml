@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLA2Version="0.1" FeatureVersion="1.0" Originator="com.madisoft" Category="reader"
+        xmlns="http://www.sila-standard.org"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>AbsorbanceReaderService</Identifier>
+    <DisplayName>Absorbance Reader Service</DisplayName>
+    <Description>SiLA 2 Device Absorbance Reader feature - Show basic operations for a device absorbance reader: reading from
+        selected well of a plate and reading all wells in a plate. Absorbance reading has a measurement property.
+    </Description>
+    <!-- Commands -->
+    <Command>
+        <Identifier>AbsorbanceReadWell</Identifier>
+        <DisplayName>Absorbance Read Well</DisplayName>
+        <Description>Read and present data from one target well</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>TargetWell</Identifier>
+            <DisplayName>Target Well</DisplayName>
+            <Description>Address of the target well on the plate which the reader will try to find, reach
+                and will try to read the well data.
+            </Description>
+            <DataType>
+                <DataTypeIdentifier>WellAddress</DataTypeIdentifier>
+            </DataType>
+        </Parameter>
+        <Response>
+            <Identifier>Value</Identifier>
+            <DisplayName>Value</DisplayName>
+            <Description>Result value of the well</Description>
+            <DataType>
+                <Basic>Real</Basic>
+            </DataType>
+        </Response>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>WellNotFound</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>ReadInterrupted</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+    <Command>
+        <Identifier>AbsorbanceReadPlate</Identifier>
+        <DisplayName>Absorbance Read Plate</DisplayName>
+        <Description>Go through every plate well and read its result</Description>
+        <Observable>Yes</Observable>
+        <Response>
+            <Identifier>ResultList</Identifier>
+            <DisplayName>Result List Values</DisplayName>
+            <Description>Result list of values of every well</Description>
+            <DataType>
+                <List>
+                    <DataType>
+                        <Structure>
+                            <Element>
+                                <Identifier>WellAddress</Identifier>
+                                <DisplayName>WellAddress</DisplayName>
+                                <Description />
+                                <DataType>
+                                    <DataTypeIdentifier>WellAddress</DataTypeIdentifier>
+                                </DataType>
+                            </Element>
+                            <Element>
+                                <Identifier>Value</Identifier>
+                                <DisplayName>Value</DisplayName>
+                                <Description>The read absorbance value in this well</Description>
+                                <DataType>
+                                    <Basic>Real</Basic>
+                                </DataType>
+                            </Element>
+                        </Structure>
+                    </DataType>
+                </List>
+            </DataType>
+        </Response>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>ReadInterrupted</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+    <!-- Properties -->
+    <Property>
+        <Identifier>Measurement</Identifier>
+        <DisplayName>Measurement</DisplayName>
+        <Description>Measurement filter for Absorbance read in nanometers.</Description>
+        <DataType>
+            <Constrained>
+                <DataType>
+                    <Basic>Integer</Basic>
+                </DataType>
+                <Constraints>
+                    <Enumeration>
+                        <Value>230</Value>
+                        <Value>280</Value>
+                        <Value>405</Value>
+                        <Value>560</Value>
+                        <Value>600</Value>
+                    </Enumeration>
+                </Constraints>
+            </Constrained>
+        </DataType>
+        <Observable>No</Observable>
+    </Property>
+</Feature>
