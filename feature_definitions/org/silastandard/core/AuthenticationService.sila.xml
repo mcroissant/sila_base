@@ -80,5 +80,13 @@
                 <Basic>String</Basic>
             </DataType>
         </Parameter>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>InvalidAccessToken</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
     </Command>
+    <StandardExecutionError>
+        <Identifier>InvalidAccessToken</Identifier>
+        <DisplayName>Invalid Access Token</DisplayName>
+        <Description>The sent access token is not valid.</Description>
+    </StandardExecutionError>
 </Feature>
