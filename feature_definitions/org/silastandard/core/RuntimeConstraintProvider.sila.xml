@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLA2Version="0.1" FeatureVersion="1.0" MaturityLevel="Verified" Originator="org.silastandard" Category="core"
+         xmlns="http://www.sila-standard.org"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>RuntimeConstraintProvider</Identifier>
+    <DisplayName>Runtime constraint provider</DisplayName>
+    <Description>
+        Allows a server to apply constraints on specific command parameters at runtime.
+        Runtime Constraints linked to a parameter can be retrieved by calling the SiLA Command
+        'GetParameterConstraints' with the fully qualified identifier of the parameter.
+
+        Example use-case: Loading and setting the positions a mobile robot can move to at runtime.
+
+        Note: The command parameter identified by the ParameterIdentifier may
+        only have runtime constraints for any constraints NOT specified in the feature
+    </Description>
+
+    <Property>
+        <Identifier>GetParameterConstraints</Identifier>
+        <DisplayName>Get parameter constraints</DisplayName>
+        <Description>Get the constraints to apply on a parameter</Description>
+        <DataType>
+            <List>
+                <DataType>
+                    <Structure>
+                        <Element>
+                            <Identifier>ParameterIdentifier</Identifier>
+                            <DisplayName>Parameter Identifier</DisplayName>
+                            <Description>Fully qualified parameter identifier</Description>
+                            <DataType>
+                                <Basic>String</Basic>
+                            </DataType>
+                        </Element>
+                        <Element>
+                            <Identifier>Constraints</Identifier>
+                            <DisplayName>Constraints</DisplayName>
+                            <Description>The constraints applied on the parameter</Description>
+                            <DataType>
+                                <Constrained>
+                                    <DataType>
+                                        <Basic>String</Basic>
+                                    </DataType>
+                                    <Constraints>
+                                        <Schema>
+                                            <Type>Xml</Type>
+                                            <Url>https://gitlab.com/SiLA2/sila_base/raw/modular_schema/schema/Constraints.xsd</Url>
+                                        </Schema>
+                                    </Constraints>
+                                </Constrained>
+                            </DataType>
+                        </Element>
+                    </Structure>
+                </DataType>
+            </List>
+        </DataType>
+        <Observable>Yes</Observable>
+    </Property>
+</Feature>
