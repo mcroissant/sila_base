@@ -17,9 +17,9 @@
     </Description>
 
     <Property>
-        <Identifier>GetParameterConstraints</Identifier>
-        <DisplayName>Get parameter constraints</DisplayName>
-        <Description>Get the constraints to apply on a parameter</Description>
+        <Identifier>ParametersConstraints</Identifier>
+        <DisplayName>Get parameters constraints</DisplayName>
+        <Description>Get the constraints to apply on parameters</Description>
         <DataType>
             <List>
                 <DataType>
@@ -35,7 +35,7 @@
                         <Element>
                             <Identifier>Constraints</Identifier>
                             <DisplayName>Constraints</DisplayName>
-                            <Description>The constraints applied on the parameter</Description>
+                            <Description>The constraints to apply on the parameter</Description>
                             <DataType>
                                 <Constrained>
                                     <DataType>
