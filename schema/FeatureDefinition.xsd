@@ -350,7 +350,7 @@
                   </xs:element>
                   <xs:choice>
                     <xs:element type="xs:string" name="Url"/>
-                    <xs:element type="xs:string" name="Content"/>
+                    <xs:element type="xs:string" name="Inline"/>
                   </xs:choice>
                 </xs:sequence>
               </xs:complexType>
