@@ -165,7 +165,17 @@
         <Description>The content of a Feature Definition conforming 
             with the XML Schema.</Description>
         <DataType>
-            <Basic>String</Basic>
+            <Constrained>
+                <DataType>
+                    <Basic>String</Basic>
+                </DataType>
+                <Constraints>
+                    <Schema>
+                        <Type>Xml</Type>
+                        <Url>https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd</Url>
+                    </Schema>
+                </Constraints>
+            </Constrained>
         </DataType>
     </DataTypeDefinition>
     <DataTypeDefinition>
