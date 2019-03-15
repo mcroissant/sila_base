@@ -9,9 +9,9 @@
         Allows a server to apply constraints on specific command parameters after design time. It is recommended to specify
         the constraints in the Feature Definitions whenever possible.
 
-        The constraints defined in this Feature MUST NOT specify constraints already defined in the Feature Definition,
-        but only add additional ones, example: A constrained type has a Pattern Constraint, and the ParameterConstraintProvider
-        specifies an additional Enumeration Constraint, but is not allowed to offer another Pattern.
+        The constraints given by this Feature act as a logical AND to any constraints already defined in the Feature Definition.
+        As an example: A constrained type has a Pattern Constraint, then the ParameterConstraintProvider specifies an additional
+        Pattern Constraint - in this case the underlying SiLA Type has to follow BOTH Patterns defined.
 
         The constrained can be retrieved by reading and subscribing to its dynamic property.
 
