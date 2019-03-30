@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>POWERTOP</Machine>
+    <WindowsUser>icke</WindowsUser>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+    <PackageIdentityName>290cf11d-cef1-4a2b-affa-11334237cc0c</PackageIdentityName>
+    <PackageIdentityPublisher>CN=icke</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\Users\icke\source\repos\SiLA2FeatureDefinitionViewer\SiLA2FeatureDefinitionViewer\bld\Debug\</IntermediateOutputPath>
+    <RemoteDeploymentType>
+    </RemoteDeploymentType>
+    <PackageRegistrationPath>
+    </PackageRegistrationPath>
+    <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+    <DeployOptionalPackages>false</DeployOptionalPackages>
+    <WindowsSdkPath>
+    </WindowsSdkPath>
+    <LayoutDir>C:\Users\icke\source\repos\SiLA2FeatureDefinitionViewer\SiLA2FeatureDefinitionViewer\bin\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>13EBC73268297608C7FBDA5EEBA3A352E3B62E27A6253A6BBFC31A076257FE5A</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>290cf11d-cef1-4a2b-affa-11334237cc0c_1.0.0.0_neutral__twwcrtnmtq0fj</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>290cf11d-cef1-4a2b-affa-11334237cc0c_twwcrtnmtq0fj!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>290cf11d-cef1-4a2b-affa-11334237cc0c</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=icke</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\icke\source\repos\SiLA2FeatureDefinitionViewer\SiLA2FeatureDefinitionViewer\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-08-31T09:01:39.372</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\icke\source\repos\SiLA2FeatureDefinitionViewer\SiLA2FeatureDefinitionViewer\index.html">
+      <PackagePath>index.html</PackagePath>
+      <Modified>2018-08-31T10:36:18.129</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\icke\source\repos\SiLA2FeatureDefinitionViewer\SiLA2FeatureDefinitionViewer\images\LockScreenLogo.scale-200.png">
+      <PackagePath>images\LockScreenLogo.scale-200.png</PackagePath>
+      <Modified>2018-08-29T19:05:36.023</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\icke\source\repos\SiLA2FeatureDefinitionViewer\SiLA2FeatureDefinitionViewer\images\SplashScreen.scale-200.png">
+      <PackagePath>images\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-08-29T19:05:36.023</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\icke\source\repos\SiLA2FeatureDefinitionViewer\SiLA2FeatureDefinitionViewer\images\Square150x150Logo.scale-200.png">
+      <PackagePath>images\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-08-29T19:05:36.023</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\icke\source\repos\SiLA2FeatureDefinitionViewer\SiLA2FeatureDefinitionViewer\images\Square44x44Logo.scale-200.png">
+      <PackagePath>images\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-08-29T19:05:36.023</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\icke\source\repos\SiLA2FeatureDefinitionViewer\SiLA2FeatureDefinitionViewer\images\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>images\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-08-29T19:05:36.023</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\icke\source\repos\SiLA2FeatureDefinitionViewer\SiLA2FeatureDefinitionViewer\images\StoreLogo.png">
+      <PackagePath>images\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-08-29T19:05:36.023</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\icke\source\repos\SiLA2FeatureDefinitionViewer\SiLA2FeatureDefinitionViewer\images\Wide310x150Logo.scale-200.png">
+      <PackagePath>images\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-08-29T19:05:36.023</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\icke\source\repos\SiLA2FeatureDefinitionViewer\SiLA2FeatureDefinitionViewer\js\accordion.js">
+      <PackagePath>js\accordion.js</PackagePath>
+      <Modified>2018-08-31T09:01:37.789</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\icke\source\repos\SiLA2FeatureDefinitionViewer\SiLA2FeatureDefinitionViewer\js\main.js">
+      <PackagePath>js\main.js</PackagePath>
+      <Modified>2018-08-31T09:44:53.047</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\icke\source\repos\SiLA2FeatureDefinitionViewer\SiLA2FeatureDefinitionViewer\css\default.css">
+      <PackagePath>css\default.css</PackagePath>
+      <Modified>2018-08-31T10:33:49.539</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\icke\source\repos\SiLA2FeatureDefinitionViewer\SiLA2FeatureDefinitionViewer\src\feature\StorageControler.xml">
+      <PackagePath>src\feature\StorageControler.xml</PackagePath>
+      <Modified>2018-08-31T09:01:37.772</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\icke\source\repos\SiLA2FeatureDefinitionViewer\SiLA2FeatureDefinitionViewer\bin\Debug\ReverseMap\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2018-08-31T09:01:39.166</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <meta charset='utf-8' />
+    <title>SiLA2FeatureDefinitionViewer</title>
+    <link href='css/default.css' rel='stylesheet' />
+    <script src='js/main.js'></script>
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <!-- jQuery library -->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <!-- Latest compiled JavaScript -->
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+</head>
+<body>
+    <div class='container'>
+        <h1>SiLA Feature Viewer</h1>
+        <h2>Core</h2>
+        <label class="FeatureList">
+            SiLAService
+            <input type="radio" name="FeatureList" onclick="loadXMLDoc('src/feature/SiLAService.sila.xml')">
+            <span class="checkmark"></span>
+        </label>
+        <label class="FeatureList">
+            SimulationController
+            <input type="radio" name="FeatureList" onclick="loadXMLDoc('src/feature/SimulationController.sila.xml')">
+            <span class="checkmark"></span>
+        </label>
+        <label class="FeatureList">
+            ParameterConstraintProvider
+            <input type="radio" name="FeatureList" onclick="loadXMLDoc('src/feature/ParameterConstraintProvider.sila.xml')">
+            <span class="checkmark"></span>
+        </label>
+        <h2>Examples<h2>
+        <label class="FeatureList">
+            GreetingProvider
+            <input type="radio" name="FeatureList" onclick="loadXMLDoc('src/feature/GreetingProvider.sila.xml')">
+            <span class="checkmark"></span>
+        </label>
+        <label class="FeatureList">
+            TemperatureController
+            <input type="radio" name="FeatureList" onclick="loadXMLDoc('src/feature/TemperatureController.sila.xml')">
+            <span class="checkmark"></span>
+        </label>
+        <h2>de.tuberlin.bioprocess<h2>
+        <label class="FeatureList">
+            ServerInfomationProvider
+            <input type="radio" name="FeatureList" onclick="loadXMLDoc('src/feature/ServerInfomationProvider.sila.xml')">
+            <span class="checkmark"></span>
+        </label>
+        <label class="FeatureList">
+            StorageService
+            <input type="radio" name="FeatureList" onclick="loadXMLDoc('src/feature/StorageService.sila.xml')">
+            <span class="checkmark"></span>
+        </label>
+        <label class="FeatureList">
+            MessagingService
+            <input type="radio" name="FeatureList" onclick="loadXMLDoc('src/feature/MessagingService.sila.xml')">
+            <span class="checkmark"></span>
+        </label>
+        
+    </div>
+    <div id='SiLAFeature' class='container'></div>
+
+    <script>
+        function loadXMLDoc(xmlFile) {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    ViewFeatureDefinition(this);
+                }
+            };
+            xmlhttp.open('GET', xmlFile, true);
+            xmlhttp.send();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+    <meta charset='utf-8' />
+    <title>SiLA2FeatureDefinitionViewer</title>
+    <link href='css/default.css' rel='stylesheet' />
+    <script src='js/main.js'></script>
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+    <!-- jQuery library -->
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <!-- Latest compiled JavaScript -->
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'></script>
+</head>
+<body>
+    <div class='container'>
+        <h1>SiLA Feature Viewer</h1>
+        <label class="FeatureList">
+            StorageControler
+            <input type="radio" name="FeatureList" onclick="loadXMLDoc('src/feature/StorageControler.xml')">
+            <span class="checkmark"></span>
+        </label>
+        <label class="FeatureList">
+            StorageProvider
+            <input type="radio" name="FeatureList" onclick="loadXMLDoc('src/feature/StorageProvider.xml')">
+            <span class="checkmark"></span>
+        </label>
+    </div>
+    <div id='SiLAFeature' class='container'></div>
+
+
+    <!--<script>
+        gitPath = 'https://api.gitlab.com/SiLA2/sila_base';
+        var gitRequest = new XMLHttpRequest();
+        gitRequest.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                getListOfFeature(this);
+            }
+        };-->
+
+        xmlFile = 'src/feature/StorageControler.xml';
+        function loadXMLDoc(xmlFile = 'src/feature/StorageControler.xml') {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState === 4 && this.status === 200) {
+                    ViewFeatureDefinition(this);
+                }
+            };
+            xmlhttp.open('GET', xmlFile, true);
+            xmlhttp.send();
+        }
+    </script>
+</body>
+</html>
