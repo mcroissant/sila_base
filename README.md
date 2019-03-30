@@ -1,7 +1,3 @@
-**Important**: This code, in its current form, is mainly to give active SiLA 2 WG Members and other interested parties a reference point. It might not comply with the latest version of the Standard, and much of its content might change in the future.
-
-The first release candidate of SiLA 2 is scheduled for mid 2018.
-
 # SiLA Standard
 SiLA’s mission is to establish international standards which create open connectivity in lab automation. SiLA’s vision is to create interoperability, flexibility and resource optimization for laboratory instruments integration and software services based on standardized communication protocols and content specifications. SiLA promotes open standards to allow integration and exchange of intelligent systems in a cost effective way.
 
@@ -14,7 +10,22 @@ documents can be accessed on google drive:
 
 For more information, visit our [website](http://sila-standard.com/).
 
-In case of general questions, contact either Max ([max@unitelabs.ch](mailto:max@unitelabs.ch)) or Daniel ([daniel.juchli@sila-standard.org](mailto:daniel.juchli@sila-standard.org)).
+In case of general questions, contact either Max ([max@unitelabs.ch](mailto:max@unitelabs.ch)) or 
+Daniel ([daniel.juchli@sila-standard.org](mailto:daniel.juchli@sila-standard.org)).
+
+## SiLA Organisation
+Everyone is open to contribute, we organise code issues with GitLab and have weekly meetings of the 
+SiLA 2 Working group that is accessible to members. There is a public slack channel that anyone can 
+join to ask for help and/or give feedback: [slack link](https://join.slack.com/t/sila-standard/shared_invite/enQtNDI0ODcxMDg5NzkzLTc4YjdkNzgxYjM5NDIyMzAyNTJjMjE1ZWI5MzY0M2Y2NmY3ZGQ2NTI3YzJiMmIzNTFmZmJkMWI3ZTMyMTk5NGY).
+
+## SiLA Ecosystem
+Various tools are published by different companies both for SiLA, but also for gRPC. For gRPC you can find 
+many links [here](https://github.com/grpc-ecosystem/awesome-grpc).
+
+For SiLA 2 the current tools are accessible, in addition to the reference implementations found in this GitLab group:
+
+* UniteLabs is publishing its own demo and development tools on: [download link](https://unitelabs.gitlab.io/unitelabs_base/)
+* TU Berlin published a web-based feature viewer: [download link](https://gitlab.tu-berlin.de/haenser/SiLA_FeatureDefinitionViewer)
 
 # SiLA Base
 This repository contains base definitions of the SiLA standard, such as the feature schemas and framework 

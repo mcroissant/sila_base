@@ -3,6 +3,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:tns="http://www.sila-standard.org"
     targetNamespace="http://www.sila-standard.org">
+  <xs:include schemaLocation="DataTypes.xsd"/>
   <xs:element name="Feature">
     <xs:complexType>
       <!-- Feature Content -->
@@ -26,27 +27,9 @@
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:element>
-                <xs:element type="tns:ParameterType" name="Parameter" maxOccurs="unbounded" minOccurs="0" />
-                <xs:element name="Response" maxOccurs="unbounded" minOccurs="0">
-                  <xs:complexType>
-                    <xs:sequence>
-                      <xs:element type="tns:IdentifierType" name="Identifier" />
-                      <xs:element type="tns:DisplayNameType" name="DisplayName" />
-                      <xs:element type="xs:string" name="Description" />
-                      <xs:element type="tns:DataTypeType" name="DataType" />
-                    </xs:sequence>
-                  </xs:complexType>
-                </xs:element>
-                <xs:element name="IntermediateResponse" maxOccurs="unbounded" minOccurs="0">
-                  <xs:complexType>
-                    <xs:sequence>
-                      <xs:element type="tns:IdentifierType" name="Identifier" />
-                      <xs:element type="tns:DisplayNameType" name="DisplayName" />
-                      <xs:element type="xs:string" name="Description" />
-                      <xs:element type="tns:DataTypeType" name="DataType" />
-                    </xs:sequence>
-                  </xs:complexType>
-                </xs:element>
+                <xs:element type="tns:SiLAElement" name="Parameter" maxOccurs="unbounded" minOccurs="0" />
+                <xs:element type="tns:SiLAElement" name="Response" maxOccurs="unbounded" minOccurs="0" />
+                <xs:element type="tns:SiLAElement" name="IntermediateResponse" maxOccurs="unbounded" minOccurs="0" />
                 <xs:element name="StandardExecutionErrors" maxOccurs="1" minOccurs="0">
                   <xs:complexType>
                     <xs:sequence>
@@ -63,7 +46,6 @@
                 <xs:element type="tns:IdentifierType" name="Identifier" />
                 <xs:element type="tns:DisplayNameType" name="DisplayName" />
                 <xs:element type="xs:string" name="Description" />
-                <xs:element type="tns:ParameterType" name="Parameter" maxOccurs="unbounded" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -74,20 +56,13 @@
                 <xs:element type="tns:DisplayNameType" name="DisplayName" />
                 <xs:element type="xs:string" name="Description" />
                 <xs:element type="tns:DataTypeType" name="DataType" />
-                <xs:element name="PropertyType">
+                <xs:element name="Observable">
                   <xs:simpleType>
                     <xs:restriction base="xs:string">
-                      <xs:enumeration value="Static" />
-                      <xs:enumeration value="Dynamic" />
+                      <xs:enumeration value="Yes" />
+                      <xs:enumeration value="No" />
                     </xs:restriction>
                   </xs:simpleType>
-                </xs:element>
-                <xs:element name="Filters" maxOccurs="1" minOccurs="0">
-                  <xs:complexType>
-                    <xs:sequence>
-                      <xs:element type="tns:IdentifierType" name="FilterIdentifier" maxOccurs="unbounded" minOccurs="1" />
-                    </xs:sequence>
-                  </xs:complexType>
                 </xs:element>
                 <xs:element name="StandardReadErrors" maxOccurs="1" minOccurs="0">
                   <xs:complexType>
@@ -99,44 +74,35 @@
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-          <xs:element name="Filter" maxOccurs="unbounded" minOccurs="0">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element type="tns:IdentifierType" name="Identifier" />
-                <xs:element type="tns:DisplayNameType" name="DisplayName" />
-                <xs:element type="xs:string" name="Description" />
-                <xs:element type="tns:DataTypeType" name="DataType" />
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
           <xs:element name="StandardReadError" maxOccurs="unbounded" minOccurs="0">
             <xs:complexType>
               <xs:sequence>
                 <xs:element type="tns:IdentifierType" name="Identifier" />
                 <xs:element type="tns:DisplayNameType" name="DisplayName" />
                 <xs:element type="xs:string" name="Description" />
-                <xs:element type="tns:ParameterType" name="Parameter" maxOccurs="unbounded" minOccurs="0" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-          <xs:element name="DataTypeDefinition" maxOccurs="unbounded" minOccurs="0">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element type="tns:IdentifierType" name="Identifier" />
-                <xs:element type="tns:DisplayNameType" name="DisplayName" />
-                <xs:element type="xs:string" name="Description" />
-                <xs:element type="tns:DataTypeType" name="DataType" />
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
+          <xs:element type="tns:SiLAElement" name="DataTypeDefinition" maxOccurs="unbounded" minOccurs="0" />
         </xs:choice>
       </xs:sequence>
 
       <!-- Attributes -->
-      <xs:attribute type="xs:positiveInteger" name="SiLAVersion" use="required" />
       <xs:attribute type="xs:string" name="Locale" use="optional" default="en-us" />
-      <xs:attribute type="xs:nonNegativeInteger" name="MajorVersion" use="required" />
-      <xs:attribute type="xs:nonNegativeInteger" name="MinorVersion" use="required" />
+      <xs:attribute name="SiLA2Version" use="required">
+        <xs:simpleType>
+          <xs:restriction base ="xs:string">
+            <xs:pattern value="\d+\.\d+" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="FeatureVersion" use="required">
+        <xs:simpleType>
+          <xs:restriction base ="xs:string">
+            <xs:pattern value="\d+\.\d+" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
       <xs:attribute name="MaturityLevel" use="optional" default="Draft">
         <xs:simpleType>
           <xs:restriction base="xs:string">
@@ -153,7 +119,7 @@
           </xs:restriction>
         </xs:simpleType>
       </xs:attribute>
-      <xs:attribute name="UseCase" use="optional">
+      <xs:attribute name="Category" use="optional">
         <xs:simpleType>
           <xs:restriction base ="xs:string">
             <xs:pattern value="[a-z][a-z\.]*" />
@@ -162,249 +128,4 @@
       </xs:attribute>
     </xs:complexType>
   </xs:element>
-
-  <!-- XSD Types -->
-  <xs:simpleType name="IdentifierType">
-    <xs:restriction base ="xs:string">
-      <xs:pattern value="[A-Z][a-zA-Z0-9]*" />
-      <xs:maxLength value="255" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:simpleType name="DisplayNameType">
-    <xs:restriction base ="xs:string">
-      <xs:maxLength value="255" />
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="ParameterType">
-    <xs:sequence>
-      <xs:element type="tns:IdentifierType" name="Identifier" />
-      <xs:element type="tns:DisplayNameType" name="DisplayName" />
-      <xs:element type="xs:string" name="Description" />
-      <xs:element type="tns:DataTypeType" name="DataType" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="DataTypeType">
-    <xs:choice>
-      <xs:element type="tns:BasicType" name="Basic" minOccurs="0"/>
-      <xs:element type="tns:ListType" name="List" minOccurs="0"/>
-      <xs:element type="tns:StructureType" name="Structure" minOccurs="0"/>
-      <xs:element type="tns:ConstrainedType" name="Constrained" minOccurs="0"/>
-      <xs:element type="tns:IdentifierType" name="DataTypeIdentifier" minOccurs="0"/>
-    </xs:choice>
-  </xs:complexType>
-  <xs:simpleType name="BasicType">
-    <xs:restriction base="xs:string">
-      <xs:enumeration value="String"/>
-      <xs:enumeration value="Integer"/>
-      <xs:enumeration value="Real"/>
-      <xs:enumeration value="Boolean"/>
-      <xs:enumeration value="SmallBinary"/>
-      <xs:enumeration value="LargeBinary"/>
-      <xs:enumeration value="Date"/>
-      <xs:enumeration value="Time"/>
-      <xs:enumeration value="Timestamp"/>
-      <xs:enumeration value="Any"/>
-    </xs:restriction>
-  </xs:simpleType>
-  <xs:complexType name="ListType">
-    <xs:sequence>
-      <xs:element type="tns:DataTypeType" name="DataType"/>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="StructureType">
-    <xs:sequence>
-      <xs:element name="Element" maxOccurs="unbounded" minOccurs="1">
-        <xs:complexType>
-          <xs:sequence>
-            <xs:element type="tns:IdentifierType" name="Identifier"/>
-            <xs:element type="tns:DataTypeType" name="DataType"/>
-          </xs:sequence>
-        </xs:complexType>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="ConstrainedType">
-    <xs:sequence>
-      <xs:element type="tns:DataTypeType" name="DataType"/>
-      <xs:element name="Constraints">
-        <xs:complexType>
-          <!-- All contraints should be unique for a constrained type -->
-          <xs:all>
-            <xs:element type="xs:positiveInteger" name="Length" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Applicable to SiLA basic type: String</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element type="xs:positiveInteger" name="MinimalLength" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Applicable to SiLA basic type: Binary and String</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element type="xs:positiveInteger" name="MaximalLength" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Applicable to SiLA basic type: Binary and String</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="Enumeration" minOccurs="0">
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element type="xs:string" name="Value" maxOccurs="unbounded" minOccurs="1">
-                    <xs:annotation>
-                      <xs:documentation>Applicable to SiLA basic type: String</xs:documentation>
-                    </xs:annotation>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element type="xs:string" name="Pattern" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Applicable to SiLA basic type: String. The pattern needs to be an XML schema regular expression</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element type="xs:string" name="MaximalExclusive" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>
-                  Applicable to SiLA basic type: Integer[xs:integer],
-                  Real[xs:decimal], Date[xs:date], Time[xs:time] and Timestamp[xs:dateTime].
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element type="xs:string" name="MaximalInclusive" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>
-                  Applicable to SiLA basic type: Integer[xs:integer],
-                  Real[xs:decimal], Date[xs:date], Time[xs:time] and Timestamp[xs:dateTime].
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element type="xs:string" name="MinimalExclusive" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>
-                  Applicable to SiLA basic type: Integer[xs:integer],
-                  Real[xs:decimal], Date[xs:date], Time[xs:time] and Timestamp[xs:dateTime].
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element type="xs:string" name="MinimalInclusive" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>
-                  Applicable to SiLA basic type: Integer[xs:integer],
-                  Real[xs:decimal], Date[xs:date], Time[xs:time] and Timestamp[xs:dateTime].
-                </xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element name="Unit" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Applicable to SiLA basic type: Integer and Real.</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element type="xs:string" name="Label"/>
-                  <xs:element name="UnitComponent" minOccurs="1" maxOccurs="unbounded">
-                    <xs:complexType>
-                      <xs:sequence>
-                        <xs:element name="SIUnit">
-                          <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                              <xs:enumeration value="Dimensionless"/>
-                              <xs:enumeration value="Meter"/>
-                              <xs:enumeration value="Kilogram"/>
-                              <xs:enumeration value="Second"/>
-                              <xs:enumeration value="Ampere"/>
-                              <xs:enumeration value="Kelvin"/>
-                              <xs:enumeration value="Mole"/>
-                              <xs:enumeration value="Candela"/>
-                            </xs:restriction>
-                          </xs:simpleType>
-                        </xs:element>
-                        <xs:element type="xs:integer" name="Exponent"/>
-                        <xs:element type="xs:decimal" name="Factor"/>
-                        <xs:element type="xs:decimal" name="Offset"/>
-                      </xs:sequence>
-                    </xs:complexType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="Dimension" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Applicable to SiLA basic type: Integer and Real.</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element type="xs:string" name="Label"/>
-                  <xs:element name="DimensionComponent" minOccurs="1" maxOccurs="unbounded">
-                    <xs:complexType>
-                      <xs:sequence>
-                        <xs:element name="Dimension">
-                          <xs:simpleType>
-                            <xs:restriction base="xs:string">
-                              <xs:enumeration value="Dimensionless"/>
-                              <xs:enumeration value="Length"/>
-                              <xs:enumeration value="Mass"/>
-                              <xs:enumeration value="Time"/>
-                              <xs:enumeration value="ElectricCurrent"/>
-                              <xs:enumeration value="ThermodynamicTemperature"/>
-                              <xs:enumeration value="AmountOfSubstance"/>
-                              <xs:enumeration value="LuminousIntensity"/>
-                            </xs:restriction>
-                          </xs:simpleType>
-                        </xs:element>
-                        <xs:element type="xs:integer" name="Exponent"/>
-                      </xs:sequence>
-                    </xs:complexType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="ContentType" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Applicable to SiLA basic type: Binary.</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element type="xs:string" name="Type"/>
-                  <xs:element type="xs:string" name="Subtype"/>
-                  <xs:element name="Parameters" minOccurs="0">
-                    <xs:complexType>
-                      <xs:sequence>
-                        <xs:element name="Parameter" minOccurs="1" maxOccurs="unbounded">
-                          <xs:complexType>
-                            <xs:sequence>
-                              <xs:element type="xs:string" name="Attribute"/>
-                              <xs:element type="xs:string" name="Value"/>
-                            </xs:sequence>
-                          </xs:complexType>
-                        </xs:element>
-                      </xs:sequence>
-                    </xs:complexType>
-                  </xs:element>
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element name="AllowedTypes" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Applicable to SiLA basic type: Any</xs:documentation>
-              </xs:annotation>
-              <xs:complexType>
-                <xs:sequence>
-                  <xs:element type="tns:IdentifierType" name="DataTypeIdentifier" minOccurs="1" />
-                </xs:sequence>
-              </xs:complexType>
-            </xs:element>
-            <xs:element type="xs:positiveInteger" name="MinimalElementCount" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Applicable to SiLA derived type: List</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-            <xs:element type="xs:positiveInteger" name="MaximalElementCount" minOccurs="0">
-              <xs:annotation>
-                <xs:documentation>Applicable to SiLA derived type: List</xs:documentation>
-              </xs:annotation>
-            </xs:element>
-          </xs:all>
-        </xs:complexType>
-      </xs:element>
-    </xs:sequence>
-  </xs:complexType>
 </xs:schema>

@@ -4,7 +4,7 @@ package sila2.org.silastandard;
 
 option java_outer_classname = "SiLAFramework";
 
-// SiLA Basic Types
+// -------- SiLA Basic Types --------
 message String {
     string value = 1;
 }
@@ -25,14 +25,10 @@ message SmallBinary {
     bytes value = 1;
 }
 
-message LargeBinary {
-    string binaryIdentifier = 1;
-}
-
 message Date {
     uint32 day = 1;
     uint32 month = 2;
-    uint64 year = 3;
+    uint32 year = 3;
     Timezone timezone = 4;
 }
 
@@ -44,12 +40,12 @@ message Time {
 }
 
 message Timestamp {
-    int64 second = 1;
-    int64 minute = 2;
-    int64 hour = 3;
-    int64 day = 4;
-    int64 month = 5;
-    int64 year = 6;
+    uint32 second = 1;
+    uint32 minute = 2;
+    uint32 hour = 3;
+    uint32 day = 4;
+    uint32 month = 5;
+    uint32 year = 6;
     Timezone timezone = 7;
 }
 
@@ -58,12 +54,7 @@ message Timezone {
     uint32 minutes = 2;
 }
 
-message Any {
-    string definition = 1;
-    bytes payload = 2;
-}
-
-// Framework
+// -------- Framework Types --------
 message Duration {
     int64 seconds = 1;
     int32 nanos = 2;
@@ -78,7 +69,7 @@ message CommandConfirmation {
     Duration lifetimeOfExecution = 2;
 }
 
-message ExecutionState {
+message ExecutionInfo {
     enum CommandStatus {
         waiting = 0 ;
         running = 1;
@@ -86,24 +77,47 @@ message ExecutionState {
         finishedWithError = 3;
     }
     CommandStatus commandStatus = 1;
-    Real progress = 2;
+    Real progressInfo = 2;
     Duration estimatedRemainingTime = 3;
-    SiLAError error = 4;
+    Duration updatedLifetimeOfExecution = 4;
 }
 
-// Error Handling
+// -------- Error Handling --------
 message SiLAError {
+    oneof error {
+        ValidationError validationError = 1;
+        ExecutionError executionError = 2;
+        ReadError readError = 3;
+        FrameworkError frameworkError = 4;
+    }
+}
+
+message ValidationError {
+    string parameter = 1;
+    string cause = 2;
+    string action = 3;
+}
+
+message ExecutionError {
+    string errorIdentifier = 1;
+    string cause = 2;
+    string action = 3;
+}
+
+message ReadError {
+    string errorIdentifier = 1;
+    string cause = 2;
+    string action = 3;
+}
+
+message FrameworkError {
     enum ErrorType {
-        VALIDATION = 0;
-        EXECUTION = 1;
-        READ = 2;
-        FRAMEWORK = 3;
+        COMMAND_EXECUTION_NOT_ACCEPTED = 0;
+        INVALID_COMMAND_EXECUTION_UUID = 1;
+        COMMAND_EXECUTION_NOT_FINISHED = 2;
     }
     ErrorType errorType = 1;
-    string identifier = 2;
-    string message = 3;
-    string details = 4;
-    Any parameters = 5;
 }
+
 
 
