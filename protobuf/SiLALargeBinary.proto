@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package sila2.org.silastandard;
+
+option java_outer_classname = "SiLALargeBinary";
+
+import "SiLAFramework.proto";
+
+service BinaryUpload {
+    rpc CreateBinary (CreateBinaryRequest) returns (CreateBinaryResponse) {}
+    rpc UploadChunk (UploadChunkRequest) returns (UploadChunkResponse) {}
+    rpc DeleteBinary (DeleteBinaryRequest) returns (DeleteBinaryResponse) {}
+}
+
+service BinaryDownload {
+    rpc GetBinaryInfo (GetBinaryInfoRequest) returns (GetBinaryInfoResponse) {}
+    rpc GetChunk (GetChunkRequest) returns (GetChunkResponse) {}
+    rpc DeleteBinary (DeleteBinaryRequest) returns (DeleteBinaryResponse) {}
+}
+
+message CreateBinaryRequest {
+    uint64 binarySize = 1;
+    uint32 chunkCount = 2;
+}
+
+message CreateBinaryResponse {
+    string binaryIdentifier = 1;
+    Timestamp expirationTime = 2;
+}
+
+message UploadChunkRequest {
+    string binaryIdentifier = 1;
+    uint32 chunkIndex = 2;
+    bytes payload = 3;
+}
+
+message UploadChunkResponse {
+    Timestamp expirationTime = 1;
+}
+
+message DeleteBinaryRequest {
+    string binaryIdentifier = 1;
+}
+
+message DeleteBinaryResponse {
+}
+
+message GetBinaryInfoRequest {
+    string binaryIdentifier = 1;
+}
+
+message GetBinaryInfoResponse {
+    uint64 binarySize = 1;
+    Timestamp expirationTime = 2;
+}
+
+message GetChunkRequest {
+    string binaryIdentifier = 1;
+    uint64 offset = 2;
+    uint32 length = 3;
+}
+
+message GetChunkResponse {
+    bytes payload = 1;
+    Timestamp expirationTime = 2;
+}

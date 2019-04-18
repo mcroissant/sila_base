@@ -25,6 +25,10 @@ message SmallBinary {
     bytes value = 1;
 }
 
+message LargeBinary {
+    string binaryIdentifier = 1;
+}
+
 message Date {
     uint32 day = 1;
     uint32 month = 2;
