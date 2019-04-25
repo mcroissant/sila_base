@@ -55,7 +55,6 @@
                 <xs:element type="tns:IdentifierType" name="Identifier" />
                 <xs:element type="tns:DisplayNameType" name="DisplayName" />
                 <xs:element type="xs:string" name="Description" />
-                <xs:element type="tns:DataTypeType" name="DataType" />
                 <xs:element name="Observable">
                   <xs:simpleType>
                     <xs:restriction base="xs:string">
@@ -64,6 +63,7 @@
                     </xs:restriction>
                   </xs:simpleType>
                 </xs:element>
+                <xs:element type="tns:DataTypeType" name="DataType" />
                 <xs:element name="StandardReadErrors" maxOccurs="1" minOccurs="0">
                   <xs:complexType>
                     <xs:sequence>

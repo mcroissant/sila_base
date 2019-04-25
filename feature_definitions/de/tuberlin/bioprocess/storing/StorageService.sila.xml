@@ -115,27 +115,27 @@
         <Identifier>TowerNumber</Identifier>
         <DisplayName>Tower Number</DisplayName>
         <Description>The addressed Position is not attainable or unknown at this device</Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>Integer</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>HandoverNumber</Identifier>
         <DisplayName>Handover Number</DisplayName>
         <Description>The number of positions where a labware could be committed</Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>Integer</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>AttainablePositions</Identifier>
         <DisplayName>Attainable Positions</DisplayName>
         <Description>The number of positions which could be attained directly by the device</Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>Integer</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
 </Feature>

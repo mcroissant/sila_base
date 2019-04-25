@@ -32,6 +32,7 @@
     <Identifier>WarpingState</Identifier>
     <DisplayName>Warping State</DisplayName>
     <Description>Current status of the warpdrive.</Description>
+    <Observable>Yes</Observable>
     <DataType>
       <Structure>
         <Element>
@@ -52,7 +53,6 @@
         </Element>
       </Structure>
     </DataType>
-    <Observable>Yes</Observable>
   </Property>
   <Command>
     <Identifier>Disengage</Identifier>
