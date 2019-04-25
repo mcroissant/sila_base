@@ -10,36 +10,38 @@
         <Identifier>DeviceSuperior</Identifier>
         <DisplayName>Device Superior</DisplayName>
         <Description>Contact of the person how take care for the device</Description>
+        <Observable>No</Observable>
         <DataType>
           <Basic>String</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>RoomNumber</Identifier>
         <DisplayName>Room Number</DisplayName>
         <Description>Room Number where the device is located</Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>String</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
     <Property>
       <Identifier>EmergencyContact</Identifier>
       <DisplayName>Emergency Contact</DisplayName>
-      <Description>A contact number or email address of a person to call in case of an accident of the device (not of a person)</Description>
+      <Description>
+          A contact number or email address of a person to call in case of an accident of the device (not of a person)
+      </Description>
+      <Observable>No</Observable>
       <DataType>
         <Basic>String</Basic>
       </DataType>
-      <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>FirmwareVersion</Identifier>
         <DisplayName>Firmware Version</DisplayName>
         <Description>Firmware Version of the Device</Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>String</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
     </Feature>

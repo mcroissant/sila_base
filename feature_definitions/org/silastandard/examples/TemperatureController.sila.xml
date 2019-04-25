@@ -60,6 +60,7 @@
         <Identifier>CurrentTemperature</Identifier>
         <DisplayName>Current Temperature</DisplayName>
         <Description>Current Temperature as measured by the controller.</Description>
+        <Observable>Yes</Observable>
         <DataType>
             <Constrained>
                 <DataType>
@@ -78,6 +79,5 @@
                 </Constraints>
             </Constrained>
         </DataType>
-        <Observable>Yes</Observable>
     </Property>
 </Feature>
