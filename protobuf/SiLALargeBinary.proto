@@ -8,13 +8,13 @@ import "SiLAFramework.proto";
 
 service BinaryUpload {
     rpc CreateBinary (CreateBinaryRequest) returns (CreateBinaryResponse) {}
-    rpc UploadChunk (UploadChunkRequest) returns (UploadChunkResponse) {}
+    rpc UploadChunk (stream UploadChunkRequest) returns (stream UploadChunkResponse) {}
     rpc DeleteBinary (DeleteBinaryRequest) returns (DeleteBinaryResponse) {}
 }
 
 service BinaryDownload {
     rpc GetBinaryInfo (GetBinaryInfoRequest) returns (GetBinaryInfoResponse) {}
-    rpc GetChunk (GetChunkRequest) returns (GetChunkResponse) {}
+    rpc GetChunk (stream GetChunkRequest) returns (stream GetChunkResponse) {}
     rpc DeleteBinary (DeleteBinaryRequest) returns (DeleteBinaryResponse) {}
 }
 
