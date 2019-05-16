@@ -5,10 +5,39 @@
         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>AbsorbanceReaderService</Identifier>
     <DisplayName>Absorbance Reader Service</DisplayName>
-    <Description>SiLA 2 Device Absorbance Reader feature - Show basic operations for a device absorbance reader: reading from
-        selected well of a plate and reading all wells in a plate. Absorbance reading has a measurement property.
+    <Description>SiLA 2 Device Absorbance Reader feature - Show basic operations for a device absorbance reader
+        like open/close device cover, abort read operations, reading from selected well of a plate and reading from all wells in a plate.
+        There are several types of plates with 6, 12, 24, 48, 96 and 384 wells. Observing current status of the reader: idle, busy, unavailable.
+        Absorbance reading has a measurement property.
     </Description>
     <!-- Commands -->
+    <Command>
+        <Identifier>OpenCover</Identifier>
+        <DisplayName>Open Cover</DisplayName>
+        <Description>Open the device cover</Description>
+        <Observable>No</Observable>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>OpenCoverInterrupted</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+    <Command>
+        <Identifier>CloseCover</Identifier>
+        <DisplayName>Close Cover</DisplayName>
+        <Description>Close the device cover</Description>
+        <Observable>No</Observable>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>CloseCoverInterrupted</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
+    <Command>
+        <Identifier>AbortRead</Identifier>
+        <DisplayName>Abort Read</DisplayName>
+        <Description>Abort read operation</Description>
+        <Observable>No</Observable>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>AbortReadInterrupted</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
+    </Command>
     <Command>
         <Identifier>AbsorbanceReadWell</Identifier>
         <DisplayName>Absorbance Read Well</DisplayName>
@@ -77,6 +106,56 @@
     </Command>
     <!-- Properties -->
     <Property>
+        <Identifier>PlateType</Identifier>
+        <DisplayName>Plate Type</DisplayName>
+        <Description>The plate type for the device reader. Defines plate dimension. Number of wells in the plate.
+            Support several types of plates: 6, 12, 24, 48, 96 and 384 wells.
+        </Description>
+        <DataType>
+            <Constrained>
+                <DataType>
+                    <Basic>Integer</Basic>
+                </DataType>
+                <Constraints>
+                    <Enumeration>
+                        <Value>6</Value>
+                        <Value>12</Value>
+                        <Value>24</Value>
+                        <Value>48</Value>
+                        <Value>96</Value>
+                        <Value>384</Value>
+                    </Enumeration>
+                </Constraints>
+            </Constrained>
+        </DataType>
+        <Observable>No</Observable>
+    </Property>
+    <Property>
+        <Identifier>Status</Identifier>
+        <DisplayName>Reader Status</DisplayName>
+        <Description>Current status of the Reader device.
+            Possible values are:
+            - Idle: Reader is online and ready for command execution
+            - Busy: Reader is executing a command and because of that is busy and cannot execute other command
+            - Unavailable: This combines Offline and Disconnected statuses which means that Reader cannot execute any command or get a property.
+        </Description>
+        <DataType>
+            <Constrained>
+                <DataType>
+                    <Basic>String</Basic>
+                </DataType>
+                <Constraints>
+                    <Enumeration>
+                        <Value>Idle</Value>
+                        <Value>Busy</Value>
+                        <Value>Unavailable</Value>
+                    </Enumeration>
+                </Constraints>
+            </Constrained>
+        </DataType>
+        <Observable>Yes</Observable>
+    </Property>
+    <Property>
         <Identifier>Measurement</Identifier>
         <DisplayName>Measurement</DisplayName>
         <Description>Measurement filter for Absorbance read in nanometers.</Description>
@@ -98,4 +177,78 @@
         </DataType>
         <Observable>No</Observable>
     </Property>
+    <!-- DataTypeDefinitions -->
+    <DataTypeDefinition>
+        <Identifier>WellAddress</Identifier>
+        <DisplayName>Well Address</DisplayName>
+        <Description>Well address on the plate which the reader will try to find, reach and will try to read the well data.
+            The plate is like a matrix of wells and every well has addess which is unique and consists of two parts:
+            1. First part is a letter from A to Z and shows the well row of the matrix
+            2. Second part is a positive number 1, 2, 3, ... which shows the column of the plate matrix
+            Example: A1, A2, ..., B1, B2, ...
+            This property defines the first part of the well address.
+        </Description>
+        <DataType>
+            <Structure>
+                <Element>
+                    <Identifier>Row</Identifier>
+                    <DisplayName>Row</DisplayName>
+                    <Description>Row of the well address A, B, C, ...</Description>
+                    <DataType>
+                        <Constrained>
+                            <DataType>
+                                <Basic>String</Basic>
+                            </DataType>
+                            <Constraints>
+                                <Length>1</Length>
+                                <Pattern>[A-Z]</Pattern>
+                            </Constraints>
+                        </Constrained>
+                    </DataType>
+                </Element>
+                <Element>
+                    <Identifier>Column</Identifier>
+                    <DisplayName>Column</DisplayName>
+                    <Description>Column of the well address 1, 2, 3, ...</Description>
+                    <DataType>
+                        <Constrained>
+                            <DataType>
+                                <Basic>Integer</Basic>
+                            </DataType>
+                            <Constraints>
+                                <Length>2</Length>
+                                <Pattern>[0-9]</Pattern>
+                            </Constraints>
+                        </Constrained>
+                    </DataType>
+                </Element>
+            </Structure>
+        </DataType>
+    </DataTypeDefinition>
+    <!-- Command Execution Errors -->
+    <StandardExecutionError>
+        <Identifier>WellNotFound</Identifier>
+        <DisplayName>Well Not Found</DisplayName>
+        <Description>The destination of the well not found or well destination is invalid</Description>
+    </StandardExecutionError>
+    <StandardExecutionError>
+        <Identifier>ReadInterrupted</Identifier>
+        <DisplayName>Read Interrupted</DisplayName>
+        <Description>Reading the well was impossible or interrupted</Description>
+    </StandardExecutionError>
+    <StandardExecutionError>
+        <Identifier>OpenCoverInterrupted</Identifier>
+        <DisplayName>Open Cover Interrupted</DisplayName>
+        <Description>Opening the device cover was interrupted</Description>
+    </StandardExecutionError>
+    <StandardExecutionError>
+        <Identifier>CloseCoverInterrupted</Identifier>
+        <DisplayName>Close Cover Interrupted</DisplayName>
+        <Description>Closing the device cover was interrupted</Description>
+    </StandardExecutionError>
+    <StandardExecutionError>
+        <Identifier>AbortReadInterrupted</Identifier>
+        <DisplayName>Abort Read Interrupted</DisplayName>
+        <Description>Aborting read operation interrupted</Description>
+    </StandardExecutionError>
 </Feature>
