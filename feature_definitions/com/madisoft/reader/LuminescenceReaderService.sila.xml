@@ -211,7 +211,6 @@
                                 <Basic>Integer</Basic>
                             </DataType>
                             <Constraints>
-                                <Length>2</Length>
                                 <Pattern>[0-9]</Pattern>
                             </Constraints>
                         </Constrained>
