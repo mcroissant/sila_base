@@ -9,7 +9,7 @@
         This Feature allows a SiLA Client to lock a SiLA Server for exclusive use, preventing other SiLA Clients from using the device while it is locked.
         To lock a SiLA Server a lock id has to be set, using the 'LockServer' command. This id has to be sent with every (lock protected) call to the SiLA Server in order to use it's functionality.
         To sent the id the SiLA Client Meta Data 'LockId' has to be used.
-        When locking a SiLA Server a timeout can be specified defines the time after which the SiLA Server will be automatically unlocked if no call with valid lock id has been received meanwhile.
+        When locking a SiLA Server a timeout can be specified that defines the time after which the SiLA Server will be automatically unlocked if no call with valid lock id has been received meanwhile.
         After the timeout has expired or after explicit unlock no lock id has to be sent any more.
     </Description>
     <Command>
