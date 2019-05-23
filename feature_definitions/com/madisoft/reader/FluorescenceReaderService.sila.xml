@@ -12,33 +12,6 @@
     </Description>
     <!-- Commands -->
     <Command>
-        <Identifier>OpenCover</Identifier>
-        <DisplayName>Open Cover</DisplayName>
-        <Description>Open the device cover</Description>
-        <Observable>No</Observable>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>OpenCoverInterrupted</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
-    </Command>
-    <Command>
-        <Identifier>CloseCover</Identifier>
-        <DisplayName>Close Cover</DisplayName>
-        <Description>Close the device cover</Description>
-        <Observable>No</Observable>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>CloseCoverInterrupted</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
-    </Command>
-    <Command>
-        <Identifier>AbortRead</Identifier>
-        <DisplayName>Abort Read</DisplayName>
-        <Description>Abort read operation</Description>
-        <Observable>No</Observable>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>AbortReadInterrupted</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
-    </Command>
-    <Command>
         <Identifier>FluorescenceReadWell</Identifier>
         <DisplayName>Fluorescence Read Well</DisplayName>
         <Description>Read and present data from one target well</Description>
@@ -58,13 +31,10 @@
             <DisplayName>Value</DisplayName>
             <Description>Result value of the well</Description>
             <DataType>
+                <!-- TODO: Unit of measurement -->
                 <Basic>Real</Basic>
             </DataType>
         </Response>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>WellNotFound</StandardExecutionErrorIdentifier>
-            <StandardExecutionErrorIdentifier>ReadInterrupted</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
     </Command>
     <Command>
         <Identifier>FluorescenceReadPlate</Identifier>
@@ -92,6 +62,7 @@
                                 <DisplayName>Value</DisplayName>
                                 <Description>The read fluorescence value in this well</Description>
                                 <DataType>
+                                    <!-- TODO: Unit of measurement -->
                                     <Basic>Real</Basic>
                                 </DataType>
                             </Element>
@@ -100,71 +71,27 @@
                 </List>
             </DataType>
         </Response>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>ReadInterrupted</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
     </Command>
     <!-- Properties -->
     <Property>
-        <Identifier>PlateType</Identifier>
-        <DisplayName>Plate Type</DisplayName>
-        <Description>The plate type for the device reader. Defines plate dimension. Number of wells in the plate.
-            Support several types of plates: 6, 12, 24, 48, 96 and 384 wells.
-        </Description>
-        <DataType>
-            <Constrained>
-                <DataType>
-                    <Basic>Integer</Basic>
-                </DataType>
-                <Constraints>
-                    <Enumeration>
-                        <Value>6</Value>
-                        <Value>12</Value>
-                        <Value>24</Value>
-                        <Value>48</Value>
-                        <Value>96</Value>
-                        <Value>384</Value>
-                    </Enumeration>
-                </Constraints>
-            </Constrained>
-        </DataType>
-        <Observable>No</Observable>
-    </Property>
-    <Property>
-        <Identifier>Status</Identifier>
-        <DisplayName>Reader Status</DisplayName>
-        <Description>Current status of the Reader device.
-            Possible values are:
-            - Idle: Reader is online and ready for command execution
-            - Busy: Reader is executing a command and because of that is busy and cannot execute other command
-            - Unavailable: This combines Offline and Disconnected statuses which means that Reader cannot execute any command or get a property.
-        </Description>
-        <DataType>
-            <Constrained>
-                <DataType>
-                    <Basic>String</Basic>
-                </DataType>
-                <Constraints>
-                    <Enumeration>
-                        <Value>Idle</Value>
-                        <Value>Busy</Value>
-                        <Value>Unavailable</Value>
-                    </Enumeration>
-                </Constraints>
-            </Constrained>
-        </DataType>
-        <Observable>Yes</Observable>
-    </Property>
-    <Property>
         <Identifier>Excitation</Identifier>
         <DisplayName>Excitation</DisplayName>
-        <Description>Excitation filter for Fluorescence read in nanometers.</Description>
+        <Description>Excitation filter for Fluorescence read</Description>
         <DataType>
             <Constrained>
                 <DataType>
                     <Basic>Integer</Basic>
                 </DataType>
                 <Constraints>
+                    <Unit>
+                        <Label>nanometer</Label>
+                        <UnitComponent>
+                            <SIUnit>Meter</SIUnit>
+                            <Exponent>-9</Exponent>
+                            <Factor>1</Factor>
+                            <Offset>0</Offset>
+                        </UnitComponent>
+                    </Unit>
                     <Enumeration>
                         <Value>365</Value>
                         <Value>405</Value>
@@ -180,13 +107,22 @@
     <Property>
         <Identifier>Emission</Identifier>
         <DisplayName>Emission</DisplayName>
-        <Description>Emission filter for Fluorescence read.</Description>
+        <Description>Emission filter for Fluorescence read.=</Description>
         <DataType>
             <Constrained>
                 <DataType>
                     <Basic>Integer</Basic>
                 </DataType>
                 <Constraints>
+                    <Unit>
+                        <Label>nanometer</Label>
+                        <UnitComponent>
+                            <SIUnit>Meter</SIUnit>
+                            <Exponent>-9</Exponent>
+                            <Factor>1</Factor>
+                            <Offset>0</Offset>
+                        </UnitComponent>
+                    </Unit>
                     <Enumeration>
                         <Value>415</Value>
                         <Value>500</Value>
@@ -246,30 +182,4 @@
             </Structure>
         </DataType>
     </DataTypeDefinition>
-    <!-- Command Execution Errors -->
-    <StandardExecutionError>
-        <Identifier>WellNotFound</Identifier>
-        <DisplayName>Well Not Found</DisplayName>
-        <Description>The destination of the well not found or well destination is invalid</Description>
-    </StandardExecutionError>
-    <StandardExecutionError>
-        <Identifier>ReadInterrupted</Identifier>
-        <DisplayName>Read Interrupted</DisplayName>
-        <Description>Reading the well was impossible or interrupted</Description>
-    </StandardExecutionError>
-    <StandardExecutionError>
-        <Identifier>OpenCoverInterrupted</Identifier>
-        <DisplayName>Open Cover Interrupted</DisplayName>
-        <Description>Opening the device cover was interrupted</Description>
-    </StandardExecutionError>
-    <StandardExecutionError>
-        <Identifier>CloseCoverInterrupted</Identifier>
-        <DisplayName>Close Cover Interrupted</DisplayName>
-        <Description>Closing the device cover was interrupted</Description>
-    </StandardExecutionError>
-    <StandardExecutionError>
-        <Identifier>AbortReadInterrupted</Identifier>
-        <DisplayName>Abort Read Interrupted</DisplayName>
-        <Description>Aborting read operation interrupted</Description>
-    </StandardExecutionError>
 </Feature>

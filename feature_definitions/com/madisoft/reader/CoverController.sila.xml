@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLA2Version="0.1" FeatureVersion="1.0" Originator="com.madisoft" Category="instrument"
+         xmlns="http://www.sila-standard.org"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>CoverController</Identifier>
+    <DisplayName>Cover Controller</DisplayName>
+    <Description>General controller to open/close anything that covers the access to an instrument</Description>
+
+    <Command>
+        <Identifier>OpenCover</Identifier>
+        <DisplayName>Open Cover</DisplayName>
+        <Description>Open the device cover</Description>
+        <Observable>No</Observable>
+    </Command>
+    <Command>
+        <Identifier>CloseCover</Identifier>
+        <DisplayName>Close Cover</DisplayName>
+        <Description>Close the device cover</Description>
+        <Observable>No</Observable>
+    </Command>
+</Feature>
