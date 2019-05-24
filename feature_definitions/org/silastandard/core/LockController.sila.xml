@@ -71,10 +71,10 @@
             Returns true if the SiLA Server is currently locked or false else.
             This property MUST NOT be lock protected, so that any SiLA Client can query the current lock state of a SiLA Server.
         </Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>Boolean</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
     <StandardExecutionError>
         <Identifier>InvalidLockId</Identifier>
