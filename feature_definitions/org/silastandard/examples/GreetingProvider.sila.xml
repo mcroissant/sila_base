@@ -32,9 +32,9 @@
         <Identifier>StartYear</Identifier>
         <DisplayName>Start Year</DisplayName>
         <Description>The year the server has been started</Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>Integer</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
 </Feature>

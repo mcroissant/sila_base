@@ -33,10 +33,10 @@
         <Identifier>Connected</Identifier>
         <DisplayName>Connected</DisplayName>
         <Description>Represents the connection state, either connected or not.</Description>
+        <Observable>Yes</Observable>
         <DataType>
             <Basic>Boolean</Basic>
         </DataType>
-        <Observable>Yes</Observable>
     </Property>
     <!-- Command Execution Errors -->
     <StandardExecutionError>

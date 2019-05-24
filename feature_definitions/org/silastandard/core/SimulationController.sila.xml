@@ -55,9 +55,9 @@
         <Identifier>SimulationMode</Identifier>
         <DisplayName>SimulationMode</DisplayName>
         <Description>Indication whether SiLA Server is in Simulation Mode or not.</Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>Boolean</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
 </Feature>
