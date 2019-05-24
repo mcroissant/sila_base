@@ -20,6 +20,7 @@
         <Identifier>State</Identifier>
         <DisplayName>State</DisplayName>
         <Description>Returns the state of the server.</Description>
+        <Observable>Yes</Observable>
         <DataType>
             <Constrained>
                 <DataType>
@@ -36,7 +37,6 @@
                 </Constraints>
             </Constrained>
         </DataType>
-        <Observable>Yes</Observable>
     </Property>
 </Feature>
 
