@@ -5,25 +5,12 @@
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/blob/meta_data/schema/FeatureDefinition.xsd">
     <Identifier>AuthorizationService</Identifier>
     <DisplayName>Authorization Service</DisplayName>
-    <Description>This Feature provides access control for the implementing server.
-        Therefore it specifies the SiLA Client Meta Data for the access token, that has been provided by the AuthenticationService
-        core Feature.
-        In order to use the servers functionality, that access token has to be sent with every call to server.</Description>
-    <StandardExecutionError>
-        <Identifier>InvalidAccessToken</Identifier>
-        <DisplayName>Invalid Access Token</DisplayName>
-        <Description>The sent access token is not valid.</Description>
-    </StandardExecutionError>
-    <StandardExecutionError>
-        <Identifier>AccessTokenExpired</Identifier>
-        <DisplayName>Access Token Expired</DisplayName>
-        <Description>The lifetime of the sent access token has expired.</Description>
-    </StandardExecutionError>
-    <StandardExecutionError>
-        <Identifier>NotAuthorized</Identifier>
-        <DisplayName>Not Authorized</DisplayName>
-        <Description>The sent access token does not authorize to access the required SiLA Server functionality.</Description>
-    </StandardExecutionError>
+    <Description>
+        This Feature provides access control for the implementing server.
+
+        Therefore it specifies the SiLA Client Meta Data for the access token, that has been provided by the
+        AuthenticationService core Feature.
+    </Description>
     <Metadata>
         <Identifier>AccessToken</Identifier>
         <DisplayName>AccessToken</DisplayName>
