@@ -31,6 +31,5 @@
         <DataType>
             <Basic>String</Basic>
         </DataType>
-        <SendWith>All</SendWith>
     </Metadata>
 </Feature>
