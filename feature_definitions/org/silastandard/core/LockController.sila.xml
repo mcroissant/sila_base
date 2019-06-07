@@ -39,7 +39,7 @@
             <Identifier>Timeout</Identifier>
             <DisplayName>Timeout</DisplayName>
             <Description>
-                The time [s] after a SiLA Server is automatically unlocked when no call with valid lock identifier
+                The time after a SiLA Server is automatically unlocked when no call with valid lock identifier
                 is received meanwhile. A timeout of 0 specifies an infinite time (no timeout).
             </Description>
             <DataType>
