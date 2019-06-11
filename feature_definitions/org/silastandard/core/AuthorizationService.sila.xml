@@ -2,7 +2,7 @@
 <Feature SiLA2Version="0.1" FeatureVersion="1.0" MaturityLevel="Draft" Originator="org.silastandard" Category="core"
          xmlns="http://www.sila-standard.org"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/blob/meta_data/schema/FeatureDefinition.xsd">
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>AuthorizationService</Identifier>
     <DisplayName>Authorization Service</DisplayName>
     <Description>
