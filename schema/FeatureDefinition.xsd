@@ -84,6 +84,16 @@
             </xs:complexType>
           </xs:element>
           <xs:element type="tns:SiLAElement" name="DataTypeDefinition" maxOccurs="unbounded" minOccurs="0" />
+          <xs:element name="Metadata" maxOccurs="unbounded" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element type="tns:IdentifierType" name="Identifier" />
+                <xs:element type="tns:DisplayNameType" name="DisplayName" />
+                <xs:element type="xs:string" name="Description" />
+                <xs:element type="tns:DataTypeType" name="DataType" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
         </xs:choice>
       </xs:sequence>
 

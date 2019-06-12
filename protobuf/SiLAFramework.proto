@@ -155,11 +155,14 @@ message ReadError {
 
 message FrameworkError {
     enum ErrorType {
-        INVALID_COMMAND_EXECUTION_UUID = 0;
-        COMMAND_EXECUTION_NOT_FINISHED = 1;
-        MISSING_METADATA = 2;
+        COMMAND_EXECUTION_NOT_ACCEPTED = 0;
+        INVALID_COMMAND_EXECUTION_UUID = 1;
+        COMMAND_EXECUTION_NOT_FINISHED = 2;
+        INVALID_METADATA = 3;
+        NO_METADATA_ALLOWED = 4;
     }
     ErrorType errorType = 1;
+    string cause = 2;
 }
 
 /* TODO: Add ConstrainedType with all Constraints
