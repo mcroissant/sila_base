@@ -177,7 +177,7 @@
                                 <Basic>Integer</Basic>
                             </DataType>
                             <Constraints>
-                                <Pattern>[0-9]</Pattern>
+                                <MinimalInclusive>0</MinimalInclusive>
                             </Constraints>
                         </Constrained>
                     </DataType>
@@ -198,7 +198,6 @@
                     <Basic>Integer</Basic>
                 </DataType>
                 <Constraints>
-                    <Pattern>[0-9]</Pattern>
                     <MinimalInclusive>0</MinimalInclusive>
                     <MaximalInclusive>100000</MaximalInclusive>
                 </Constraints>
