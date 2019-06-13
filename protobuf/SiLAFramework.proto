@@ -21,12 +21,11 @@ message Boolean {
     bool value = 1;
 }
 
-message SmallBinary {
-    bytes value = 1;
-}
-
-message LargeBinary {
-    string binaryIdentifier = 1;
+message Binary {
+    oneof oneof {
+        bytes value = 1;
+        string binaryIdentifier = 2;
+    }
 }
 
 message Date {
