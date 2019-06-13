@@ -25,7 +25,7 @@ message CreateBinaryRequest {
 
 message CreateBinaryResponse {
     string binaryIdentifier = 1;
-    Timestamp expirationTime = 2;
+    Timestamp lifetime = 2;
 }
 
 message UploadChunkRequest {
@@ -35,7 +35,7 @@ message UploadChunkRequest {
 }
 
 message UploadChunkResponse {
-    Timestamp expirationTime = 1;
+    Timestamp lifetime = 1;
 }
 
 message DeleteBinaryRequest {
@@ -51,7 +51,7 @@ message GetBinaryInfoRequest {
 
 message GetBinaryInfoResponse {
     uint64 binarySize = 1;
-    Timestamp expirationTime = 2;
+    Timestamp lifetime = 2;
 }
 
 message GetChunkRequest {
@@ -62,5 +62,5 @@ message GetChunkRequest {
 
 message GetChunkResponse {
     bytes payload = 1;
-    Timestamp expirationTime = 2;
+    Timestamp lifetime = 2;
 }
