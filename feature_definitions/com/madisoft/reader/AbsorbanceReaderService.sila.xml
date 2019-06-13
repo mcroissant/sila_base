@@ -7,7 +7,6 @@
     <DisplayName>Absorbance Reader Service</DisplayName>
     <Description>SiLA 2 Device Absorbance Reader feature - Show basic operations for a device absorbance reader
         like reading from selected well of a plate and reading from all wells in a plate.
-        There are several types of plates with 6, 12, 24, 48, 96 and 384 wells. Observing current status of the reader: idle, busy, unavailable.
         Absorbance reading has a measurement property.
     </Description>
     <!-- Commands -->
@@ -78,65 +77,24 @@
     </Command>
     <!-- Properties -->
     <Property>
-        <Identifier>PlateType</Identifier>
-        <DisplayName>Plate Type</DisplayName>
-        <Description>The plate type for the device reader. Defines plate dimension. Number of wells in the plate.
-            Support several types of plates: 6, 12, 24, 48, 96 and 384 wells.
-        </Description>
+        <Identifier>MeasurementFilter</Identifier>
+        <DisplayName>Measurement Filter</DisplayName>
+        <Description>Measurement filter for Absorbance read in nanometers</Description>
         <DataType>
             <Constrained>
                 <DataType>
                     <Basic>Integer</Basic>
                 </DataType>
                 <Constraints>
-                    <Enumeration>
-                        <Value>6</Value>
-                        <Value>12</Value>
-                        <Value>24</Value>
-                        <Value>48</Value>
-                        <Value>96</Value>
-                        <Value>384</Value>
-                    </Enumeration>
-                </Constraints>
-            </Constrained>
-        </DataType>
-        <Observable>No</Observable>
-    </Property>
-    <Property>
-        <Identifier>Status</Identifier>
-        <DisplayName>Reader Status</DisplayName>
-        <Description>Current status of the Reader device.
-            Possible values are:
-            - Idle: Reader is online and ready for command execution
-            - Busy: Reader is executing a command and because of that is busy and cannot execute other command
-            - Unavailable: This combines Offline and Disconnected statuses which means that Reader cannot execute any command or get a property.
-        </Description>
-        <DataType>
-            <Constrained>
-                <DataType>
-                    <Basic>String</Basic>
-                </DataType>
-                <Constraints>
-                    <Enumeration>
-                        <Value>Idle</Value>
-                        <Value>Busy</Value>
-                        <Value>Unavailable</Value>
-                    </Enumeration>
-                </Constraints>
-            </Constrained>
-        </DataType>
-        <Observable>Yes</Observable>
-    </Property>
-    <Property>
-        <Identifier>Measurement</Identifier>
-        <DisplayName>Measurement</DisplayName>
-        <Description>Measurement filter for Absorbance read in nanometers.</Description>
-        <DataType>
-            <Constrained>
-                <DataType>
-                    <Basic>Integer</Basic>
-                </DataType>
-                <Constraints>
+                    <Unit>
+                        <Label>nanometer</Label>
+                        <UnitComponent>
+                            <SIUnit>Meter</SIUnit>
+                            <Exponent>-9</Exponent>
+                            <Factor>1</Factor>
+                            <Offset>0</Offset>
+                        </UnitComponent>
+                    </Unit>
                     <Enumeration>
                         <Value>230</Value>
                         <Value>280</Value>

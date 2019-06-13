@@ -3,10 +3,9 @@
         xmlns="http://www.sila-standard.org"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
-    <Identifier>ReaderService</Identifier>
-    <DisplayName>Reader Service</DisplayName>
-    <Description>SiLA 2 Device Reader example - Show basic operations for a device reader like open and close device cover.
-    </Description>
+    <Identifier>CoverController</Identifier>
+    <DisplayName>Cover Controller</DisplayName>
+    <Description>General device controller to open/close the main device physical access to plates and samples - this might be any cover or door</Description>
     <!-- Commands -->
     <Command>
         <Identifier>OpenCover</Identifier>
@@ -14,7 +13,7 @@
         <Description>Open the device cover</Description>
         <Observable>No</Observable>
         <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>OpenCoverInterrupted</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>CoverOperationInterrupted</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
     <Command>
@@ -23,18 +22,13 @@
         <Description>Close the device cover</Description>
         <Observable>No</Observable>
         <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>CloseCoverInterrupted</StandardExecutionErrorIdentifier>
+            <StandardExecutionErrorIdentifier>CoverOperationInterrupted</StandardExecutionErrorIdentifier>
         </StandardExecutionErrors>
     </Command>
     <!-- Command Execution Errors -->
     <StandardExecutionError>
-        <Identifier>OpenCoverInterrupted</Identifier>
-        <DisplayName>Open Cover Interrupted</DisplayName>
-        <Description>Opening the device cover was interrupted</Description>
-    </StandardExecutionError>
-    <StandardExecutionError>
-        <Identifier>CloseCoverInterrupted</Identifier>
-        <DisplayName>Close Cover Interrupted</DisplayName>
-        <Description>Closing the device cover was interrupted</Description>
+        <Identifier>CoverOperationInterrupted</Identifier>
+        <DisplayName>Cover Operation Interrupted</DisplayName>
+        <Description>Opening/Closing the device cover was interrupted. Check if any object is besides the cover or for any mechanical issue.</Description>
     </StandardExecutionError>
 </Feature>
