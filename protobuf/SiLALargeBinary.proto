@@ -24,12 +24,12 @@ message CreateBinaryRequest {
 }
 
 message CreateBinaryResponse {
-    string binaryIdentifier = 1;
+    string binaryTransferUUID = 1;
     Timestamp lifetime = 2;
 }
 
 message UploadChunkRequest {
-    string binaryIdentifier = 1;
+    string binaryTransferUUID = 1;
     uint32 chunkIndex = 2;
     bytes payload = 3;
 }
@@ -39,14 +39,14 @@ message UploadChunkResponse {
 }
 
 message DeleteBinaryRequest {
-    string binaryIdentifier = 1;
+    string binaryTransferUUID = 1;
 }
 
 message DeleteBinaryResponse {
 }
 
 message GetBinaryInfoRequest {
-    string binaryIdentifier = 1;
+    string binaryTransferUUID = 1;
 }
 
 message GetBinaryInfoResponse {
@@ -55,7 +55,7 @@ message GetBinaryInfoResponse {
 }
 
 message GetChunkRequest {
-    string binaryIdentifier = 1;
+    string binaryTransferUUID = 1;
     uint64 offset = 2;
     uint32 length = 3;
 }

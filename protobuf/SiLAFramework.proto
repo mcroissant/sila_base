@@ -24,7 +24,7 @@ message Boolean {
 message Binary {
     oneof oneof {
         bytes value = 1;
-        string binaryIdentifier = 2;
+        string binaryTransferUUID = 2;
     }
 }
 
