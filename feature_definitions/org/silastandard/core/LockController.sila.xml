@@ -100,11 +100,6 @@
         </DataType>
     </Property>
     <StandardExecutionError>
-        <Identifier>InvalidLockIdentifier</Identifier>
-        <DisplayName>Invalid Lock Identifier</DisplayName>
-        <Description>The sent lock identifier is not valid.</Description>
-    </StandardExecutionError>
-    <StandardExecutionError>
         <Identifier>ServerAlreadyLocked</Identifier>
         <DisplayName>Server Already Locked</DisplayName>
         <Description>The SiLA Server can not be locked because it is already locked.</Description>
@@ -121,5 +116,13 @@
         <DataType>
             <Basic>String</Basic>
         </DataType>
+        <StandardMetadataErrors>
+            <StandardMetadataErrorIdentifier>InvalidLockIdentifier</StandardMetadataErrorIdentifier>
+        </StandardMetadataErrors>
     </Metadata>
+    <StandardMetadataError>
+        <Identifier>InvalidLockIdentifier</Identifier>
+        <DisplayName>Invalid Lock Identifier</DisplayName>
+        <Description>The sent lock identifier is not valid.</Description>
+    </StandardMetadataError>
 </Feature>

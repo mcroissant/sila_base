@@ -91,6 +91,22 @@
                 <xs:element type="tns:DisplayNameType" name="DisplayName" />
                 <xs:element type="xs:string" name="Description" />
                 <xs:element type="tns:DataTypeType" name="DataType" />
+                <xs:element name="StandardMetadataErrors" maxOccurs="1" minOccurs="0">
+                  <xs:complexType>
+                    <xs:sequence>
+                      <xs:element type="tns:IdentifierType" name="StandardMetadataErrorIdentifier" maxOccurs="unbounded" minOccurs="1" />
+                    </xs:sequence>
+                  </xs:complexType>
+                </xs:element>
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="StandardMetadataError" maxOccurs="unbounded" minOccurs="0">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element type="tns:IdentifierType" name="Identifier" />
+                <xs:element type="tns:DisplayNameType" name="DisplayName" />
+                <xs:element type="xs:string" name="Description" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
