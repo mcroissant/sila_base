@@ -88,7 +88,8 @@ message SiLAError {
         ValidationError validationError = 1;
         ExecutionError executionError = 2;
         ReadError readError = 3;
-        FrameworkError frameworkError = 4;
+        MetadataError metadataError = 4;
+        FrameworkError frameworkError = 5;
     }
 }
 
@@ -108,6 +109,12 @@ message ReadError {
     string errorIdentifier = 1;
     string cause = 2;
     string action = 3;
+}
+
+message MetadataError {
+	string errorIdentifier = 1;
+	string cause = 2;
+	string action = 3;
 }
 
 message FrameworkError {
