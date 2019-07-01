@@ -2,6 +2,7 @@ stages:
   - test
 
 feature_test:
-    image: vsasyan/xmllint
+    image: moeryomenko/python-docker-lxml
     stage: test
-    script: ./validate_features.sh
+    script: 
+      - python validate_features.py
