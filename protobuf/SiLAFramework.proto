@@ -21,8 +21,11 @@ message Boolean {
     bool value = 1;
 }
 
-message SmallBinary {
-    bytes value = 1;
+message Binary {
+    oneof union {
+        bytes value = 1;
+        string binaryTransferUUID = 2;
+    }
 }
 
 message Date {
@@ -61,11 +64,11 @@ message Duration {
 }
 
 message CommandExecutionUUID {
-    string commandId = 1;
+    string value = 1;
 }
 
 message CommandConfirmation {
-    CommandExecutionUUID commandId = 1;
+    CommandExecutionUUID commandExecutionUUID = 1;
     Duration lifetimeOfExecution = 2;
 }
 
@@ -117,10 +120,10 @@ message FrameworkError {
         COMMAND_EXECUTION_NOT_FINISHED = 2;
         INVALID_METADATA = 3;
         NO_METADATA_ALLOWED = 4;
+        BINARY_UPLOAD_IMPOSSIBLE = 5;
+        INVALID_BINARY_CHUNK = 6;
+        INVALID_BINARY_TRANSFER_UUID = 7;
     }
     ErrorType errorType = 1;
     string cause = 2;
 }
-
-
-
