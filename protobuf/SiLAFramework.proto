@@ -120,13 +120,10 @@ message FrameworkError {
         COMMAND_EXECUTION_NOT_FINISHED = 2;
         INVALID_METADATA = 3;
         NO_METADATA_ALLOWED = 4;
-        NOT_ENOUGH_SPACE = 5;
+        BINARY_UPLOAD_IMPOSSIBLE = 5;
         INVALID_BINARY_CHUNK = 6;
         INVALID_BINARY_TRANSFER_UUID = 7;
     }
     ErrorType errorType = 1;
     string cause = 2;
 }
-
-
-
