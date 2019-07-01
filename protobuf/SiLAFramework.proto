@@ -63,9 +63,12 @@ message Duration {
     int32 nanos = 2;
 }
 
+message CommandExecutionUUID {
+    string value = 1;
+}
 
 message CommandConfirmation {
-    string commandExecutionUUID = 1;
+    CommandExecutionUUID commandExecutionUUID = 1;
     Duration lifetimeOfExecution = 2;
 }
 
