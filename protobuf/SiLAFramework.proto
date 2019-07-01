@@ -22,7 +22,7 @@ message Boolean {
 }
 
 message Binary {
-    oneof oneof {
+    oneof union {
         bytes value = 1;
         string binaryTransferUUID = 2;
     }
