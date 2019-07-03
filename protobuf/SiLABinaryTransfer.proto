@@ -63,7 +63,8 @@ message GetChunkRequest {
 }
 
 message GetChunkResponse {
-    GetChunkRequest request = 1;
-    bytes payload = 2;
-    Timestamp lifetimeOfBinary = 3;
+    string binaryTransferUUID = 1;
+    uint64 offset = 2;
+    bytes payload = 3;
+    Timestamp lifetimeOfBinary = 4;
 }
