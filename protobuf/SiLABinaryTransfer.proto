@@ -68,3 +68,12 @@ message GetChunkResponse {
     bytes payload = 3;
     Timestamp lifetimeOfBinary = 4;
 }
+
+message BinaryTransferError {
+    enum ErrorType {
+        INVALID_BINARY_CHUNK = 0;
+        INVALID_BINARY_TRANSFER_UUID = 1;
+    }
+    ErrorType errorType = 1;
+    string cause = 2;
+}
