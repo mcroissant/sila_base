@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package sila2.org.silastandard;
 
-option java_outer_classname = "SiLALargeBinary";
+option java_outer_classname = "SiLABinaryTransfer";
 
 import "SiLAFramework.proto";
 
@@ -35,7 +35,9 @@ message UploadChunkRequest {
 }
 
 message UploadChunkResponse {
-    Timestamp lifetimeOfBinary = 1;
+    string binaryTransferUUID = 1;
+    uint32 chunkIndex = 2;
+    Timestamp lifetimeOfBinary = 3;
 }
 
 message DeleteBinaryRequest {
@@ -61,6 +63,17 @@ message GetChunkRequest {
 }
 
 message GetChunkResponse {
-    bytes payload = 1;
-    Timestamp lifetimeOfBinary = 2;
+    string binaryTransferUUID = 1;
+    uint64 offset = 2;
+    bytes payload = 3;
+    Timestamp lifetimeOfBinary = 4;
+}
+
+message BinaryTransferError {
+    enum ErrorType {
+        INVALID_BINARY_CHUNK = 0;
+        INVALID_BINARY_TRANSFER_UUID = 1;
+    }
+    ErrorType errorType = 1;
+    string cause = 2;
 }

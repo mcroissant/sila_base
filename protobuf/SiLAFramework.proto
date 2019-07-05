@@ -121,8 +121,6 @@ message FrameworkError {
         INVALID_METADATA = 3;
         NO_METADATA_ALLOWED = 4;
         BINARY_UPLOAD_IMPOSSIBLE = 5;
-        INVALID_BINARY_CHUNK = 6;
-        INVALID_BINARY_TRANSFER_UUID = 7;
     }
     ErrorType errorType = 1;
     string cause = 2;
