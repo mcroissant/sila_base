@@ -30,22 +30,13 @@
                 <xs:element type="tns:SiLAElement" name="Parameter" maxOccurs="unbounded" minOccurs="0" />
                 <xs:element type="tns:SiLAElement" name="Response" maxOccurs="unbounded" minOccurs="0" />
                 <xs:element type="tns:SiLAElement" name="IntermediateResponse" maxOccurs="unbounded" minOccurs="0" />
-                <xs:element name="StandardExecutionErrors" maxOccurs="1" minOccurs="0">
+                <xs:element name="DefinedExecutionErrors" maxOccurs="1" minOccurs="0">
                   <xs:complexType>
                     <xs:sequence>
-                      <xs:element type="tns:IdentifierType" name="StandardExecutionErrorIdentifier" maxOccurs="unbounded" minOccurs="1" />
+                      <xs:element type="tns:IdentifierType" name="Identifier" maxOccurs="unbounded" minOccurs="1" />
                     </xs:sequence>
                   </xs:complexType>
                 </xs:element>
-              </xs:sequence>
-            </xs:complexType>
-          </xs:element>
-          <xs:element name="StandardExecutionError" maxOccurs="unbounded" minOccurs="0">
-            <xs:complexType>
-              <xs:sequence>
-                <xs:element type="tns:IdentifierType" name="Identifier" />
-                <xs:element type="tns:DisplayNameType" name="DisplayName" />
-                <xs:element type="xs:string" name="Description" />
               </xs:sequence>
             </xs:complexType>
           </xs:element>
@@ -64,17 +55,17 @@
                   </xs:simpleType>
                 </xs:element>
                 <xs:element type="tns:DataTypeType" name="DataType" />
-                <xs:element name="StandardReadErrors" maxOccurs="1" minOccurs="0">
+                <xs:element name="DefinedExecutionErrors" maxOccurs="1" minOccurs="0">
                   <xs:complexType>
                     <xs:sequence>
-                      <xs:element type="tns:IdentifierType" name="StandardReadErrorIdentifier" maxOccurs="unbounded" minOccurs="1" />
+                      <xs:element type="tns:IdentifierType" name="Identifier" maxOccurs="unbounded" minOccurs="1" />
                     </xs:sequence>
                   </xs:complexType>
                 </xs:element>
               </xs:sequence>
             </xs:complexType>
           </xs:element>
-          <xs:element name="StandardReadError" maxOccurs="unbounded" minOccurs="0">
+          <xs:element name="DefinedExecutionError" maxOccurs="unbounded" minOccurs="0">
             <xs:complexType>
               <xs:sequence>
                 <xs:element type="tns:IdentifierType" name="Identifier" />

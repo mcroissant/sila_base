@@ -73,7 +73,8 @@ message BinaryTransferError {
     enum ErrorType {
         INVALID_BINARY_CHUNK = 0;
         INVALID_BINARY_TRANSFER_UUID = 1;
+        BINARY_UPLOAD_IMPOSSIBLE = 2;
     }
     ErrorType errorType = 1;
-    string cause = 2;
+    string message = 2;
 }

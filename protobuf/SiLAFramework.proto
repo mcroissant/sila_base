@@ -89,28 +89,24 @@ message ExecutionInfo {
 message SiLAError {
     oneof error {
         ValidationError validationError = 1;
-        ExecutionError executionError = 2;
-        ReadError readError = 3;
+        DefinedExecutionError definedExecutionError = 2;
+        UndefinedExecutionError undefinedExecutionError = 3;
         FrameworkError frameworkError = 4;
     }
 }
 
 message ValidationError {
     string parameter = 1;
-    string cause = 2;
-    string action = 3;
+    string message = 2;
 }
 
-message ExecutionError {
+message DefinedExecutionError {
     string errorIdentifier = 1;
-    string cause = 2;
-    string action = 3;
+    string message = 2;
 }
 
-message ReadError {
-    string errorIdentifier = 1;
-    string cause = 2;
-    string action = 3;
+message UndefinedExecutionError {
+    string message = 1;
 }
 
 message FrameworkError {
@@ -120,8 +116,7 @@ message FrameworkError {
         COMMAND_EXECUTION_NOT_FINISHED = 2;
         INVALID_METADATA = 3;
         NO_METADATA_ALLOWED = 4;
-        BINARY_UPLOAD_IMPOSSIBLE = 5;
     }
     ErrorType errorType = 1;
-    string cause = 2;
+    string message = 2;
 }
