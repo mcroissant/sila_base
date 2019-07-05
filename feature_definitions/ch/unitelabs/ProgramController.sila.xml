@@ -25,18 +25,18 @@
                 <Basic>String</Basic>
             </DataType>
         </Parameter>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>InvalidState</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>InvalidState</Identifier>
+        </DefinedExecutionErrors>
     </Command>
     <Command>
         <Identifier>Stop</Identifier>
         <DisplayName>Stop</DisplayName>
         <Description>Stops a currently running program, without a possibility to resume.</Description>
         <Observable>No</Observable>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>InvalidState</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>InvalidState</Identifier>
+        </DefinedExecutionErrors>
     </Command>
     <Command>
         <Identifier>ListPrograms</Identifier>
@@ -57,12 +57,12 @@
         </Response>
     </Command>
     <!-- Command Execution Errors -->
-    <StandardExecutionError>
+    <DefinedExecutionError>
         <Identifier>InvalidState</Identifier>
         <DisplayName>Invalid State</DisplayName>
         <Description>
             The command cannot be issued as the server is not in the correct
             state.
         </Description>
-    </StandardExecutionError>
+    </DefinedExecutionError>
 </Feature>

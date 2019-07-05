@@ -61,9 +61,9 @@
                 </Constrained>
             </DataType>
         </Parameter>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>ServerAlreadyLocked</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>ServerAlreadyLocked</Identifier>
+        </DefinedExecutionErrors>
     </Command>
     <Command>
         <Identifier>UnlockServer</Identifier>
@@ -81,9 +81,9 @@
                 <Basic>String</Basic>
             </DataType>
         </Parameter>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>ServerNotLocked</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>ServerNotLocked</Identifier>
+        </DefinedExecutionErrors>
     </Command>
     <Property>
         <Identifier>IsLocked</Identifier>
@@ -99,21 +99,21 @@
             <Basic>Boolean</Basic>
         </DataType>
     </Property>
-    <StandardExecutionError>
+    <DefinedExecutionError>
         <Identifier>InvalidLockIdentifier</Identifier>
         <DisplayName>Invalid Lock Identifier</DisplayName>
         <Description>The sent lock identifier is not valid.</Description>
-    </StandardExecutionError>
-    <StandardExecutionError>
+    </DefinedExecutionError>
+    <DefinedExecutionError>
         <Identifier>ServerAlreadyLocked</Identifier>
         <DisplayName>Server Already Locked</DisplayName>
         <Description>The SiLA Server can not be locked because it is already locked.</Description>
-    </StandardExecutionError>
-    <StandardExecutionError>
+    </DefinedExecutionError>
+    <DefinedExecutionError>
         <Identifier>ServerNotLocked</Identifier>
         <DisplayName>Server Not Locked</DisplayName>
         <Description>The SiLA Server can not be unlocked because it is not locked.</Description>
-    </StandardExecutionError>
+    </DefinedExecutionError>
     <Metadata>
         <Identifier>LockIdentifier</Identifier>
         <DisplayName>Lock Identifier</DisplayName>

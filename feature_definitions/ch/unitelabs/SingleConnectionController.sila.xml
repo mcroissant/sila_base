@@ -16,18 +16,18 @@
         <DisplayName>Connect</DisplayName>
         <Description>Establish the connection to the component.</Description>
         <Observable>Yes</Observable>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>ConnectionFailure</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>ConnectionFailure</Identifier>
+        </DefinedExecutionErrors>
     </Command>
     <Command>
         <Identifier>Disconnect</Identifier>
         <DisplayName>Disconnect</DisplayName>
         <Description>Disconnect from the component.</Description>
         <Observable>Yes</Observable>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>ConnectionFailure</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>ConnectionFailure</Identifier>
+        </DefinedExecutionErrors>
     </Command>
     <Property>
         <Identifier>Connected</Identifier>
@@ -39,11 +39,11 @@
         </DataType>
     </Property>
     <!-- Command Execution Errors -->
-    <StandardExecutionError>
+    <DefinedExecutionError>
         <Identifier>ConnectionFailure</Identifier>
         <DisplayName>Connection Failure</DisplayName>
         <Description>
             Unable to perform the required connection Command.
         </Description>
-    </StandardExecutionError>
+    </DefinedExecutionError>
 </Feature>

@@ -28,19 +28,19 @@
           <Basic>String</Basic>
         </DataType>
       </Parameter>
-      <StandardExecutionErrors>
-        <StandardExecutionErrorIdentifier>FailedSending</StandardExecutionErrorIdentifier>
-        <StandardExecutionErrorIdentifier>InvalidRecipientID</StandardExecutionErrorIdentifier>
-      </StandardExecutionErrors>
+      <DefinedExecutionErrors>
+        <Identifier>FailedSending</Identifier>
+        <Identifier>InvalidRecipientID</Identifier>
+      </DefinedExecutionErrors>
     </Command>
-    <StandardExecutionError>
+    <DefinedExecutionError>
       <Identifier>FailedSending</Identifier>
       <DisplayName>Sending Failed</DisplayName>
       <Description>It was not possible to submit the message</Description>
-    </StandardExecutionError>
-    <StandardExecutionError>
+    </DefinedExecutionError>
+    <DefinedExecutionError>
       <Identifier>InvalidRecipientID</Identifier>
       <DisplayName>Invalid Recipient ID</DisplayName>
       <Description>The Recipient ID was not valid / has an unexpected format or size</Description>
-    </StandardExecutionError>
+    </DefinedExecutionError>
   </Feature>
