@@ -18,5 +18,13 @@
         <DataType>
             <Basic>String</Basic>
         </DataType>
+        <DefinedExecutionErrors>
+            <Identifier>InvalidAccessToken</Identifier>
+        </DefinedExecutionErrors>
     </Metadata>
+    <DefinedExecutionError>
+        <Identifier>InvalidAccessToken</Identifier>
+        <DisplayName>Invalid Access Token</DisplayName>
+        <Description>The sent access token is not valid.</Description>
+    </DefinedExecutionError>
 </Feature>
