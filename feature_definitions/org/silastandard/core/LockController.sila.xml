@@ -8,27 +8,27 @@
     <Description>
         This Feature allows a SiLA Client to lock a SiLA Server for exclusive use, preventing other SiLA Clients from
         using the server while it is locked. To lock a SiLA Server a lock identifier has to be set, using the
-        'LockServer' command. This identifier has to be sent with every (lock protected) call to the SiLA Server in
+        'LockServer' command. This identifier has to be sent along with every (lock protected) request to the SiLA Server in
         order to use it's functionality.
 
-        To sent the identifier the SiLA Client Meta Data 'LockIdentifier' has to be used.
+        To send the lock identifier the SiLA Client Meta Data 'LockIdentifier' has to be used.
         When locking a SiLA Server a timeout can be specified that defines the time after which the SiLA Server will
-        be automatically unlocked if no call with valid lock id has been received meanwhile. After the timeout has
+        be automatically unlocked if no request with a valid lock identifier has been received meanwhile. After the timeout has
         expired or after explicit unlock no lock identifier has to be sent any more.
     </Description>
     <Command>
         <Identifier>LockServer</Identifier>
         <DisplayName>Lock Server</DisplayName>
         <Description>
-            Locks a SiLA Server for exclusive use by setting a lock identifier that has to be sent with
-            any following (lock protected) calls as long as the server is locked.
+            Locks a SiLA Server for exclusive use by setting a lock identifier that has to be sent along with
+            any following (lock protected) request as long as the SiLA Server is locked.
         </Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>LockIdentifier</Identifier>
             <DisplayName>Lock Identifier</DisplayName>
             <Description>
-                The lock identifier that has to be sent with every (lock protected) call to use the server's
+                The lock identifier that has to be sent along with every (lock protected) request to use the server's
                 functionality.
             </Description>
             <DataType>
@@ -39,8 +39,8 @@
             <Identifier>Timeout</Identifier>
             <DisplayName>Timeout</DisplayName>
             <Description>
-                The time after a SiLA Server is automatically unlocked when no call with valid lock identifier
-                is received meanwhile. A timeout of 0 specifies an infinite time (no timeout).
+                The time after a SiLA Server is automatically unlocked when no request with a valid lock identifier
+                has been received meanwhile. A timeout of 0 specifies an infinite time (no timeout).
             </Description>
             <DataType>
                 <Constrained>
@@ -99,6 +99,17 @@
             <Basic>Boolean</Basic>
         </DataType>
     </Property>
+    <Metadata>
+        <Identifier>LockIdentifier</Identifier>
+        <DisplayName>Lock Identifier</DisplayName>
+        <Description>The lock identifier has to be sent with every (lock protected) call in order to use the functionality of a locked SiLA Server.</Description>
+        <DataType>
+            <Basic>String</Basic>
+        </DataType>
+        <DefinedExecutionErrors>
+            <Identifier>InvalidLockIdentifier</Identifier>
+        </DefinedExecutionErrors>
+    </Metadata>
     <DefinedExecutionError>
         <Identifier>InvalidLockIdentifier</Identifier>
         <DisplayName>Invalid Lock Identifier</DisplayName>
@@ -114,12 +125,4 @@
         <DisplayName>Server Not Locked</DisplayName>
         <Description>The SiLA Server can not be unlocked because it is not locked.</Description>
     </DefinedExecutionError>
-    <Metadata>
-        <Identifier>LockIdentifier</Identifier>
-        <DisplayName>Lock Identifier</DisplayName>
-        <Description>The lock identifier has to be sent with every (lock protected) call in order to use the functionality of a locked SiLA Server.</Description>
-        <DataType>
-            <Basic>String</Basic>
-        </DataType>
-    </Metadata>
 </Feature>
