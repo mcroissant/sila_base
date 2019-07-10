@@ -58,15 +58,15 @@
                 </Constrained>
             </DataType>
         </Response>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>AuthenticationFailed</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>AuthenticationFailed</Identifier>
+        </DefinedExecutionErrors>
     </Command>
-    <StandardExecutionError>
+    <DefinedExecutionError>
         <Identifier>AuthenticationFailed</Identifier>
         <DisplayName>Authentication Failed</DisplayName>
         <Description>The provided credentials are not valid</Description>
-    </StandardExecutionError>
+    </DefinedExecutionError>
     <Command>
         <Identifier>Logout</Identifier>
         <DisplayName>Logout</DisplayName>
@@ -80,13 +80,13 @@
                 <Basic>String</Basic>
             </DataType>
         </Parameter>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>InvalidAccessToken</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>InvalidAccessToken</Identifier>
+        </DefinedExecutionErrors>
     </Command>
-    <StandardExecutionError>
+    <DefinedExecutionError>
         <Identifier>InvalidAccessToken</Identifier>
         <DisplayName>Invalid Access Token</DisplayName>
         <Description>The sent access token is not valid.</Description>
-    </StandardExecutionError>
+    </DefinedExecutionError>
 </Feature>

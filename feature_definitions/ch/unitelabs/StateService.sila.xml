@@ -27,13 +27,13 @@
                     <Basic>String</Basic>
                 </DataType>
                 <Constraints>
-                    <Enumeration>
+                    <Set>
                         <Value>Idle</Value>
                         <Value>Running</Value>
                         <Value>Paused</Value>
                         <Value>Error</Value>
                         <Value>Unknown</Value>
-                    </Enumeration>
+                    </Set>
                 </Constraints>
             </Constrained>
         </DataType>

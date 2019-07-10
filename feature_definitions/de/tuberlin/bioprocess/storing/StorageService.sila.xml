@@ -27,9 +27,9 @@
                 <Basic>Integer</Basic>
             </DataType>
         </Response>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>InvalidPosition</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>InvalidPosition</Identifier>
+        </DefinedExecutionErrors>
     </Command>
     <Command>
         <Identifier>SetLabwareInformation</Identifier>
@@ -52,9 +52,9 @@
                 <Basic>Integer</Basic>
             </DataType>
         </Response>
-        <StandardExecutionErrors>
-          <StandardExecutionErrorIdentifier>InvalidPosition</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+          <Identifier>InvalidPosition</Identifier>
+        </DefinedExecutionErrors>
     </Command>
     <Command>
      <Identifier>GetFromPosition</Identifier>
@@ -77,9 +77,9 @@
          <Basic>Integer</Basic>
        </DataType>
      </Response>
-     <StandardExecutionErrors>
-       <StandardExecutionErrorIdentifier>InvalidPosition</StandardExecutionErrorIdentifier>
-     </StandardExecutionErrors>
+     <DefinedExecutionErrors>
+       <Identifier>InvalidPosition</Identifier>
+     </DefinedExecutionErrors>
    </Command>
     <Command>
      <Identifier>PutToPosition</Identifier>
@@ -102,15 +102,15 @@
          <Basic>Integer</Basic>
        </DataType>
      </Response>
-     <StandardExecutionErrors>
-       <StandardExecutionErrorIdentifier>InvalidPosition</StandardExecutionErrorIdentifier>
-     </StandardExecutionErrors>
+     <DefinedExecutionErrors>
+       <Identifier>InvalidPosition</Identifier>
+     </DefinedExecutionErrors>
     </Command>
-    <StandardExecutionError>
+    <DefinedExecutionError>
         <Identifier>InvalidPosition</Identifier>
         <DisplayName>Invalid Position</DisplayName>
         <Description>Somethings happens what better should not happend</Description>
-    </StandardExecutionError>
+    </DefinedExecutionError>
     <Property>
         <Identifier>TowerNumber</Identifier>
         <DisplayName>Tower Number</DisplayName>
