@@ -65,4 +65,11 @@
             state.
         </Description>
     </StandardExecutionError>
+    <StandardExecutionError>
+        <Identifier>RunStoppedByUser</Identifier>
+        <DisplayName>Run Stopped By User</DisplayName>
+        <Description>
+            The run of the program was manually stopped by the user.
+        </Description>
+    </StandardExecutionError>
 </Feature>
