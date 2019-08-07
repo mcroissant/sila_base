@@ -19,7 +19,7 @@
         <Observable>Yes</Observable>
         <Parameter>
             <Identifier>ProgramName</Identifier>
-            <DisplayName>ProgramName</DisplayName>
+            <DisplayName>Program Name</DisplayName>
             <Description>The name of the program to start.</Description>
             <DataType>
                 <Basic>String</Basic>
@@ -28,6 +28,12 @@
         <DefinedExecutionErrors>
             <Identifier>InvalidState</Identifier>
         </DefinedExecutionErrors>
+    </Command>
+    <Command>
+        <Identifier>Initialize</Identifier>
+        <DisplayName>Initialize</DisplayName>
+        <Description>Initialize the server.</Description>
+        <Observable>No</Observable>
     </Command>
     <Command>
         <Identifier>Stop</Identifier>
