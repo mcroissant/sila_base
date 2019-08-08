@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLA2Version="0.1" FeatureVersion="1.0" Originator="ch.unitelabs"
+         xmlns="http://www.sila-standard.org"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>InitializationController</Identifier>
+    <DisplayName>Initialization Controller</DisplayName>
+    <Description>
+        Exposes the ability to Initialize an instrument or driver.
+    </Description>
+    <!-- Commands -->
+    <Command>
+        <Identifier>Initialize</Identifier>
+        <DisplayName>Initialize</DisplayName>
+        <Description>Initialize</Description>
+        <Observable>No</Observable>
+    </Command>
+</Feature>

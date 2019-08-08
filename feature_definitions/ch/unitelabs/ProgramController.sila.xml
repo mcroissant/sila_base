@@ -30,12 +30,6 @@
         </DefinedExecutionErrors>
     </Command>
     <Command>
-        <Identifier>Initialize</Identifier>
-        <DisplayName>Initialize</DisplayName>
-        <Description>Initialize the server.</Description>
-        <Observable>No</Observable>
-    </Command>
-    <Command>
         <Identifier>Stop</Identifier>
         <DisplayName>Stop</DisplayName>
         <Description>Stops a currently running program, without a possibility to resume.</Description>
@@ -44,24 +38,19 @@
             <Identifier>InvalidState</Identifier>
         </DefinedExecutionErrors>
     </Command>
-    <Command>
+    <Property>
         <Identifier>ListPrograms</Identifier>
         <DisplayName>List Programs</DisplayName>
-        <Description>Returns the list of currently available programs saved in the device.</Description>
+        <Description>The list of currently available programs saved in the device.</Description>
+        <DataType>
+            <List>
+                <DataType>
+                    <Basic>String</Basic>
+                </DataType>
+            </List>
+        </DataType>
         <Observable>No</Observable>
-        <Response>
-            <Identifier>ProgramList</Identifier>
-            <DisplayName>Program list</DisplayName>
-            <Description>List of the saved programs available to run on the device.</Description>
-            <DataType>
-                <List>
-                    <DataType>
-                        <Basic>String</Basic>
-                    </DataType>
-                </List>
-            </DataType>
-        </Response>
-    </Command>
+    </Property>
     <!-- Command Execution Errors -->
     <DefinedExecutionError>
         <Identifier>InvalidState</Identifier>
