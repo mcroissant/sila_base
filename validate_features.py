@@ -1,6 +1,7 @@
 import os
 from lxml import etree
 
+SILA_VERSION="0.2"
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 
@@ -11,11 +12,15 @@ def validate_feature(qualified_filename):
     schema_xsd = etree.XMLSchema(
         etree.parse(os.path.join(current_dir, "schema", "FeatureDefinition.xsd"))
     )
-
-    # Check use case and correct location
     feature_xml = etree.parse(qualified_filename)
     schema_xsd.assertValid(feature_xml)
 
+    # SiLA Version Check
+    sila_version = feature_xml.xpath("@SiLA2Version")[0]
+    if sila_version != SILA_VERSION:
+        raise StandardError("Features in sila_base must be of version " + SILA_VERSION)
+
+    # Check use case and correct location
     originator_path = convert_to_path(feature_xml.xpath("@Originator"))
     category_path = convert_to_path(feature_xml.xpath("@Category"))
 
