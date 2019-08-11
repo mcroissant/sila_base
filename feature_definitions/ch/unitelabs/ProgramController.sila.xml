@@ -42,6 +42,7 @@
         <Identifier>ListPrograms</Identifier>
         <DisplayName>List Programs</DisplayName>
         <Description>The list of currently available programs saved in the device.</Description>
+        <Observable>No</Observable>
         <DataType>
             <List>
                 <DataType>
@@ -49,7 +50,6 @@
                 </DataType>
             </List>
         </DataType>
-        <Observable>No</Observable>
     </Property>
     <!-- Command Execution Errors -->
     <DefinedExecutionError>
