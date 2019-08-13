@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLA2Version="0.1" FeatureVersion="1.0" Originator="ch.unitelabs"
+<Feature SiLA2Version="0.2" FeatureVersion="1.0" Originator="ch.unitelabs"
          xmlns="http://www.sila-standard.org"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
@@ -19,50 +19,45 @@
         <Observable>Yes</Observable>
         <Parameter>
             <Identifier>ProgramName</Identifier>
-            <DisplayName>ProgramName</DisplayName>
+            <DisplayName>Program Name</DisplayName>
             <Description>The name of the program to start.</Description>
             <DataType>
                 <Basic>String</Basic>
             </DataType>
         </Parameter>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>InvalidState</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>InvalidState</Identifier>
+        </DefinedExecutionErrors>
     </Command>
     <Command>
         <Identifier>Stop</Identifier>
         <DisplayName>Stop</DisplayName>
         <Description>Stops a currently running program, without a possibility to resume.</Description>
         <Observable>No</Observable>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>InvalidState</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>InvalidState</Identifier>
+        </DefinedExecutionErrors>
     </Command>
-    <Command>
+    <Property>
         <Identifier>ListPrograms</Identifier>
         <DisplayName>List Programs</DisplayName>
-        <Description>Returns the list of currently available programs saved in the device.</Description>
+        <Description>The list of currently available programs saved in the device.</Description>
         <Observable>No</Observable>
-        <Response>
-            <Identifier>ProgramList</Identifier>
-            <DisplayName>Program list</DisplayName>
-            <Description>List of the saved programs available to run on the device.</Description>
-            <DataType>
-                <List>
-                    <DataType>
-                        <Basic>String</Basic>
-                    </DataType>
-                </List>
-            </DataType>
-        </Response>
-    </Command>
+        <DataType>
+            <List>
+                <DataType>
+                    <Basic>String</Basic>
+                </DataType>
+            </List>
+        </DataType>
+    </Property>
     <!-- Command Execution Errors -->
-    <StandardExecutionError>
+    <DefinedExecutionError>
         <Identifier>InvalidState</Identifier>
         <DisplayName>Invalid State</DisplayName>
         <Description>
             The command cannot be issued as the server is not in the correct
             state.
         </Description>
-    </StandardExecutionError>
+    </DefinedExecutionError>
 </Feature>

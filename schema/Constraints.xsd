@@ -8,25 +8,26 @@
     <xs:all>
       <xs:element type="xs:positiveInteger" name="Length" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Applicable to SiLA basic type: String</xs:documentation>
+          <xs:documentation>Applicable to SiLA basic type: String, Binary</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element type="xs:positiveInteger" name="MinimalLength" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Applicable to SiLA basic type: String, SmallBinary</xs:documentation>
+          <xs:documentation>Applicable to SiLA basic type: String, Binary</xs:documentation>
         </xs:annotation>
       </xs:element>
       <xs:element type="xs:positiveInteger" name="MaximalLength" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Applicable to SiLA basic type: String, SmallBinary</xs:documentation>
+          <xs:documentation>Applicable to SiLA basic type: String, Binary</xs:documentation>
         </xs:annotation>
       </xs:element>
-      <xs:element name="Enumeration" minOccurs="0">
+      <xs:element name="Set" minOccurs="0">
         <xs:complexType>
           <xs:sequence>
             <xs:element type="xs:string" name="Value" maxOccurs="unbounded" minOccurs="1">
               <xs:annotation>
-                <xs:documentation>Applicable to SiLA basic type: String</xs:documentation>
+                <xs:documentation>Applicable to SiLA basic type: String, Integer[xs:integer], Real[xs:decimal],
+                  Date[xs:date], Time[xs:time] and Timestamp[xs:dateTime]</xs:documentation>
               </xs:annotation>
             </xs:element>
           </xs:sequence>
@@ -104,7 +105,7 @@
       </xs:element>
       <xs:element name="ContentType" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Applicable to SiLA basic type: String, SmallBinary.</xs:documentation>
+          <xs:documentation>Applicable to SiLA basic type: String, Binary.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>
@@ -126,6 +127,11 @@
             </xs:element>
           </xs:sequence>
         </xs:complexType>
+      </xs:element>
+      <xs:element type="xs:positiveInteger" name="ElementCount" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Applicable to SiLA derived type: List</xs:documentation>
+        </xs:annotation>
       </xs:element>
       <xs:element type="xs:positiveInteger" name="MinimalElementCount" minOccurs="0">
         <xs:annotation>

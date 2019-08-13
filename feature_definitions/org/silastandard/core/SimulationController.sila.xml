@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLA2Version="0.1" FeatureVersion="1.0" MaturityLevel="Draft" Originator="org.silastandard" Category="core"
+<Feature SiLA2Version="0.2" FeatureVersion="1.0" MaturityLevel="Draft" Originator="org.silastandard" Category="core"
          xmlns="http://www.sila-standard.org"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
@@ -25,9 +25,9 @@
             - Cancel all dynamic property subscriptions that use real world data.
         </Description>
         <Observable>No</Observable>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>ModeCouldNotStart</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>ModeCouldNotStart</Identifier>
+        </DefinedExecutionErrors>
     </Command>
     <Command>
         <Identifier>StartRealMode</Identifier>
@@ -39,18 +39,18 @@
             retrievals.
         </Description>
         <Observable>No</Observable>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>ModeCouldNotStart</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>ModeCouldNotStart</Identifier>
+        </DefinedExecutionErrors>
     </Command>
-    <StandardExecutionError>
+    <DefinedExecutionError>
         <Identifier>ModeCouldNotStart</Identifier>
         <DisplayName>Mode Could Not Start</DisplayName>
         <Description>
             The Server could not start into either simulation or real mode. This could be for example
             because there are running commands that can not be canceled
         </Description>
-    </StandardExecutionError>
+    </DefinedExecutionError>
     <Property>
         <Identifier>SimulationMode</Identifier>
         <DisplayName>SimulationMode</DisplayName>

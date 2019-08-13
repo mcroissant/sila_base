@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLA2Version="0.1" FeatureVersion="1.0" MaturityLevel="Draft" Originator="org.silastandard" Category="examples"
+<Feature SiLA2Version="0.2" FeatureVersion="1.0" MaturityLevel="Draft" Originator="org.silastandard" Category="examples"
          xmlns="http://www.sila-standard.org"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
@@ -41,21 +41,21 @@
                 </Constrained>
             </DataType>
         </Parameter>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>TemperatureNotReachable</StandardExecutionErrorIdentifier>
-            <StandardExecutionErrorIdentifier>ControlInterrupted</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>TemperatureNotReachable</Identifier>
+            <Identifier>ControlInterrupted</Identifier>
+        </DefinedExecutionErrors>
     </Command>
-    <StandardExecutionError>
+    <DefinedExecutionError>
         <Identifier>TemperatureNotReachable</Identifier>
         <DisplayName>Temperature Not Reachable</DisplayName>
         <Description>The ambient conditions prohibit the device from reaching the target temperature.</Description>
-    </StandardExecutionError>
-    <StandardExecutionError>
+    </DefinedExecutionError>
+    <DefinedExecutionError>
         <Identifier>ControlInterrupted</Identifier>
         <DisplayName>Control Interrupted</DisplayName>
         <Description>The control of temperature couldn't be finished as it was interrupted by another target temperature.</Description>
-    </StandardExecutionError>
+    </DefinedExecutionError>
     <Property>
         <Identifier>CurrentTemperature</Identifier>
         <DisplayName>Current Temperature</DisplayName>

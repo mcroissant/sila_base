@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLA2Version="0.1" FeatureVersion="1.0" MaturityLevel="Draft" Originator="de.tuberlin.bioprocess" Category="storing"
+<Feature SiLA2Version="0.2" FeatureVersion="1.0" MaturityLevel="Draft" Originator="de.tuberlin.bioprocess" Category="storing"
         xmlns="http://www.sila-standard.org" 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
@@ -27,9 +27,9 @@
                 <Basic>Integer</Basic>
             </DataType>
         </Response>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>InvalidPosition</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>InvalidPosition</Identifier>
+        </DefinedExecutionErrors>
     </Command>
     <Command>
         <Identifier>SetLabwareInformation</Identifier>
@@ -52,9 +52,9 @@
                 <Basic>Integer</Basic>
             </DataType>
         </Response>
-        <StandardExecutionErrors>
-          <StandardExecutionErrorIdentifier>InvalidPosition</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+          <Identifier>InvalidPosition</Identifier>
+        </DefinedExecutionErrors>
     </Command>
     <Command>
      <Identifier>GetFromPosition</Identifier>
@@ -77,9 +77,9 @@
          <Basic>Integer</Basic>
        </DataType>
      </Response>
-     <StandardExecutionErrors>
-       <StandardExecutionErrorIdentifier>InvalidPosition</StandardExecutionErrorIdentifier>
-     </StandardExecutionErrors>
+     <DefinedExecutionErrors>
+       <Identifier>InvalidPosition</Identifier>
+     </DefinedExecutionErrors>
    </Command>
     <Command>
      <Identifier>PutToPosition</Identifier>
@@ -102,15 +102,15 @@
          <Basic>Integer</Basic>
        </DataType>
      </Response>
-     <StandardExecutionErrors>
-       <StandardExecutionErrorIdentifier>InvalidPosition</StandardExecutionErrorIdentifier>
-     </StandardExecutionErrors>
+     <DefinedExecutionErrors>
+       <Identifier>InvalidPosition</Identifier>
+     </DefinedExecutionErrors>
     </Command>
-    <StandardExecutionError>
+    <DefinedExecutionError>
         <Identifier>InvalidPosition</Identifier>
         <DisplayName>Invalid Position</DisplayName>
         <Description>Somethings happens what better should not happend</Description>
-    </StandardExecutionError>
+    </DefinedExecutionError>
     <Property>
         <Identifier>TowerNumber</Identifier>
         <DisplayName>Tower Number</DisplayName>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLA2Version="0.1" FeatureVersion="1.0" MaturityLevel="Verified" Originator="org.silastandard" Category="core"
+<Feature SiLA2Version="0.2" FeatureVersion="1.0" MaturityLevel="Verified" Originator="org.silastandard" Category="core"
         xmlns="http://www.sila-standard.org" 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
@@ -31,9 +31,9 @@
                 <DataTypeIdentifier>FeatureDefinition</DataTypeIdentifier>
             </DataType>
         </Response>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>UnimplementedFeature</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>UnimplementedFeature</Identifier>
+        </DefinedExecutionErrors>
     </Command>
     <Command>
         <Identifier>SetServerName</Identifier>
@@ -49,11 +49,11 @@
             </DataType>
         </Parameter>
     </Command>
-    <StandardExecutionError>
+    <DefinedExecutionError>
         <Identifier>UnimplementedFeature</Identifier>
         <DisplayName>Unimplemented Feature</DisplayName>
         <Description>The feature specified by the given feature identifier is not implemented by the server.</Description>
-    </StandardExecutionError>
+    </DefinedExecutionError>
     <!-- Properties -->
     <Property>
         <Identifier>ServerName</Identifier>
@@ -116,7 +116,7 @@
                     <Basic>String</Basic>
                 </DataType>
                 <Constraints>
-                    <Pattern>(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))?([_a-zA-Z0-9]+)?</Pattern>
+                    <Pattern>(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))?(_[_a-zA-Z0-9]+)?</Pattern>
                 </Constraints>
             </Constrained>
         </DataType>

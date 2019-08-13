@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLA2Version="0.1" FeatureVersion="1.0" MaturityLevel="Draft" Originator="org.silastandard" Category="core"
+<Feature SiLA2Version="0.2" FeatureVersion="1.0" MaturityLevel="Draft" Originator="org.silastandard" Category="core"
          xmlns="http://www.sila-standard.org"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
@@ -58,15 +58,15 @@
                 </Constrained>
             </DataType>
         </Response>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>AuthenticationFailed</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>AuthenticationFailed</Identifier>
+        </DefinedExecutionErrors>
     </Command>
-    <StandardExecutionError>
+    <DefinedExecutionError>
         <Identifier>AuthenticationFailed</Identifier>
         <DisplayName>Authentication Failed</DisplayName>
         <Description>The provided credentials are not valid</Description>
-    </StandardExecutionError>
+    </DefinedExecutionError>
     <Command>
         <Identifier>Logout</Identifier>
         <DisplayName>Logout</DisplayName>
@@ -80,13 +80,13 @@
                 <Basic>String</Basic>
             </DataType>
         </Parameter>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>InvalidAccessToken</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>InvalidAccessToken</Identifier>
+        </DefinedExecutionErrors>
     </Command>
-    <StandardExecutionError>
+    <DefinedExecutionError>
         <Identifier>InvalidAccessToken</Identifier>
         <DisplayName>Invalid Access Token</DisplayName>
         <Description>The sent access token is not valid.</Description>
-    </StandardExecutionError>
+    </DefinedExecutionError>
 </Feature>

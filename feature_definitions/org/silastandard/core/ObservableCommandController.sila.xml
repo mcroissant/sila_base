@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLA2Version="0.1" FeatureVersion="1.0" MaturityLevel="Draft" Originator="org.silastandard" Category="core"
+<Feature SiLA2Version="0.2" FeatureVersion="1.0" MaturityLevel="Draft" Originator="org.silastandard" Category="core"
          xmlns="http://www.sila-standard.org"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
@@ -21,11 +21,11 @@
         <DataTypeIdentifier>UUID</DataTypeIdentifier>
       </DataType>
     </Parameter>
-    <StandardExecutionErrors>
-      <StandardExecutionErrorIdentifier>InvalidCommandExecutionUUID</StandardExecutionErrorIdentifier>
-      <StandardExecutionErrorIdentifier>InvalidCommandState</StandardExecutionErrorIdentifier>
-      <StandardExecutionErrorIdentifier>OperationNotSupported</StandardExecutionErrorIdentifier>
-    </StandardExecutionErrors>
+    <DefinedExecutionErrors>
+      <Identifier>InvalidCommandExecutionUUID</Identifier>
+      <Identifier>InvalidCommandState</Identifier>
+      <Identifier>OperationNotSupported</Identifier>
+    </DefinedExecutionErrors>
   </Command>
   <Command>
     <Identifier>Resume</Identifier>
@@ -40,11 +40,11 @@
         <DataTypeIdentifier>UUID</DataTypeIdentifier>
       </DataType>
     </Parameter>
-    <StandardExecutionErrors>
-      <StandardExecutionErrorIdentifier>InvalidCommandExecutionUUID</StandardExecutionErrorIdentifier>
-      <StandardExecutionErrorIdentifier>InvalidCommandState</StandardExecutionErrorIdentifier>
-      <StandardExecutionErrorIdentifier>OperationNotSupported</StandardExecutionErrorIdentifier>
-    </StandardExecutionErrors>
+    <DefinedExecutionErrors>
+      <Identifier>InvalidCommandExecutionUUID</Identifier>
+      <Identifier>InvalidCommandState</Identifier>
+      <Identifier>OperationNotSupported</Identifier>
+    </DefinedExecutionErrors>
   </Command>
   <Command>
     <Identifier>Abort</Identifier>
@@ -59,34 +59,34 @@
         <DataTypeIdentifier>UUID</DataTypeIdentifier>
       </DataType>
     </Parameter>
-    <StandardExecutionErrors>
-      <StandardExecutionErrorIdentifier>InvalidCommandExecutionUUID</StandardExecutionErrorIdentifier>
-      <StandardExecutionErrorIdentifier>InvalidCommandState</StandardExecutionErrorIdentifier>
-      <StandardExecutionErrorIdentifier>OperationNotSupported</StandardExecutionErrorIdentifier>
-    </StandardExecutionErrors>
+    <DefinedExecutionErrors>
+      <Identifier>InvalidCommandExecutionUUID</Identifier>
+      <Identifier>InvalidCommandState</Identifier>
+      <Identifier>OperationNotSupported</Identifier>
+    </DefinedExecutionErrors>
   </Command>
-  <StandardExecutionError>
+  <DefinedExecutionError>
     <Identifier>InvalidCommandExecutionUUID</Identifier>
     <DisplayName>Invalid Command Execution UUID</DisplayName>
     <Description>
       The specified command is not under execution
     </Description>
-  </StandardExecutionError>
-  <StandardExecutionError>
+  </DefinedExecutionError>
+  <DefinedExecutionError>
     <Identifier>InvalidCommandState</Identifier>
     <DisplayName>Invalid Command State</DisplayName>
     <Description>
       The specified command is not in a valid state to perform the operation (Pause, Resume or Abort)
     </Description>
-  </StandardExecutionError>
-  <StandardExecutionError>
+  </DefinedExecutionError>
+  <DefinedExecutionError>
     <Identifier>OperationNotSupported</Identifier>
     <DisplayName>Operation Not Supported</DisplayName>
     <Description>
       The operation (Pause, Resume or Abort) is not supported for the SiLA 2 command which the
       specified CommandExecutionUUID belongs to
     </Description>
-  </StandardExecutionError>
+  </DefinedExecutionError>
   <Property>
     <Identifier>SupportedCommands</Identifier>
     <DisplayName>Supported Commands</DisplayName>
