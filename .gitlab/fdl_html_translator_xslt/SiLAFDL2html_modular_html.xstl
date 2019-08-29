@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+ <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+     xmlns:sistd="http://www.sila-standard.org" >
+     <xsl:output method="html"/>
+
+   <xsl:template match ="/sistd:Feature">
+     <html>
+       <head>
+       </head>
+       <body>
+         <h2>SiLA Feature Details <xsl:value-of select="sistd:DisplayName"/> </h2>
+
+          <xsl:call-template name="commands" />
+          <xsl:call-template name="properties" />
+      </body>
+     </html>
+   </xsl:template>
+
+   <xsl:template name="commands" >
+        <h3>SiLA Feature Commands</h3>
+
+         <table >
+           <tr bgcolor="lightblue">
+             <th style="text-align:Left"> Identifier</th>
+             <th style="text-align:Left"> DisplayName</th>
+             <th style="text-align:Left"> Description</th>
+           </tr>
+           <xsl:for-each select="sistd:Command">
+               <xsl:call-template name="details" />
+            </xsl:for-each>
+     </table>
+   </xsl:template>
+
+    <xsl:template name="properties" >
+        <h3>SiLA Feature Properties</h3>
+
+         <table >
+           <tr bgcolor="lightgreen">
+             <th style="text-align:Left"> Identifier</th>
+             <th style="text-align:Left"> DisplayName</th>
+             <th style="text-align:Left"> Description</th>
+           </tr>
+           <xsl:for-each select="sistd:Property">
+               <xsl:call-template name="details" />
+            </xsl:for-each>
+     </table>
+   </xsl:template>
+
+   <xsl:template name="details">
+         <tr>
+           <td>
+             <xsl:value-of select="sistd:Identifier" />
+           </td>
+           <td>
+             <xsl:value-of select="sistd:DisplayName"/>
+           </td>
+           <td>
+             <xsl:value-of select="sistd:Description"/>
+           </td>
+         </tr>
+   </xsl:template>
+ </xsl:stylesheet>
