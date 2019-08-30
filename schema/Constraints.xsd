@@ -184,7 +184,7 @@
       </xs:element>
       <xs:element name="AllowedTypes" minOccurs="0">
         <xs:annotation>
-          <xs:documentation>Applicable to SiLA AnyType type</xs:documentation>
+          <xs:documentation>Applicable to SiLA basic type Any</xs:documentation>
         </xs:annotation>
         <xs:complexType>
           <xs:sequence>

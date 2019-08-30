@@ -11,7 +11,6 @@
       <xs:element type="tns:StructureType" name="Structure" minOccurs="0"/>
       <xs:element type="tns:ConstrainedType" name="Constrained" minOccurs="0"/>
       <xs:element type="tns:IdentifierType" name="DataTypeIdentifier" minOccurs="0"/>
-      <xs:element type="tns:AnyType" name="AnyType" minOccurs="0"/>
     </xs:choice>
   </xs:complexType>
   <!-- XSD Internal Types -->
@@ -44,6 +43,7 @@
       <xs:enumeration value="Date"/>
       <xs:enumeration value="Time"/>
       <xs:enumeration value="Timestamp"/>
+      <xs:enumeration value="Any"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="ListType">
@@ -61,7 +61,5 @@
       <xs:element type="tns:DataTypeType" name="DataType"/>
       <xs:element type="tns:Constraints" name="Constraints"/>
     </xs:sequence>
-  </xs:complexType>
-  <xs:complexType name="AnyType">
   </xs:complexType>
 </xs:schema>
