@@ -2,6 +2,15 @@ h1, .h1, h2, .h2, h3, .h3{
     font-weight: 200 !important;
 }
 
+.h2 {
+  margin-left: 30px;
+}
+
+.h3 {
+  margin-left: 50px;
+}
+
+
 #navrow1, #navrow2, #navrow3, #navrow4, #navrow5{
     border-bottom: 1px solid #EEEEEE;
 }

@@ -6,38 +6,48 @@
    <xsl:template match ="/sistd:Feature">
 # SiLA Feature: <xsl:value-of select="sistd:DisplayName"/> (<xsl:value-of select="sistd:Identifier"/>)
 
+#### Description
+
+<xsl:value-of select="sistd:Description"/>
+
+----
+
           <xsl:call-template name="commands" />
+----
 
           <xsl:call-template name="properties" />
 
    </xsl:template>
 
+    <!-- commands handler -->
    <xsl:template name="commands" >
-## SiLA Feature Commands
+## Commands
 
+----
       <xsl:for-each select="sistd:Command">
            <xsl:call-template name="details" />
       </xsl:for-each>
-
    </xsl:template>
-
+   
+    <!-- properties handler -->
     <xsl:template name="properties" >
 
-## SiLA Feature Properties
+## Properties
+
+----
 
       <xsl:for-each select="sistd:Property">
            <xsl:call-template name="details" />
-
       </xsl:for-each>
-
    </xsl:template>
 
    <!-- generating detail entries for each command or property -->
    <xsl:template name="details">
 ###  <xsl:value-of select="sistd:DisplayName"/> (<xsl:value-of select="sistd:Identifier" />)
 
-  ** Description **
-      <xsl:value-of select="sistd:Description"/>
+#### Description
+
+<xsl:value-of select="sistd:Description"/>
 
 
    </xsl:template>
