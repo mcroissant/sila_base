@@ -21,7 +21,15 @@ font-size: 1.15em !important;
 }
 .navbar{
  border: 0px solid #222 !important;
+ background-color: black !important;
 }
+
+.projectname {
+    font-size: 1.5em;
+    padding-top: 30% ;
+    color: white !important;
+}
+
 table{
     white-space:pre-wrap !important;
 }

@@ -68,7 +68,7 @@ def genIndexAlphabetic(feature_path_dict, target_dir="."):
     
     markdown_txt = "# Alphabetic Feature list \n\n"
     
-    for feature, feature_dict in feature_path_dict.items() :
+    for feature, feature_dict in sorted(feature_path_dict.items()) :
         markdown_txt += f"[{feature}]({feature}.html)\n\n"
         
     with open(full_output_filename, 'w') as index_file :
@@ -106,12 +106,24 @@ def genMainPage(core_feature_dict, target_dir="."):
     full_output_filename = os.path.join(target_dir, mainpage_filename)
     
     markdown_txt = ("# Welcome to SiLA 2 \n\n"
+                    "SiLA’s mission is to establish international standards which create open connectivity in lab automation.\n"
+                    "SiLA’s vision is to create interoperability, flexibility and resource optimization for laboratory instruments \n"
+                    "integration and software services based on standardized communication protocols and content specifications. \n"
+                    "SiLA promotes open standards to allow integration and exchange of intelligent systems in a cost effective way.\n\n"
+                    "[more ...](./md__docs_feature_list_alph.html)\n"
+
                     "## SiLA 2 Core Features\n"
-                    "These are the current SiLA 2 core features, for more features, please select 'Related Pages'\n\n")
+                    "These are the current SiLA 2 core features, for more features, please select '*Related Pages*'\n\n")
     
-    for feature, feature_dict in core_feature_dict.items() :
+    for feature, feature_dict in sorted(core_feature_dict.items()) :
         markdown_txt += f"[{feature}]({feature}.html)\n\n"
     
+    markdown_txt += ( "## Alphabetical List of all Feature\n\n"
+                      "[Feature List - alphabetical](./md__docs_feature_list_alph.html)\n\n")
+                      
+    markdown_txt += ( "## List of all Features, sorted by category\n\n"
+                      "[Feature List - in categories](./md__docs_feature_list_categories.html)\n\n")
+                    
     with open(full_output_filename, 'w') as mainpage_file :
         mainpage_file.write( markdown_txt )
     
