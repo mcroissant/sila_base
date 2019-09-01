@@ -98,6 +98,24 @@ def genIndexCategories(feature_path_dict, target_dir="."):
     with open(full_output_filename, 'w') as index_file :
         index_file.write( markdown_txt )
     
+def genMainPage(core_feature_dict, target_dir="."):
+    """ :param [param_name]: [description]"""
+    
+    mainpage_filename = "mainpage.md"
+    
+    full_output_filename = os.path.join(target_dir, mainpage_filename)
+    
+    markdown_txt = ("# Welcome to SiLA 2 \n\n"
+                    "## SiLA 2 Core Features\n"
+                    "These are the current SiLA 2 core features, for more features, please select 'Related Pages'\n\n")
+    
+    for feature, feature_dict in core_feature_dict.items() :
+        markdown_txt += f"[{feature}]({feature}.html)\n\n"
+    
+    with open(full_output_filename, 'w') as mainpage_file :
+        mainpage_file.write( markdown_txt )
+    
+    
 def makeDoxygenDocs():
     """ :param [param_name]: [description]"""
     
@@ -120,6 +138,7 @@ if __name__ == '__main__':
         logging.debug("dir exists {}".format(TARGET_MD_DIR) )
     
     feature_path_dict = {}
+    core_feature_dict = {}
     
     sila_feature_path_list = Path(DEF_SILA_BASE_PATH).glob('**/*.sila.xml')
     
@@ -133,12 +152,18 @@ if __name__ == '__main__':
          
          feature_path_dict[feature_id] = feat_dict  # because path is object not string
          
+         if "core" in feat_path :
+             core_feature_dict[feature_id] = feat_dict
+         
+         
          # transform 
          transformFDLmarkdown(feature_id, feat_dict, TARGET_MD_DIR)
     
     genIndexAlphabetic(feature_path_dict, TARGET_MD_DIR)
     
     genIndexCategories(feature_path_dict, TARGET_MD_DIR)
+    
+    genMainPage(core_feature_dict, TARGET_MD_DIR)
     
     makeDoxygenDocs()
     
