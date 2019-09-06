@@ -33,9 +33,6 @@
                 <DataTypeIdentifier>RelativeFluorescenceUnits</DataTypeIdentifier>
             </DataType>
         </Response>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>ReadInterrupted</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
     </Command>
     <Command>
         <Identifier>FluorescenceReadPlate</Identifier>
@@ -201,10 +198,4 @@
             </Constrained>
         </DataType>
     </DataTypeDefinition>
-    <!-- Command Execution Errors -->
-    <StandardExecutionError>
-        <Identifier>ReadInterrupted</Identifier>
-        <DisplayName>Read Interrupted</DisplayName>
-        <Description>Reading the well was impossible or interrupted</Description>
-    </StandardExecutionError>
 </Feature>
