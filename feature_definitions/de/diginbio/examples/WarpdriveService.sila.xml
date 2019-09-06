@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Feature SiLA2Version="0.1" FeatureVersion="1.0" MaturityLevel="Draft" Originator="de.diginbio" Category="examples"
+<Feature SiLA2Version="0.2" FeatureVersion="1.0" MaturityLevel="Draft" Originator="de.diginbio" Category="examples"
     xmlns="http://www.sila-standard.org"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
@@ -32,6 +32,7 @@
     <Identifier>WarpingState</Identifier>
     <DisplayName>Warping State</DisplayName>
     <Description>Current status of the warpdrive.</Description>
+    <Observable>Yes</Observable>
     <DataType>
       <Structure>
         <Element>
@@ -52,7 +53,6 @@
         </Element>
       </Structure>
     </DataType>
-    <Observable>Yes</Observable>
   </Property>
   <Command>
     <Identifier>Disengage</Identifier>

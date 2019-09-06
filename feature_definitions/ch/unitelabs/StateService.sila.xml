@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLA2Version="0.1" FeatureVersion="1.0" Originator="ch.unitelabs"
+<Feature SiLA2Version="0.2" FeatureVersion="1.0" Originator="ch.unitelabs"
          xmlns="http://www.sila-standard.org"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
@@ -20,23 +20,23 @@
         <Identifier>State</Identifier>
         <DisplayName>State</DisplayName>
         <Description>Returns the state of the server.</Description>
+        <Observable>Yes</Observable>
         <DataType>
             <Constrained>
                 <DataType>
                     <Basic>String</Basic>
                 </DataType>
                 <Constraints>
-                    <Enumeration>
+                    <Set>
                         <Value>Idle</Value>
                         <Value>Running</Value>
                         <Value>Paused</Value>
                         <Value>Error</Value>
                         <Value>Unknown</Value>
-                    </Enumeration>
+                    </Set>
                 </Constraints>
             </Constrained>
         </DataType>
-        <Observable>Yes</Observable>
     </Property>
 </Feature>
 

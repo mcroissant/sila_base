@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLA2Version="0.1" FeatureVersion="1.0" MaturityLevel="Verified" Originator="org.silastandard" Category="core"
+<Feature SiLA2Version="0.2" FeatureVersion="1.0" MaturityLevel="Verified" Originator="org.silastandard" Category="core"
         xmlns="http://www.sila-standard.org" 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
@@ -31,9 +31,9 @@
                 <DataTypeIdentifier>FeatureDefinition</DataTypeIdentifier>
             </DataType>
         </Response>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>UnimplementedFeature</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
+        <DefinedExecutionErrors>
+            <Identifier>UnimplementedFeature</Identifier>
+        </DefinedExecutionErrors>
     </Command>
     <Command>
         <Identifier>SetServerName</Identifier>
@@ -49,35 +49,37 @@
             </DataType>
         </Parameter>
     </Command>
-    <StandardExecutionError>
+    <DefinedExecutionError>
         <Identifier>UnimplementedFeature</Identifier>
         <DisplayName>Unimplemented Feature</DisplayName>
         <Description>The feature specified by the given feature identifier is not implemented by the server.</Description>
-    </StandardExecutionError>
+    </DefinedExecutionError>
     <!-- Properties -->
     <Property>
         <Identifier>ServerName</Identifier>
         <DisplayName>Server Name</DisplayName>
         <Description>Human readable name of the SiLA Server.</Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>String</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ServerType</Identifier>
         <DisplayName>Server Type</DisplayName>
         <Description>The type of Server this is. Is specified by the implementer of the server and not unique.</Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>String</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ServerUUID</Identifier>
         <DisplayName>Server UUID</DisplayName>
         <Description>Globally unique identifier that identifies a SiLA Server. The Server UUID MUST
-            be generated once and always remain the same.</Description>
+            be generated once and always remain the same.
+        </Description>
+        <Observable>No</Observable>
         <DataType>
             <Constrained>
                 <DataType>
@@ -89,50 +91,56 @@
                 </Constraints>
             </Constrained>
         </DataType>
-        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ServerDescription</Identifier>
         <DisplayName>Server Description</DisplayName>
         <Description>Description of the SiLA Server.</Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>String</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ServerVersion</Identifier>
         <DisplayName>Server Version</DisplayName>
-        <Description>Returns the version of the SiLA Server. A "Major" and a "Minor" version number (e.g. 1.0) MUST be provided,
-            a Patch version number MAY be provided. Optionally, an arbitrary text, separated by an underscore MAY be appended, e.g. “3.19.373_mighty_lab_devices”
+        <Description>
+            Returns the version of the SiLA Server. A "Major" and a "Minor" version number (e.g. 1.0) MUST be provided,
+            a Patch version number MAY be provided. Optionally, an arbitrary text, separated by an underscore MAY be appended,
+            e.g. “3.19.373_mighty_lab_devices”
         </Description>
+        <Observable>No</Observable>
         <DataType>
             <Constrained>
                 <DataType>
                     <Basic>String</Basic>
                 </DataType>
                 <Constraints>
-                    <Pattern>(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))?([_a-zA-Z0-9]+)?</Pattern>
+                    <Pattern>(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(\.(0|[1-9][0-9]*))?(_[_a-zA-Z0-9]+)?</Pattern>
                 </Constraints>
             </Constrained>
         </DataType>
-        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ServerVendorURL</Identifier>
         <DisplayName>Server Vendor URL</DisplayName>
-        <Description>Returns the URL to the website of the vendor or the website 
-            of the product of this SiLA Server.</Description>
+        <Description>
+            Returns the URL to the website of the vendor or the website
+            of the product of this SiLA Server.
+        </Description>
+        <Observable>No</Observable>
         <DataType>
             <DataTypeIdentifier>URL</DataTypeIdentifier>
         </DataType>
-        <Observable>No</Observable>
     </Property>
     <Property>
         <Identifier>ImplementedFeatures</Identifier>
         <DisplayName>Implemented Features</DisplayName>
-        <Description>Returns a list of qualified Feature identifiers of all 
-            implemented Features of this SiLA Server.</Description>
+        <Description>
+            Returns a list of qualified Feature identifiers of all
+            implemented Features of this SiLA Server.
+        </Description>
+        <Observable>No</Observable>
         <DataType>
             <List>
                 <DataType>
@@ -140,7 +148,6 @@
                 </DataType>
             </List>
         </DataType>
-        <Observable>No</Observable>
     </Property>
     <DataTypeDefinition>
         <Identifier>FeatureIdentifier</Identifier>
@@ -165,7 +172,17 @@
         <Description>The content of a Feature Definition conforming 
             with the XML Schema.</Description>
         <DataType>
-            <Basic>String</Basic>
+            <Constrained>
+                <DataType>
+                    <Basic>String</Basic>
+                </DataType>
+                <Constraints>
+                    <Schema>
+                        <Type>Xml</Type>
+                        <Url>https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd</Url>
+                    </Schema>
+                </Constraints>
+            </Constrained>
         </DataType>
     </DataTypeDefinition>
     <DataTypeDefinition>
