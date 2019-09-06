@@ -6,8 +6,7 @@
     <Identifier>LuminescenceReaderService</Identifier>
     <DisplayName>Luminescence Reader Service</DisplayName>
     <Description>SiLA 2 Device Luminescence Reader feature - Show basic operations for a device luminescence reader
-        like open/close device cover, abort read operations, reading from selected well of a plate and reading from all wells in a plate.
-        There are several types of plates with 6, 12, 24, 48, 96 and 384 wells. Observing current status of the reader: idle, busy, unavailable.
+        like reading from selected well of a plate and reading from all wells in a plate.
         Luminescence reading has an integration property from 0.1 to 10 seconds.
     </Description>
     <!-- Commands -->
@@ -27,14 +26,16 @@
             </DataType>
         </Parameter>
         <Response>
-            <Identifier>Value</Identifier>
-            <DisplayName>Value</DisplayName>
-            <Description>Result value of the well</Description>
+            <Identifier>WellRelativeLuminescenceUnits</Identifier>
+            <DisplayName>Well Relative Luminescence Units</DisplayName>
+            <Description>Relative Luminescence Units measurement of the well</Description>
             <DataType>
-                <!-- TODO: Unit of measurement -->
-                <Basic>Integer</Basic>
+                <DataTypeIdentifier>RelativeLuminescenceUnits</DataTypeIdentifier>
             </DataType>
         </Response>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>ReadInterrupted</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
     </Command>
     <Command>
         <Identifier>LuminescenceReadPlate</Identifier>
@@ -58,12 +59,11 @@
                                 </DataType>
                             </Element>
                             <Element>
-                                <Identifier>Value</Identifier>
-                                <DisplayName>Value</DisplayName>
-                                <Description>The read luminescence value in this well</Description>
+                                <Identifier>WellRelativeLuminescenceUnits</Identifier>
+                                <DisplayName>Well Relative Luminescence Units</DisplayName>
+                                <Description>Relative Luminescence Units measurement of the well</Description>
                                 <DataType>
-                                    <!-- TODO: Unit of measurement -->
-                                    <Basic>Integer</Basic>
+                                    <DataTypeIdentifier>RelativeLuminescenceUnits</DataTypeIdentifier>
                                 </DataType>
                             </Element>
                         </Structure>
@@ -74,9 +74,9 @@
     </Command>
     <!-- Properties -->
     <Property>
-        <Identifier>Integration</Identifier>
-        <DisplayName>Integration</DisplayName>
-        <Description>Integration time filter for Luminescence read.</Description>
+        <Identifier>IntegrationFilter</Identifier>
+        <DisplayName>Integration Filter</DisplayName>
+        <Description>Integration time filter for Luminescence read</Description>
         <DataType>
             <Constrained>
                 <DataType>
@@ -138,7 +138,7 @@
                                 <Basic>Integer</Basic>
                             </DataType>
                             <Constraints>
-                                <Pattern>[0-9]</Pattern>
+                                <MinimalInclusive>0</MinimalInclusive>
                             </Constraints>
                         </Constrained>
                     </DataType>
@@ -146,4 +146,29 @@
             </Structure>
         </DataType>
     </DataTypeDefinition>
+    <DataTypeDefinition>
+        <Identifier>RelativeLuminescenceUnits</Identifier>
+        <DisplayName>Relative Luminescence Units</DisplayName>
+        <Description>
+            Unit of measurement used in analysis which employs luminescence detection.
+            It is dimensionless. Values are between 0 and 1 billion.
+        </Description>
+        <DataType>
+            <Constrained>
+                <DataType>
+                    <Basic>Integer</Basic>
+                </DataType>
+                <Constraints>
+                    <MinimalInclusive>0</MinimalInclusive>
+                    <MaximalInclusive>1000000000</MaximalInclusive>
+                </Constraints>
+            </Constrained>
+        </DataType>
+    </DataTypeDefinition>
+    <!-- Command Execution Errors -->
+    <StandardExecutionError>
+        <Identifier>ReadInterrupted</Identifier>
+        <DisplayName>Read Interrupted</DisplayName>
+        <Description>Reading the well was impossible or interrupted</Description>
+    </StandardExecutionError>
 </Feature>

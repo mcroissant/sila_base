@@ -6,8 +6,7 @@
     <Identifier>AbsorbanceReaderService</Identifier>
     <DisplayName>Absorbance Reader Service</DisplayName>
     <Description>SiLA 2 Device Absorbance Reader feature - Show basic operations for a device absorbance reader
-        like open/close device cover, abort read operations, reading from selected well of a plate and reading from all wells in a plate.
-        There are several types of plates with 6, 12, 24, 48, 96 and 384 wells. Observing current status of the reader: idle, busy, unavailable.
+        like reading from selected well of a plate and reading from all wells in a plate.
         Absorbance reading has a measurement property.
     </Description>
     <!-- Commands -->
@@ -27,14 +26,16 @@
             </DataType>
         </Parameter>
         <Response>
-            <Identifier>Value</Identifier>
-            <DisplayName>Value</DisplayName>
-            <Description>Result value of the well</Description>
+            <Identifier>WellOpticalDensity</Identifier>
+            <DisplayName>Well Optical Density</DisplayName>
+            <Description>Optical density of the well</Description>
             <DataType>
-                <!-- TODO: Unit of measurement -->
-                <Basic>Real</Basic>
+                <DataTypeIdentifier>OpticalDensity</DataTypeIdentifier>
             </DataType>
         </Response>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>ReadInterrupted</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
     </Command>
     <Command>
         <Identifier>AbsorbanceReadPlate</Identifier>
@@ -58,13 +59,12 @@
                                 </DataType>
                             </Element>
                             <Element>
-                                <Identifier>Value</Identifier>
-                                <DisplayName>Value</DisplayName>
-                                <Description>The read absorbance value in this well</Description>
-                                <DataType>
-                                    <!-- TODO: Unit of measurement -->
-                                    <Basic>Real</Basic>
-                                </DataType>
+                                <Identifier>WellOpticalDensity</Identifier>
+                                    <DisplayName>Well Optical Density</DisplayName>
+                                    <Description>Optical density of the well</Description>
+                                    <DataType>
+                                        <DataTypeIdentifier>OpticalDensity</DataTypeIdentifier>
+                                    </DataType>
                             </Element>
                         </Structure>
                     </DataType>
@@ -143,7 +143,7 @@
                                 <Basic>Integer</Basic>
                             </DataType>
                             <Constraints>
-                                <Pattern>[0-9]</Pattern>
+                                <MinimalInclusive>0</MinimalInclusive>
                             </Constraints>
                         </Constrained>
                     </DataType>
@@ -151,4 +151,30 @@
             </Structure>
         </DataType>
     </DataTypeDefinition>
+    <DataTypeDefinition>
+        <Identifier>OpticalDensity</Identifier>
+        <DisplayName>Optical Density</DisplayName>
+        <Description>
+            Measurement of the optical density in fractional number range from 0.000 to 5.000.
+            It is dimensionless.
+        </Description>
+        <DataType>
+            <Constrained>
+                <DataType>
+                    <Basic>Real</Basic>
+                </DataType>
+                <Constraints>
+                    <Pattern>[0-9]{1}\.[0-9]{3}</Pattern>
+                    <MinimalInclusive>0.000</MinimalInclusive>
+                    <MaximalInclusive>5.000</MaximalInclusive>
+                </Constraints>
+            </Constrained>
+        </DataType>
+    </DataTypeDefinition>
+    <!-- Command Execution Errors -->
+    <StandardExecutionError>
+        <Identifier>ReadInterrupted</Identifier>
+        <DisplayName>Read Interrupted</DisplayName>
+        <Description>Reading the well was impossible or interrupted</Description>
+    </StandardExecutionError>
 </Feature>

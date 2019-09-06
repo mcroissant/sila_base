@@ -6,8 +6,7 @@
     <Identifier>FluorescenceReaderService</Identifier>
     <DisplayName>Fluorescence Reader Service</DisplayName>
     <Description>SiLA 2 Device Fluorescence Reader feature - Show basic operations for a device fluorescence reader
-        like open/close device cover, abort read operations, reading from selected well of a plate and reading from all wells in a plate.
-        There are several types of plates with 6, 12, 24, 48, 96 and 384 wells. Observing current status of the reader: idle, busy, unavailable.
+        like reading from selected well of a plate and reading from all wells in a plate.
         Fluorescence reading has excitation and emission properties.
     </Description>
     <!-- Commands -->
@@ -27,14 +26,16 @@
             </DataType>
         </Parameter>
         <Response>
-            <Identifier>Value</Identifier>
-            <DisplayName>Value</DisplayName>
-            <Description>Result value of the well</Description>
+            <Identifier>WellRelativeFluorescenceUnits</Identifier>
+            <DisplayName>Well Relative Fluorescence Units</DisplayName>
+            <Description>Relative Fluorescence Units measurement of the well</Description>
             <DataType>
-                <!-- TODO: Unit of measurement -->
-                <Basic>Real</Basic>
+                <DataTypeIdentifier>RelativeFluorescenceUnits</DataTypeIdentifier>
             </DataType>
         </Response>
+        <StandardExecutionErrors>
+            <StandardExecutionErrorIdentifier>ReadInterrupted</StandardExecutionErrorIdentifier>
+        </StandardExecutionErrors>
     </Command>
     <Command>
         <Identifier>FluorescenceReadPlate</Identifier>
@@ -58,12 +59,11 @@
                                 </DataType>
                             </Element>
                             <Element>
-                                <Identifier>Value</Identifier>
-                                <DisplayName>Value</DisplayName>
-                                <Description>The read fluorescence value in this well</Description>
+                                <Identifier>WellRelativeFluorescenceUnits</Identifier>
+                                <DisplayName>Well Relative Fluorescence Units</DisplayName>
+                                <Description>Relative Fluorescence Units measurement of the well</Description>
                                 <DataType>
-                                    <!-- TODO: Unit of measurement -->
-                                    <Basic>Real</Basic>
+                                    <DataTypeIdentifier>RelativeFluorescenceUnits</DataTypeIdentifier>
                                 </DataType>
                             </Element>
                         </Structure>
@@ -74,9 +74,9 @@
     </Command>
     <!-- Properties -->
     <Property>
-        <Identifier>Excitation</Identifier>
-        <DisplayName>Excitation</DisplayName>
-        <Description>Excitation filter for Fluorescence read</Description>
+        <Identifier>ExcitationFilter</Identifier>
+        <DisplayName>Excitation Filter</DisplayName>
+        <Description>Excitation filter for Fluorescence read in nanometers</Description>
         <DataType>
             <Constrained>
                 <DataType>
@@ -107,7 +107,7 @@
     <Property>
         <Identifier>Emission</Identifier>
         <DisplayName>Emission</DisplayName>
-        <Description>Emission filter for Fluorescence read.=</Description>
+        <Description>Emission filter for Fluorescence read</Description>
         <DataType>
             <Constrained>
                 <DataType>
@@ -174,7 +174,7 @@
                                 <Basic>Integer</Basic>
                             </DataType>
                             <Constraints>
-                                <Pattern>[0-9]</Pattern>
+                                <MinimalInclusive>0</MinimalInclusive>
                             </Constraints>
                         </Constrained>
                     </DataType>
@@ -182,4 +182,29 @@
             </Structure>
         </DataType>
     </DataTypeDefinition>
+    <DataTypeDefinition>
+        <Identifier>RelativeFluorescenceUnits</Identifier>
+        <DisplayName>Relative Fluorescence Units</DisplayName>
+        <Description>
+            Unit of measurement used in analysis which employs fluorescence detection.
+            It is dimensionless. Values are between 0 and 100 000.
+        </Description>
+        <DataType>
+            <Constrained>
+                <DataType>
+                    <Basic>Integer</Basic>
+                </DataType>
+                <Constraints>
+                    <MinimalInclusive>0</MinimalInclusive>
+                    <MaximalInclusive>100000</MaximalInclusive>
+                </Constraints>
+            </Constrained>
+        </DataType>
+    </DataTypeDefinition>
+    <!-- Command Execution Errors -->
+    <StandardExecutionError>
+        <Identifier>ReadInterrupted</Identifier>
+        <DisplayName>Read Interrupted</DisplayName>
+        <Description>Reading the well was impossible or interrupted</Description>
+    </StandardExecutionError>
 </Feature>
