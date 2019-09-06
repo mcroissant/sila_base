@@ -71,9 +71,6 @@
                 </List>
             </DataType>
         </Response>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>ReadInterrupted</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
     </Command>
     <!-- Properties -->
     <Property>

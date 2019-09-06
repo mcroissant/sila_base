@@ -71,15 +71,12 @@
                 </List>
             </DataType>
         </Response>
-        <StandardExecutionErrors>
-            <StandardExecutionErrorIdentifier>ReadInterrupted</StandardExecutionErrorIdentifier>
-        </StandardExecutionErrors>
     </Command>
     <!-- Properties -->
     <Property>
         <Identifier>MeasurementFilter</Identifier>
         <DisplayName>Measurement Filter</DisplayName>
-        <Description>Measurement filter for Absorbance read in nanometers</Description>
+        <Description>Measurement filter for Absorbance read</Description>
         <DataType>
             <Constrained>
                 <DataType>
