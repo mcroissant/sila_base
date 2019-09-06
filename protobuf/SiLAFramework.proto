@@ -57,6 +57,12 @@ message Timezone {
     uint32 minutes = 2;
 }
 
+// -------- SiLA AnyType Type --------
+message Any {
+    string type = 1;
+    bytes payload = 2;
+}
+
 // -------- Framework Types --------
 message Duration {
     int64 seconds = 1;
