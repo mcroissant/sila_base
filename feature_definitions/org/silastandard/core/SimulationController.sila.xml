@@ -20,9 +20,7 @@
         <Identifier>StartSimulationMode</Identifier>
         <DisplayName>Start Simulation Mode </DisplayName>
         <Description>
-            Starting server into simulation mode with the following procedure, if the server was in real mode:
-            - Terminate all running  commands that alter real world data or matter.
-            - Cancel all dynamic property subscriptions that use real world data.
+            Starting server into simulation mode with the following procedure.
         </Description>
         <Observable>No</Observable>
         <DefinedExecutionErrors>
@@ -33,10 +31,7 @@
         <Identifier>StartRealMode</Identifier>
         <DisplayName>Start Real Mode</DisplayName>
         <Description>
-            Starting server into real mode with the following procedure:
-            - Terminate all simulated commands and properties
-            - If real world is ready (e.g. databases or hardware): Accept new commands and property
-            retrievals.
+            Starting server into real mode with the following procedure.
         </Description>
         <Observable>No</Observable>
         <DefinedExecutionErrors>
@@ -47,8 +42,7 @@
         <Identifier>ModeCouldNotStart</Identifier>
         <DisplayName>Mode Could Not Start</DisplayName>
         <Description>
-            The Server could not start into either simulation or real mode. This could be for example
-            because there are running commands that can not be canceled
+            The Server could not start into either simulation or real mode.
         </Description>
     </DefinedExecutionError>
     <Property>
