@@ -1,8 +1,50 @@
+image: python:3.7-alpine
+
 stages:
   - test
+  
+before_script:
+- apk update
+- apk add doxygen
+## Uncomment the following line if you use graphviz dot graphs
+#- apk add ttf-freefont graphviz
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+    - venv/
+
+before_script:
+  - python -V  # Print out python version for debugging
+  - python -m venv venv
+  - source venv/bin/activate
+  - pip install --upgrade pip
+  - pip install doxygen
+
+
+test:
+  script:
+  #- doxygen .ci_cd/fdl_html_translator_xslt/Doxyfile
+    - python generate_html_documentation.py
+  except:
+    - master
+  
+pages:
+  script:
+    - doxygen .ci_cd/fdl_html_translator_xslt/Doxyfile
+    - mv .ci_cd/fdl_html_translator_xslt/docs/html/ public/
+  artifacts:
+    paths:
+     - public
+  only:
+    - master
 
 feature_test:
-    image: moeryomenko/python-docker-lxml
+    #image: moeryomenko/python-docker-lxml
     stage: test
     script: 
       - python validate_features.py
+

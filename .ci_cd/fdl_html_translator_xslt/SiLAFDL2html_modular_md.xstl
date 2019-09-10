@@ -2,6 +2,8 @@
  <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
      xmlns:sistd="http://www.sila-standard.org" >
      <xsl:output method="text"/>
+     
+   <xsl:strip-space elements="sistd:Description" />
 
    <xsl:template match ="/sistd:Feature">
 # SiLA Feature: <xsl:value-of select="sistd:DisplayName"/> (<xsl:value-of select="sistd:Identifier"/>)
@@ -21,7 +23,9 @@
 
     <!-- commands handler -->
    <xsl:template name="commands" >
+<span style="color:red">
 ## Commands
+</span>
 
 ----
       <xsl:for-each select="sistd:Command">

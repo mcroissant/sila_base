@@ -69,7 +69,9 @@ def genIndexAlphabetic(feature_path_dict, target_dir="."):
     markdown_txt = "# Alphabetic Feature list \n\n"
     
     for feature, feature_dict in sorted(feature_path_dict.items()) :
-        markdown_txt += f"[{feature}]({feature}.html)\n\n"
+        markdown_txt += f"[{feature}](md__docs_{feature_dict.html_path}_{feature}.html)\n\n"
+        
+        #~ markdown_txt += f"[{feature}]({feature}.html)\n\n"
         
     with open(full_output_filename, 'w') as index_file :
         index_file.write( markdown_txt )
@@ -86,7 +88,8 @@ def genIndexCategories(feature_path_dict, target_dir="."):
     
     for feature, feature_dict in feature_path_dict.items() :
         
-        markdown_txt += f"[{feature}]({feature_dict.path}/{feature}.html)\n\n"
+        #~ markdown_txt += f"[{feature}]({feature_dict.path}/{feature}.html)\n\n"
+        markdown_txt += f"[{feature}](md__docs_{feature_dict.html_path}_{feature}.html)\n\n"
         # open file
         # search for category
         # save category
@@ -116,7 +119,8 @@ def genMainPage(core_feature_dict, target_dir="."):
                     "These are the current SiLA 2 core features, for more features, please select '*Related Pages*'\n\n")
     
     for feature, feature_dict in sorted(core_feature_dict.items()) :
-        markdown_txt += f"[{feature}]({feature}.html)\n\n"
+        #html_prefix += feature_dict.html_path
+        markdown_txt += f"[{feature}](md__docs_{feature_dict.html_path}_{feature}.html)\n\n"
     
     markdown_txt += ( "## Alphabetical List of all Feature\n\n"
                       "[Feature List - alphabetical](./md__docs_feature_list_alph.html)\n\n")
@@ -160,7 +164,9 @@ if __name__ == '__main__':
          
          feature_id = PurePath(feature_path.stem).stem
          feat_path = os.path.join(*feature_path.parent.parts[2:] )
-         feat_dict = SimpleNamespace(full_name=str(feature_path), path=feat_path)
+         html_path = "_".join(feature_path.parent.parts[2:] )
+         logging.debug("html-pathon {}".format(html_path) )
+         feat_dict = SimpleNamespace(full_name=str(feature_path), path=feat_path, html_path=html_path)
          
          feature_path_dict[feature_id] = feat_dict  # because path is object not string
          
