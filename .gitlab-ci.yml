@@ -30,6 +30,10 @@ test:
   #- doxygen .ci_cd/fdl_html_translator_xslt/Doxyfile
     - cd .ci_cd/fdl_html_translator_xslt/
     - python generate_html_documentation.py
+    - pwd
+    - ls docs
+    - cd ../..
+    - pwd
   except:
     - master
   
@@ -50,5 +54,6 @@ feature_test:
     #image: moeryomenko/python-docker-lxml
     stage: test
     script: 
-      - python validate_features.py
+      - pwd
+      - #python validate_features.py
 
