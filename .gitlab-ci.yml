@@ -55,5 +55,5 @@ feature_test:
     stage: test
     script: 
       - pwd
-      - #python validate_features.py
+      #- python validate_features.py
 
