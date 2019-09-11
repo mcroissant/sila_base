@@ -6,6 +6,8 @@ stages:
 before_script:
 - apk update
 - apk add doxygen
+- apk add libxml2-dev
+- apk add libxslt1-dev
 ## Uncomment the following line if you use graphviz dot graphs
 #- apk add ttf-freefont graphviz
 
