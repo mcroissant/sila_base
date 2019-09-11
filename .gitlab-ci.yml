@@ -22,20 +22,24 @@ before_script:
   - python -m venv venv
   - source venv/bin/activate
   - pip install --upgrade pip
-  - pip install doxygen
+  - pip install doxygen-interface
 
 
 test:
   script:
   #- doxygen .ci_cd/fdl_html_translator_xslt/Doxyfile
+    - cd .ci_cd/fdl_html_translator_xslt/
     - python generate_html_documentation.py
   except:
     - master
   
 pages:
   script:
-    - doxygen .ci_cd/fdl_html_translator_xslt/Doxyfile
-    - mv .ci_cd/fdl_html_translator_xslt/docs/html/ public/
+    #- doxygen .ci_cd/fdl_html_translator_xslt/Doxyfile
+    - cd .ci_cd/fdl_html_translator_xslt/
+    - python generate_html_documentation.py
+    - mv docs/html/ ../../public/
+    - cd ../..
   artifacts:
     paths:
      - public
