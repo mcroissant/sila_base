@@ -1,13 +1,11 @@
-image: python:3.7-alpine
+image: python:3.7-slim-buster
 
 stages:
   - test
   
-before_script:
-- apk update
-- apk add doxygen
-- apk add libxml2-dev
-- apk add libxslt1-dev
+#before_script:
+#- apt add libxml2-dev
+#- apt add libxslt1-dev
 ## Uncomment the following line if you use graphviz dot graphs
 #- apk add ttf-freefont graphviz
 
@@ -20,6 +18,9 @@ cache:
     - venv/
 
 before_script:
+  - apt update
+  - apt install doxygen
+
   - python -V  # Print out python version for debugging
   - python -m venv venv
   - source venv/bin/activate
