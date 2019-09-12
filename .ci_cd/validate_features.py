@@ -6,7 +6,7 @@ current_dir =  ".." # os.path.dirname(os.path.abspath(__file__))
 
 
 def validate_feature(qualified_filename):
-    print 'Validating: ' + qualified_filename
+    print( 'Validating: ' + qualified_filename )
 
     # Schema validation
     schema_xsd = etree.XMLSchema(
@@ -41,7 +41,7 @@ def validate_feature(qualified_filename):
         raise StandardError("Features need to be located in an originator + category folder structure. " +
                             filename + " needs to be located in " + expected_directory)
 
-    print 'Validated'
+    print('Validated')
 
 
 def convert_to_path(feature_namespace):
