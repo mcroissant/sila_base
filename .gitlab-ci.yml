@@ -18,8 +18,8 @@ cache:
     - venv/
 
 before_script:
-  - apt update
-  - apt install doxygen
+  - apt-get update
+  - apt-get install --yes doxygen
 
   - python -V  # Print out python version for debugging
   - python -m venv venv
