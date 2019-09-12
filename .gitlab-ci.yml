@@ -2,12 +2,8 @@ image: python:3.7-slim-buster
 
 stages:
   - test
-  
-#before_script:
-#- apt add libxml2-dev
-#- apt add libxslt1-dev
-## Uncomment the following line if you use graphviz dot graphs
-#- apk add ttf-freefont graphviz
+
+
 
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
@@ -20,6 +16,8 @@ cache:
 before_script:
   - apt-get update
   - apt-get install --yes doxygen
+  ## Uncomment the following line if you use graphviz dot graphs
+  #- apt-get install ttf-freefont graphviz
 
   - python -V  # Print out python version for debugging
   - python -m venv venv
@@ -31,23 +29,18 @@ before_script:
 
 test:
   script:
-  #- doxygen .ci_cd/fdl_html_translator_xslt/Doxyfile
     - cd .ci_cd/fdl_html_translator_xslt/
     - python generate_html_documentation.py
-    - pwd
-    - ls docs
-    - cd ../..
-    - pwd
+    
   except:
     - master
   
 pages:
   script:
-    #- doxygen .ci_cd/fdl_html_translator_xslt/Doxyfile
     - cd .ci_cd/fdl_html_translator_xslt/
     - python generate_html_documentation.py
     - mv docs/html/ ../../public/
-    - cd ../..
+    
   artifacts:
     paths:
      - public
@@ -58,6 +51,5 @@ feature_test:
     #image: moeryomenko/python-docker-lxml
     stage: test
     script: 
-      - pwd
-      #- python validate_features.py
+      - python .ci_cd/validate_features.py
 

@@ -2,7 +2,7 @@ import os
 from lxml import etree
 
 SILA_VERSION="0.2"
-current_dir = os.path.dirname(os.path.abspath(__file__))
+current_dir =  ".." # os.path.dirname(os.path.abspath(__file__))
 
 
 def validate_feature(qualified_filename):
