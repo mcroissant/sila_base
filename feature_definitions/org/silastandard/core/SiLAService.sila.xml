@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLA2Version="0.2" FeatureVersion="1.0" MaturityLevel="Verified" Originator="org.silastandard" Category="core"
+<Feature SiLA2Version="1.0" FeatureVersion="1.0" MaturityLevel="Normative" Originator="org.silastandard" Category="core"
         xmlns="http://www.sila-standard.org" 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
@@ -13,12 +13,12 @@
     <Command>
         <Identifier>GetFeatureDefinition</Identifier>
         <DisplayName>Get Feature Definition</DisplayName>
-        <Description>Get all details on one Feature through the qualified Feature id.</Description>
+        <Description>Get all details on one Feature through the fully qualified Feature identifier.</Description>
         <Observable>No</Observable>
         <Parameter>
-            <Identifier>QualifiedFeatureIdentifier</Identifier>
-            <DisplayName>Qualified Feature Identifier</DisplayName>
-            <Description>The qualified Feature identifier for which the Feature description should be retrieved.</Description>
+            <Identifier>FeatureIdentifier</Identifier>
+            <DisplayName>Feature Identifier</DisplayName>
+            <Description>The fully qualified Feature identifier for which the Feature description should be retrieved.</Description>
             <DataType>
                 <DataTypeIdentifier>FeatureIdentifier</DataTypeIdentifier>
             </DataType>
@@ -26,7 +26,7 @@
         <Response>
             <Identifier>FeatureDefinition</Identifier>
             <DisplayName>Feature Definition</DisplayName>
-            <Description>The Feature Definition in XML format.</Description>
+            <Description>The Feature definition in XML format.</Description>
             <DataType>
                 <DataTypeIdentifier>FeatureDefinition</DataTypeIdentifier>
             </DataType>
@@ -38,46 +38,67 @@
     <Command>
         <Identifier>SetServerName</Identifier>
         <DisplayName>Set Server Name</DisplayName>
-        <Description>Sets a human readable name to the Server Name property</Description>
+        <Description>Sets a human readable name to the Server Name property.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>ServerName</Identifier>
             <DisplayName>Server Name</DisplayName>
-            <Description>The human readable name of to assign to the SiLA Server</Description>
+            <Description>The human readable name to assign to the SiLA Server.</Description>
             <DataType>
-                <Basic>String</Basic>
+                <Constrained>
+                    <DataType>
+                        <Basic>String</Basic>
+                    </DataType>
+                    <Constraints>
+                        <MaximalLength>255</MaximalLength>
+                    </Constraints>
+                </Constrained>
             </DataType>
         </Parameter>
     </Command>
     <DefinedExecutionError>
         <Identifier>UnimplementedFeature</Identifier>
         <DisplayName>Unimplemented Feature</DisplayName>
-        <Description>The feature specified by the given feature identifier is not implemented by the server.</Description>
+        <Description>The Feature specified by the given Feature identifier is not implemented by the server.</Description>
     </DefinedExecutionError>
     <!-- Properties -->
     <Property>
         <Identifier>ServerName</Identifier>
         <DisplayName>Server Name</DisplayName>
-        <Description>Human readable name of the SiLA Server.</Description>
+        <Description>Human readable name of the SiLA Server. The name can be set using the 'Set Server Name' command.</Description>
         <Observable>No</Observable>
         <DataType>
-            <Basic>String</Basic>
+            <Constrained>
+                <DataType>
+                    <Basic>String</Basic>
+                </DataType>
+                <Constraints>
+                    <MaximalLength>255</MaximalLength>
+                </Constraints>
+            </Constrained>
         </DataType>
     </Property>
     <Property>
         <Identifier>ServerType</Identifier>
         <DisplayName>Server Type</DisplayName>
-        <Description>The type of Server this is. Is specified by the implementer of the server and not unique.</Description>
+        <Description>The type of server this is. Is specified by the implementer of the server and not unique.</Description>
         <Observable>No</Observable>
         <DataType>
-            <Basic>String</Basic>
+            <Constrained>
+                <DataType>
+                    <Basic>String</Basic>
+                </DataType>
+                <Constraints>
+                    <Pattern>[A-Z][a-zA-Z0-9]*</Pattern>
+                    <MaximalLength>255</MaximalLength>
+                </Constraints>
+            </Constrained>
         </DataType>
     </Property>
     <Property>
         <Identifier>ServerUUID</Identifier>
         <DisplayName>Server UUID</DisplayName>
-        <Description>Globally unique identifier that identifies a SiLA Server. The Server UUID MUST
-            be generated once and always remain the same.
+        <Description>Globally unique identifier that identifies a SiLA Server. The Server UUID MUST be generated once and always remain the same.
         </Description>
         <Observable>No</Observable>
         <DataType>
@@ -136,10 +157,7 @@
     <Property>
         <Identifier>ImplementedFeatures</Identifier>
         <DisplayName>Implemented Features</DisplayName>
-        <Description>
-            Returns a list of qualified Feature identifiers of all
-            implemented Features of this SiLA Server.
-        </Description>
+        <Description>Returns a list of fully qualified Feature identifiers of all implemented Features of this SiLA Server.</Description>
         <Observable>No</Observable>
         <DataType>
             <List>
@@ -152,15 +170,14 @@
     <DataTypeDefinition>
         <Identifier>FeatureIdentifier</Identifier>
         <DisplayName>Feature Identifier</DisplayName>
-        <Description>Qualified Feature Identifier as provided by the 
-            ImplementedFeatures property.</Description>
+        <Description>A fully qualified Feature identifier.</Description>
         <DataType>
             <Constrained>
                 <DataType>
                     <Basic>String</Basic>
                 </DataType>
                 <Constraints>
-                    <MaximalLength>255</MaximalLength>
+                    <MaximalLength>2048</MaximalLength>
                     <FullyQualifiedIdentifier>FeatureIdentifier</FullyQualifiedIdentifier>
                 </Constraints>
             </Constrained>
@@ -169,8 +186,7 @@
     <DataTypeDefinition>
         <Identifier>FeatureDefinition</Identifier>
         <DisplayName>Feature Definition</DisplayName>
-        <Description>The content of a Feature Definition conforming 
-            with the XML Schema.</Description>
+        <Description>The content of a Feature definition conforming with the according XML schema.</Description>
         <DataType>
             <Constrained>
                 <DataType>
