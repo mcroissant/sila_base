@@ -43,6 +43,7 @@
       <xs:enumeration value="Date"/>
       <xs:enumeration value="Time"/>
       <xs:enumeration value="Timestamp"/>
+      <xs:enumeration value="Any"/>
     </xs:restriction>
   </xs:simpleType>
   <xs:complexType name="ListType">

@@ -3,6 +3,7 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:tns="http://www.sila-standard.org"
     targetNamespace="http://www.sila-standard.org">
+  <xs:include schemaLocation="DataTypes.xsd"/>
   <xs:complexType name="Constraints">
     <!-- All constraints should be unique for a constrained type -->
     <xs:all>
@@ -153,10 +154,11 @@
             <xs:enumeration value="CommandIdentifier"/>
             <xs:enumeration value="CommandParameterIdentifier"/>
             <xs:enumeration value="CommandResponseIdentifier"/>
-            <xs:enumeration value="StandardExecutionErrorIdentifier"/>
+            <xs:enumeration value="IntermediateCommandResponseIdentifier"/>
+            <xs:enumeration value="DefinedExecutionErrorIdentifier"/>
             <xs:enumeration value="PropertyIdentifier"/>
-            <xs:enumeration value="StandardReadErrorIdentifier"/>
             <xs:enumeration value="TypeIdentifier"/>
+            <xs:enumeration value="MetadataIdentifier"/>
           </xs:restriction>
         </xs:simpleType>
       </xs:element>
@@ -178,6 +180,16 @@
               <xs:element type="xs:string" name="Url"/>
               <xs:element type="xs:string" name="Inline"/>
             </xs:choice>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AllowedTypes" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Applicable to SiLA basic type Any</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element type="tns:DataTypeType" name="DataType" maxOccurs="unbounded"/>
           </xs:sequence>
         </xs:complexType>
       </xs:element>
