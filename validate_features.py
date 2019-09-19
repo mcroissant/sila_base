@@ -24,6 +24,9 @@ def validate_feature(qualified_filename):
     originator_path = convert_to_path(feature_xml.xpath("@Originator"))
     category_path = convert_to_path(feature_xml.xpath("@Category"))
 
+    if category_path == "none":
+      category_path = ""
+
     expected_directory = os.path.join(
         current_dir,
         "feature_definitions",
