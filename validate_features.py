@@ -1,7 +1,7 @@
 import os
 from lxml import etree
 
-SILA_VERSION="0.2"
+SILA_VERSION="1.0"
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 
