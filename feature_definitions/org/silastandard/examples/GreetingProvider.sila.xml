@@ -5,7 +5,7 @@
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>GreetingProvider</Identifier>
     <DisplayName>Greeting Provider</DisplayName>
-    <Description>Minimum Feature Definition as example. Provides a Greeting</Description>
+    <Description>Minimum Feature Definition as example. Provides a Greeting.</Description>
     <Command>
         <Identifier>SayHello</Identifier>
         <DisplayName>Say Hello</DisplayName>

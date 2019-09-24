@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLA2Version="1.0" FeatureVersion="1.0" Originator="org.silastandard" Category="instruments"
+<Feature SiLA2Version="1.0" FeatureVersion="1.0" MaturityLevel="Draft" Originator="org.silastandard" Category="instruments"
         xmlns="http://www.sila-standard.org"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>CoverController</Identifier>
     <DisplayName>Cover Controller</DisplayName>
-    <Description>General device controller to open/close the main device physical access to plates and samples - this might be any cover or door</Description>
-    <!-- Commands -->
+    <Description>
+        General device controller to open/close the main device physical access to plates and samples.
+    </Description>
     <Command>
         <Identifier>OpenCover</Identifier>
         <DisplayName>Open Cover</DisplayName>
@@ -25,7 +26,6 @@
             <Identifier>CoverOperationInterrupted</Identifier>
         </DefinedExecutionErrors>
     </Command>
-    <!-- Command Execution Errors -->
     <DefinedExecutionError>
         <Identifier>CoverOperationInterrupted</Identifier>
         <DisplayName>Cover Operation Interrupted</DisplayName>

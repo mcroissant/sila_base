@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLA2Version="1.0" FeatureVersion="1.0" MaturityLevel="Draft" Originator="org.silastandard" Category="core"
+<Feature SiLA2Version="1.0" FeatureVersion="1.0" MaturityLevel="Verified" Originator="org.silastandard" Category="core"
          xmlns="http://www.sila-standard.org"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
@@ -8,13 +8,13 @@
     <Description>
         This Feature allows a SiLA Client to lock a SiLA Server for exclusive use, preventing other SiLA Clients from
         using the server while it is locked. To lock a SiLA Server a lock identifier has to be set, using the
-        'LockServer' command. This identifier has to be sent along with every (lock protected) request to the SiLA Server in
-        order to use it's functionality.
+        'LockServer' command. This identifier has to be sent along with every (lock protected) request to the
+        SiLA Server in order to use it's functionality.
 
         To send the lock identifier the SiLA Client Meta Data 'LockIdentifier' has to be used.
         When locking a SiLA Server a timeout can be specified that defines the time after which the SiLA Server will
-        be automatically unlocked if no request with a valid lock identifier has been received meanwhile. After the timeout has
-        expired or after explicit unlock no lock identifier has to be sent any more.
+        be automatically unlocked if no request with a valid lock identifier has been received meanwhile.
+        After the timeout has expired or after explicit unlock no lock identifier has to be sent any more.
     </Description>
     <Command>
         <Identifier>LockServer</Identifier>
