@@ -4,23 +4,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>ParameterConstraintsProvider</Identifier>
-    <DisplayName>Parameter Constraint Provider</DisplayName>
+    <DisplayName>Parameter Constraints Provider</DisplayName>
     <Description>
         Allows a server to apply constraints on specific command parameters after design time. It is recommended to specify
         the constraints in the Feature Definitions whenever possible.
 
         The constraints given by this Feature act as a logical AND to any constraints already defined in the Feature Definition.
-        As an example: A constrained type has a Pattern Constraint, then the ParameterConstraintProvider specifies an additional
-        Pattern Constraint - in this case the underlying SiLA Type has to follow BOTH Patterns defined.
+        As an example: A constrained type has a Pattern Constraint, then the ParameterConstraintsProvider specifies an additional
+        Pattern Constraint - in this case the underlying SiLA Data Type has to follow BOTH Patterns defined.
 
-        The constrained can be retrieved by reading and subscribing to its dynamic property.
+        The constrained parameters can be retrieved by reading and subscribing to the dynamic property 'ParametersConstraints'.
 
         Example use-case: Loading and setting the positions a mobile robot can move to at runtime.
     </Description>
     <Property>
         <Identifier>ParametersConstraints</Identifier>
         <DisplayName>Parameters Constraints</DisplayName>
-        <Description>Parameter Constraints that constrain any specified parameters within this structure</Description>
+        <Description>Parameter Constraints that constrain any specified parameters within this structure.</Description>
         <Observable>Yes</Observable>
         <DataType>
             <List>
@@ -29,7 +29,7 @@
                         <Element>
                             <Identifier>CommandParameterIdentifier</Identifier>
                             <DisplayName>Command Parameter Identifier</DisplayName>
-                            <Description>A fully qualified parameter identifier</Description>
+                            <Description>The fully qualified identifier of a constrained parameter.</Description>
                             <DataType>
                                 <Constrained>
                                     <DataType>
@@ -44,7 +44,7 @@
                         <Element>
                             <Identifier>Constraints</Identifier>
                             <DisplayName>Constraints</DisplayName>
-                            <Description>The constraints to apply on the parameter</Description>
+                            <Description>The constraints to apply on the parameter.</Description>
                             <DataType>
                                 <Constrained>
                                     <DataType>
