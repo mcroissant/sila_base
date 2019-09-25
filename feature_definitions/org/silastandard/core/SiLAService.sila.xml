@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLA2Version="1.0" FeatureVersion="1.0" MaturityLevel="Normative" Originator="org.silastandard" Category="core"
+<Feature SiLA2Version="0.2" FeatureVersion="1.0" MaturityLevel="Normative" Originator="org.silastandard" Category="core"
         xmlns="http://www.sila-standard.org" 
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
@@ -15,7 +15,7 @@
     <Command>
         <Identifier>GetFeatureDefinition</Identifier>
         <DisplayName>Get Feature Definition</DisplayName>
-        <Description>Get the Feature definition by using to its fully qualified Feature Identifier</Description>
+        <Description>Get the Feature definition by using to its fully qualified Feature Identifier.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>FeatureIdentifier</Identifier>
@@ -35,7 +35,7 @@
         <Response>
             <Identifier>FeatureDefinition</Identifier>
             <DisplayName>Feature Definition</DisplayName>
-            <Description>The Feature definition in XML format</Description>
+            <Description>The Feature definition in XML format.</Description>
             <DataType>
                 <Constrained>
                     <DataType>
@@ -141,7 +141,7 @@
         <Description>
             Returns the version of the SiLA Server. A "Major" and a "Minor" version number (e.g. 1.0) MUST be provided,
             a Patch version number MAY be provided. Optionally, an arbitrary text, separated by an underscore MAY be
-            appended, e.g. “3.19.373_mighty_lab_devices”
+            appended, e.g. “3.19.373_mighty_lab_devices”.
         </Description>
         <Observable>No</Observable>
         <DataType>

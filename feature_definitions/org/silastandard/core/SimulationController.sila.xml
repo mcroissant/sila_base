@@ -19,13 +19,19 @@
     <Command>
         <Identifier>StartSimulationMode</Identifier>
         <DisplayName>Start Simulation Mode </DisplayName>
-        <Description>Starting server into simulation mode with the following procedure.</Description>
+        <Description>
+			Sets the SiLA Server to run in simulation mode, i.e. all following commands are executed in simulation mode.
+			The simulation mode can be stopped by issuing the 'Start Real Mode' command.
+		</Description>
         <Observable>No</Observable>
     </Command>
     <Command>
         <Identifier>StartRealMode</Identifier>
         <DisplayName>Start Real Mode</DisplayName>
-        <Description>Starting server into real mode with the following procedure.</Description>
+        <Description>
+			Sets the SiLA Server to run in real mode, i.e. all following commands are executed in real mode.
+			The real mode can be stopped by issuing the 'Start Simulation Mode' command.
+		</Description>
         <Observable>No</Observable>
     </Command>
     <Property>

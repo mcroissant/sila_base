@@ -43,9 +43,7 @@
     <DefinedExecutionError>
         <Identifier>InvalidCommandExecutionUUID</Identifier>
         <DisplayName>Invalid Command Execution UUID</DisplayName>
-        <Description>
-            The specified command is not under execution
-        </Description>
+        <Description>The specified command is not under execution.</Description>
     </DefinedExecutionError>
     <DefinedExecutionError>
         <Identifier>OperationNotSupported</Identifier>

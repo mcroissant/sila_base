@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLA2Version="1.0" FeatureVersion="1.0" MaturityLevel="Draft" Originator="org.silastandard" Category="examples"
+<Feature SiLA2Version="1.0" FeatureVersion="1.0" MaturityLevel="Verified" Originator="org.silastandard" Category="examples"
          xmlns="http://www.sila-standard.org"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>TemperatureController</Identifier>
     <DisplayName>Temperature Controller</DisplayName>
-    <Description>
-        Controlling and retrieving the temperature.
-    </Description>
+    <Description>Controlling and retrieving the temperature.</Description>
     <Command>
         <Identifier>ControlTemperature</Identifier>
         <DisplayName>Control Temperature</DisplayName>
-        <Description>Control the Temperature gradually to a set target</Description>
+        <Description>Control the Temperature gradually to a set target.</Description>
         <Observable>Yes</Observable>
         <Parameter>
             <Identifier>TargetTemperature</Identifier>
