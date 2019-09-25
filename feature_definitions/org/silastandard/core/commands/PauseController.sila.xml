@@ -6,7 +6,7 @@
     <Identifier>PauseController</Identifier>
     <DisplayName>Pause Controller</DisplayName>
     <Description>
-        Allows to pause or resume a currently running Observable Command. Cancellation is the act of stopping the
+        Allows to pause or resume a currently running Observable Command. Pausing is the act of stopping the
         progress of the desired intent of a Command with the option of continuing the execution when resuming.
 
         A SiLA Client SHOULD be able to pause or resume the Observable Commands at any time. Not every Observable Command
@@ -16,7 +16,7 @@
         <Identifier>Pause</Identifier>
         <DisplayName>Pause</DisplayName>
         <Description>
-            Pause the Command. The Command can then be resumed again. The Command Execution Status of the
+            Pause the Command execution. The Command can then be resumed again. The Command Execution Status of the
             Observable Command MUST not be affected.
         </Description>
         <Observable>No</Observable>
@@ -57,14 +57,14 @@
         <Identifier>InvalidCommandExecutionUUID</Identifier>
         <DisplayName>Invalid Command Execution UUID</DisplayName>
         <Description>
-            The specified command is not under execution
-        </Description>
+			The given Command Execution UUID does not specify a command that is currently being executed.
+		</Description>
     </DefinedExecutionError>
     <DefinedExecutionError>
         <Identifier>InvalidCommandState</Identifier>
         <DisplayName>Invalid Command State</DisplayName>
         <Description>
-            The specified command is not in a valid state to perform the operation (Pause or Resume)
+            The specified command is not in a valid state to perform the operation (Pause or Resume).
         </Description>
     </DefinedExecutionError>
     <DefinedExecutionError>
@@ -72,7 +72,7 @@
         <DisplayName>Operation Not Supported</DisplayName>
         <Description>
             The operation (Pause or Resume) is not supported for the SiLA 2 command which the
-            specified CommandExecutionUUID belongs to
+            specified Command Execution UUID belongs to.
         </Description>
     </DefinedExecutionError>
     <DataTypeDefinition>

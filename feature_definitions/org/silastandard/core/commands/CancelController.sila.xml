@@ -14,9 +14,10 @@
         <Identifier>CancelCommand</Identifier>
         <DisplayName>Cancel Command</DisplayName>
         <Description>
-            Cancel a currently running Observable Command. The SiLA Server MUST update the Command Execution Status of
-            the Observable Command to "Command Finished with Error" and throw a descriptive Error Message indicating
-            cancellation as the reason for the Observable Command not being able to finish successfully.
+            Cancel a specified currently running Observable Command or cancel all currently running Commands (Obsrvable and Unobservable).
+			For any canceled  Observable Command the SiLA Server MUST update the Command Execution Status to "Command Finished with Error".
+			The SiLA Server MUST  throw a descriptive error message indicating cancellation as the reason for the Command execution not
+			being able to finish successfully for any canceled Command.
         </Description>
         <Observable>No</Observable>
         <Parameter>
@@ -43,7 +44,9 @@
     <DefinedExecutionError>
         <Identifier>InvalidCommandExecutionUUID</Identifier>
         <DisplayName>Invalid Command Execution UUID</DisplayName>
-        <Description>The specified command is not under execution.</Description>
+        <Description>
+			The given Command Execution UUID does not specify a command that is currently being executed.
+		</Description>
     </DefinedExecutionError>
     <DefinedExecutionError>
         <Identifier>OperationNotSupported</Identifier>
