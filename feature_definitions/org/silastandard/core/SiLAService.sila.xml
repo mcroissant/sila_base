@@ -64,7 +64,14 @@
             <DisplayName>Server Name</DisplayName>
             <Description>The human readable name to assign to the SiLA Server.</Description>
             <DataType>
-                <Basic>String</Basic>
+                <Constrained>
+                    <DataType>
+                        <Basic>String</Basic>
+                    </DataType>
+                    <Constraints>
+                        <MaximalLength>255</MaximalLength>
+                    </Constraints>
+                </Constrained>
             </DataType>
         </Parameter>
     </Command>
@@ -83,7 +90,14 @@
         </Description>
         <Observable>No</Observable>
         <DataType>
-            <Basic>String</Basic>
+            <Constrained>
+                <DataType>
+                    <Basic>String</Basic>
+                </DataType>
+                <Constraints>
+                    <MaximalLength>255</MaximalLength>
+                </Constraints>
+            </Constrained>
         </DataType>
     </Property>
     <Property>
