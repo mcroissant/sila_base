@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLA2Version="0.2" FeatureVersion="1.0" MaturityLevel="Normative" Originator="org.silastandard" Category="core"
-        xmlns="http://www.sila-standard.org" 
+<Feature SiLA2Version="1.0" FeatureVersion="1.0" MaturityLevel="Normative" Originator="org.silastandard" Category="core"
+        xmlns="http://www.sila-standard.org"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>SiLAService</Identifier>
     <DisplayName>SiLA Service</DisplayName>
     <Description>
-        The Feature each SiLA Server MUST implement. Any interaction described in this feature MUST not affect the
-        behaviour of any other Feature.
+      The Feature each SiLA Server MUST implement. Any interaction described in this feature MUST not affect the
+      behaviour of any other Feature.
 
-        It specifies Commands and Properties to discover the Features a SiLA Server implements as well as details
-        about the SiLA Server.
+      It specifies Commands and Properties to discover the Features a SiLA Server implements as well as details
+      about the SiLA Server.
     </Description>
     <Command>
         <Identifier>GetFeatureDefinition</Identifier>
         <DisplayName>Get Feature Definition</DisplayName>
-        <Description>Get the Feature definition by using to its fully qualified Feature Identifier.</Description>
+        <Description>
+          Get the Feature definition by using to its fully qualified Feature Identifier.
+          Command has no preconditions and no further dependancies and can be called at any time.
+        </Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>FeatureIdentifier</Identifier>
@@ -35,7 +38,7 @@
         <Response>
             <Identifier>FeatureDefinition</Identifier>
             <DisplayName>Feature Definition</DisplayName>
-            <Description>The Feature definition in XML format.</Description>
+            <Description>The Feature definition in XML format (according to FeatureDefinition.xsd).</Description>
             <DataType>
                 <Constrained>
                     <DataType>
@@ -57,7 +60,10 @@
     <Command>
         <Identifier>SetServerName</Identifier>
         <DisplayName>Set Server Name</DisplayName>
-        <Description>Sets a human readable name to the Server Name Property.</Description>
+        <Description>
+          Sets a human readable name to the Server Name Property.Command has no preconditions and
+          no further dependancies and can be called at any time.
+        </Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>ServerName</Identifier>
@@ -79,14 +85,14 @@
         <Identifier>UnimplementedFeature</Identifier>
         <DisplayName>Unimplemented Feature</DisplayName>
         <Description>
-            The Feature specified by the given Feature identifier is not implemented by the server.
+          The Feature specified by the given Feature identifier is not implemented by the server.
         </Description>
     </DefinedExecutionError>
     <Property>
         <Identifier>ServerName</Identifier>
         <DisplayName>Server Name</DisplayName>
         <Description>
-            Human readable name of the SiLA Server. The name can be set using the 'Set Server Name' command.
+          Human readable name of the SiLA Server. The name can be set using the 'Set Server Name' command.
         </Description>
         <Observable>No</Observable>
         <DataType>
@@ -104,7 +110,8 @@
         <Identifier>ServerType</Identifier>
         <DisplayName>Server Type</DisplayName>
         <Description>
-            The type of server this is. Is specified by the implementer of the SiLA Server and MAY not be unique.
+          The type of this server. It, could be, e.g., in the case of a SiLA Device the model name.
+          It is specified by the implementer of the SiLA Server and MAY not be unique.
         </Description>
         <Observable>No</Observable>
         <DataType>
@@ -122,8 +129,8 @@
         <Identifier>ServerUUID</Identifier>
         <DisplayName>Server UUID</DisplayName>
         <Description>
-            Globally unique identifier that identifies a SiLA Server. The Server UUID MUST be generated once
-            and remain the same for all times.
+          Globally unique identifier that identifies a SiLA Server. The Server UUID MUST be generated once
+          and remain the same for all times.
         </Description>
         <Observable>No</Observable>
         <DataType>
@@ -142,7 +149,7 @@
         <Identifier>ServerDescription</Identifier>
         <DisplayName>Server Description</DisplayName>
         <Description>
-            Description of the SiLA Server. This should include the use and purpose of this SiLA Server.
+          Description of the SiLA Server. This should include the use and purpose of this SiLA Server.
         </Description>
         <Observable>No</Observable>
         <DataType>
@@ -153,9 +160,9 @@
         <Identifier>ServerVersion</Identifier>
         <DisplayName>Server Version</DisplayName>
         <Description>
-            Returns the version of the SiLA Server. A "Major" and a "Minor" version number (e.g. 1.0) MUST be provided,
-            a Patch version number MAY be provided. Optionally, an arbitrary text, separated by an underscore MAY be
-            appended, e.g. “3.19.373_mighty_lab_devices”.
+          Returns the version of the SiLA Server. A "Major" and a "Minor" version number (e.g. 1.0) MUST be provided,
+          a Patch version number MAY be provided. Optionally, an arbitrary text, separated by an underscore MAY be
+          appended, e.g. “3.19.373_mighty_lab_devices”.
         </Description>
         <Observable>No</Observable>
         <DataType>
@@ -173,10 +180,9 @@
         <Identifier>ServerVendorURL</Identifier>
         <DisplayName>Server Vendor URL</DisplayName>
         <Description>
-            Returns the URL to the website of the vendor or the website of the product of this SiLA Server.
-            This URL SHOULD be accessible at all times.
-
-            The URL is a Uniform Resource Locator as defined in RFC 1738.
+          Returns the URL to the website of the vendor or the website of the product of this SiLA Server.
+          This URL SHOULD be accessible at all times.
+          The URL is a Uniform Resource Locator as defined in RFC 1738.
         </Description>
         <Observable>No</Observable>
         <DataType>
@@ -194,8 +200,8 @@
         <Identifier>ImplementedFeatures</Identifier>
         <DisplayName>Implemented Features</DisplayName>
         <Description>
-            Returns a list of fully qualified Feature identifiers of all implemented Features of this SiLA Server.
-            This list SHOULD remain the same throughout the lifetime of the SiLA Server.
+          Returns a 'SiLA List' of fully qualified Feature identifiers of all implemented Features of this SiLA Server.
+          This list SHOULD remain the same throughout the lifetime of the SiLA Server.
         </Description>
         <Observable>No</Observable>
         <DataType>
