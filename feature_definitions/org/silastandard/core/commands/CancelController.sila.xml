@@ -7,8 +7,8 @@
   <Identifier>CancelController</Identifier>
   <DisplayName>Cancel Controller</DisplayName>
   <Description>
-    This feature offers commands to cancel/terminate Commands. Cancellation is the act of stopping the progress
-    of the desired intent of a Command, irrevocably. The SiLA Server SHOULD be able to be in a state where any further
+    This feature offers commands to cancel/terminate Commands. Cancellation is the act of stopping the running Command execution(s),
+    irrevocably. The SiLA Server SHOULD be able to be in a state where any further
     commands can be issued after a cancellation.
   </Description>
   <Command>

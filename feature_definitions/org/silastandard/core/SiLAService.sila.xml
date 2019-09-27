@@ -39,7 +39,7 @@
     <Response>
       <Identifier>FeatureDefinition</Identifier>
       <DisplayName>Feature Definition</DisplayName>
-      <Description>The Feature definition in XML format (according to FeatureDefinition.xsd).</Description>
+      <Description>The Feature definition in XML format (according to the Feature Definiton Schema).</Description>
       <DataType>
         <Constrained>
           <DataType>
@@ -201,7 +201,7 @@
     <Identifier>ImplementedFeatures</Identifier>
     <DisplayName>Implemented Features</DisplayName>
     <Description>
-      Returns a 'SiLA List' of fully qualified Feature identifiers of all implemented Features of this SiLA Server.
+      Returns a List of fully qualified Feature identifiers of all implemented Features of this SiLA Server.
       This list SHOULD remain the same throughout the lifetime of the SiLA Server.
     </Description>
     <Observable>No</Observable>

@@ -8,7 +8,7 @@
   <Description>
     This Feature allows a SiLA Client to lock a SiLA Server for exclusive use, preventing other SiLA Clients
     from using the server while it is locked. To lock a SiLA Server a Lock Identifier has to be set, using the
-    'LockServer' command. This Lock Identifier (type: SiLA-String) has to be sent along with every (lock protected)
+    'LockServer' command. This Lock Identifier has to be sent along with every (lock protected)
     request to the SiLA Server in order to use it's functionality.
 
     To send the lock identifier the SiLA Client Meta Data 'LockIdentifier' has to be used.

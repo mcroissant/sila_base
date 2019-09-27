@@ -9,7 +9,7 @@
   <Description>
     This Feature allows to find out constraints (min./max value, min./max. length for strings etc.) that given parameters of a given
     Command have; also depending on other parameter or state.
-    It returns a LIST of all Constraints of a given Command.
+    It returns a List of all Constraints of a given Command.
     It is RECOMMENDED that a SILA Server implements this feature.
   </Description>
   <Property>

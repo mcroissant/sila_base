@@ -26,6 +26,7 @@
       The simulation mode can be stopped by issuing the 'Start Real Mode' command.
     </Description>
     <Observable>No</Observable>
+    <Identifier>StopRealModeFailed</Identifier>
   </Command>
   <Command>
     <Identifier>StartRealMode</Identifier>
@@ -40,7 +41,6 @@
     <Observable>No</Observable>
     <DefinedExecutionErrors>
       <Identifier>StartRealModeFailed</Identifier>
-      <Identifier>StopRealModeFailed</Identifier>
     </DefinedExecutionErrors>
   </Command>
   <Property>
