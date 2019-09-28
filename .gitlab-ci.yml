@@ -26,30 +26,28 @@ before_script:
   - pip install lxml
   - pip install doxygen-interface
 
-
 test:
   script:
-    - cd .ci_cd/fdl_html_translator_xslt/
+    - cd tools/fdl_html_translator_xslt/
     - python generate_html_documentation.py
-    
-  except:
-    - master
-  
+
+  #except:
+  #  - master
+
 pages:
   script:
-    - cd .ci_cd/fdl_html_translator_xslt/
+    - cd tools/fdl_html_translator_xslt/
     - python generate_html_documentation.py
     - mv docs/html/ ../../public/
-    
+
   artifacts:
     paths:
      - public
-  only:
-    - master
+  #only:
+  #  - master
 
 feature_test:
     #image: moeryomenko/python-docker-lxml
     stage: test
-    script: 
+    script:
       - python .ci_cd/validate_features.py
-
