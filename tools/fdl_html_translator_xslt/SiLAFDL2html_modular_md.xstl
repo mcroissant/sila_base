@@ -78,7 +78,7 @@
 <xsl:template name="details">
 ###  <xsl:value-of select="sistd:DisplayName"/> (<xsl:value-of select="sistd:Identifier" />)
 
-### Description
+#### Description
 
 <xsl:value-of select="sistd:Description"/>
 

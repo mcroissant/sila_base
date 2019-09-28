@@ -3,8 +3,6 @@ image: python:3.7-slim-buster
 stages:
   - test
 
-
-
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
@@ -50,4 +48,4 @@ feature_test:
     #image: moeryomenko/python-docker-lxml
     stage: test
     script:
-      - python .ci_cd/validate_features.py
+      - python tools/validate_features.py
