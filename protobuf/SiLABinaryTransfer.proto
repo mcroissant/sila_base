@@ -72,9 +72,9 @@ message GetChunkResponse {
 
 message BinaryTransferError {
     enum ErrorType {
-        INVALID_BINARY_CHUNK = 0;
-        INVALID_BINARY_TRANSFER_UUID = 1;
-        BINARY_UPLOAD_IMPOSSIBLE = 2;
+        INVALID_BINARY_TRANSFER_UUID = 0;
+        BINARY_UPLOAD_FAILED = 1;
+        BINARY_DOWNLOAD_FAILED = 2;
     }
     ErrorType errorType = 1;
     string message = 2;
