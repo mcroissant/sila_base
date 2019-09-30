@@ -6,7 +6,7 @@
   <Identifier>SiLAService</Identifier>
   <DisplayName>SiLA Service</DisplayName>
   <Description>
-    This Feature each SiLA Server MUST implement.
+    This Feature MUST be implemented by each SiLA Server.
     It specifies Commands and Properties to discover the Features a SiLA Server implements as well as details
     about the SiLA Server, like name, type, description, vendor and UUID.
     Any interaction described in this feature MUST not affect the
@@ -16,14 +16,14 @@
     <Identifier>GetFeatureDefinition</Identifier>
     <DisplayName>Get Feature Definition</DisplayName>
     <Description>
-      Get the Feature definition by using to its fully qualified Feature Identifier.
-      Command has no preconditions and no further dependancies and can be called at any time.
+      Get the Feature definition of an implemented Feature by its fully qualified Feature Identifier.
+      This command has no preconditions and no further dependencies and can be called at any time.
     </Description>
     <Observable>No</Observable>
     <Parameter>
       <Identifier>FeatureIdentifier</Identifier>
       <DisplayName>Feature Identifier</DisplayName>
-      <Description>The fully qualified Feature identifier for which the Feature description should be retrieved.
+      <Description>The fully qualified Feature identifier for which the Feature definition shall be retrieved.
       </Description>
       <DataType>
         <Constrained>
@@ -201,7 +201,7 @@
     <Identifier>ImplementedFeatures</Identifier>
     <DisplayName>Implemented Features</DisplayName>
     <Description>
-      Returns a List of fully qualified Feature identifiers of all implemented Features of this SiLA Server.
+      Returns a list of fully qualified Feature identifiers of all implemented Features of this SiLA Server.
       This list SHOULD remain the same throughout the lifetime of the SiLA Server.
     </Description>
     <Observable>No</Observable>

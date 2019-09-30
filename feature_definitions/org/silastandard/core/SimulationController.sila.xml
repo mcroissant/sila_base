@@ -59,7 +59,7 @@
     <DisplayName>The start of Simulation Mode failed.</DisplayName>
     <Description>
       The server cannot change to Simulation Mode.
-      This Error can, e.g., be thrown, if a real-world process needs to be ended before switching to simulation
+      This error can, e.g., be thrown, if a real-world process needs to be ended before switching to simulation
       mode.
     </Description>
   </DefinedExecutionError>
@@ -68,7 +68,7 @@
     <DisplayName>The start of Real Mode failed.</DisplayName>
     <Description>
       The server cannot change to Real Mode.
-      This Error can, e.g., be thrown, if a device is not ready to change into Real Mode.
+      This error can, e.g., be thrown, if a device is not ready to change into Real Mode.
     </Description>
   </DefinedExecutionError>
   <DefinedExecutionError>
@@ -76,7 +76,7 @@
     <DisplayName>The Real Mode can currently not be left.</DisplayName>
     <Description>
       The server cannot currently stop the Real Mode.
-      This Error can, e.g., be thrown, if a running process needs to be completed.
+      This error can, e.g., be thrown, if a running process needs to be completed.
     </Description>
   </DefinedExecutionError>
 </Feature>

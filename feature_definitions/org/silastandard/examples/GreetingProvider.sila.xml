@@ -13,12 +13,12 @@
   <Command>
     <Identifier>SayHello</Identifier>
     <DisplayName>Say Hello</DisplayName>
-    <Description>Does what it says: says "Hello SiLA 2 + Name" to the client.</Description>
+    <Description>Does what it says: returns "Hello SiLA 2 + [Name]" to the client.</Description>
     <Observable>No</Observable>
     <Parameter>
       <Identifier>Name</Identifier>
       <DisplayName>Name</DisplayName>
-      <Description>The Name, SayHello shall use to greet.</Description>
+      <Description>The name, SayHello shall use to greet.</Description>
       <DataType>
         <Basic>String</Basic>
       </DataType>
@@ -26,7 +26,7 @@
     <Response>
       <Identifier>Greeting</Identifier>
       <DisplayName>Greeting</DisplayName>
-      <Description>The greeting String, coming back to the SiLA Client.</Description>
+      <Description>The greeting string, returned to the SiLA Client.</Description>
       <DataType>
         <Basic>String</Basic>
       </DataType>
@@ -35,7 +35,7 @@
   <Property>
     <Identifier>StartYear</Identifier>
     <DisplayName>Start Year</DisplayName>
-    <Description>Returns the year the SiLA Server has been started.</Description>
+    <Description>Returns the year the SiLA Server has been started in.</Description>
     <Observable>No</Observable>
     <DataType>
       <Basic>Integer</Basic>

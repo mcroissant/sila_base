@@ -16,8 +16,8 @@
     <Identifier>ControlTemperature</Identifier>
     <DisplayName>Control Temperature</DisplayName>
     <Description>
-      Control the Temperature gradually to a set target.
-      It is RECOMMENDED to use a oscillation free control system.
+      Control the temperature gradually to a set target.
+      It is RECOMMENDED to use an oscillation free control system.
     </Description>
     <Observable>Yes</Observable>
     <Parameter>
@@ -26,7 +26,7 @@
       <Description>
         The target temperature that the server will try to reach.
         Note that the command might be completed at a temperature that it evaluates to be close enough.
-        If the temperature cannot be reached, a TemperatureNotReachable Error shall be thrown.
+        If the temperature cannot be reached, a 'Temperature Not Reachable' error will be thrown.
       </Description>
       <DataType>
         <Constrained>
@@ -62,13 +62,13 @@
   <DefinedExecutionError>
     <Identifier>ControlInterrupted</Identifier>
     <DisplayName>Control Interrupted</DisplayName>
-    <Description>The control of temperature couldn't be finished as it was interrupted by another target temperature.
+    <Description>The control of temperature could not be finished as it has been interrupted by another 'Control Temperature' command.
     </Description>
   </DefinedExecutionError>
   <Property>
     <Identifier>CurrentTemperature</Identifier>
     <DisplayName>Current Temperature</DisplayName>
-    <Description>Current Temperature as measured by the controller.</Description>
+    <Description>The current temperature as measured by the controller.</Description>
     <Observable>Yes</Observable>
     <DataType>
       <Constrained>
