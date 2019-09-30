@@ -21,13 +21,15 @@
     <DisplayName>Start Simulation Mode</DisplayName>
     <Description>
       Sets the SiLA Server to run in Simulation Mode, i.e. all following commands are executed in simulation mode.
+
       The Simulation Mode can only be entered, if all hardware operations have been safely terminated
       or are in a controlled, safe state.
+
       The simulation mode can be stopped by issuing the 'Start Real Mode' command.
     </Description>
     <Observable>No</Observable>
     <DefinedExecutionErrors>
-       <Identifier>StopRealModeFailed</Identifier>
+       <Identifier>StartSimulationModeFailed</Identifier>
     </DefinedExecutionErrors>
   </Command>
   <Command>
@@ -36,9 +38,9 @@
     <Description>
       Sets the SiLA Server to run in real mode, i.e. all following commands are executed with real-world
       interactions, like serial port/CAN communication, motor actions etc.
-      If the server is in Simulation Mode it can be interrupted at any time.
-      A re-initialization of the hardware might be required.
-      The Real Mode can be stopped by issuing the 'Start Simulation Mode' command.
+
+      If the server is in Simulation Mode it can be interrupted at any time. A re-initialization of
+      the hardware might be required. The Real Mode can be stopped by issuing the 'Start Simulation Mode' command.
     </Description>
     <Observable>No</Observable>
     <DefinedExecutionErrors>
@@ -69,14 +71,6 @@
     <Description>
       The server cannot change to Real Mode.
       This error can, e.g., be thrown, if a device is not ready to change into Real Mode.
-    </Description>
-  </DefinedExecutionError>
-  <DefinedExecutionError>
-    <Identifier>StopRealModeFailed</Identifier>
-    <DisplayName>The Real Mode can currently not be left.</DisplayName>
-    <Description>
-      The server cannot currently stop the Real Mode.
-      This error can, e.g., be thrown, if a running process needs to be completed.
     </Description>
   </DefinedExecutionError>
 </Feature>

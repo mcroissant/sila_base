@@ -7,23 +7,25 @@
   <DisplayName>SiLA Service</DisplayName>
   <Description>
     This Feature MUST be implemented by each SiLA Server.
+
     It specifies Commands and Properties to discover the Features a SiLA Server implements as well as details
     about the SiLA Server, like name, type, description, vendor and UUID.
-    Any interaction described in this feature MUST not affect the
-    behaviour of any other Feature.
+
+    Any interaction described in this feature MUST not affect the behaviour of any other Feature.
   </Description>
   <Command>
     <Identifier>GetFeatureDefinition</Identifier>
     <DisplayName>Get Feature Definition</DisplayName>
     <Description>
-      Get the Feature definition of an implemented Feature by its fully qualified Feature Identifier.
+      Get the Feature Definition of an implemented Feature by its fully qualified Feature Identifier.
       This command has no preconditions and no further dependencies and can be called at any time.
     </Description>
     <Observable>No</Observable>
     <Parameter>
       <Identifier>FeatureIdentifier</Identifier>
       <DisplayName>Feature Identifier</DisplayName>
-      <Description>The fully qualified Feature identifier for which the Feature definition shall be retrieved.
+      <Description>
+        The fully qualified Feature identifier for which the Feature definition shall be retrieved.
       </Description>
       <DataType>
         <Constrained>
@@ -39,7 +41,7 @@
     <Response>
       <Identifier>FeatureDefinition</Identifier>
       <DisplayName>Feature Definition</DisplayName>
-      <Description>The Feature definition in XML format (according to the Feature Definiton Schema).</Description>
+      <Description>The Feature definition in XML format (according to the Feature Definition Schema).</Description>
       <DataType>
         <Constrained>
           <DataType>
@@ -63,7 +65,7 @@
     <DisplayName>Set Server Name</DisplayName>
     <Description>
       Sets a human readable name to the Server Name Property.Command has no preconditions and
-      no further dependancies and can be called at any time.
+      no further dependencies and can be called at any time.
     </Description>
     <Observable>No</Observable>
     <Parameter>

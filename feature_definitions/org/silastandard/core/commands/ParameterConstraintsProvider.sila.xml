@@ -7,16 +7,18 @@
   <Identifier>ParameterConstraintsProvider</Identifier>
   <DisplayName>Parameter Constraints Provider</DisplayName>
   <Description>
-    This Feature allows to find out constraints (min./max value, min./max. length for strings etc.) that given parameters of a given
-    Command have; also depending on other parameter or state.
-    It returns a List of all Constraints of a given Command.
-    It is RECOMMENDED that a SILA Server implements this feature.
+    This Feature allows a SiLA Client to receive constraints (min./max value, min./max. length for strings etc.) that
+    given parameters of a given Command have which are not defined in the respective Feature Definition;
+    also depending on other parameter or state.
+
+    It returns a list of all Constraints of a given Command. It is RECOMMENDED that a SiLA Server implements this
+    feature, if it is not possible to provide certain constraints already in the feature design phase.
   </Description>
   <Property>
     <Identifier>ParametersConstraints</Identifier>
     <DisplayName>Parameters Constraints</DisplayName>
     <Description>
-      Provides a List of all constraints of Command Parameters of the SiLA Server.
+      Provides a list of all constraints of Command Parameters of the SiLA Server.
     </Description>
     <Observable>Yes</Observable>
     <DataType>
