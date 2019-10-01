@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLA2Version="0.2" FeatureVersion="1.0" Originator="com.madisoft" Category="reader"
+<Feature SiLA2Version="1.0" FeatureVersion="1.0" MaturityLevel="Draft" Originator="com.madisoft" Category="reader"
         xmlns="http://www.sila-standard.org"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
@@ -9,7 +9,6 @@
         like reading from selected well of a plate and reading from all wells in a plate.
         Luminescence reading has an integration property from 0.1 to 10 seconds.
     </Description>
-    <!-- Commands -->
     <Command>
         <Identifier>LuminescenceReadWell</Identifier>
         <DisplayName>Luminescence Read Well</DisplayName>
@@ -69,7 +68,6 @@
             </DataType>
         </Response>
     </Command>
-    <!-- Properties -->
     <Property>
         <Identifier>IntegrationFilter</Identifier>
         <DisplayName>Integration Filter</DisplayName>
@@ -83,11 +81,11 @@
                 <Constraints>
                     <Unit>
                         <Label>Second</Label>
+                        <Factor>1</Factor>
+                        <Offset>0</Offset>
                         <UnitComponent>
                             <SIUnit>Second</SIUnit>
                             <Exponent>1</Exponent>
-                            <Factor>1</Factor>
-                            <Offset>0</Offset>
                         </UnitComponent>
                     </Unit>
                     <MinimalInclusive>0.1</MinimalInclusive>
