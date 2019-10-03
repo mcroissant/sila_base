@@ -6,7 +6,7 @@
     <Identifier>InitializationController</Identifier>
     <DisplayName>Initialization Controller</DisplayName>
     <Description>
-        Sets the instrument to be ready to use, esets any state for example state changes caused by human intervention
+        Sets the instrument to be ready to use, resets any state for example state changes caused by human intervention
     </Description>
     <!-- Commands -->
     <Command>
