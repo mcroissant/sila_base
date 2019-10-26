@@ -72,14 +72,6 @@
         <Description>Move a plate between two given sites</Description>
         <Observable>Yes</Observable>
         <Parameter>
-            <Identifier>PlateType</Identifier>
-            <DisplayName>Plate Type</DisplayName>
-            <Description>The plate type to grab</Description>
-            <DataType>
-                <Basic>String</Basic>
-            </DataType>
-        </Parameter>
-        <Parameter>
             <Identifier>OriginSite</Identifier>
             <DisplayName>Origin Site</DisplayName>
             <Description>Site to move the plate from</Description>
@@ -95,6 +87,14 @@
                 <DataTypeIdentifier>Site</DataTypeIdentifier>
             </DataType>
         </Parameter>
+        <Parameter>
+            <Identifier>PlateType</Identifier>
+            <DisplayName>Plate Type</DisplayName>
+            <Description>The plate type to grab</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Parameter>
         <DefinedExecutionErrors>
             <Identifier>SiteNotFound</Identifier>
             <Identifier>InaccessibleSite</Identifier>
@@ -102,8 +102,8 @@
         </DefinedExecutionErrors>
     </Command>
     <Command>
-        <Identifier>RetrievePlate</Identifier>
-        <DisplayName>Retrieve Plate</DisplayName>
+        <Identifier>PickPlate</Identifier>
+        <DisplayName>Pick Plate</DisplayName>
         <Description>Pick up a plate from a given site</Description>
         <Observable>No</Observable>
         <Parameter>
@@ -114,6 +114,14 @@
                 <DataTypeIdentifier>Site</DataTypeIdentifier>
             </DataType>
         </Parameter>
+        <Parameter>
+            <Identifier>PlateType</Identifier>
+            <DisplayName>Plate Type</DisplayName>
+            <Description>The plate type to grab</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Parameter>
         <DefinedExecutionErrors>
             <Identifier>SiteNotFound</Identifier>
             <Identifier>InaccessibleSite</Identifier>
@@ -121,8 +129,8 @@
         </DefinedExecutionErrors>
     </Command>
     <Command>
-        <Identifier>PutPlate</Identifier>
-        <DisplayName>Put Plate</DisplayName>
+        <Identifier>PlacePlate</Identifier>
+        <DisplayName>Place Plate</DisplayName>
         <Description>Place a plate on a given site</Description>
         <Observable>No</Observable>
         <Parameter>
@@ -131,6 +139,14 @@
             <Description>Site to place the plate on</Description>
             <DataType>
                 <DataTypeIdentifier>Site</DataTypeIdentifier>
+            </DataType>
+        </Parameter>
+        <Parameter>
+            <Identifier>PlateType</Identifier>
+            <DisplayName>Plate Type</DisplayName>
+            <Description>The plate type to grab</Description>
+            <DataType>
+                <Basic>String</Basic>
             </DataType>
         </Parameter>
         <DefinedExecutionErrors>
