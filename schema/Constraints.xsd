@@ -78,6 +78,8 @@
         <xs:complexType>
           <xs:sequence>
             <xs:element type="xs:string" name="Label"/>
+            <xs:element type="xs:decimal" name="Factor"/>
+            <xs:element type="xs:decimal" name="Offset"/>
             <xs:element name="UnitComponent" minOccurs="1" maxOccurs="unbounded">
               <xs:complexType>
                 <xs:sequence>
@@ -96,8 +98,6 @@
                     </xs:simpleType>
                   </xs:element>
                   <xs:element type="xs:integer" name="Exponent"/>
-                  <xs:element type="xs:decimal" name="Factor"/>
-                  <xs:element type="xs:decimal" name="Offset"/>
                 </xs:sequence>
               </xs:complexType>
             </xs:element>

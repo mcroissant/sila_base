@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLA2Version="0.2" FeatureVersion="1.0" Originator="com.madisoft" Category="reader"
+<Feature SiLA2Version="1.0" FeatureVersion="1.0" MaturityLevel="Draft" Originator="com.madisoft" Category="reader"
         xmlns="http://www.sila-standard.org"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
@@ -9,7 +9,6 @@
         like reading from selected well of a plate and reading from all wells in a plate.
         Absorbance reading has a measurement property.
     </Description>
-    <!-- Commands -->
     <Command>
         <Identifier>AbsorbanceReadWell</Identifier>
         <DisplayName>Absorbance Read Well</DisplayName>
@@ -69,7 +68,6 @@
             </DataType>
         </Response>
     </Command>
-    <!-- Properties -->
     <Property>
         <Identifier>MeasurementFilter</Identifier>
         <DisplayName>Measurement Filter</DisplayName>
@@ -83,11 +81,11 @@
                 <Constraints>
                     <Unit>
                         <Label>nanometer</Label>
+                        <Factor>0.000000001</Factor>
+                        <Offset>0</Offset>
                         <UnitComponent>
                             <SIUnit>Meter</SIUnit>
-                            <Exponent>-9</Exponent>
-                            <Factor>1</Factor>
-                            <Offset>0</Offset>
+                            <Exponent>1</Exponent>
                         </UnitComponent>
                     </Unit>
                     <Set>
@@ -101,7 +99,6 @@
             </Constrained>
         </DataType>
     </Property>
-    <!-- DataTypeDefinitions -->
     <DataTypeDefinition>
         <Identifier>WellAddress</Identifier>
         <DisplayName>Well Address</DisplayName>
