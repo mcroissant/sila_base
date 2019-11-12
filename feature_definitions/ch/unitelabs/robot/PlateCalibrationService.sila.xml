@@ -31,9 +31,9 @@
         <Description>Delete a plate type</Description>
         <Observable>No</Observable>
         <Parameter>
-            <Identifier>PlateType</Identifier>
-            <DisplayName>Plate Type</DisplayName>
-            <Description>The plate type to be deleted</Description>
+            <Identifier>PlateTypeName</Identifier>
+            <DisplayName>Plate Type Name</DisplayName>
+            <Description>The name of the plate type to be deleted</Description>
             <DataType>
                 <Basic>String</Basic>
             </DataType>
