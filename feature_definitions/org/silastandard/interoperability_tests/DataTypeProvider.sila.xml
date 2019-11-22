@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" Originator="org.silastandard" Category="examples"
+         xmlns="http://www.sila-standard.org"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>DataTypeProvider</Identifier>
+    <DisplayName>Data Type Provider</DisplayName>
+    <Description>Provides commands that have all available SiLA Data Types as types of their parameters.</Description>
+
+    <!-- Data type String -->
+    <Command>
+        <Identifier>SetStringValue</Identifier>
+        <DisplayName>Set String Value</DisplayName>
+        <Description>Receives a string value and returns a message containing the string value that has been received.</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>StringValue</Identifier>
+            <DisplayName>String Value</DisplayName>
+            <Description>The string value to be set.</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Parameter>
+        <Response>
+            <Identifier>ReceivedValue</Identifier>
+            <DisplayName>Received Value</DisplayName>
+            <Description>A message containing the string value that has been received.</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Response>
+    </Command>
+    <Property>
+        <Identifier>StringValue</Identifier>
+        <DisplayName>String Value</DisplayName>
+        <Description>Returns the string value 'SiLA2_Test_String_Value'.</Description>
+        <DataType>
+            <Basic>String</Basic>
+        </DataType>
+        <Observable>No</Observable>
+    </Property>
+
+    <!-- Data type Integer -->
+    <Command>
+        <Identifier>SetIntegerValue</Identifier>
+        <DisplayName>Set Integer Value</DisplayName>
+        <Description>Receives an integer value and returns a message containing the integer value that has been received.</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>IntegerValue</Identifier>
+            <DisplayName>Integer Value</DisplayName>
+            <Description>The integer value to be set.</Description>
+            <DataType>
+                <Basic>Integer</Basic>
+            </DataType>
+        </Parameter>
+        <Response>
+            <Identifier>ReceivedValue</Identifier>
+            <DisplayName>Received Value</DisplayName>
+            <Description>A message containing the integer value that has been received.</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Response>
+    </Command>
+    <Property>
+        <Identifier>IntegerValue</Identifier>
+        <DisplayName>Integer Value</DisplayName>
+        <Description>Returns the integer value '5124'.</Description>
+        <DataType>
+            <Basic>Integer</Basic>
+        </DataType>
+        <Observable>No</Observable>
+    </Property>
+
+    <!-- Data type Real -->
+    <Command>
+        <Identifier>SetRealValue</Identifier>
+        <DisplayName>Set Real Value</DisplayName>
+        <Description>Receives a real value and returns a message containing the real value that has been received.</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>RealValue</Identifier>
+            <DisplayName>Real Value</DisplayName>
+            <Description>The real value to be set.</Description>
+            <DataType>
+                <Basic>Real</Basic>
+            </DataType>
+        </Parameter>
+        <Response>
+            <Identifier>ReceivedValue</Identifier>
+            <DisplayName>Received Value</DisplayName>
+            <Description>A message containing the real value that has been received.</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Response>
+    </Command>
+    <Property>
+        <Identifier>RealValue</Identifier>
+        <DisplayName>Real Value</DisplayName>
+        <Description>Returns the real value '3.1415926'.</Description>
+        <DataType>
+            <Basic>Real</Basic>
+        </DataType>
+        <Observable>No</Observable>
+    </Property>
+
+    <!-- Data type Boolean -->
+    <Command>
+        <Identifier>SetBooleanValue</Identifier>
+        <DisplayName>Set Boolean Value</DisplayName>
+        <Description>Receives a boolean value and returns a message containing the boolean value that has been received.</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>BooleanValue</Identifier>
+            <DisplayName>Boolean Value</DisplayName>
+            <Description>The boolean value to be set.</Description>
+            <DataType>
+                <Basic>Boolean</Basic>
+            </DataType>
+        </Parameter>
+        <Response>
+            <Identifier>ReceivedValue</Identifier>
+            <DisplayName>Received Value</DisplayName>
+            <Description>A message containing the boolean value that has been received.</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Response>
+    </Command>
+    <Property>
+        <Identifier>BooleanValue</Identifier>
+        <DisplayName>Boolean Value</DisplayName>
+        <Description>Returns the boolean value 'true'.</Description>
+        <DataType>
+            <Basic>Boolean</Basic>
+        </DataType>
+        <Observable>No</Observable>
+    </Property>
+
+    <!-- Data Type Small Binary -->
+    <Command>
+        <Identifier>SetSmallBinaryValue</Identifier>
+        <DisplayName>Set SmallBinary Value</DisplayName>
+        <Description>Receives a SmallBinary value and returns a message containing the SmallBinary value that has been received.</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>SmallBinaryValue</Identifier>
+            <DisplayName>SmallBinary Value</DisplayName>
+            <Description>The SmallBinary value to be set.</Description>
+            <DataType>
+                <Basic>SmallBinary</Basic>
+            </DataType>
+        </Parameter>
+        <Response>
+            <Identifier>ReceivedValue</Identifier>
+            <DisplayName>Received Value</DisplayName>
+            <Description>A message containing the SmallBinary value that has been received.</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Response>
+    </Command>
+    <Property>
+        <Identifier>SmallBinaryValue</Identifier>
+        <DisplayName>SmallBinary Value</DisplayName>
+        <Description>Returns the UTF-8 encoded string 'SiLA2_Test_String_Value' as SmallBinary value.</Description>
+        <DataType>
+            <Basic>SmallBinary</Basic>
+        </DataType>
+        <Observable>No</Observable>
+    </Property>
+
+    <!-- Data Type Large Binary: tbd -->
+
+    <!-- Data type Date -->
+    <Command>
+        <Identifier>SetDateValue</Identifier>
+        <DisplayName>Set Date Value</DisplayName>
+        <Description>Receives a date value and returns a message containing the date value that has been received.</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>DateValue</Identifier>
+            <DisplayName>Date Value</DisplayName>
+            <Description>The date value to be set.</Description>
+            <DataType>
+                <Basic>Date</Basic>
+            </DataType>
+        </Parameter>
+        <Response>
+            <Identifier>ReceivedValue</Identifier>
+            <DisplayName>Received Value</DisplayName>
+            <Description>A message containing the date value that has been received.</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Response>
+    </Command>
+    <Property>
+        <Identifier>DateValue</Identifier>
+        <DisplayName>Date Value</DisplayName>
+        <Description>Returns the date value '24.08.2018' repective '08/24/2018'.</Description>
+        <DataType>
+            <Basic>Date</Basic>
+        </DataType>
+        <Observable>No</Observable>
+    </Property>
+
+    <!-- Data type Time -->
+    <Command>
+        <Identifier>SetTimeValue</Identifier>
+        <DisplayName>Set Time Value</DisplayName>
+        <Description>Receives a time value and returns a message containing the time value that has been received.</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>TimeValue</Identifier>
+            <DisplayName>Time Value</DisplayName>
+            <Description>The time value to be set.</Description>
+            <DataType>
+                <Basic>Time</Basic>
+            </DataType>
+        </Parameter>
+        <Response>
+            <Identifier>ReceivedValue</Identifier>
+            <DisplayName>Received Value</DisplayName>
+            <Description>A message containing the time value that has been received.</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Response>
+    </Command>
+    <Property>
+        <Identifier>TimeValue</Identifier>
+        <DisplayName>Time Value</DisplayName>
+        <Description>Returns the time value '12:34:56'.</Description>
+        <DataType>
+            <Basic>Time</Basic>
+        </DataType>
+        <Observable>No</Observable>
+    </Property>
+
+    <!-- Data type TimeStamp -->
+    <Command>
+        <Identifier>SetTimeStampValue</Identifier>
+        <DisplayName>Set TimeStamp Value</DisplayName>
+        <Description>Receives a time stamp value and returns a message containing the time stamp value that has been received.</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>TimeStampValue</Identifier>
+            <DisplayName>TimeStamp Value</DisplayName>
+            <Description>The time stamp value to be set.</Description>
+            <DataType>
+                <Basic>Timestamp</Basic>
+            </DataType>
+        </Parameter>
+        <Response>
+            <Identifier>ReceivedValue</Identifier>
+            <DisplayName>Received Value</DisplayName>
+            <Description>A message containing the time stamp value that has been received.</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Response>
+    </Command>
+    <Property>
+        <Identifier>TimeStampValue</Identifier>
+        <DisplayName>TimeStamp Value</DisplayName>
+        <Description>Returns the time stamp value '2018-08-24 12:34:56'.</Description>
+        <DataType>
+            <Basic>Timestamp</Basic>
+        </DataType>
+        <Observable>No</Observable>
+    </Property>
+
+    <!-- List type -->
+    <Command>
+        <Identifier>SetStringList</Identifier>
+        <DisplayName>Set String List</DisplayName>
+        <Description>Receives a list of String values and returns a message containing the string values that have been received.</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>StringList</Identifier>
+            <DisplayName>String List</DisplayName>
+            <Description>The list of String values to be set.</Description>
+            <DataType>
+                <List>
+                    <DataType>
+                        <Basic>String</Basic>
+                    </DataType>
+                </List>
+            </DataType>
+        </Parameter>
+        <Response>
+            <Identifier>ReceivedValues</Identifier>
+            <DisplayName>Received Values</DisplayName>
+            <Description>A message containing the string values that have been received.</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Response>
+    </Command>
+    <Property>
+        <Identifier>StringList</Identifier>
+        <DisplayName>String List</DisplayName>
+        <Description>Returns a list with the following String values: 'SiLA 2', 'is', 'great'.</Description>
+        <DataType>
+            <List>
+                <DataType>
+                    <Basic>String</Basic>
+                </DataType>
+            </List>
+        </DataType>
+        <Observable>No</Observable>
+    </Property>
+    <Command>
+        <Identifier>SetIntegerList</Identifier>
+        <DisplayName>Set Integer List</DisplayName>
+        <Description>Receives a list of integer values and returns a message containing the integer values that have been received.</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>IntegerList</Identifier>
+            <DisplayName>Integer List</DisplayName>
+            <Description>The list of integer values to be set.</Description>
+            <DataType>
+                <List>
+                    <DataType>
+                        <Basic>Integer</Basic>
+                    </DataType>
+                </List>
+            </DataType>
+        </Parameter>
+        <Response>
+            <Identifier>ReceivedValues</Identifier>
+            <DisplayName>Received Values</DisplayName>
+            <Description>A message containing the integer values that have been received.</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Response>
+    </Command>
+    <Property>
+        <Identifier>IntegerList</Identifier>
+        <DisplayName>Integer List</DisplayName>
+        <Description>Returns a list with the following Integer values: '1', '2', '3'.</Description>
+        <DataType>
+            <List>
+                <DataType>
+                    <Basic>Integer</Basic>
+                </DataType>
+            </List>
+        </DataType>
+        <Observable>No</Observable>
+    </Property>
+
+    <!-- Mixed Types -->
+    <Command>
+        <Identifier>SetSeveralValues</Identifier>
+        <DisplayName>Set Several Values</DisplayName>
+        <Description>Receives several parameter values (of different types) and returns a message containing the values that have been received.</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <Identifier>StringValue</Identifier>
+            <DisplayName>String Value</DisplayName>
+            <Description>The string value to be set.</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Parameter>
+        <Parameter>
+            <Identifier>IntegerValue</Identifier>
+            <DisplayName>Integer Value</DisplayName>
+            <Description>The integer value to be set.</Description>
+            <DataType>
+                <Basic>Integer</Basic>
+            </DataType>
+        </Parameter>
+        <Parameter>
+            <Identifier>RealValue</Identifier>
+            <DisplayName>Real Value</DisplayName>
+            <Description>The real value to be set.</Description>
+            <DataType>
+                <Basic>Real</Basic>
+            </DataType>
+        </Parameter>
+        <Parameter>
+            <Identifier>BooleanValue</Identifier>
+            <DisplayName>Boolean Value</DisplayName>
+            <Description>The boolean value to be set.</Description>
+            <DataType>
+                <Basic>Boolean</Basic>
+            </DataType>
+        </Parameter>
+        <Parameter>
+            <Identifier>DateValue</Identifier>
+            <DisplayName>Date Value</DisplayName>
+            <Description>The date value to be set.</Description>
+            <DataType>
+                <Basic>Date</Basic>
+            </DataType>
+        </Parameter>
+        <Parameter>
+            <Identifier>TimeValue</Identifier>
+            <DisplayName>Time Value</DisplayName>
+            <Description>The time value to be set.</Description>
+            <DataType>
+                <Basic>Time</Basic>
+            </DataType>
+        </Parameter>
+        <Parameter>
+            <Identifier>TimeStampValue</Identifier>
+            <DisplayName>TimeStamp Value</DisplayName>
+            <Description>The time stamp value to be set.</Description>
+            <DataType>
+                <Basic>Timestamp</Basic>
+            </DataType>
+        </Parameter>
+        <Response>
+            <Identifier>ReceivedValues</Identifier>
+            <DisplayName>Received Values</DisplayName>
+            <Description>A message containing the values that have been received.</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Response>
+    </Command>
+    <Command>
+        <Identifier>GetSeveralValues</Identifier>
+        <DisplayName>Get Several Values</DisplayName>
+        <Description>Returns several parameter values (of different types).</Description>
+        <Observable>No</Observable>
+        <Response>
+            <Identifier>StringValue</Identifier>
+            <DisplayName>String Value</DisplayName>
+            <Description>Returns the string value 'SiLA2_Test_String_Value'.</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </Response>
+        <Response>
+            <Identifier>IntegerValue</Identifier>
+            <DisplayName>Integer Value</DisplayName>
+            <Description>Returns the integer value '5124'.</Description>
+            <DataType>
+                <Basic>Integer</Basic>
+            </DataType>
+        </Response>
+        <Response>
+            <Identifier>RealValue</Identifier>
+            <DisplayName>Real Value</DisplayName>
+            <Description>Returns the real value '3.1415926'.</Description>
+            <DataType>
+                <Basic>Real</Basic>
+            </DataType>
+        </Response>
+        <Response>
+            <Identifier>BooleanValue</Identifier>
+            <DisplayName>Boolean Value</DisplayName>
+            <Description>Returns the boolean value 'true'.</Description>
+            <DataType>
+                <Basic>Boolean</Basic>
+            </DataType>
+        </Response>
+        <Response>
+            <Identifier>DateValue</Identifier>
+            <DisplayName>Date Value</DisplayName>
+            <Description>Returns the date value '24.08.2018' repective '08/24/2018'.</Description>
+            <DataType>
+                <Basic>Date</Basic>
+            </DataType>
+        </Response>
+        <Response>
+            <Identifier>TimeValue</Identifier>
+            <DisplayName>Time Value</DisplayName>
+            <Description>Returns the time value '12:34:56.789'.</Description>
+            <DataType>
+                <Basic>Time</Basic>
+            </DataType>
+        </Response>
+        <Response>
+            <Identifier>TimeStampValue</Identifier>
+            <DisplayName>TimeStamp Value</DisplayName>
+            <Description>Returns the time stamp value '2018-08-24 12:34:56'.</Description>
+            <DataType>
+                <Basic>Timestamp</Basic>
+            </DataType>
+        </Response>
+    </Command>
+
+</Feature>
