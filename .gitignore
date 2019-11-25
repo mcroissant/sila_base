@@ -1,3 +1,8 @@
 # IntelliJ
 .idea/
 *.iml
+
+public/
+
+tools/fdl_html_translator_xslt/docs/
+tools/fdl_html_translator_xslt/_docs/
