@@ -1,16 +1,15 @@
 import os
 from lxml import etree
 
-SILA_VERSION="0.2"
-current_dir =  ".." # os.path.dirname(os.path.abspath(__file__))
-
+SILA_VERSION="1.0"
+schema_parent_dir =  ".."
 
 def validate_feature(qualified_filename):
     print( 'Validating: ' + qualified_filename )
 
     # Schema validation
     schema_xsd = etree.XMLSchema(
-        etree.parse(os.path.join(current_dir, "schema", "FeatureDefinition.xsd"))
+        etree.parse(os.path.join(schema_parent_dir, "schema", "FeatureDefinition.xsd"))
     )
     feature_xml = etree.parse(qualified_filename)
     schema_xsd.assertValid(feature_xml)
@@ -25,7 +24,7 @@ def validate_feature(qualified_filename):
     category_path = convert_to_path(feature_xml.xpath("@Category"))
 
     expected_directory = os.path.join(
-        current_dir,
+        schema_parent_dir,
         "feature_definitions",
         originator_path,
         category_path
@@ -53,7 +52,7 @@ def convert_to_path(feature_namespace):
 
 
 def main():
-    for (dirpath, dirnames, filenames) in os.walk(os.path.join(current_dir, "feature_definitions")):
+    for (dirpath, dirnames, filenames) in os.walk(os.path.join(schema_parent_dir, "feature_definitions")):
         for filename in filenames:
             qualified_filename = os.path.join(dirpath, filename)
             if filename.endswith(".xml"):

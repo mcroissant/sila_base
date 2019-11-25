@@ -11,8 +11,9 @@ ________________________________________________________________________
 :dependencies: doxygen-interface
 
 :author:  mark doerr <mark.doerr@uni-greifswald.de>
+          Nuno Ribeiro
 
-:version: 0.0.2
+:version: 0.0.3
 
 :date: (creation)          20190830
 
@@ -69,8 +70,6 @@ def genIndexAlphabetic(feature_path_dict, target_dir="."):
     for feature, feature_dict in sorted(feature_path_dict.items()) :
         markdown_txt += f"[{feature}](md__docs_{feature_dict.html_path}__{convert(feature)}.html)\n\n"
 
-        #~ markdown_txt += f"[{feature}]({feature}.html)\n\n"
-
     with open(full_output_filename, 'w') as index_file :
         index_file.write( markdown_txt )
 
@@ -85,14 +84,13 @@ def genIndexCategories(feature_path_dict, target_dir="."):
 
     for feature, feature_dict in feature_path_dict.items() :
 
-        #~ markdown_txt += f"[{feature}]({feature_dict.path}/{feature}.html)\n\n"
         markdown_txt += f"[{feature}](md__docs_{feature_dict.html_path}__{convert(feature)}.html)\n\n"
+
+        # ImplNote: algorithm for future considerations of generating a list of categories
         # open file
         # search for category
         # save category
-
         # sort categories
-
         # create markdown entry
 
     with open(full_output_filename, 'w') as index_file :
@@ -116,7 +114,6 @@ def genMainPage(core_feature_dict, target_dir="."):
                     "These are the current SiLA 2 core features, for more features, please select '*Related Pages*'\n\n")
 
     for feature, feature_dict in sorted(core_feature_dict.items()) :
-        #html_prefix += feature_dict.html_path
         markdown_txt += f"[{feature}](md__docs_{feature_dict.html_path}__{convert(feature)}.html)\n\n"
 
     markdown_txt += ( "## Alphabetical List of all Feature\n\n"
@@ -139,8 +136,8 @@ def makeDoxygenDocs():
 if __name__ == '__main__':
     """Main: """
 
+    # for reduced output, choose level=logging.ERROR
     logging.basicConfig(format='%(levelname)s| %(module)s.%(funcName)s:%(message)s', level=logging.DEBUG)
-    #~ logging.basicConfig(format='%(levelname)s|%(module)s.%(funcName)s:%(message)s', level=logging.ERROR)
 
     DEF_SILA_BASE_PATH = os.path.join( os.path.dirname(__file__), '..', '..' )
     TARGET_MD_DIR = "_docs"
@@ -157,8 +154,6 @@ if __name__ == '__main__':
 
     #generating a feature - path dictionary
     for feature_path in sila_feature_path_list:
-         # str(feature_path.parent)# because path is object not string
-
          feature_id = PurePath(feature_path.stem).stem
          feat_path = os.path.join(*feature_path.parent.parts[2:] )
          html_path = "_".join(feature_path.parent.parts[2:] )
@@ -169,7 +164,6 @@ if __name__ == '__main__':
 
          if "core" in feat_path :
              core_feature_dict[feature_id] = feat_dict
-
 
          # transform
          transformFDLmarkdown(feature_id, feat_dict, TARGET_MD_DIR)

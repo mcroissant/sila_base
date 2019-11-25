@@ -45,7 +45,6 @@ pages:
   #  - master
 
 feature_test:
-    #image: moeryomenko/python-docker-lxml
     stage: test
     script:
       - python tools/validate_features.py
