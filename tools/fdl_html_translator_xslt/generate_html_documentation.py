@@ -23,6 +23,7 @@ ________________________________________________________________________
 import os
 from types import SimpleNamespace
 import logging
+import re
 
 from pathlib import Path, PurePath
 
@@ -30,6 +31,9 @@ import lxml.etree as ET
 
 from doxygen import Generator
 
+def convert(name):
+    s1 = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', name.replace("SiLA" ,"Si_l_a"))
+    return re.sub('([a-z0-9])([A-Z])', r'\1_\2', s1).lower()
 
 def transformFDLmarkdown(feat_name, feat_dict,  target_dir="." ):
     """ :param [param_name]: [description]"""
@@ -63,13 +67,12 @@ def genIndexAlphabetic(feature_path_dict, target_dir="."):
     markdown_txt = "# Alphabetic Feature list \n\n"
 
     for feature, feature_dict in sorted(feature_path_dict.items()) :
-        markdown_txt += f"[{feature}](md__docs_{feature_dict.html_path}_{feature}.html)\n\n"
+        markdown_txt += f"[{feature}](md__docs_{feature_dict.html_path}__{convert(feature)}.html)\n\n"
 
         #~ markdown_txt += f"[{feature}]({feature}.html)\n\n"
 
     with open(full_output_filename, 'w') as index_file :
         index_file.write( markdown_txt )
-
 
 def genIndexCategories(feature_path_dict, target_dir="."):
     """ :param [param_name]: [description]"""
@@ -83,7 +86,7 @@ def genIndexCategories(feature_path_dict, target_dir="."):
     for feature, feature_dict in feature_path_dict.items() :
 
         #~ markdown_txt += f"[{feature}]({feature_dict.path}/{feature}.html)\n\n"
-        markdown_txt += f"[{feature}](md__docs_{feature_dict.html_path}_{feature}.html)\n\n"
+        markdown_txt += f"[{feature}](md__docs_{feature_dict.html_path}__{convert(feature)}.html)\n\n"
         # open file
         # search for category
         # save category
@@ -114,7 +117,7 @@ def genMainPage(core_feature_dict, target_dir="."):
 
     for feature, feature_dict in sorted(core_feature_dict.items()) :
         #html_prefix += feature_dict.html_path
-        markdown_txt += f"[{feature}](md__docs_{feature_dict.html_path}_{feature}.html)\n\n"
+        markdown_txt += f"[{feature}](md__docs_{feature_dict.html_path}__{convert(feature)}.html)\n\n"
 
     markdown_txt += ( "## Alphabetical List of all Feature\n\n"
                       "[Feature List - alphabetical](./md__docs_feature_list_alph.html)\n\n")
