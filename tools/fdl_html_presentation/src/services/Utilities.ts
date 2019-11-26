@@ -1,7 +1,12 @@
+import { GITLAB_API_FILES_PATH } from "../constants";
+
 const updateUrl = (path: string) =>
-    "https://gitlab.com/api/v4/projects/5508183/repository/files/" + encodeURIComponent(path) + "/raw?ref=master";
+    GITLAB_API_FILES_PATH + "/" + encodeURIComponent(path) + "/raw?ref=master";
+
+const changeMarkdownUrls = (uri: string) => `${process.env.PUBLIC_URL}/feature?f=${uri}`;
 
 const Utilities = {
     updateUrl,
+    changeMarkdownUrls,
 };
 export default Utilities;

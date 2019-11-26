@@ -72,14 +72,22 @@ export default function Header() {
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
-                    <SiLALogo style={{width: 55, paddingRight: 5}} />
+                    <a href={"https://sila-standard.org"} target={"_blank"}>
+                        <SiLALogo style={{ width: 55, paddingRight: 5 }} />
+                    </a>
                     <Typography className={classes.title} variant="h6" noWrap>
                         FDL explorer
                     </Typography>
 
-                    <Button color="inherit" component={Link} to={"/"}>Home</Button>
-                    <Button color="inherit" component={Link} to={"/feature-definitions/list/alphabetical"}>Alphabetic FDLs</Button>
-                    <Button color="inherit" component={Link} to={"/feature-definitions/list/categories"}>Categories FDLs</Button>
+                    <Button color="inherit" component={Link} to={"/"}>
+                        Home
+                    </Button>
+                    <Button color="inherit" component={Link} to={"/feature-definitions/list/alphabetical"}>
+                        Alphabetic FDLs
+                    </Button>
+                    <Button color="inherit" component={Link} to={"/feature-definitions/list/categories"}>
+                        Categories FDLs
+                    </Button>
 
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>

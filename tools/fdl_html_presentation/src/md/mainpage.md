@@ -8,19 +8,19 @@ SiLA promotes open standards to allow integration and exchange of intelligent sy
 ## SiLA 2 Core Features
 These are the current SiLA 2 core features, for more features, please select '*Related Pages*'
 
-[AuthenticationService](/feature?f=feature_definitions/org/silastandard/core/AuthenticationService.sila.xml)
+[AuthenticationService](feature_definitions/org/silastandard/core/AuthenticationService.sila.xml)
 
-[AuthorizationService](/feature?f=feature_definitions/org/silastandard/core/AuthorizationService.sila.xml)
+[AuthorizationService](feature_definitions/org/silastandard/core/AuthorizationService.sila.xml)
 
-[CancelController](/feature?f=feature_definitions/org/silastandard/core/commands/CancelController.sila.xml)
+[CancelController](feature_definitions/org/silastandard/core/commands/CancelController.sila.xml)
 
-[LockController](/feature?f=feature_definitions/org/silastandard/core/LockController.sila.xml)
+[LockController](feature_definitions/org/silastandard/core/LockController.sila.xml)
 
-[ParameterConstraintsProvider](/feature?f=feature_definitions/org/silastandard/core/commands/ParameterConstraintsProvider.sila.xml)
+[ParameterConstraintsProvider](feature_definitions/org/silastandard/core/commands/ParameterConstraintsProvider.sila.xml)
 
-[SiLAService](/feature?f=feature_definitions/org/silastandard/core/SiLAService.sila.xml)
+[SiLAService](feature_definitions/org/silastandard/core/SiLAService.sila.xml)
 
-[SimulationController](/feature?f=feature_definitions/org/silastandard/core/SimulationController.sila.xml)
+[SimulationController](feature_definitions/org/silastandard/core/SimulationController.sila.xml)
 
 ## Alphabetical List of all Feature
 

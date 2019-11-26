@@ -7,11 +7,11 @@ import Header from "./components/Header";
 import IndexPage from "./components/IndexPage";
 import Feature from "./components/Feature";
 import Notfound from "./components/NotFound";
-import style from "./app.module.scss";
 import FeatureList from "./components/FeatureList";
+import style from "./app.module.scss";
 
 const App: React.FunctionComponent = () => (
-    <Router>
+    <Router basename={`${process.env.PUBLIC_URL}`}>
         <div className={style.gridWrapper}>
             <CssBaseline />
             <Header />
