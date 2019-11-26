@@ -51,7 +51,6 @@ PROJECT_BRIEF          = "SiLA_base feature pages"
 # pixels and the maximum width should not exceed 200 pixels. Doxygen will copy
 # the logo to the output directory.
 
-#PROJECT_LOGO           = ./images/sila-logo.png # was changed to inline SVG
 PROJECT_LOGO           = ./images/sila_logo.svg
 
 # The OUTPUT_DIRECTORY tag is used to specify the (relative or absolute) path
