@@ -1,3 +1,23 @@
+"""
+________________________________________________________________________
+
+:PROJECT: sila_base
+
+*Validating all FDL files*
+
+:details: : Validating all FDL files
+
+:dependencies: lxml
+
+:author:  Ricardo Gaviria
+          Maximilian Schulz
+          mark doerr <mark.doerr@uni-greifswald.de>
+
+:version: 0.0.3
+
+________________________________________________________________________
+
+"""
 import os
 from lxml import etree
 

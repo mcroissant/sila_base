@@ -36,6 +36,13 @@ def convert(name):
     s1 = re.sub('(.)([A-Z][a-z]+)', r'\1_\2', name.replace("SiLA" ,"Si_l_a"))
     return re.sub('([a-z0-9])([A-Z])', r'\1_\2', s1).lower()
 
+def getFeatureCategory(full_name):
+
+    feature_xml = ET.parse(full_name)
+    # search for category @ refers to attribute
+    feature_category = feature_xml.xpath("@Category")[0]
+    return feature_category
+
 def transformFDLmarkdown(feat_name, feat_dict,  target_dir="." ):
     """ :param [param_name]: [description]"""
 
@@ -82,16 +89,23 @@ def genIndexCategories(feature_path_dict, target_dir="."):
 
     markdown_txt = "# Feature list by Categories \n\n"
 
+    feature_category_dict = {}
+
     for feature, feature_dict in feature_path_dict.items() :
+        try:
+            feature_category_dict[feature_dict.category].append(feature_dict)
+        except KeyError :
+            feature_category_dict[feature_dict.category] = [feature_dict]
 
-        markdown_txt += f"[{feature}](md__docs_{feature_dict.html_path}__{convert(feature)}.html)\n\n"
+    for feature_category in sorted(feature_category_dict.keys()) :
+        markdown_txt += f"## {feature_category}\n\n"
 
-        # ImplNote: algorithm for future considerations of generating a list of categories
-        # open file
-        # search for category
-        # save category
-        # sort categories
-        # create markdown entry
+        for feature in feature_category_dict[feature_category] :
+            logging.debug(f"---------> {feature}")
+            markdown_txt += f"[{feature.id}](md__docs_{feature.html_path}__{feature.id}.html)\n\n"
+
+
+        #markdown_txt += f"[{feature}](md__docs_{feature_dict.html_path}__{convert(feature)}.html)\n\n"
 
     with open(full_output_filename, 'w') as index_file :
         index_file.write( markdown_txt )
@@ -158,7 +172,8 @@ if __name__ == '__main__':
          feat_path = os.path.join(*feature_path.parent.parts[2:] )
          html_path = "_".join(feature_path.parent.parts[2:] )
          logging.debug("html-pathon {}".format(html_path) )
-         feat_dict = SimpleNamespace(full_name=str(feature_path), path=feat_path, html_path=html_path)
+         feat_category = getFeatureCategory(str(feature_path))
+         feat_dict = SimpleNamespace(id=feature_id, full_name=str(feature_path), path=feat_path, html_path=html_path, category=feat_category)
 
          feature_path_dict[feature_id] = feat_dict  # because path is object not string
 
