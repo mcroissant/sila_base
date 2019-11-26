@@ -8,6 +8,7 @@ import InputBase from "@material-ui/core/InputBase";
 import SearchIcon from "@material-ui/icons/Search";
 import { fade } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
+import { ReactComponent as SiLALogo } from "../assets/imgs/sila_logo.svg";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -71,6 +72,7 @@ export default function Header() {
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
+                    <SiLALogo style={{width: 55, paddingRight: 5}} />
                     <Typography className={classes.title} variant="h6" noWrap>
                         FDL explorer
                     </Typography>

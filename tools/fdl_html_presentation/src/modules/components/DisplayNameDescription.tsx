@@ -7,7 +7,7 @@ const DisplayNameDescription: React.FC<IXmlJsxBuilder> = ({ content }) => {
     return (
         <Box paddingLeft={2}>
             <Box p={1} style={{border: "1px solid grey"}}>
-                <XmlToJsxTitle content={content} variant="h6" component="span" />
+                <XmlToJsxTitle content={content} variant="subtitle1" style={{fontWeight: "bold"}} component="span" />
                 <Typography variant="body1" component="span">{content.textContent}</Typography>
             </Box>
             <XmlToJsxChildrenGenerator content={content} noText />

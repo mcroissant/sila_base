@@ -1,8 +1,62 @@
+# Uses NodeJS V 9.4.0
+image: node:latest
+
+# And to cache them as well.
+cache:
+  paths:
+    - tools/fdl_html_presentation/node_modules/
 stages:
-  - test
+  - manual
+  - build
+  - test_node
+  - test_python
+  - deploy
 
 feature_test:
     image: moeryomenko/python-docker-lxml
-    stage: test
+    stage: test_python
     script: 
       - python validate_features.py
+
+
+# Manual Job to setup manual execution of the CI
+start:
+  stage: manual
+  when: manual
+  allow_failure: false
+  script: echo "Starting to validate and verify"
+  except:
+    - master
+
+build:
+  stage: build
+  before_script:
+    - npm install
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - tools/fdl_html_presentation/build
+      - tools/fdl_html_presentation/node_modules
+
+test:
+  stage: test_node
+  script:
+    - npm test
+  dependencies:
+    - build
+
+pages:
+  stage: deploy
+  script:
+    - mkdir .public
+    - cp -r tools/fdl_html_presentation/build/* .public
+    - mv .public public
+    - cp public/index.html public/404.html
+  artifacts:
+    paths:
+      - public
+  dependencies:
+    - build
+  only:
+    - master
