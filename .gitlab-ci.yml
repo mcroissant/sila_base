@@ -3,12 +3,14 @@ image: node:latest
 
 # And to cache them as well.
 cache:
+  untracked: true
   paths:
     - tools/fdl_html_presentation/node_modules/
+
 stages:
   - manual
   - build
-  - test_node
+#  - test_node
   - test_python
   - deploy
 
@@ -31,17 +33,20 @@ start:
 build:
   stage: build
   before_script:
+    - cd tools/fdl_html_presentation
     - npm install
   script:
     - npm run build
   artifacts:
     paths:
-      - tools/fdl_html_presentation/build
-      - tools/fdl_html_presentation/node_modules
+      - tools/fdl_html_presentation/build/
+      - tools/fdl_html_presentation/node_modules/
 
 test:
   stage: test_node
   script:
+    - cd tools/fdl_html_presentation
+    - ls -lah
     - npm test
   dependencies:
     - build
