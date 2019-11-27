@@ -22,11 +22,3 @@ These are the current SiLA 2 core features, for more features, please select '_R
 [SiLAService](feature_definitions/org/silastandard/core/SiLAService.sila.xml)
 
 [SimulationController](feature_definitions/org/silastandard/core/SimulationController.sila.xml)
-
-## Alphabetical List of all Feature
-
-[Feature List - alphabetical](/feature-definitions/list/alphabetical)
-
-## List of all Features, sorted by category
-
-[Feature List - in categories](/feature-definitions/list/categories)
