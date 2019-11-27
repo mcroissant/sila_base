@@ -6,7 +6,8 @@ import Utilities from "../services/Utilities";
 
 const FeatureList: React.FunctionComponent<{ mode: "alphabet" | "category" }> = ({ mode }) => (
     <ReactMarkdown
-        transformLinkUri={Utilities.changeMarkdownUrls}
+        renderers={Utilities.MDRenderers}
+        transformLinkUri={Utilities.transformLinkUri}
         source={mode === "alphabet" ? AlphabeticList : CategoryList}
     />
 );

@@ -83,25 +83,11 @@ export default function Header() {
                         Home
                     </Button>
                     <Button color="inherit" component={Link} to={"/feature-definitions/list/alphabetical"}>
-                        Alphabetic FDLs
+                        Sort Alphabetically
                     </Button>
                     <Button color="inherit" component={Link} to={"/feature-definitions/list/categories"}>
-                        Categories FDLs
+                        Sort by Categories
                     </Button>
-
-                    <div className={classes.search}>
-                        <div className={classes.searchIcon}>
-                            <SearchIcon />
-                        </div>
-                        <InputBase
-                            placeholder="Search…"
-                            classes={{
-                                root: classes.inputRoot,
-                                input: classes.inputInput,
-                            }}
-                            inputProps={{ "aria-label": "search" }}
-                        />
-                    </div>
                 </Toolbar>
             </AppBar>
         </div>

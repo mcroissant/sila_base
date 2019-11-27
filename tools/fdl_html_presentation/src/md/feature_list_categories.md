@@ -32,7 +32,7 @@
 
   * [ParameterConstraintsProvider](feature_definitions/org/silastandard/core/commands/ParameterConstraintsProvider.sila.xml)
 
-  * TODO [PauseController](md__docs_feature_definitions_org_silastandard_core_commands__PauseController.html)
+  * [PauseController](feature_definitions/org/silastandard/core/commands/PauseController.sila.xml)
 
   * [CancelController](feature_definitions/org/silastandard/core/commands/CancelController.sila.xml)
 
@@ -50,27 +50,27 @@
 
 ## reader
 
-  * TODO [GloMaxStatusProvider](md__docs_feature_definitions_com_madisoft_reader__GloMaxStatusProvider.html)
+  * [GloMaxStatusProvider](feature_definitions/com/madisoft/reader/GloMaxStatusProvider.sila.xml)
 
   * [AbsorbanceReaderService](feature_definitions/com/madisoft/reader/AbsorbanceReaderService.sila.xml)
 
-  * TODO [LuminescenceReaderService](md__docs_feature_definitions_com_madisoft_reader__LuminescenceReaderService.html)
+  * [LuminescenceReaderService](feature_definitions/com/madisoft/reader/LuminescenceReaderService.sila.xml)
 
-  * TODO [FluorescenceReaderService](md__docs_feature_definitions_com_madisoft_reader__FluorescenceReaderService.html)
+  * [FluorescenceReaderService](feature_definitions/com/madisoft/reader/FluorescenceReaderService.sila.xml)
 
 ## robot
 
-  * TODO [PlateCalibrationService](md__docs_feature_definitions_ch_unitelabs_robot__PlateCalibrationService.html)
+  * [PlateCalibrationService](feature_definitions/ch/unitelabs/robot/PlateCalibrationService.sila.xml)
 
-  * TODO [RobotTeachingService](md__docs_feature_definitions_ch_unitelabs_robot__RobotTeachingService.html)
+  * [RobotTeachingService](feature_definitions/ch/unitelabs/robot/RobotTeachingService.sila.xml)
 
-  * TODO [DeviceCalibrationService](md__docs_feature_definitions_ch_unitelabs_robot__DeviceCalibrationService.html)
+  * [DeviceCalibrationService](feature_definitions/ch/unitelabs/robot/DeviceCalibrationService.sila.xml)
 
-  * TODO [GripController](md__docs_feature_definitions_ch_unitelabs_robot__GripController.html)
+  * [GripController](feature_definitions/ch/unitelabs/robot/GripController.sila.xml)
 
   * [BatteryController](feature_definitions/ch/unitelabs/robot/BatteryController.sila.xml)
 
-  * TODO  [RobotController](md__docs_feature_definitions_ch_unitelabs_robot__RobotController.html)
+  * [RobotController](feature_definitions/ch/unitelabs/robot/RobotController.sila.xml)
 
 ## storing
 
