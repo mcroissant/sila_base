@@ -6,9 +6,11 @@ import { Typography } from "@material-ui/core";
 const Identifier: React.FC<IXmlJsxBuilder> = ({ content }) => {
     return (
         <Box paddingLeft={2}>
-            <Box p={1} style={{border: "1px solid grey", backgroundColor: "white"}}>
+            <Box p={1} style={{ border: "1px solid grey", backgroundColor: "white" }}>
                 <XmlToJsxTitle content={content} variant="h5" component="span" />
-                <Typography variant="body1" component="span">{content.textContent}</Typography>
+                <Typography variant="body1" component="span">
+                    {content.textContent}
+                </Typography>
             </Box>
             <XmlToJsxChildrenGenerator content={content} noText />
         </Box>

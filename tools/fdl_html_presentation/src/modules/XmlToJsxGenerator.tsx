@@ -13,18 +13,24 @@ interface IXmlJsxBuilderProps {
     mapper?: MapperType;
 }
 
-export const XmlToJsxTitle: React.FunctionComponent<{ content: Element } & TypographyProps> = ({content, ...props}) => (
-    <Typography {...props}>{capitalize(content.tagName)}: </Typography>
-);
+export const XmlToJsxTitle: React.FunctionComponent<{ content: Element } & TypographyProps> = ({
+    content,
+    ...props
+}) => <Typography {...props}>{capitalize(content.tagName)}: </Typography>;
 
-export const XmlToJsxChildrenGenerator: React.FunctionComponent<{ content: Element, noText?: boolean }> = ({ content, noText=false }) => (
+export const XmlToJsxChildrenGenerator: React.FunctionComponent<{ content: Element; noText?: boolean }> = ({
+    content,
+    noText = false,
+}) => (
     <>
-        { !noText && Array.from(content.childNodes).map((child, index) => (
-            <XmlToJsxGenerator key={index} content={child as Element} />
-        ))}
-        { noText && Array.from(content.children).map((child, index) => (
-            <XmlToJsxGenerator key={index} content={child as Element} />
-        ))}
+        {!noText &&
+            Array.from(content.childNodes).map((child, index) => (
+                <XmlToJsxGenerator key={index} content={child as Element} />
+            ))}
+        {noText &&
+            Array.from(content.children).map((child, index) => (
+                <XmlToJsxGenerator key={index} content={child as Element} />
+            ))}
     </>
 );
 

@@ -4,8 +4,6 @@ import Button from "@material-ui/core/Button";
 import Toolbar from "@material-ui/core/Toolbar";
 import React from "react";
 import Typography from "@material-ui/core/Typography";
-import InputBase from "@material-ui/core/InputBase";
-import SearchIcon from "@material-ui/icons/Search";
 import { fade } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import { ReactComponent as SiLALogo } from "../assets/imgs/sila_logo.svg";

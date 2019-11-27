@@ -7,7 +7,7 @@ import Box from "@material-ui/core/Box";
 const Feature: React.FC<IXmlJsxBuilder> = ({ content }) => {
     return (
         <Box paddingLeft={1} marginTop={1} marginLeft={1} marginBottom={1}>
-            <Card style={{padding: 10}}>
+            <Card style={{ padding: 10 }}>
                 <Box paddingBottom={1}>
                     <Typography variant="h4">Feature</Typography>
                 </Box>

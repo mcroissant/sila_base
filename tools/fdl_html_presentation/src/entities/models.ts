@@ -4,7 +4,7 @@ export interface IInstrument {
 }
 export interface IIntegration {
     instrumentName: string;
-    type: "SiLA" | "OPC" | "REST"
+    type: "SiLA" | "OPC" | "REST";
 }
 
 const instruments: IInstrument[] = [
@@ -23,5 +23,5 @@ const integrations: IIntegration[] = [];
 
 export const DATA = {
     instruments,
-    integrations
-}
+    integrations,
+};

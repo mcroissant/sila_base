@@ -1,4 +1,4 @@
-# Alphabetic Feature list 
+# Alphabetic Feature list
 
 [AbsorbanceReaderService](feature_definitions/com/madisoft/reader/AbsorbanceReaderService.sila.xml)
 

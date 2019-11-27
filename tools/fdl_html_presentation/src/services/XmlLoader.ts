@@ -12,7 +12,7 @@ export default class XmlLoader {
     generateHtml = (res: string) => {
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(res, "text/xml");
-        console.log(xmlDoc)
+        console.log(xmlDoc);
         Array.from(xmlDoc.childNodes).forEach((child) => {
             ReactDOM.render(React.createElement(XmlJsxBuilder, { content: child as Element }), this.element);
         });
