@@ -3,7 +3,15 @@ import { Box, Typography } from "@material-ui/core";
 import { Mapper, MapperType } from "./WidgetsMapper";
 import { TypographyProps } from "@material-ui/core/Typography";
 
-export const capitalize = (str: string): string => str.charAt(0).toUpperCase() + str.slice(1);
+export const capitalize = (str: string): string => {
+    if (str) {
+        const firstChar = str.charAt(0);
+        if (firstChar) {
+            return firstChar.toUpperCase() + str.slice(1);
+        }
+    }
+    return str;
+}
 
 export interface IXmlJsxBuilder {
     content: Element;
