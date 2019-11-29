@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const updateUrl = (path: string) => GITLAB_API_FILES_PATH + "/" + encodeURIComponent(path) + "/raw?ref=master";
 
 const transformLinkUri: (uri: string, children?: ReactNode, title?: string) => string = (uri) =>
-    `${process.env.PUBLIC_URL}/feature?f=${uriTransformer(uri)}`;
+    `/feature?f=${uriTransformer(uri)}`;
 
 const LinkRenderer: React.FunctionComponent<any> = ({ href, ...props }) => <Link to={href} {...props} />;
 const MDRenderers = {

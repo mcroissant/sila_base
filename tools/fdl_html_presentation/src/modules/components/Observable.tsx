@@ -6,9 +6,9 @@ import ClearIcon from "@material-ui/icons/Clear";
 
 const Observable: React.FC<IXmlJsxBuilder> = ({ content }) => {
     return (
-        <Box paddingLeft={2}>
+        <Box p={1}>
             <Box p={1} style={{ display: "inline-flex" }}>
-                <XmlToJsxTitle content={content} variant="h6" component="span" />
+                <XmlToJsxTitle content={content} variant="h4" component="span" />
                 {content.textContent === "No" && <ClearIcon color="error" fontSize={"large"} />}
                 {content.textContent === "Yes" && <CheckIcon color="action" fontSize={"large"} />}
             </Box>

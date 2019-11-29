@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { createStyles, Fade, Theme } from "@material-ui/core";
+import { createStyles, Theme } from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import XmlLoader from "../services/XmlLoader";
@@ -29,7 +29,7 @@ interface IXmlRendererProps {
 }
 const XmlRenderer: React.FunctionComponent<IXmlRendererProps> = ({ url, onProgress, onSuccess, onError }) => {
     const classes = useStyles();
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const renderEl = React.createRef<HTMLDivElement>();
 
     const showLoader = () => setLoading(true);
@@ -57,23 +57,27 @@ const XmlRenderer: React.FunctionComponent<IXmlRendererProps> = ({ url, onProgre
     const [fetched, setFetched] = useState(false);
     useEffect(() => {
         if (renderEl && renderEl.current && !fetched) {
+            setLoading(true)
             new XmlLoader(url, renderEl.current, _onProgress, _onSuccess, _onError);
             setFetched(true)
         }
-    }, [renderEl, fetched]);
+        // eslint-disable-next-line
+    }, [renderEl, fetched, onProgress, onSuccess, onError, url]);
 
     return (
         <div className={classes.root}>
             <div className={classes.placeholder}>
-                <Collapse
-                    in={loading}
-                    style={{
-                        transitionDelay: loading ? "800ms" : "0ms",
-                    }}
-                    unmountOnExit
-                >
-                    <CircularProgress />
-                </Collapse>
+                <div style={{textAlign: "center"}}>
+                    <Collapse
+                        in={loading}
+                        style={{
+                            transitionDelay: loading ? "800ms" : "0ms",
+                        }}
+                        unmountOnExit
+                    >
+                        <CircularProgress />
+                    </Collapse>
+                </div>
                 <div ref={renderEl}/>
             </div>
         </div>

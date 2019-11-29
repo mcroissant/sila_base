@@ -5,10 +5,10 @@ import Card from "@material-ui/core/Card";
 
 const Command: React.FC<IXmlJsxBuilder> = ({ content }) => {
     return (
-        <Box paddingLeft={1} marginTop={1} marginLeft={1} marginBottom={1}>
+        <Box marginTop={1} marginBottom={1}>
             <Card>
                 <Box p={1}>
-                    <XmlToJsxTitle variant="h6" component="span" content={content} />
+                    <XmlToJsxTitle variant="h4" component="span" content={content} />
                     <XmlToJsxChildrenGenerator content={content} noText />
                 </Box>
             </Card>

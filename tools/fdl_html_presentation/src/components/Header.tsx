@@ -3,7 +3,6 @@ import AppBar from "@material-ui/core/AppBar";
 import Button from "@material-ui/core/Button";
 import Toolbar from "@material-ui/core/Toolbar";
 import React from "react";
-import Typography from "@material-ui/core/Typography";
 import { fade } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import { ReactComponent as SiLALogo } from "../assets/imgs/sila_logo.svg";
@@ -17,7 +16,9 @@ const useStyles = makeStyles((theme: Theme) =>
             marginRight: theme.spacing(2),
         },
         title: {
-            flexGrow: 1,
+            display: "block",
+        },
+        silaLogo: {
             display: "none",
             [theme.breakpoints.up("sm")]: {
                 display: "block",
@@ -70,16 +71,18 @@ export default function Header() {
         <div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
-                    <a href={"https://sila-standard.org"} target={"_blank"}>
-                        <SiLALogo style={{ width: 55, paddingRight: 5 }} />
-                    </a>
-                    <Typography className={classes.title} variant="h6" noWrap>
-                        FDL explorer
-                    </Typography>
-
-                    <Button color="inherit" component={Link} to={"/"}>
-                        Home
+                    <Button color="inherit" className={classes.title} component={Link} to={"/"}>
+                        FDL Home
                     </Button>
+
+                    <Button color="inherit" className={classes.silaLogo} >
+                        <a href={"https://sila-standard.org"} target={"_blank"}>
+                            <SiLALogo style={{ width: 55, paddingRight: 5 }} />
+                        </a>
+                    </Button>
+
+                    <div style={{flexGrow: 1}} />
+
                     <Button color="inherit" component={Link} to={"/feature-definitions/list/alphabetical"}>
                         Sort Alphabetically
                     </Button>
