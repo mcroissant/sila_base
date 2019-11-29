@@ -3,16 +3,26 @@ import ReactDOM from "react-dom";
 import XmlJsxBuilder from "../modules/XmlToJsxGenerator";
 
 export default class XmlLoader {
+    onSuccess: VoidFunction;
+    onError: VoidFunction;
     element: HTMLDivElement;
-    constructor(url: string, element: HTMLDivElement) {
+    constructor(
+        url: string,
+        element: HTMLDivElement,
+        onProgress: VoidFunction = () => {},
+        onSuccess: VoidFunction = () => {},
+        onError: VoidFunction = () => {}
+    ) {
+        this.onSuccess = onSuccess;
+        this.onError = onError;
         this.element = element;
+        onProgress();
         this.fetchXml(url).then(this.generateHtml);
     }
 
     generateHtml = (res: string) => {
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(res, "text/xml");
-        console.log(xmlDoc);
         Array.from(xmlDoc.childNodes).forEach((child) => {
             ReactDOM.render(React.createElement(XmlJsxBuilder, { content: child as Element }), this.element);
         });
@@ -25,14 +35,16 @@ export default class XmlLoader {
     }
 
     handleError(err: string): void {
+        this.onError();
         throw Error(err);
     }
 
     handleResponse(res: Response) {
         if (!res.ok) {
-            console.log(res);
+            this.onError();
             throw Error(res.statusText);
         }
+        this.onSuccess();
         return res.text();
     }
 }
