@@ -10,7 +10,7 @@ const Feature: React.FC<IXmlJsxBuilder> = ({ content }) => {
         <Box p={1}>
             <Card style={{ padding: 10 }}>
                 <Box paddingBottom={1}>
-                    <Typography variant="h4">{getDisplayName()}</Typography>
+                    <Typography variant="h2">{getDisplayName()}</Typography>
                 </Box>
                 <XmlToJsxChildrenGenerator content={content} />
             </Card>

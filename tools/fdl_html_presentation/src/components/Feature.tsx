@@ -15,7 +15,7 @@ const Feature: React.FunctionComponent<IFeatureProps & RouteComponentProps<{}>> 
 
     if (feature) {
         return <div>
-            <Typography variant="h3">Feature:</Typography>
+            <Typography variant="h1">Feature:</Typography>
             <XmlRenderer url={Utilities.updateUrl(feature)} />
         </div>;
     } else {
