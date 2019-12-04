@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Feature SiLA2Version="1.0" FeatureVersion="1.0" Originator="org.silastandard" Category="test"
+         xmlns="http://www.sila-standard.org"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
+    <Identifier>ObservableCommandTest</Identifier>
+    <DisplayName>Observable Command Test</DisplayName>
+    <Description>
+        Exposes various observable commands for test purposes.
+    </Description>
+
+    <!-- Observable Commands -->
+    <Command>
+        <Identifier>RestartDevice</Identifier>
+        <DisplayName>Restart Device</DisplayName>
+        <Description>Restart Device</Description>
+        <Observable>Yes</Observable>
+        <Parameter>
+            <Identifier>UpdateDevice</Identifier>
+            <DisplayName>Update Device</DisplayName>
+            <Description>Update Device while restarting</Description>
+            <DataType>
+                <Basic>Boolean</Basic>
+            </DataType>
+        </Parameter>
+        <IntermediateResponse>
+            <Identifier>FileBeingUpdated</Identifier>
+            <DisplayName>File Being Updated</DisplayName>
+            <Description>The file that is currently being updated</Description>
+            <DataType>
+                <Basic>String</Basic>
+            </DataType>
+        </IntermediateResponse>
+    </Command>
+</Feature>
