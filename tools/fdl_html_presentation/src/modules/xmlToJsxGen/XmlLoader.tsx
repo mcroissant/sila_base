@@ -1,31 +1,34 @@
 import React from "react";
-import ReactDOM from "react-dom";
-import XmlJsxBuilder from "../modules/XmlToJsxGenerator";
+import XmlToJsxGenerator from "./XmlToJsxGenerator";
 
 export default class XmlLoader {
-    onSuccess: VoidFunction;
+    onProgress: VoidFunction;
+    onSuccess: (newContent: React.ReactNodeArray) => void | VoidFunction;
     onError: VoidFunction;
-    element: HTMLDivElement;
+
     constructor(
-        url: string,
-        element: HTMLDivElement,
         onProgress: VoidFunction = () => {},
-        onSuccess: VoidFunction = () => {},
+        onSuccess: (newContent: React.ReactNodeArray) => void | VoidFunction = () => {},
         onError: VoidFunction = () => {}
     ) {
+        this.onProgress = onProgress;
         this.onSuccess = onSuccess;
         this.onError = onError;
-        this.element = element;
-        onProgress();
-        this.fetchXml(url).then(this.generateHtml);
     }
+
+    init = (url: string) => {
+        this.onProgress();
+        this.fetchXml(url).then(this.generateHtml);
+    };
 
     generateHtml = (res: string) => {
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(res, "text/xml");
-        Array.from(xmlDoc.childNodes).forEach((child) => {
-            ReactDOM.render(React.createElement(XmlJsxBuilder, { content: child as Element }), this.element);
-        });
+        let newContent: React.ReactNodeArray = [];
+        Array.from(xmlDoc.childNodes).forEach((child, index) =>
+            newContent.push(<XmlToJsxGenerator key={index} content={child as Element} />)
+        );
+        this.onSuccess(newContent);
     };
 
     fetchXml(url: string): Promise<any> {
@@ -44,7 +47,6 @@ export default class XmlLoader {
             this.onError();
             throw Error(res.statusText);
         }
-        this.onSuccess();
         return res.text();
     }
 }
