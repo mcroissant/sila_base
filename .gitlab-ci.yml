@@ -11,7 +11,9 @@ stages:
 feature_test:
     image: moeryomenko/python-docker-lxml
     stage: test_python
-    script: 
+    before_script:
+      - cd tools
+    script:
       - python validate_features.py
 
 

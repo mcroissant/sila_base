@@ -1,16 +1,19 @@
+# python script for validating all schemas in repository according to current FDL schema
+
 import os
 from lxml import etree
 
 SILA_VERSION="1.0"
-current_dir = os.path.dirname(os.path.abspath(__file__))
+
+schema_parent_dir =  ".."
 
 
 def validate_feature(qualified_filename):
-    print 'Validating: ' + qualified_filename
+    print( 'Validating: ' + qualified_filename )
 
     # Schema validation
     schema_xsd = etree.XMLSchema(
-        etree.parse(os.path.join(current_dir, "schema", "FeatureDefinition.xsd"))
+        etree.parse(os.path.join(schema_parent_dir, "schema", "FeatureDefinition.xsd"))
     )
     feature_xml = etree.parse(qualified_filename)
     schema_xsd.assertValid(feature_xml)
@@ -25,7 +28,7 @@ def validate_feature(qualified_filename):
     category_path = convert_to_path(feature_xml.xpath("@Category"))
 
     expected_directory = os.path.join(
-        current_dir,
+        schema_parent_dir,
         "feature_definitions",
         originator_path,
         category_path
@@ -41,7 +44,7 @@ def validate_feature(qualified_filename):
         raise StandardError("Features need to be located in an originator + category folder structure. " +
                             filename + " needs to be located in " + expected_directory)
 
-    print 'Validated'
+    print('Validated')
 
 
 def convert_to_path(feature_namespace):
@@ -53,14 +56,14 @@ def convert_to_path(feature_namespace):
 
 
 def main():
-    for (dirpath, dirnames, filenames) in os.walk(os.path.join(current_dir, "feature_definitions")):
+    for (dirpath, dirnames, filenames) in os.walk(os.path.join(schema_parent_dir, "feature_definitions")):
         for filename in filenames:
             qualified_filename = os.path.join(dirpath, filename)
             if filename.endswith(".xml"):
                 if filename.endswith(".sila.xml"):
                     validate_feature(qualified_filename)
                 else:
-                    raise StandardError("Only feature definitions with '*.sila.xml' are allowed , found: " +
+                    raise Exception("\n\tOnly feature definitions with '*.sila.xml' are allowed !!\n\tfound: " +
                                         qualified_filename)
 
 
