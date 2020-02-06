@@ -64,44 +64,6 @@
 
     <!-- Unobservable Commands -->
     <Command>
-        <Identifier>MakeCoffee</Identifier>
-        <DisplayName>Make Coffee</DisplayName>
-        <Description>Make coffee</Description>
-        <Observable>No</Observable>
-        <Parameter>
-            <Identifier>Sugar</Identifier>
-            <DisplayName>Sugar</DisplayName>
-            <Description>Want sugar ?</Description>
-            <DataType>
-                <Basic>Boolean</Basic>
-            </DataType>
-        </Parameter>
-        <Response>
-            <Identifier>Result</Identifier>
-            <DisplayName>Result</DisplayName>
-            <Description>The result of your order</Description>
-            <DataType>
-                <Basic>String</Basic>
-            </DataType>
-        </Response>
-    </Command>
-
-    <Command>
-        <Identifier>Sleep</Identifier>
-        <DisplayName>Sleep</DisplayName>
-        <Description>The command will sleep for the specified amount of time</Description>
-        <Observable>No</Observable>
-        <Parameter>
-            <Identifier>SecondsToSleep</Identifier>
-            <DisplayName>Seconds To Sleep</DisplayName>
-            <Description>The number of seconds the command will take</Description>
-            <DataType>
-                <Basic>Integer</Basic>
-            </DataType>
-        </Parameter>
-    </Command>
-
-    <Command>
         <Identifier>ListProvider</Identifier>
         <DisplayName>List Provider</DisplayName>
         <Description>Provide a list</Description>
