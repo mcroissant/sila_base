@@ -7,7 +7,7 @@ const DisplayName: React.FC<IXmlToJsxProps> = ({ content, style }) => {
     return (
         <Box paddingLeft={1} paddingRight={1} style={style}>
             <Box p={1} style={{ border: "1px solid grey" }}>
-                <XmlToJsxTitle content={content} variant="body1" component="span" style={{fontWeight: 400}} />
+                <XmlToJsxTitle content={content} variant="body1" style={{fontWeight: 400}} />
                 <Typography variant="body1" component="span" style={{fontWeight: 600}}>
                     {content.textContent}
                 </Typography>
