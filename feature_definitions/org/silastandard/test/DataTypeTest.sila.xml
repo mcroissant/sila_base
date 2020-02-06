@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Feature SiLAVersion="2" MajorVersion="1" MinorVersion="0" Originator="org.silastandard" Category="examples"
+<Feature SiLA2Version="1.0" FeatureVersion="1.0" Originator="org.silastandard" Category="test"
          xmlns="http://www.sila-standard.org"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
@@ -34,10 +34,10 @@
         <Identifier>StringValue</Identifier>
         <DisplayName>String Value</DisplayName>
         <Description>Returns the string value 'SiLA2_Test_String_Value'.</Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>String</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
 
     <!-- Data type Integer -->
@@ -67,10 +67,10 @@
         <Identifier>IntegerValue</Identifier>
         <DisplayName>Integer Value</DisplayName>
         <Description>Returns the integer value '5124'.</Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>Integer</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
 
     <!-- Data type Real -->
@@ -100,10 +100,10 @@
         <Identifier>RealValue</Identifier>
         <DisplayName>Real Value</DisplayName>
         <Description>Returns the real value '3.1415926'.</Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>Real</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
 
     <!-- Data type Boolean -->
@@ -133,46 +133,44 @@
         <Identifier>BooleanValue</Identifier>
         <DisplayName>Boolean Value</DisplayName>
         <Description>Returns the boolean value 'true'.</Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>Boolean</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
 
-    <!-- Data Type Small Binary -->
+    <!-- Data Type Binary -->
     <Command>
-        <Identifier>SetSmallBinaryValue</Identifier>
-        <DisplayName>Set SmallBinary Value</DisplayName>
-        <Description>Receives a SmallBinary value and returns a message containing the SmallBinary value that has been received.</Description>
+        <Identifier>SetBinaryValue</Identifier>
+        <DisplayName>Set Binary Value</DisplayName>
+        <Description>Receives a Binary value and returns a message containing the Binary value that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
-            <Identifier>SmallBinaryValue</Identifier>
-            <DisplayName>SmallBinary Value</DisplayName>
-            <Description>The SmallBinary value to be set.</Description>
+            <Identifier>BinaryValue</Identifier>
+            <DisplayName>Binary Value</DisplayName>
+            <Description>The Binary value to be set.</Description>
             <DataType>
-                <Basic>SmallBinary</Basic>
+                <Basic>Binary</Basic>
             </DataType>
         </Parameter>
         <Response>
             <Identifier>ReceivedValue</Identifier>
             <DisplayName>Received Value</DisplayName>
-            <Description>A message containing the SmallBinary value that has been received.</Description>
+            <Description>A message containing the Binary value that has been received.</Description>
             <DataType>
                 <Basic>String</Basic>
             </DataType>
         </Response>
     </Command>
     <Property>
-        <Identifier>SmallBinaryValue</Identifier>
-        <DisplayName>SmallBinary Value</DisplayName>
-        <Description>Returns the UTF-8 encoded string 'SiLA2_Test_String_Value' as SmallBinary value.</Description>
-        <DataType>
-            <Basic>SmallBinary</Basic>
-        </DataType>
+        <Identifier>BinaryValue</Identifier>
+        <DisplayName>Binary Value</DisplayName>
+        <Description>Returns the UTF-8 encoded string 'SiLA2_Test_String_Value' as Binary value.</Description>
         <Observable>No</Observable>
+        <DataType>
+            <Basic>Binary</Basic>
+        </DataType>
     </Property>
-
-    <!-- Data Type Large Binary: tbd -->
 
     <!-- Data type Date -->
     <Command>
@@ -201,10 +199,10 @@
         <Identifier>DateValue</Identifier>
         <DisplayName>Date Value</DisplayName>
         <Description>Returns the date value '24.08.2018' repective '08/24/2018'.</Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>Date</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
 
     <!-- Data type Time -->
@@ -234,10 +232,10 @@
         <Identifier>TimeValue</Identifier>
         <DisplayName>Time Value</DisplayName>
         <Description>Returns the time value '12:34:56'.</Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>Time</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
 
     <!-- Data type TimeStamp -->
@@ -267,10 +265,10 @@
         <Identifier>TimeStampValue</Identifier>
         <DisplayName>TimeStamp Value</DisplayName>
         <Description>Returns the time stamp value '2018-08-24 12:34:56'.</Description>
+        <Observable>No</Observable>
         <DataType>
             <Basic>Timestamp</Basic>
         </DataType>
-        <Observable>No</Observable>
     </Property>
 
     <!-- List type -->
@@ -304,6 +302,7 @@
         <Identifier>StringList</Identifier>
         <DisplayName>String List</DisplayName>
         <Description>Returns a list with the following String values: 'SiLA 2', 'is', 'great'.</Description>
+        <Observable>No</Observable>
         <DataType>
             <List>
                 <DataType>
@@ -311,7 +310,6 @@
                 </DataType>
             </List>
         </DataType>
-        <Observable>No</Observable>
     </Property>
     <Command>
         <Identifier>SetIntegerList</Identifier>
@@ -343,6 +341,7 @@
         <Identifier>IntegerList</Identifier>
         <DisplayName>Integer List</DisplayName>
         <Description>Returns a list with the following Integer values: '1', '2', '3'.</Description>
+        <Observable>No</Observable>
         <DataType>
             <List>
                 <DataType>
@@ -350,7 +349,6 @@
                 </DataType>
             </List>
         </DataType>
-        <Observable>No</Observable>
     </Property>
 
     <!-- Mixed Types -->
