@@ -5,13 +5,16 @@
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>DataTypeProvider</Identifier>
     <DisplayName>Data Type Provider</DisplayName>
-    <Description>Provides commands that have all available SiLA Data Types as types of their parameters.</Description>
+    <Description>This is a test feature, which can be used to test sending and receiving all SiLA data types.
+                 It provides commands and properties for each individual SiLA Data Type as parameter and response.
+                 Furthermore a mixed datatype command with multiple SiLA data types as parameters and responses is defined.
+    </Description>
 
     <!-- Data type String -->
     <Command>
         <Identifier>SetStringValue</Identifier>
         <DisplayName>Set String Value</DisplayName>
-        <Description>Receives a string value and returns a message containing the string value that has been received.</Description>
+        <Description>Sets a string value on the server and returns a message containing the string value that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>StringValue</Identifier>
@@ -22,8 +25,8 @@
             </DataType>
         </Parameter>
         <Response>
-            <Identifier>ReceivedValue</Identifier>
-            <DisplayName>Received Value</DisplayName>
+            <Identifier>ReceivedStringValue</Identifier>
+            <DisplayName>Received String Value</DisplayName>
             <Description>A message containing the string value that has been received.</Description>
             <DataType>
                 <Basic>String</Basic>
@@ -44,7 +47,7 @@
     <Command>
         <Identifier>SetIntegerValue</Identifier>
         <DisplayName>Set Integer Value</DisplayName>
-        <Description>Receives an integer value and returns a message containing the integer value that has been received.</Description>
+        <Description>Sets an integer value and returns a message containing the integer value that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>IntegerValue</Identifier>
@@ -55,11 +58,11 @@
             </DataType>
         </Parameter>
         <Response>
-            <Identifier>ReceivedValue</Identifier>
-            <DisplayName>Received Value</DisplayName>
+            <Identifier>ReceivedIntegerValue</Identifier>
+            <DisplayName>Received Integer Value</DisplayName>
             <Description>A message containing the integer value that has been received.</Description>
             <DataType>
-                <Basic>String</Basic>
+                <Basic>Integer</Basic>
             </DataType>
         </Response>
     </Command>
@@ -88,11 +91,11 @@
             </DataType>
         </Parameter>
         <Response>
-            <Identifier>ReceivedValue</Identifier>
+            <Identifier>ReceivedRealValue</Identifier>
             <DisplayName>Received Value</DisplayName>
             <Description>A message containing the real value that has been received.</Description>
             <DataType>
-                <Basic>String</Basic>
+                <Basic>Real</Basic>
             </DataType>
         </Response>
     </Command>
@@ -110,7 +113,7 @@
     <Command>
         <Identifier>SetBooleanValue</Identifier>
         <DisplayName>Set Boolean Value</DisplayName>
-        <Description>Receives a boolean value and returns a message containing the boolean value that has been received.</Description>
+        <Description>Sets a boolean value and returns a message containing the boolean value that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>BooleanValue</Identifier>
@@ -121,11 +124,11 @@
             </DataType>
         </Parameter>
         <Response>
-            <Identifier>ReceivedValue</Identifier>
-            <DisplayName>Received Value</DisplayName>
+            <Identifier>ReceivedBooleanValue</Identifier>
+            <DisplayName>Received Boolean Value</DisplayName>
             <Description>A message containing the boolean value that has been received.</Description>
             <DataType>
-                <Basic>String</Basic>
+                <Basic>Boolean</Basic>
             </DataType>
         </Response>
     </Command>
@@ -143,7 +146,7 @@
     <Command>
         <Identifier>SetBinaryValue</Identifier>
         <DisplayName>Set Binary Value</DisplayName>
-        <Description>Receives a Binary value and returns a message containing the Binary value that has been received.</Description>
+        <Description>Sets a Binary value and returns a message containing the Binary value that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>BinaryValue</Identifier>
@@ -154,11 +157,11 @@
             </DataType>
         </Parameter>
         <Response>
-            <Identifier>ReceivedValue</Identifier>
+            <Identifier>ReceivedBinaryValue</Identifier>
             <DisplayName>Received Value</DisplayName>
             <Description>A message containing the Binary value that has been received.</Description>
             <DataType>
-                <Basic>String</Basic>
+                <Basic>Binary</Basic>
             </DataType>
         </Response>
     </Command>
@@ -176,7 +179,7 @@
     <Command>
         <Identifier>SetDateValue</Identifier>
         <DisplayName>Set Date Value</DisplayName>
-        <Description>Receives a date value and returns a message containing the date value that has been received.</Description>
+        <Description>Sets a date value and returns a message containing the date value that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>DateValue</Identifier>
@@ -187,18 +190,18 @@
             </DataType>
         </Parameter>
         <Response>
-            <Identifier>ReceivedValue</Identifier>
-            <DisplayName>Received Value</DisplayName>
+            <Identifier>ReceivedDateValue</Identifier>
+            <DisplayName>Received Date Value</DisplayName>
             <Description>A message containing the date value that has been received.</Description>
             <DataType>
-                <Basic>String</Basic>
+                <Basic>Date</Basic>
             </DataType>
         </Response>
     </Command>
     <Property>
         <Identifier>DateValue</Identifier>
         <DisplayName>Date Value</DisplayName>
-        <Description>Returns the date value '24.08.2018' repective '08/24/2018'.</Description>
+        <Description>Returns the date value '2019-08-24' in ISO 8601 format, corresponding to US '08/24/2018' format.</Description>
         <Observable>No</Observable>
         <DataType>
             <Basic>Date</Basic>
@@ -220,11 +223,11 @@
             </DataType>
         </Parameter>
         <Response>
-            <Identifier>ReceivedValue</Identifier>
+            <Identifier>ReceivedTimeValue</Identifier>
             <DisplayName>Received Value</DisplayName>
             <Description>A message containing the time value that has been received.</Description>
             <DataType>
-                <Basic>String</Basic>
+                <Basic>Time</Basic>
             </DataType>
         </Response>
     </Command>
@@ -257,7 +260,7 @@
             <DisplayName>Received Value</DisplayName>
             <Description>A message containing the time stamp value that has been received.</Description>
             <DataType>
-                <Basic>String</Basic>
+                <Basic>Timestamp</Basic>
             </DataType>
         </Response>
     </Command>
@@ -353,9 +356,9 @@
 
     <!-- Mixed Types -->
     <Command>
-        <Identifier>SetSeveralValues</Identifier>
-        <DisplayName>Set Several Values</DisplayName>
-        <Description>Receives several parameter values (of different types) and returns a message containing the values that have been received.</Description>
+        <Identifier>SetMultipleMixedValues</Identifier>
+        <DisplayName>Set Multiple Mixed Values</DisplayName>
+        <Description>Sets multiple parameter values of different types and returns a message containing the values that have been received.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>StringValue</Identifier>
@@ -423,9 +426,9 @@
         </Response>
     </Command>
     <Command>
-        <Identifier>GetSeveralValues</Identifier>
-        <DisplayName>Get Several Values</DisplayName>
-        <Description>Returns several parameter values (of different types).</Description>
+        <Identifier>GetMultipleMixedValues</Identifier>
+        <DisplayName>Get Multiple Mixed Values</DisplayName>
+        <Description>Returns multiple parameter values of different types.</Description>
         <Observable>No</Observable>
         <Response>
             <Identifier>StringValue</Identifier>
@@ -462,7 +465,7 @@
         <Response>
             <Identifier>DateValue</Identifier>
             <DisplayName>Date Value</DisplayName>
-            <Description>Returns the date value '24.08.2018' repective '08/24/2018'.</Description>
+            <Description>Returns the date value '2018-08-24' in ISO 8601 format, corresponding to US '08/24/2018'.</Description>
             <DataType>
                 <Basic>Date</Basic>
             </DataType>
@@ -484,5 +487,4 @@
             </DataType>
         </Response>
     </Command>
-
 </Feature>
