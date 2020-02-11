@@ -5,35 +5,41 @@
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>ObservablePropertyTest</Identifier>
     <DisplayName>Observable Property Test</DisplayName>
-    <Description>
-        Exposes various observable properties for test purposes.
+     <Description>
+        This is a test feature to generically test observable properties.
+        It specifies various observable properties and returns defined answers to validate against.
+        We provide three different properties for testing concurrent situations.
+        The Server should iterate 1000 times (to produce some load) and return the current count as Integer.
+        By that we produce an predictable output/return which could be easily tested.
     </Description>
 
     <!-- Observable Properties -->
     <Property>
-        <Identifier>ListString</Identifier>
-        <DisplayName>A list of string</DisplayName>
-        <Description>Contains multiple strings</Description>
+        <Identifier>ObservablePropertyIteration1</Identifier>
+        <DisplayName>Observable Property iteration no. 1</DisplayName>
+        <Description>Observable Property iteration no. 1, running 1000 times and returning the current count as intermediate result.</Description>
         <Observable>Yes</Observable>
         <DataType>
-            <List>
-                <DataType>
-                    <Basic>String</Basic>
-                </DataType>
-            </List>
+            <Basic>Integer</Basic>
         </DataType>
     </Property>
     <Property>
-        <Identifier>SingletonListString</Identifier>
-        <DisplayName>A singleton list of string</DisplayName>
-        <Description>Contain one string</Description>
+        <Identifier>ObservablePropertyIteration2</Identifier>
+        <DisplayName>Observable Property iteration no. 2</DisplayName>
+        <Description>Observable Property iteration no. 2, running 1000 times and returning the current count as intermediate result.</Description>
         <Observable>Yes</Observable>
         <DataType>
-            <List>
-                <DataType>
-                    <Basic>String</Basic>
-                </DataType>
-            </List>
+            <Basic>Integer</Basic>
         </DataType>
     </Property>
+        <Property>
+        <Identifier>ObservablePropertyIteration3</Identifier>
+        <DisplayName>Observable Property iteration no. 3</DisplayName>
+        <Description>Observable Property iteration no. 3, running 1000 times and returning the current count as intermediate result.</Description>
+        <Observable>Yes</Observable>
+        <DataType>
+            <Basic>Integer</Basic>
+        </DataType>
+    </Property>
+
 </Feature>
