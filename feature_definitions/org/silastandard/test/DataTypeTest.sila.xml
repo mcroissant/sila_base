@@ -69,7 +69,7 @@
     <Property>
         <Identifier>IntegerValue</Identifier>
         <DisplayName>Integer Value</DisplayName>
-        <Description>Returns the integer value '5124'.</Description>
+        <Description>Returns the integer value '42'.</Description>
         <Observable>No</Observable>
         <DataType>
             <Basic>Integer</Basic>
@@ -297,7 +297,11 @@
             <DisplayName>Received Values</DisplayName>
             <Description>A message containing the string values that have been received.</Description>
             <DataType>
-                <Basic>String</Basic>
+                <List>
+                    <DataType>
+                        <Basic>String</Basic>
+                    </DataType>
+                </List>
             </DataType>
         </Response>
     </Command>
@@ -336,7 +340,7 @@
             <DisplayName>Received Values</DisplayName>
             <Description>A message containing the integer values that have been received.</Description>
             <DataType>
-                <Basic>String</Basic>
+                <Basic>Integer</Basic>
             </DataType>
         </Response>
     </Command>
@@ -353,6 +357,104 @@
             </List>
         </DataType>
     </Property>
+
+    <!-- Structure Type -->
+     <Command>
+        <Identifier>SetStructureValues</Identifier>
+        <DisplayName>Set Structure Values</DisplayName>
+        <Description>Sets values of different types and returns a message containing the values that have been received.</Description>
+        <Observable>No</Observable>
+        <Parameter>
+            <DataType>
+              <DataTypeIdentifier>AllDatatypeStructure</DataTypeIdentifier>
+            </DataType>
+        </Parameter>
+     </Command>
+    <Property>
+        <Identifier>StructureValues</Identifier>
+        <DisplayName>Structure Values</DisplayName>
+        <Description>Returns the Structure values.</Description>
+        <Observable>No</Observable>
+        <DataType>
+            <DataTypeIdentifier>AllDatatypeStructure</DataTypeIdentifier>
+        </DataType>
+    </Property>
+
+    <DataTypeDefinition>
+        <Identifier>AllDatatypeStructure</Identifier>
+        <DisplayName>All Datatype Structure</DisplayName>
+        <Description>All Datatype Structure</Description>
+        <DataType>
+            <Structure>
+                <Element>
+                    <Identifier>StringStructureElement</Identifier>
+                    <DisplayName>String Structure Element</DisplayName>
+                    <Description>String Structure Element.</Description>
+                    <DataType>
+                        <Basic>String</Basic>
+                    </DataType>
+                </Element>
+                <Element>
+                    <Identifier>IntegerStructureElement</Identifier>
+                    <DisplayName>Integer Structure Element</DisplayName>
+                    <Description>Integer Structure Element.</Description>
+                    <DataType>
+                        <Basic>Integer</Basic>
+                    </DataType>
+                </Element>
+                <Element>
+                    <Identifier>RealStructureElement</Identifier>
+                    <DisplayName>Real Structure Element</DisplayName>
+                    <Description>Real Structure Element.</Description>
+                    <DataType>
+                        <Basic>Real</Basic>
+                    </DataType>
+                </Element>
+                <Element>
+                    <Identifier>BooleanStructureElement</Identifier>
+                    <DisplayName>Boolean Structure Element</DisplayName>
+                    <Description>Boolean Structure Element.</Description>
+                    <DataType>
+                        <Basic>Boolean</Basic>
+                    </DataType>
+                </Element>
+                <Element>
+                    <Identifier>BinaryStructureElement</Identifier>
+                    <DisplayName>Binary Structure Element</DisplayName>
+                    <Description>Binary Structure Element.</Description>
+                    <DataType>
+                        <Basic>Binary</Basic>
+                    </DataType>
+                </Element>
+                <Element>
+                    <Identifier>DateStructureElement</Identifier>
+                    <DisplayName>Date Structure Element</DisplayName>
+                    <Description>Date Structure Element.</Description>
+                    <DataType>
+                        <Basic>Date</Basic>
+                    </DataType>
+                </Element>
+                <Element>
+                    <Identifier>TimeStructureElement</Identifier>
+                    <DisplayName>Time Structure Element</DisplayName>
+                    <Description>Time Structure Element.</Description>
+                    <DataType>
+                        <Basic>Time</Basic>
+                    </DataType>
+                </Element>
+                <Element>
+                    <Identifier>TimestampStructureElement</Identifier>
+                    <DisplayName>Timestamp Structure Element</DisplayName>
+                    <Description>Timestamp Structure Element.</Description>
+                    <DataType>
+                        <Basic>Timestamp</Basic>
+                    </DataType>
+                </Element>
+            </Structure>
+        </DataType>
+    </DataTypeDefinition>
+
+    <!-- Any Type -->
 
     <!-- Mixed Types -->
     <Command>
