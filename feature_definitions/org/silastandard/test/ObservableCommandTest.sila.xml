@@ -6,30 +6,103 @@
     <Identifier>ObservableCommandTest</Identifier>
     <DisplayName>Observable Command Test</DisplayName>
     <Description>
-        Exposes various observable commands for test purposes.
+        This is a test feature to generically test observable commands.
+        It specifies various observable commands and returns defined answers to validate against.
+        We provide three different commands for testing concurrent situations.
+        They accept an integer as Command Parameter as upper limit for in iteration.
+        The Server should iterate over this number, starting at 0 until NumberIterations (including) and return the current count as Integer.
+        By that we produce an predictable output/return which could be easily tested.
     </Description>
 
     <!-- Observable Commands -->
     <Command>
-        <Identifier>RestartDevice</Identifier>
-        <DisplayName>Restart Device</DisplayName>
-        <Description>Restart Device</Description>
+        <Identifier>ObservableIteration1</Identifier>
+        <DisplayName>Observable iteration no. 1</DisplayName>
+        <Description>Observable iteration no. 1, running NumberIterations times and returning the current count as intermediate result.</Description>
         <Observable>Yes</Observable>
         <Parameter>
-            <Identifier>UpdateDevice</Identifier>
-            <DisplayName>Update Device</DisplayName>
-            <Description>Update Device while restarting</Description>
+            <Identifier>NumberIterations</Identifier>
+            <DisplayName>Number of Iterations</DisplayName>
+            <Description>Number of Iterations of Observable Command 1.</Description>
             <DataType>
-                <Basic>Boolean</Basic>
+                <Basic>Integer</Basic>
             </DataType>
         </Parameter>
         <IntermediateResponse>
-            <Identifier>FileBeingUpdated</Identifier>
-            <DisplayName>File Being Updated</DisplayName>
-            <Description>The file that is currently being updated</Description>
+            <Identifier>Iteration1IntermediateResponse</Identifier>
+            <DisplayName>Iteration1 Intermediate Response</DisplayName>
+            <Description>Iteration1 Intermediate Response: it should return counting integers, starting from 0 to NumberIterations (including).</Description>
             <DataType>
-                <Basic>String</Basic>
+                <Basic>Integer</Basic>
             </DataType>
         </IntermediateResponse>
+        <Response>
+            <Identifier>Iteration1Response</Identifier>
+            <DisplayName>Iteration1 Response</DisplayName>
+            <Description>Iteration1 Response: An Integer, containing the last Count.</Description>
+            <DataType>
+                <Basic>Integer</Basic>
+            </DataType>
+        </Response>
+    </Command>
+    <Command>
+        <Identifier>ObservableIteration2</Identifier>
+        <DisplayName>Observable iteration no. 2</DisplayName>
+        <Description>Observable iteration no. 2, running NumberIterations times and returning the current count as intermediate result.</Description>
+        <Observable>Yes</Observable>
+        <Parameter>
+            <Identifier>NumberIterations</Identifier>
+            <DisplayName>Number of Iterations</DisplayName>
+            <Description>Number of Iterations of Observable Command 2.</Description>
+            <DataType>
+                <Basic>Integer</Basic>
+            </DataType>
+        </Parameter>
+        <IntermediateResponse>
+            <Identifier>Iteration2IntermediateResponse</Identifier>
+            <DisplayName>Iteration2 Intermediate Response</DisplayName>
+            <Description>Iteration2 Intermediate Response: it should return counting integers, starting from 0 to NumberIterations (including).</Description>
+            <DataType>
+                <Basic>Integer</Basic>
+            </DataType>
+        </IntermediateResponse>
+        <Response>
+            <Identifier>Iteration2Response</Identifier>
+            <DisplayName>Iteration2 Response</DisplayName>
+            <Description>Iteration2 Response: An Integer, containing the last Count.</Description>
+            <DataType>
+                <Basic>Integer</Basic>
+            </DataType>
+        </Response>
+    </Command>
+    <Command>
+        <Identifier>ObservableIteration3</Identifier>
+        <DisplayName>Observable iteration no. 3</DisplayName>
+        <Description>Observable iteration no. 3, running NumberIterations times and returning the current count as intermediate result.</Description>
+        <Observable>Yes</Observable>
+        <Parameter>
+            <Identifier>NumberIterations</Identifier>
+            <DisplayName>Number of Iterations</DisplayName>
+            <Description>Number of Iterations of Observable Command 3.</Description>
+            <DataType>
+                <Basic>Integer</Basic>
+            </DataType>
+        </Parameter>
+        <IntermediateResponse>
+            <Identifier>Iteration3IntermediateResponse</Identifier>
+            <DisplayName>Iteration3 Intermediate Response</DisplayName>
+            <Description>Iteration3 Intermediate Response: it should return counting integers, starting from 0 to NumberIterations (including).</Description>
+            <DataType>
+                <Basic>Integer</Basic>
+            </DataType>
+        </IntermediateResponse>
+        <Response>
+            <Identifier>Iteration3Response</Identifier>
+            <DisplayName>Iteration3 Response</DisplayName>
+            <Description>Iteration3 Response: An Integer, containing the last Count.</Description>
+            <DataType>
+                <Basic>Integer</Basic>
+            </DataType>
+        </Response>
     </Command>
 </Feature>
