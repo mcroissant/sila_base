@@ -6,429 +6,79 @@
     <Identifier>UnobservableCommandTest</Identifier>
     <DisplayName>Unobservable Command Test</DisplayName>
     <Description>
-        Exposes various unobservable commands for test purposes.
+        This is a test feature to generically test Unobservable commands.
+        It specifies various unobservable commands and returns defined answers to validate against.
+        We provide three different commands for testing concurrent situations.
+        They accept an integer as Command Parameter as upper limit for in iteration.
+        The Server should iterate over this number, starting at 0 until NumberIterations (including) and return the final count as Integer.
+        By that we produce an predictable output/return which could be easily tested.
     </Description>
 
-    <!-- Date type definitions -->
-    <DataTypeDefinition>
-        <Identifier>OneDimensionalString</Identifier>
-        <DisplayName>One dimensional List of string</DisplayName>
-        <Description>A one dimensional list of string</Description>
-        <DataType>
-            <List>
-                <DataType>
-                    <Basic>String</Basic>
-                </DataType>
-            </List>
-        </DataType>
-    </DataTypeDefinition>
-
-    <DataTypeDefinition>
-        <Identifier>AnonymousList</Identifier>
-        <DisplayName>Anonymous List</DisplayName>
-        <Description>Used as a response by the ValueForTypeProvider</Description>
-        <DataType>
-            <List>
-                <DataType>
-                    <Basic>Any</Basic>
-                </DataType>
-            </List>
-        </DataType>
-    </DataTypeDefinition>
-
-    <DataTypeDefinition>
-        <Identifier>TwoDimensionalString</Identifier>
-        <DisplayName>Two dimensional List of string</DisplayName>
-        <Description>A Two dimensional list of string</Description>
-        <DataType>
-            <List>
-                <DataType>
-                    <DataTypeIdentifier>OneDimensionalString</DataTypeIdentifier>
-                </DataType>
-            </List>
-        </DataType>
-    </DataTypeDefinition>
-
-    <DataTypeDefinition>
-        <Identifier>ThreeDimensionalString</Identifier>
-        <DisplayName>Three dimensional List of string</DisplayName>
-        <Description>A Three dimensional list of string</Description>
-        <DataType>
-            <List>
-                <DataType>
-                    <DataTypeIdentifier>TwoDimensionalString</DataTypeIdentifier>
-                </DataType>
-            </List>
-        </DataType>
-    </DataTypeDefinition>
-
-    <!-- Unobservable Commands -->
+    <!-- Observable Commands -->
     <Command>
-        <Identifier>ListProvider</Identifier>
-        <DisplayName>List Provider</DisplayName>
-        <Description>Provide a list</Description>
+        <Identifier>UnbservableIteration1</Identifier>
+        <DisplayName>Unbservable iteration no. 1</DisplayName>
+        <Description>Unbservable iteration no. 1, running NumberIterations times and returning the current count as intermediate result.</Description>
         <Observable>No</Observable>
         <Parameter>
-            <Identifier>ListLength</Identifier>
-            <DisplayName>List Length</DisplayName>
-            <Description>Number of elements in the list</Description>
-            <DataType>
-                <Basic>Integer</Basic>
-            </DataType>
-        </Parameter>
-        <Parameter>
-            <Identifier>ElementLength</Identifier>
-            <DisplayName>Element Length</DisplayName>
-            <Description>Length of each elements</Description>
+            <Identifier>NumberIterations</Identifier>
+            <DisplayName>Number of Iterations</DisplayName>
+            <Description>Number of Iterations of Unbservable Command 1.</Description>
             <DataType>
                 <Basic>Integer</Basic>
             </DataType>
         </Parameter>
         <Response>
-            <Identifier>List</Identifier>
-            <DisplayName>List</DisplayName>
-            <Description>A list of string</Description>
+            <Identifier>Iteration1Response</Identifier>
+            <DisplayName>Iteration1 Response</DisplayName>
+            <Description>Iteration1 Response: An Integer, containing the last Count.</Description>
             <DataType>
-                <List>
-                    <DataType>
-                        <Basic>String</Basic>
-                    </DataType>
-                </List>
+                <Basic>Integer</Basic>
             </DataType>
         </Response>
     </Command>
-
     <Command>
-        <Identifier>ThreeDimensionalStruct</Identifier>
-        <DisplayName>Three dimensional structure</DisplayName>
-        <Description>Three dimensional structure</Description>
+        <Identifier>UnbservableIteration2</Identifier>
+        <DisplayName>Unbservable iteration no. 2</DisplayName>
+        <Description>Unbservable iteration no. 2, running NumberIterations times and returning the current count as intermediate result.</Description>
         <Observable>No</Observable>
         <Parameter>
-            <Identifier>StructStructStruct</Identifier>
-            <DisplayName>Structure³</DisplayName>
-            <Description>Structure of structure of structure</Description>
+            <Identifier>NumberIterations</Identifier>
+            <DisplayName>Number of Iterations</DisplayName>
+            <Description>Number of Iterations of Unbservable Command 2.</Description>
             <DataType>
-                <Structure>
-                    <Element>
-                        <Identifier>FirstDimension</Identifier>
-                        <DisplayName>First Dimension</DisplayName>
-                        <Description>First Dimension</Description>
-                        <DataType>
-                            <Structure>
-                                <Element>
-                                    <Identifier>SecondDimension</Identifier>
-                                    <DisplayName>Second Dimension</DisplayName>
-                                    <Description>Second Dimension</Description>
-                                    <DataType>
-                                        <Structure>
-                                            <Element>
-                                                <Identifier>ThirdDimension</Identifier>
-                                                <DisplayName>Third Dimension</DisplayName>
-                                                <Description>Third Dimension</Description>
-                                                <DataType>
-                                                    <Basic>String</Basic>
-                                                </DataType>
-                                            </Element>
-                                        </Structure>
-                                    </DataType>
-                                </Element>
-                            </Structure>
-                        </DataType>
-                    </Element>
-                </Structure>
+                <Basic>Integer</Basic>
             </DataType>
         </Parameter>
         <Response>
-            <Identifier>ThreeDimensionalListResult</Identifier>
-            <DisplayName>Three Dimensional List Result</DisplayName>
-            <Description>³d list</Description>
+            <Identifier>Iteration2Response</Identifier>
+            <DisplayName>Iteration2 Response</DisplayName>
+            <Description>Iteration2 Response: An Integer, containing the last Count.</Description>
             <DataType>
-                <DataTypeIdentifier>ThreeDimensionalString</DataTypeIdentifier>
+                <Basic>Integer</Basic>
             </DataType>
         </Response>
     </Command>
-
     <Command>
-        <Identifier>ThreeDimensionalList</Identifier>
-        <DisplayName>Three dimensional list</DisplayName>
-        <Description>Three dimensional list</Description>
+        <Identifier>UnbservableIteration3</Identifier>
+        <DisplayName>Unbservable iteration no. 3</DisplayName>
+        <Description>Unbservable iteration no. 3, running NumberIterations times and returning the current count as intermediate result.</Description>
         <Observable>No</Observable>
         <Parameter>
-            <Identifier>ListListList</Identifier>
-            <DisplayName>List³</DisplayName>
-            <Description>List of list of list</Description>
+            <Identifier>NumberIterations</Identifier>
+            <DisplayName>Number of Iterations</DisplayName>
+            <Description>Number of Iterations of Unbservable Command 3.</Description>
             <DataType>
-                <DataTypeIdentifier>ThreeDimensionalString</DataTypeIdentifier>
+                <Basic>Integer</Basic>
             </DataType>
         </Parameter>
         <Response>
-            <Identifier>ThreeDimensionalStructResult</Identifier>
-            <DisplayName>Three Dimensional Structure Result</DisplayName>
-            <Description>³d structure</Description>
+            <Identifier>Iteration3Response</Identifier>
+            <DisplayName>Iteration3 Response</DisplayName>
+            <Description>Iteration3 Response: An Integer, containing the last Count.</Description>
             <DataType>
-                <Structure>
-                    <Element>
-                        <Identifier>FirstDimension</Identifier>
-                        <DisplayName>First Dimension</DisplayName>
-                        <Description>First Dimension</Description>
-                        <DataType>
-                            <Structure>
-                                <Element>
-                                    <Identifier>SecondDimension</Identifier>
-                                    <DisplayName>Second Dimension</DisplayName>
-                                    <Description>Second Dimension</Description>
-                                    <DataType>
-                                        <Structure>
-                                            <Element>
-                                                <Identifier>ThirdDimension</Identifier>
-                                                <DisplayName>Third Dimension</DisplayName>
-                                                <Description>Third Dimension</Description>
-                                                <DataType>
-                                                    <Basic>String</Basic>
-                                                </DataType>
-                                            </Element>
-                                        </Structure>
-                                    </DataType>
-                                </Element>
-                            </Structure>
-                        </DataType>
-                    </Element>
-                </Structure>
+                <Basic>Integer</Basic>
             </DataType>
         </Response>
     </Command>
-
-    <Command>
-        <Identifier>WhyMakeItSimpleWhenYouCanMakeItComplicated</Identifier>
-        <DisplayName>Why make it simple when you can make it complicated</DisplayName>
-        <Description>Really complicated</Description>
-        <Observable>No</Observable>
-        <Parameter>
-            <Identifier>StructListStruct</Identifier>
-            <DisplayName>Structure List Structure</DisplayName>
-            <Description>A structure of list of structure</Description>
-            <DataType>
-                <Structure>
-                    <Element>
-                        <Identifier>ListStruct</Identifier>
-                        <DisplayName>List Struct</DisplayName>
-                        <Description>List of Struct</Description>
-                        <DataType>
-                            <List>
-                                <DataType>
-                                    <Structure>
-                                        <Element>
-                                            <Identifier>Key</Identifier>
-                                            <DisplayName>Key</DisplayName>
-                                            <Description>The key</Description>
-                                            <DataType>
-                                                <Basic>String</Basic>
-                                            </DataType>
-                                        </Element>
-                                        <Element>
-                                            <Identifier>Value</Identifier>
-                                            <DisplayName>Value</DisplayName>
-                                            <Description>The value</Description>
-                                            <DataType>
-                                                <Basic>String</Basic>
-                                            </DataType>
-                                        </Element>
-                                    </Structure>
-                                </DataType>
-                            </List>
-                        </DataType>
-                    </Element>
-                </Structure>
-            </DataType>
-        </Parameter>
-        <Parameter>
-            <Identifier>ListStructList</Identifier>
-            <DisplayName>List Structure List</DisplayName>
-            <Description>A list of structure of list</Description>
-            <DataType>
-                <List>
-                    <DataType>
-                        <Structure>
-                            <Element>
-                                <Identifier>List</Identifier>
-                                <DisplayName>List</DisplayName>
-                                <Description>A list</Description>
-                                <DataType>
-                                    <List>
-                                        <DataType>
-                                            <Basic>String</Basic>
-                                        </DataType>
-                                    </List>
-                                </DataType>
-                            </Element>
-                        </Structure>
-                    </DataType>
-                </List>
-            </DataType>
-        </Parameter>
-        <Response>
-            <Identifier>FirstResponse</Identifier>
-            <DisplayName>First Response</DisplayName>
-            <Description>The first response</Description>
-            <DataType>
-                <Basic>String</Basic>
-            </DataType>
-        </Response>
-        <Response>
-            <Identifier>SecondResponse</Identifier>
-            <DisplayName>Second Response</DisplayName>
-            <Description>The second response</Description>
-            <DataType>
-                <Constrained>
-                    <DataType>
-                        <Basic>String</Basic>
-                    </DataType>
-                    <Constraints>
-                        <Set>
-                            <Value>Integer</Value>
-                            <Value>String</Value>
-                            <Value>ConstrainedReal</Value>
-                            <Value>AnonymousStructure</Value>
-                            <Value>AnonymousList</Value>
-                        </Set>
-                    </Constraints>
-                </Constrained>
-            </DataType>
-        </Response>
-    </Command>
-
-    <Command>
-        <Identifier>XOREncipher</Identifier>
-        <DisplayName>XOREncipher</DisplayName>
-        <Description>Encipher binary data using XOR Cipher</Description>
-        <Observable>No</Observable>
-        <Parameter>
-            <Identifier>Data</Identifier>
-            <DisplayName>Data</DisplayName>
-            <Description>The data to encipher</Description>
-            <DataType>
-                <Basic>Binary</Basic>
-            </DataType>
-        </Parameter>
-        <Parameter>
-            <Identifier>CipherKey</Identifier>
-            <DisplayName>CipherKey</DisplayName>
-            <Description>The key to encipher the data with</Description>
-            <DataType>
-                <Constrained>
-                    <DataType>
-                        <Basic>Integer</Basic>
-                    </DataType>
-                    <Constraints>
-                        <MinimalInclusive>0</MinimalInclusive>
-                        <MaximalInclusive>255</MaximalInclusive>
-                    </Constraints>
-                </Constrained>
-            </DataType>
-        </Parameter>
-        <Response>
-            <Identifier>Data</Identifier>
-            <DisplayName>Data</DisplayName>
-            <Description>The enciphered data</Description>
-            <DataType>
-                <Basic>Binary</Basic>
-            </DataType>
-        </Response>
-    </Command>
-
-    <Command>
-        <Identifier>ValueForTypeProvider</Identifier>
-        <DisplayName>Value For Type Provider</DisplayName>
-        <Description>Provides a value for the specified type</Description>
-        <Observable>No</Observable>
-        <Parameter>
-            <Identifier>Type</Identifier>
-            <DisplayName>Type</DisplayName>
-            <Description>The wanted type</Description>
-            <DataType>
-                <Basic>String</Basic>
-            </DataType>
-        </Parameter>
-        <Response>
-            <Identifier>Any</Identifier>
-            <DisplayName>Any</DisplayName>
-            <Description>Any</Description>
-            <DataType>
-                <Constrained>
-                    <DataType>
-                        <Basic>Any</Basic>
-                    </DataType>
-                    <Constraints>
-                        <AllowedTypes>
-                            <DataType>
-                                <Basic>Integer</Basic>
-                            </DataType>
-                            <DataType>
-                                <Basic>String</Basic>
-                            </DataType>
-                            <DataType>
-                                <Constrained>
-                                    <DataType>
-                                        <Basic>Real</Basic>
-                                    </DataType>
-                                    <Constraints>
-                                        <MinimalInclusive>4.2</MinimalInclusive>
-                                        <MaximalInclusive>133.7</MaximalInclusive>
-                                    </Constraints>
-                                </Constrained>
-                            </DataType>
-                            <DataType>
-                                <Structure>
-                                    <Element>
-                                        <Identifier>X</Identifier>
-                                        <DisplayName>X</DisplayName>
-                                        <Description>X</Description>
-                                        <DataType>
-                                            <Basic>Integer</Basic>
-                                        </DataType>
-                                    </Element>
-                                </Structure>
-                            </DataType>
-                            <DataType>
-                                <List>
-                                    <DataType>
-                                        <Basic>Any</Basic>
-                                    </DataType>
-                                </List>
-                            </DataType>
-                        </AllowedTypes>
-                    </Constraints>
-                </Constrained>
-            </DataType>
-        </Response>
-    </Command>
-
-    <!-- Metadata -->
-    <Metadata>
-        <Identifier>User</Identifier>
-        <DisplayName>User</DisplayName>
-        <Description>User information</Description>
-        <DataType>
-            <Structure>
-                <Element>
-                    <Identifier>Identifier</Identifier>
-                    <DisplayName>Identifier</DisplayName>
-                    <Description>The unique identifier of the user</Description>
-                    <DataType>
-                        <Basic>String</Basic>
-                    </DataType>
-                </Element>
-            </Structure>
-        </DataType>
-    </Metadata>
-
-    <!-- Execution Errors -->
-    <DefinedExecutionError>
-        <Identifier>SugarException</Identifier>
-        <DisplayName>Sugar Exception</DisplayName>
-        <Description>
-            Sorry but there is no more sugar !
-        </Description>
-    </DefinedExecutionError>
-
 </Feature>

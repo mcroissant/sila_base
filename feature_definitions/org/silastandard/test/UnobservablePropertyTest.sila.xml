@@ -5,165 +5,41 @@
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>UnobservablePropertyTest</Identifier>
     <DisplayName>Unobservable Property Test</DisplayName>
-    <Description>
-        Exposes various unobservable properties for test purposes.
+     <Description>
+        This is a test feature to generically test Unobservable properties.
+        It specifies various unobservable properties and returns defined answers to validate against.
+        We provide three different properties for testing concurrent situations.
+        The Server should iterate 1000 times (to produce some load) and return the final count as Integer.
+        By that we produce an predictable output/return which could be easily tested.
     </Description>
 
-    <!-- Data Types -->
-    <DataTypeDefinition>
-        <Identifier>DataTypeString</Identifier>
-        <DisplayName>Data type representing a string</DisplayName>
-        <Description></Description>
-        <DataType>
-            <Basic>String</Basic>
-        </DataType>
-    </DataTypeDefinition>
-
-    <!-- unobservable Properties -->
+    <!-- Unobservable Properties -->
     <Property>
-        <Identifier>HugeList</Identifier>
-        <DisplayName>A Huge List</DisplayName>
-        <Description>A list containing a lot of elements</Description>
+        <Identifier>UnobservablePropertyIteration1</Identifier>
+        <DisplayName>Unobservable Property iteration no. 1</DisplayName>
+        <Description>Unobservable Property iteration no. 1, running 1000 times and returning the current final result.</Description>
         <Observable>No</Observable>
         <DataType>
-            <List>
-                <DataType>
-                    <Basic>String</Basic>
-                </DataType>
-            </List>
-        </DataType>
-    </Property>
-
-    <Property>
-        <Identifier>Boolean</Identifier>
-        <DisplayName>Boolean property</DisplayName>
-        <Description>Displays a random boolean property</Description>
-        <Observable>No</Observable>
-        <DataType>
-            <Basic>Boolean</Basic>
-        </DataType>
-    </Property>
-
-    <Property>
-        <Identifier>ListString</Identifier>
-        <DisplayName>A list of string</DisplayName>
-        <Description></Description>
-        <Observable>No</Observable>
-        <DataType>
-            <List>
-                <DataType>
-                    <Basic>String</Basic>
-                </DataType>
-            </List>
+            <Basic>Integer</Basic>
         </DataType>
     </Property>
     <Property>
-        <Identifier>RandomChangingListString</Identifier>
-        <DisplayName>A randomly changing list of strings</DisplayName>
-        <Description></Description>
+        <Identifier>UnobservablePropertyIteration2</Identifier>
+        <DisplayName>Unobservable Property iteration no. 2</DisplayName>
+        <Description>Unobservable Property iteration no. 2, running 1000 times and returning the final result.</Description>
         <Observable>No</Observable>
         <DataType>
-            <List>
-                <DataType>
-                    <Basic>String</Basic>
-                </DataType>
-            </List>
+            <Basic>Integer</Basic>
+        </DataType>
+    </Property>
+        <Property>
+        <Identifier>UnobservablePropertyIteration3</Identifier>
+        <DisplayName>Unobservable Property iteration no. 3</DisplayName>
+        <Description>Unobservable Property iteration no. 3, running 1000 times and returning the final result.</Description>
+        <Observable>No</Observable>
+        <DataType>
+            <Basic>Integer</Basic>
         </DataType>
     </Property>
 
-    <Property>
-        <Identifier>ListStructPairString</Identifier>
-        <DisplayName>A list of structure with a pair of string</DisplayName>
-        <Description></Description>
-        <Observable>No</Observable>
-        <DataType>
-            <List>
-                <DataType>
-                    <Structure>
-                        <Element>
-                            <Identifier>Key</Identifier>
-                            <DisplayName>Key</DisplayName>
-                            <Description>The key</Description>
-                            <DataType>
-                                <Basic>String</Basic>
-                            </DataType>
-                        </Element>
-                        <Element>
-                            <Identifier>Value</Identifier>
-                            <DisplayName>Value</DisplayName>
-                            <Description>The value</Description>
-                            <DataType>
-                                <Basic>String</Basic>
-                            </DataType>
-                        </Element>
-                    </Structure>
-                </DataType>
-            </List>
-        </DataType>
-    </Property>
-
-    <Property>
-        <Identifier>StructPairString</Identifier>
-        <DisplayName>A structure with a pair of string</DisplayName>
-        <Description></Description>
-        <Observable>No</Observable>
-        <DataType>
-            <Structure>
-                <Element>
-                    <Identifier>PairString</Identifier>
-                    <DisplayName>Pair String</DisplayName>
-                    <Description>Pair of String</Description>
-                    <DataType>
-                        <Structure>
-                            <Element>
-                                <Identifier>Key</Identifier>
-                                <DisplayName>Key</DisplayName>
-                                <Description>The key</Description>
-                                <DataType>
-                                    <Basic>String</Basic>
-                                </DataType>
-                            </Element>
-                            <Element>
-                                <Identifier>Value</Identifier>
-                                <DisplayName>Value</DisplayName>
-                                <Description>The value</Description>
-                                <DataType>
-                                    <Basic>String</Basic>
-                                </DataType>
-                            </Element>
-                        </Structure>
-                    </DataType>
-                </Element>
-            </Structure>
-        </DataType>
-    </Property>
-
-    <Property>
-        <Identifier>DataType</Identifier>
-        <DisplayName>A Datatype</DisplayName>
-        <Description></Description>
-        <Observable>No</Observable>
-        <DataType>
-            <DataTypeIdentifier>DataTypeString</DataTypeIdentifier>
-        </DataType>
-    </Property>
-
-    <Property>
-        <Identifier>ThrowException</Identifier>
-        <DisplayName>Throw a test exception</DisplayName>
-        <Description></Description>
-        <Observable>No</Observable>
-        <DataType>
-            <Basic>String</Basic>
-        </DataType>
-    </Property>
-
-    <!-- Execution Errors -->
-    <DefinedExecutionError>
-        <Identifier>TestException</Identifier>
-        <DisplayName>Test Exception</DisplayName>
-        <Description>
-            You just encountered a test exception !
-        </Description>
-    </DefinedExecutionError>
 </Feature>
