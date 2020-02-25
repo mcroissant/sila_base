@@ -7,9 +7,19 @@ import Typography from "@material-ui/core/Typography/Typography";
 const updateUrl = (path: string) => GITLAB_API_FILES_PATH + "/" + encodeURIComponent(path) + "/raw?ref=master";
 
 const transformLinkUri: (uri: string, children?: ReactNode, title?: string) => string = (uri) =>
-    `/feature?f=${uriTransformer(uri)}`;
+    uri.startsWith("feature_definitions/") ? `/feature?f=${uriTransformer(uri)}` : uri;
 
-const LinkRenderer: React.FunctionComponent<any> = ({ href, ...props }) => <Link to={href} {...props} />;
+const LinkRenderer: React.FunctionComponent<any> = ({ href, ...props }) => {
+    console.log(props);
+    if (href && !href.startsWith("/")) {
+        return (
+            <a href={href} target="_blank" rel="noopener noreferrer">
+                {props.children}
+            </a>
+        );
+    }
+    return <Link to={href} {...props} />;
+};
 const Heading: React.FunctionComponent<any> = (props) => (
     <Typography variant={"h" + props.level} {...props} style={{ paddingTop: 20 }}>
         {props.children}
