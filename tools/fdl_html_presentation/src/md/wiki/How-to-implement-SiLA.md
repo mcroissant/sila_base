@@ -24,6 +24,7 @@ Z(SiLA Reference Implementation) --> S
 ```
 
 A Feature Designer can design a Feature without any knowledge of possible SiLA Servers implementing it or the underlying principles defined in Part B. The Server implementer wishing to offer a Feature has the following workflow:
+
 1. He uses a Code Generator to generate the complying interface proto file.
 2. He uses the proto compiler to create the gRPC server classes to implement the Feature behaviour.
 3. He uses a SiLA Reference Implementation to register his server with SiLA Discovery and register the Features the server wants to offer.
@@ -42,7 +43,7 @@ sequenceDiagram
 ```
 
 To use an unknown SiLA Server is a 3 step process:
+
 1. Find the socket (IP and port) the Server provides the features on, either through network discovery or manually.
 2. Get all features with the mandatory SiLAService features
 3. Call the features, either precompiled or on the fly.
-

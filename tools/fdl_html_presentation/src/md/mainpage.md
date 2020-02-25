@@ -23,7 +23,7 @@ These are the current SiLA 2 core features, for more features, please select '_R
 
 [SimulationController](feature_definitions/org/silastandard/core/SimulationController.sila.xml)
 
-## [SiLA 2 Wiki](/wiki/home)
+## [SiLA 2 Wiki]
 
 [Wiki Home](/wiki/home)
 

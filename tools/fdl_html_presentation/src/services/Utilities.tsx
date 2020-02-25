@@ -10,7 +10,6 @@ const transformLinkUri: (uri: string, children?: ReactNode, title?: string) => s
     uri.startsWith("feature_definitions/") ? `/feature?f=${uriTransformer(uri)}` : uri;
 
 const LinkRenderer: React.FunctionComponent<any> = ({ href, ...props }) => {
-    console.log(props);
     if (href && !href.startsWith("/")) {
         return (
             <a href={href} target="_blank" rel="noopener noreferrer">
