@@ -49,7 +49,7 @@ If your browser and SiLA servers running in a **local network** you can discover
 
 3. The servers available on the network should appear on the browser window
 
-### Manually add SiLA Servers 
+### Manually add SiLA Servers
 If you are running the SiLA Browser on a corporate network, you may want to add the servers manually. You can do this by following these steps:
 
 1. Identify the IP address and port where the server is currently running on
@@ -68,6 +68,9 @@ Have fun playing with the browser
 Assuming the device is connected to a network with access to the SiLA 2 Browser
 
 1. Identify the IP address of the machine where your SiLA 2 browser is hosted with `ifconfig` on windows or `ipconfig` on *nix OS's. Let's assume your IP address is `192.168.1.15`
+
 2. Connect the device (mobile or another machine) to the network
+
 3. Open a browser (Chrome or Firefox) on your device and go to http://192.168.1.15:8080
+
 4. Play with SiLA 2 devices to your heart's content!

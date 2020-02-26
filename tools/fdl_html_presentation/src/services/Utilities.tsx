@@ -32,7 +32,6 @@ const TypographyBody: React.FunctionComponent<any> = ({ href, ...props }) => (
 );
 
 const CustomCodeRenderer: React.FunctionComponent<any> = (props) => {
-    console.log(props);
     if (props.language === "mermaid") {
         return <Mermaid chart={props.value} />;
     }
