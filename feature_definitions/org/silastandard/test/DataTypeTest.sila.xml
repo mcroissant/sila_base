@@ -6,7 +6,7 @@
     <Identifier>DataTypeProvider</Identifier>
     <DisplayName>Data Type Provider</DisplayName>
     <Description>
-        This is a test feature, which can be used to test sending and receiving all SiLA data types.
+        This is a test feature, which can be used to test various SiLA data types.
         It provides commands and properties for each individual SiLA Data Type as parameter and response.
         Furthermore a mixed datatype command with multiple SiLA data types as parameters and responses is defined.
     </Description>
