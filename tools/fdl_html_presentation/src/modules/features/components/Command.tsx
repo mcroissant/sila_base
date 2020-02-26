@@ -8,7 +8,7 @@ const Command: React.FC<IXmlToJsxProps> = ({ content, style }) => {
         <Box marginTop={1} marginBottom={1} style={style}>
             <Card>
                 <Box p={1}>
-                    <XmlToJsxTitle variant="h4" component="span" content={content} />
+                    <XmlToJsxTitle variant="h4" content={content} />
                     <XmlToJsxChildrenGenerator content={content} noText />
                 </Box>
             </Card>

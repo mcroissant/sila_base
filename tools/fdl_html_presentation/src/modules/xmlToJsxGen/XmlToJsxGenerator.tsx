@@ -67,7 +67,7 @@ export const capitalize = (str: string): string => {
 };
 
 export const XmlToJsxTitle: React.FunctionComponent<IXmlToJsxProps & TypographyProps> = ({ content, ...props }) => (
-    <Typography {...props}>{capitalize(content.tagName)}: </Typography>
+    <Typography component="span" {...props}>{capitalize(content.tagName)}: </Typography>
 );
 
 export const XmlToJsxChildrenGenerator: React.FunctionComponent<{
