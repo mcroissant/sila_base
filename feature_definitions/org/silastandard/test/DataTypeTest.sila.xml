@@ -5,21 +5,22 @@
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>DataTypeProvider</Identifier>
     <DisplayName>Data Type Provider</DisplayName>
-    <Description>This is a test feature, which can be used to test sending and receiving all SiLA data types.
-                 It provides commands and properties for each individual SiLA Data Type as parameter and response.
-                 Furthermore a mixed datatype command with multiple SiLA data types as parameters and responses is defined.
+    <Description>
+        This is a test feature, which can be used to test sending and receiving all SiLA data types.
+        It provides commands and properties for each individual SiLA Data Type as parameter and response.
+        Furthermore a mixed datatype command with multiple SiLA data types as parameters and responses is defined.
     </Description>
 
-    <!-- Data type String -->
+    <!-- String -->
     <Command>
-        <Identifier>SetStringValue</Identifier>
-        <DisplayName>Set String Value</DisplayName>
-        <Description>Sets a string value on the server and returns a message containing the string value that has been received.</Description>
+        <Identifier>EchoStringValue</Identifier>
+        <DisplayName>Echo String Value</DisplayName>
+        <Description>Echo the string that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>StringValue</Identifier>
             <DisplayName>String Value</DisplayName>
-            <Description>The string value to be set.</Description>
+            <Description>The string value to echo.</Description>
             <DataType>
                 <Basic>String</Basic>
             </DataType>
@@ -43,16 +44,16 @@
         </DataType>
     </Property>
 
-    <!-- Data type Integer -->
+    <!-- Integer -->
     <Command>
-        <Identifier>SetIntegerValue</Identifier>
-        <DisplayName>Set Integer Value</DisplayName>
-        <Description>Sets an integer value and returns a message containing the integer value that has been received.</Description>
+        <Identifier>EchoIntegerValue</Identifier>
+        <DisplayName>Echo Integer Value</DisplayName>
+        <Description>Echo the integer that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>IntegerValue</Identifier>
             <DisplayName>Integer Value</DisplayName>
-            <Description>The integer value to be set.</Description>
+            <Description>The integer value to echo.</Description>
             <DataType>
                 <Basic>Integer</Basic>
             </DataType>
@@ -76,16 +77,16 @@
         </DataType>
     </Property>
 
-    <!-- Data type Real -->
+    <!-- Real -->
     <Command>
-        <Identifier>SetRealValue</Identifier>
-        <DisplayName>Set Real Value</DisplayName>
-        <Description>Receives a real value and returns a message containing the real value that has been received.</Description>
+        <Identifier>EchoRealValue</Identifier>
+        <DisplayName>Echo Real Value</DisplayName>
+        <Description>Echo a Real that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>RealValue</Identifier>
             <DisplayName>Real Value</DisplayName>
-            <Description>The real value to be set.</Description>
+            <Description>The real value to be echo.</Description>
             <DataType>
                 <Basic>Real</Basic>
             </DataType>
@@ -109,16 +110,16 @@
         </DataType>
     </Property>
 
-    <!-- Data type Boolean -->
+    <!-- Boolean -->
     <Command>
-        <Identifier>SetBooleanValue</Identifier>
-        <DisplayName>Set Boolean Value</DisplayName>
-        <Description>Sets a boolean value and returns a message containing the boolean value that has been received.</Description>
+        <Identifier>EchoBooleanValue</Identifier>
+        <DisplayName>Echo Boolean Value</DisplayName>
+        <Description>Echo a Boolean that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>BooleanValue</Identifier>
             <DisplayName>Boolean Value</DisplayName>
-            <Description>The boolean value to be set.</Description>
+            <Description>The boolean value to echo.</Description>
             <DataType>
                 <Basic>Boolean</Basic>
             </DataType>
@@ -142,16 +143,16 @@
         </DataType>
     </Property>
 
-    <!-- Data Type Binary -->
+    <!-- Binary -->
     <Command>
-        <Identifier>SetBinaryValue</Identifier>
-        <DisplayName>Set Binary Value</DisplayName>
-        <Description>Sets a Binary value and returns a message containing the Binary value that has been received.</Description>
+        <Identifier>EchoBinaryValue</Identifier>
+        <DisplayName>Echo Binary Value</DisplayName>
+        <Description>Echo a Binary that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>BinaryValue</Identifier>
             <DisplayName>Binary Value</DisplayName>
-            <Description>The Binary value to be set.</Description>
+            <Description>The Binary value to be echo.</Description>
             <DataType>
                 <Basic>Binary</Basic>
             </DataType>
@@ -175,16 +176,16 @@
         </DataType>
     </Property>
 
-    <!-- Data type Date -->
+    <!-- Date -->
     <Command>
-        <Identifier>SetDateValue</Identifier>
-        <DisplayName>Set Date Value</DisplayName>
-        <Description>Sets a date value and returns a message containing the date value that has been received.</Description>
+        <Identifier>EchoDateValue</Identifier>
+        <DisplayName>Echo Date Value</DisplayName>
+        <Description>Echo a Date that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>DateValue</Identifier>
             <DisplayName>Date Value</DisplayName>
-            <Description>The date value to be set.</Description>
+            <Description>The date value to echo.</Description>
             <DataType>
                 <Basic>Date</Basic>
             </DataType>
@@ -208,16 +209,16 @@
         </DataType>
     </Property>
 
-    <!-- Data type Time -->
+    <!-- Time -->
     <Command>
-        <Identifier>SetTimeValue</Identifier>
-        <DisplayName>Set Time Value</DisplayName>
-        <Description>Receives a time value and returns a message containing the time value that has been received.</Description>
+        <Identifier>EchoTimeValue</Identifier>
+        <DisplayName>Echo Time Value</DisplayName>
+        <Description>Echo a Time that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>TimeValue</Identifier>
             <DisplayName>Time Value</DisplayName>
-            <Description>The time value to be set.</Description>
+            <Description>The time value to echo.</Description>
             <DataType>
                 <Basic>Time</Basic>
             </DataType>
@@ -241,16 +242,16 @@
         </DataType>
     </Property>
 
-    <!-- Data type TimeStamp -->
+    <!-- TimeStamp -->
     <Command>
-        <Identifier>SetTimeStampValue</Identifier>
-        <DisplayName>Set TimeStamp Value</DisplayName>
-        <Description>Receives a time stamp value and returns a message containing the time stamp value that has been received.</Description>
+        <Identifier>EchoTimeStampValue</Identifier>
+        <DisplayName>Echo TimeStamp Value</DisplayName>
+        <Description>Echo a TimeStamp that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>TimeStampValue</Identifier>
             <DisplayName>TimeStamp Value</DisplayName>
-            <Description>The time stamp value to be set.</Description>
+            <Description>The time stamp value to echo.</Description>
             <DataType>
                 <Basic>Timestamp</Basic>
             </DataType>
@@ -274,16 +275,16 @@
         </DataType>
     </Property>
 
-    <!-- List type -->
+    <!-- List -->
     <Command>
-        <Identifier>SetStringList</Identifier>
-        <DisplayName>Set String List</DisplayName>
-        <Description>Receives a list of String values and returns a message containing the string values that have been received.</Description>
+        <Identifier>EchoStringList</Identifier>
+        <DisplayName>Echo String List</DisplayName>
+        <Description>Echo a List of String that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>StringList</Identifier>
             <DisplayName>String List</DisplayName>
-            <Description>The list of String values to be set.</Description>
+            <Description>The list of String values to echo.</Description>
             <DataType>
                 <List>
                     <DataType>
@@ -319,14 +320,14 @@
         </DataType>
     </Property>
     <Command>
-        <Identifier>SetIntegerList</Identifier>
-        <DisplayName>Set Integer List</DisplayName>
-        <Description>Receives a list of integer values and returns a message containing the integer values that have been received.</Description>
+        <Identifier>EchoIntegerList</Identifier>
+        <DisplayName>Echo Integer List</DisplayName>
+        <Description>Echo a List of Integer that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>IntegerList</Identifier>
             <DisplayName>Integer List</DisplayName>
-            <Description>The list of integer values to be set.</Description>
+            <Description>The list of integer values to echo.</Description>
             <DataType>
                 <List>
                     <DataType>
@@ -358,13 +359,16 @@
         </DataType>
     </Property>
 
-    <!-- Structure Type -->
+    <!-- Structure -->
      <Command>
-        <Identifier>SetStructureValues</Identifier>
-        <DisplayName>Set Structure Values</DisplayName>
-        <Description>Sets values of different types and returns a message containing the values that have been received.</Description>
+        <Identifier>EchoStructureValues</Identifier>
+        <DisplayName>Echo Structure Values</DisplayName>
+         <Description>Echo values of different types that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
+            <Identifier>ReceivedValues</Identifier>
+            <DisplayName>Received Values</DisplayName>
+            <Description>A structure containing values of different types that have been received</Description>
             <DataType>
               <DataTypeIdentifier>AllDatatypeStructure</DataTypeIdentifier>
             </DataType>
@@ -455,17 +459,18 @@
     </DataTypeDefinition>
 
     <!-- Any Type -->
+    <!-- TODO add anytype test command and property-->
 
     <!-- Mixed Types -->
     <Command>
-        <Identifier>SetMultipleMixedValues</Identifier>
-        <DisplayName>Set Multiple Mixed Values</DisplayName>
-        <Description>Sets multiple parameter values of different types and returns a message containing the values that have been received.</Description>
+        <Identifier>EchoMultipleMixedValues</Identifier>
+        <DisplayName>Echo Multiple Mixed Values</DisplayName>
+        <Description>Echo multiple mixed values that has been received.</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>StringValue</Identifier>
             <DisplayName>String Value</DisplayName>
-            <Description>The string value to be set.</Description>
+            <Description>The string value to echo.</Description>
             <DataType>
                 <Basic>String</Basic>
             </DataType>
@@ -473,7 +478,7 @@
         <Parameter>
             <Identifier>IntegerValue</Identifier>
             <DisplayName>Integer Value</DisplayName>
-            <Description>The integer value to be set.</Description>
+            <Description>The integer value to echo.</Description>
             <DataType>
                 <Basic>Integer</Basic>
             </DataType>
@@ -481,7 +486,7 @@
         <Parameter>
             <Identifier>RealValue</Identifier>
             <DisplayName>Real Value</DisplayName>
-            <Description>The real value to be set.</Description>
+            <Description>The real value to echo.</Description>
             <DataType>
                 <Basic>Real</Basic>
             </DataType>
@@ -489,7 +494,7 @@
         <Parameter>
             <Identifier>BooleanValue</Identifier>
             <DisplayName>Boolean Value</DisplayName>
-            <Description>The boolean value to be set.</Description>
+            <Description>The boolean value to echo.</Description>
             <DataType>
                 <Basic>Boolean</Basic>
             </DataType>
@@ -497,7 +502,7 @@
         <Parameter>
             <Identifier>DateValue</Identifier>
             <DisplayName>Date Value</DisplayName>
-            <Description>The date value to be set.</Description>
+            <Description>The date value to echo.</Description>
             <DataType>
                 <Basic>Date</Basic>
             </DataType>
@@ -505,7 +510,7 @@
         <Parameter>
             <Identifier>TimeValue</Identifier>
             <DisplayName>Time Value</DisplayName>
-            <Description>The time value to be set.</Description>
+            <Description>The time value to echo.</Description>
             <DataType>
                 <Basic>Time</Basic>
             </DataType>
@@ -513,7 +518,7 @@
         <Parameter>
             <Identifier>TimeStampValue</Identifier>
             <DisplayName>TimeStamp Value</DisplayName>
-            <Description>The time stamp value to be set.</Description>
+            <Description>The time stamp value to echo.</Description>
             <DataType>
                 <Basic>Timestamp</Basic>
             </DataType>

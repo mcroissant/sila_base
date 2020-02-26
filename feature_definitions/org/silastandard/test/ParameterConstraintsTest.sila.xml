@@ -6,13 +6,14 @@
     <Identifier>ParameterConstraintsTest</Identifier>
     <DisplayName>Parameter Constraints Test</DisplayName>
     <Description>
-        Exposes a command with constrained parameters for test purposes.
+        This is a test feature to generically test constrained parameters.
+        A validation Error must be raised if the constraints are not fulfilled.
     </Description>
 
     <Command>
-        <Identifier>ConstrainedStringParameters</Identifier>
-        <DisplayName>Constrained String Parameters</DisplayName>
-        <Description>A command with constrained parameters of type string</Description>
+        <Identifier>ExactStringLength</Identifier>
+        <DisplayName>Exact String Length</DisplayName>
+        <Description>Tests the Length constraint on String type</Description>
         <Observable>No</Observable>
         <Parameter>
             <Identifier>StringLength</Identifier>
@@ -255,7 +256,7 @@
         <DisplayName>Constrained Date and Time Parameters</DisplayName>
         <Description>A command with constrained parameters of type Date, Time or Timestamp</Description>
         <Observable>No</Observable>
-        <!-- <Parameter>
+        <Parameter>
             <Identifier>DateSet</Identifier>
             <DisplayName>Set of Dates</DisplayName>
             <Description>Tests the Set constraint on Date type</Description>
@@ -275,7 +276,7 @@
                     </Constraints>
                 </Constrained>
             </DataType>
-        </Parameter> -->
+        </Parameter>
         <Parameter>
             <Identifier>MaximalExclusiveDate</Identifier>
             <DisplayName>Maximal Exclusive Date</DisplayName>
