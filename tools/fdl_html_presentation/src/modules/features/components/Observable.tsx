@@ -8,7 +8,7 @@ const Observable: React.FC<IXmlToJsxProps> = ({ content, style }) => {
     return (
         <Box p={1} style={style}>
             <Box p={1} style={{ display: "inline-flex", alignItems: "center" }}>
-                <XmlToJsxTitle content={content} variant="h4" component="span" />
+                <XmlToJsxTitle content={content} variant="h4" />
                 {content.textContent === "No" && <ClearIcon color="error" fontSize={"default"} />}
                 {content.textContent === "Yes" && <CheckIcon color="action" fontSize={"default"} />}
             </Box>
