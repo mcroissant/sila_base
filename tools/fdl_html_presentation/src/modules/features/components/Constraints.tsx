@@ -15,7 +15,7 @@ const Constraints: React.FC<IXmlToJsxProps> = ({ content, style }) => {
         <Box paddingLeft={1} marginTop={1} marginLeft={1} marginBottom={1}>
             <Card>
                 <Box p={1}>
-                    <XmlToJsxTitle content={content} variant="h4" component="span" />
+                    <XmlToJsxTitle content={content} variant="h4" />
                     <XmlToJsxChildrenGenerator style={newStyle} content={content} noText />
                 </Box>
             </Card>

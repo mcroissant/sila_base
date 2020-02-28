@@ -11,6 +11,8 @@ import style from "./app.module.scss";
 import { MuiThemeProvider } from "@material-ui/core";
 import { defaultMaterialTheme } from "./services/styles";
 import BootstrapContainerGrid from "./components/BootstrapLikeContainer";
+import MarkDownRoute from "./components/MarkDownRoute";
+import Wiki from "./md/wiki";
 
 const App: React.FunctionComponent = () => (
     <MuiThemeProvider theme={defaultMaterialTheme}>
@@ -32,6 +34,9 @@ const App: React.FunctionComponent = () => (
                                 path={"/feature-definitions/list/categories"}
                                 component={() => <FeatureList mode={"category"} />}
                             />
+                            {Wiki.map((p, i) => (
+                                <MarkDownRoute key={i} {...p} />
+                            ))}
                             <Route component={Notfound} />
                         </Switch>
                     </Box>
