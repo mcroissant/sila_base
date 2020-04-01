@@ -5,6 +5,19 @@ SiLA’s vision is to create interoperability, flexibility and resource optimiza
 integration and software services based on standardized communication protocols and content specifications.
 SiLA promotes open standards to allow integration and exchange of intelligent systems in a cost effective way.
 
+## [SiLA 2 Introduction]
+
+[Sila 2 Introduction home](/introduction/home)
+
+[How to implement SiLA](/introduction/how-to-implement-sila)
+
+[SiLA Browser quickstart](/introduction/sila-browser-quickstart)
+
+[Troubleshooting](/introduction/troubleshooting)
+
+[What is SiLA?](/introduction/what-is-sila)
+
+
 ## SiLA 2 Core Features
 
 These are the current SiLA 2 core features, for more features, please select '_Related Pages_'
@@ -23,14 +36,3 @@ These are the current SiLA 2 core features, for more features, please select '_R
 
 [SimulationController](feature_definitions/org/silastandard/core/SimulationController.sila.xml)
 
-## [SiLA 2 Wiki]
-
-[Wiki Home](/wiki/home)
-
-[How to implement SiLA](/wiki/how-to-implement-sila)
-
-[SiLA Browser quickstart](/wiki/sila-browser-quickstart)
-
-[Troubleshooting](/wiki/troubleshooting)
-
-[What is SiLA?](/wiki/what-is-sila)
