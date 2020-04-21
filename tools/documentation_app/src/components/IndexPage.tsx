@@ -1,7 +1,7 @@
 import React from "react";
 import ReactMarkdown from "react-markdown";
-import markdown from "../md/mainpage.md";
-import markdownBottom from "../md/mainpage_bottom.md";
+import markdown from "../documentation/mainpage/mainpage.md";
+import markdownBottom from "../documentation/mainpage/mainpage_bottom.md";
 import Utilities from "../services/Utilities";
 
 const IndexPage: React.FunctionComponent = () => (

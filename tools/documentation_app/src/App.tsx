@@ -12,7 +12,7 @@ import { MuiThemeProvider } from "@material-ui/core";
 import { defaultMaterialTheme } from "./services/styles";
 import BootstrapContainerGrid from "./components/BootstrapLikeContainer";
 import MarkDownRoute from "./components/MarkDownRoute";
-import Wiki from "./md/wiki";
+import Wiki from "./docs";
 
 const App: React.FunctionComponent = () => (
     <MuiThemeProvider theme={defaultMaterialTheme}>

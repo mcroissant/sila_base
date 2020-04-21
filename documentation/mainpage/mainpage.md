@@ -23,14 +23,14 @@ These are the current SiLA 2 core features, for more features, please select '_R
 
 [SimulationController](feature_definitions/org/silastandard/core/SimulationController.sila.xml)
 
-## [SiLA 2 Wiki]
+## [SiLA 2 Documentation]
 
-[Wiki Home](/wiki/home)
+[Documentation Home](/docs/home)
 
-[How to implement SiLA](/wiki/how-to-implement-sila)
+[How to implement SiLA](/docs/how-to-implement-sila)
 
-[SiLA Browser quickstart](/wiki/sila-browser-quickstart)
+[SiLA Browser quickstart](/docs/sila-browser-quickstart)
 
-[Troubleshooting](/wiki/troubleshooting)
+[Troubleshooting](/docs/troubleshooting)
 
-[What is SiLA?](/wiki/what-is-sila)
+[What is SiLA?](/docs/what-is-sila)

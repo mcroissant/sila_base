@@ -13,7 +13,7 @@ feature_test:
     stage: test_python
     before_script:
       - pip install lxml
-      - cd tools
+      - cd tools/feature_validator
     script:
       - python validate_features.py
 
@@ -30,21 +30,21 @@ start:
 build:
   stage: build
   before_script:
-    - cd tools/fdl_html_presentation
+    - cd tools/documentation_app
     - npm install
   script:
     - npm run build
     - npm test
   artifacts:
     paths:
-      - tools/fdl_html_presentation/node_modules
-      - tools/fdl_html_presentation/build
+      - tools/documentation_app/node_modules
+      - tools/documentation_app/build
 
 pages:
   stage: deploy
   script:
     - mkdir .public
-    - cp -r tools/fdl_html_presentation/build/* .public
+    - cp -r tools/documentation_app/build/* .public
     - mv .public public
     - cp public/index.html public/404.html
   artifacts:

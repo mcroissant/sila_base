@@ -80,6 +80,7 @@
     "workbox-webpack-plugin": "4.2.0"
   },
   "scripts": {
+    "postinstall": "node scripts/postinstall.js",
     "start": "node scripts/start.js",
     "build": "PUBLIC_URL=/sila_base node scripts/build.js",
     "test": "node scripts/test.js"
@@ -150,6 +151,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/runtime": "^7.5.5"
+    "@babel/runtime": "^7.5.5",
+    "ncp": "^2.0.0"
   }
 }

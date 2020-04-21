@@ -1,6 +1,6 @@
 import React from "react";
-import AlphabeticList from "../md/feature_list_alph.md";
-import CategoryList from "../md/feature_list_categories.md";
+import AlphabeticList from "../documentation/features/feature_list_alph.md";
+import CategoryList from "../documentation/features/feature_list_categories.md";
 import ReactMarkdown from "react-markdown";
 import Utilities from "../services/Utilities";
 

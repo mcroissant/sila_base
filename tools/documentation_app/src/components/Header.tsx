@@ -72,22 +72,19 @@ export default function Header() {
             <AppBar position="static">
                 <Toolbar>
                     <Button color="inherit" className={classes.title} component={Link} to={"/"}>
-                        FDL Home
+                        Home
                     </Button>
-
-                    <Button color="inherit" className={classes.silaLogo} >
-                        <a href={"https://sila-standard.org"} target={"_blank"}>
-                            <SiLALogo style={{ width: 55, paddingRight: 5 }} />
-                        </a>
-                    </Button>
-
                     <div style={{flexGrow: 1}} />
-
                     <Button color="inherit" component={Link} to={"/feature-definitions/list/alphabetical"}>
                         Sort Alphabetically
                     </Button>
                     <Button color="inherit" component={Link} to={"/feature-definitions/list/categories"}>
                         Sort by Categories
+                    </Button>
+                    <Button color="inherit" className={classes.silaLogo} >
+                        <a href={"https://sila-standard.org"} target={"_blank"}>
+                            <SiLALogo style={{ width: 55, paddingRight: 5 }} />
+                        </a>
                     </Button>
                 </Toolbar>
             </AppBar>

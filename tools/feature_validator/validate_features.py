@@ -7,7 +7,7 @@ XSI = "http://www.w3.org/2001/XMLSchema-instance"
 SILA_VERSION = "1.0"
 SILA_SCHEMA_LOC = "https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd"
 
-schema_parent_dir =  ".."
+schema_parent_dir =  "../.."
 
 def validate_feature(qualified_filename):
     print( 'Validating: ' + qualified_filename )

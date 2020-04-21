@@ -14,7 +14,7 @@
 ## <a name="setup-and-build"></a>Setup and build
 
 1. Install node in your system. There are plenty of resources online about that.
-2. Go to `tools/fdl_html_presentation`
+2. Go to `tools/documentation_app`
 3. Install `npm install` or if you prefer yarn: `yarn install`
 4. Build `npm build` or `yarn build`
 5. A new `build` folder has appeared. Here you can try your new web app by serving this `build` folder

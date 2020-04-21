@@ -1,0 +1,29 @@
+body {
+  background-color: #2e2e2e !important;
+  color: rgba(202, 202, 202, 0.87) !important;
+}
+
+/* unvisited link */
+a:link {
+  color: #499fa3 !important;
+}
+
+/* visited link */
+a:visited {
+  color: #6b8284 !important;
+}
+
+/* mouse over link */
+a:hover {
+  color: #53d0d5 !important;
+}
+
+/* selected link */
+a:active {
+  color: #0088ff !important;
+}
+
+div[class^="MuiPaper-"] {
+  background-color: #2e2e2e !important;
+  color: rgba(202, 202, 202, 0.87) !important;
+}
