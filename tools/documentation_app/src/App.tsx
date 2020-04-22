@@ -13,11 +13,12 @@ import { defaultMaterialTheme } from "./services/styles";
 import BootstrapContainerGrid from "./components/BootstrapLikeContainer";
 import MarkDownRoute from "./components/MarkDownRoute";
 import Wiki from "./docs";
+import Footer from "./components/Footer";
 
 const App: React.FunctionComponent = () => (
     <MuiThemeProvider theme={defaultMaterialTheme}>
         <Router basename={`${process.env.PUBLIC_URL}`}>
-            <div className={style.gridWrapper}>
+            <div className={style.gridWrapper} style={{flexDirection: "column", minHeight: "100vh"}}>
                 <CssBaseline />
                 <Header />
 
@@ -26,6 +27,10 @@ const App: React.FunctionComponent = () => (
                         <Switch>
                             <Route exact path={"/"} component={IndexPage} />
                             <Route path={"/feature"} component={Feature} />
+                            <Route
+                                path={"/feature-definitions/list/core"}
+                                component={() => <FeatureList mode={"core"} />}
+                            />
                             <Route
                                 path={"/feature-definitions/list/alphabetical"}
                                 component={() => <FeatureList mode={"alphabet"} />}
@@ -41,6 +46,7 @@ const App: React.FunctionComponent = () => (
                         </Switch>
                     </Box>
                 </BootstrapContainerGrid>
+                <Footer />
             </div>
         </Router>
     </MuiThemeProvider>

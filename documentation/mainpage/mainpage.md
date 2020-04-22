@@ -1,36 +1,50 @@
-# Welcome to SiLA 2
+# SiLA 2 Standard 
 
+# Introduction
 SiLA’s mission is to establish international standards which create open connectivity in lab automation.
-SiLA’s vision is to create interoperability, flexibility and resource optimization for laboratory instruments
-integration and software services based on standardized communication protocols and content specifications.
+SiLA’s vision is to create interoperability, flexibility and resource optimization for laboratory instruments integration and software services based on standardized communication protocols and content specifications.
 SiLA promotes open standards to allow integration and exchange of intelligent systems in a cost effective way.
 
-## SiLA 2 Core Features
+The SiLA 2 specification is a multi part specification and the work-in-progress
+documents can be accessed on google drive:
 
-These are the current SiLA 2 core features, for more features, please select '_Related Pages_'
+* [Part (A) - Overview, Concepts and Core Specification](https://docs.google.com/document/d/1nGGEwbx45ZpKeKYH18VnNysREbr1EXH6FqlCo03yASM/edit)
+* [Part (B) - Mapping Specification](https://docs.google.com/document/d/1-shgqdYW4sgYIb5vWZ8xTwCUO_bqE13oBEX8rYY_SJA/edit)
+* [Part (C) - Features Index](https://docs.google.com/document/d/1J9gypD6HofLQZ8cPgLWljRuO0V8l5dS22TWQxFy4bhY/edit)
 
-[AuthenticationService](feature_definitions/org/silastandard/core/AuthenticationService.sila.xml)
+For more information, visit our [website](http://sila-standard.com/).
 
-[AuthorizationService](feature_definitions/org/silastandard/core/AuthorizationService.sila.xml)
+In case of general questions, contact either Max ([max@unitelabs.ch](mailto:max@unitelabs.ch)) or
+Daniel ([daniel.juchli@sila-standard.org](mailto:daniel.juchli@sila-standard.org)).
 
-[CancelController](feature_definitions/org/silastandard/core/commands/CancelController.sila.xml)
+# Quick Start
+If you just want to get something working, follow these pages:
 
-[LockController](feature_definitions/org/silastandard/core/LockController.sila.xml)
+* [SiLA Browser Quickstart](docs/sila-browser-quickstart) to see how a generic SiLA client looks like, and interact with the server
+* [SiLA C# Quick Start](https://gitlab.com/SiLA2/sila_csharp/wikis/Quick-Start)
+* [SiLA Java Quick Start](https://gitlab.com/SiLA2/sila_java/wikis/Quick-Start)
+* [SiLA Python Quick Start](https://sila2.gitlab.io/sila_python/tutorials/1_quickstart.html)
 
-[ParameterConstraintsProvider](feature_definitions/org/silastandard/core/commands/ParameterConstraintsProvider.sila.xml)
+# Guides
+If you want to learn more, about how SiLA 2 works, follow these pages:
+* [What is SiLA?](/docs/what-is-sila)
+* [How to implement SiLA](/docs/how-to-implement-sila)
+* [SiLA Browser quickstart](/docs/sila-browser-quickstart)
+* [Troubleshooting](/docs/troubleshooting)
 
-[SiLAService](feature_definitions/org/silastandard/core/SiLAService.sila.xml)
+# Organisation
+Everyone is open to contributing, we organise code issues with GitLab and have weekly meetings of the
+SiLA 2 Working group that is accessible to members. There is a public slack channel that anyone can join to ask for help and/or give feedback: [slack link](https://join.slack.com/t/sila-standard/shared_invite/enQtNDI0ODcxMDg5NzkzLTBhOTU3N2I0NTc4NDcyMjg2ZDIwZDc1Yjg4N2FmYjZkMzljZDAyZjAwNTc5OTVjYjIwZWJjYjA0YTY0NTFiNDA).
 
-[SimulationController](feature_definitions/org/silastandard/core/SimulationController.sila.xml)
+For any issues regarding the reference implementations and features, please select the appropriate project and add issues accordingly [public link](https://gitlab.com/groups/SiLA2/-/issues).
 
-## [SiLA 2 Documentation]
+# Ecosystem
+Various tools are published by different companies both for SiLA, but also for gRPC. For gRPC you can find many links [here](https://github.com/grpc-ecosystem/awesome-grpc).
 
-[Documentation Home](/docs/home)
+For SiLA 2 the current tools are accessible, in addition to the reference implementations found in this GitLab group:
 
-[How to implement SiLA](/docs/how-to-implement-sila)
+* UniteLabs is publishing its own demo and development tools on: [download link](http://unitelabs.ch/technology/plug-and-play), [Quickstart](docs/sila-browser-quickstart)
+* TU Berlin published a web-based feature viewer: [download link](https://gitlab.tu-berlin.de/haenser/SiLA_FeatureDefinitionViewer)
 
-[SiLA Browser quickstart](/docs/sila-browser-quickstart)
-
-[Troubleshooting](/docs/troubleshooting)
-
-[What is SiLA?](/docs/what-is-sila)
+# License
+All work on GitLab is licensed under the [MIT License](https://en.wikipedia.org/wiki/MIT_License)

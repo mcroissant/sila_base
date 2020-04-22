@@ -9,14 +9,16 @@ import { ReactComponent as SiLALogo } from "../assets/imgs/sila_logo.svg";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
-        root: {
-            flexGrow: 1,
-        },
         menuButton: {
             marginRight: theme.spacing(2),
         },
         title: {
-            display: "block",
+            display: "unset"
+        },
+        header: {
+            width: "68%",
+            marginLeft:"auto",
+            marginRight:"auto",
         },
         silaLogo: {
             display: "none",
@@ -68,25 +70,31 @@ export default function Header() {
     const classes = useStyles();
 
     return (
-        <div className={classes.root}>
+        <div>
             <AppBar position="static">
+
                 <Toolbar>
-                    <Button color="inherit" className={classes.title} component={Link} to={"/"}>
-                        Home
-                    </Button>
-                    <div style={{flexGrow: 1}} />
-                    <Button color="inherit" component={Link} to={"/feature-definitions/list/alphabetical"}>
-                        Sort Alphabetically
-                    </Button>
-                    <Button color="inherit" component={Link} to={"/feature-definitions/list/categories"}>
-                        Sort by Categories
-                    </Button>
+                    <div className={classes.header}>
+                        <Button color="inherit" className={classes.title} component={Link} to={"/"}>
+                            Home
+                        </Button>
+                        <Button color="inherit" className={classes.title} component={Link} to={"/feature-definitions/list/core"}>
+                            Core Features
+                        </Button>
+                        <Button color="inherit" className={classes.title} component={Link} to={"/feature-definitions/list/alphabetical"}>
+                            Sort Alphabetically
+                        </Button>
+                        <Button color="inherit" className={classes.title} component={Link} to={"/feature-definitions/list/categories"}>
+                            Sort by Categories
+                        </Button>
+                    </div>
                     <Button color="inherit" className={classes.silaLogo} >
                         <a href={"https://sila-standard.org"} target={"_blank"}>
                             <SiLALogo style={{ width: 55, paddingRight: 5 }} />
                         </a>
                     </Button>
                 </Toolbar>
+
             </AppBar>
         </div>
     );
