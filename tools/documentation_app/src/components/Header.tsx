@@ -78,14 +78,8 @@ export default function Header() {
                         <Button color="inherit" className={classes.title} component={Link} to={"/"}>
                             Home
                         </Button>
-                        <Button color="inherit" className={classes.title} component={Link} to={"/feature-definitions/list/core"}>
-                            Core Features
-                        </Button>
-                        <Button color="inherit" className={classes.title} component={Link} to={"/feature-definitions/list/alphabetical"}>
-                            Sort Alphabetically
-                        </Button>
-                        <Button color="inherit" className={classes.title} component={Link} to={"/feature-definitions/list/categories"}>
-                            Sort by Categories
+                        <Button color="inherit" className={classes.title} component={Link} to={"/features"}>
+                            Features
                         </Button>
                     </div>
                     <Button color="inherit" className={classes.silaLogo} >

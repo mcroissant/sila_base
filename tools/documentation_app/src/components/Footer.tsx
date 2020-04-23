@@ -3,6 +3,7 @@ import Button from "@material-ui/core/Button";
 import React from "react";
 import { ReactComponent as SiLALogo } from "../assets/imgs/sila_logo.svg";
 import ProgressBar from "./ProgressBar";
+import ScrollTopTop from "./ScrollTopTop";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -55,6 +56,7 @@ export default function Footer() {
 
     return (
         <>
+            <ScrollTopTop/>
             <ProgressBar/>
             <div className={classes.root}>
                 <div className={classes.footer}>

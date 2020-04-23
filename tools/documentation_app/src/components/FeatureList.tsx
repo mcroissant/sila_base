@@ -5,22 +5,32 @@ import CategoryList from "../documentation/features/feature_list_categories.md";
 import ReactMarkdown from "react-markdown";
 import Utilities from "../services/Utilities";
 
-function test(mode: string) : string {
-    // @ts-ignore
-    return {
-        'alphabet': AlphabeticList,
-        'category': CategoryList,
-        'core': CoreList
-    }[mode]
+export enum FeatureMode {
+    Core,
+    Alphabetical,
+    Category,
 }
 
-const FeatureList: React.FunctionComponent<{ mode: "alphabet" | "category" | "core" }> = ({ mode }) => (
+function modeToMarkDownPath(mode: FeatureMode) : string {
+    if (mode === FeatureMode.Core) {
+        return (CoreList);
+    }
+    if (mode === FeatureMode.Alphabetical) {
+        return (AlphabeticList);
+    }
+    if (mode === FeatureMode.Category) {
+        return (CategoryList);
+    }
+    return ("");
+}
+
+const FeatureList: React.FunctionComponent<{ mode: FeatureMode }> = ({ mode }) => (
     <>
         {/* Just transform the links of the features with the Utilities.transformLinkUri*/}
         <ReactMarkdown
             renderers={Utilities.MDRenderers}
             transformLinkUri={Utilities.transformLinkUri}
-            source= {test(mode)}
+            source= {modeToMarkDownPath(mode)}
         />
     </>
 );

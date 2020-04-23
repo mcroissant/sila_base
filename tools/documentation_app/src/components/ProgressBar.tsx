@@ -5,7 +5,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 
 const styles = (theme: any) => ({
     bar: {
-        height: "5px",
+        height: "10px",
         width: "100%",
         position: "sticky",
         top: 0,

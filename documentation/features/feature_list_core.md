@@ -1,6 +1,6 @@
 # SiLA 2 Core Features
 
-These are the current SiLA 2 Core features, for more features, please select '_Related Pages_'
+These are the current SiLA 2 Core features
 
 [AuthenticationService](feature_definitions/org/silastandard/core/AuthenticationService.sila.xml)
 
@@ -15,11 +15,3 @@ These are the current SiLA 2 Core features, for more features, please select '_R
 [SiLAService](feature_definitions/org/silastandard/core/SiLAService.sila.xml)
 
 [SimulationController](feature_definitions/org/silastandard/core/SimulationController.sila.xml)
-
-## Alphabetical List of all Feature
-
-[Feature List - alphabetical](alphabetical)
-
-## List of all Features, sorted by category
-
-[Feature List - in categories](categories)
