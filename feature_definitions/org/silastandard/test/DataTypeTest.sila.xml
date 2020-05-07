@@ -3,8 +3,8 @@
          xmlns="http://www.sila-standard.org"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
-    <Identifier>DataTypeProvider</Identifier>
-    <DisplayName>Data Type Provider</DisplayName>
+    <Identifier>DataTypeTest</Identifier>
+    <DisplayName>SiLA Data Type Test</DisplayName>
     <Description>
         This is a test feature, which can be used to test various SiLA data types.
         It provides commands and properties for each individual SiLA Data Type as parameter and response.
