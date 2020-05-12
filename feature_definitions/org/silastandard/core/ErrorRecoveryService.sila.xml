@@ -3,206 +3,216 @@
          xmlns="http://www.sila-standard.org"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
-    <Identifier>ErrorRecoveryService</Identifier>
-    <DisplayName>Error Recovery Service</DisplayName>
+  <Identifier>ErrorRecoveryService</Identifier>
+  <DisplayName>Error Recovery Service</DisplayName>
+  <Description>
+    This feature enables SiLA error handling during the execution of observable commands.
+    A client can subscribe to the property 'RecoverableErrors' which contains a list of recoverable errors that occurred and are not
+    handled yet.
+    If a recoverable error occurs during the execution of an observable command, a respective error object will be added to the list of
+    the property 'RecoverableErrors'. Each error object contains the error description, the CommandExecutionUUID of the observable command
+    execution during which the error occurred and a list of possible continuation options.
+    To handle the error, the client sends one of the provided continuation options together with the commandExecutionUUID, using the
+    command 'ExecuteContinuationOption'. Optionally the client can send additional data that might be required to execute a certain
+    continuation option, e.g. an adjusted parameter value.
+    When the server receives the continuation option the according error object will be removed from the list of the property
+    'RecoverableErrors'.
+    In case of multi client access it is recommended that only one client (preferably the one that issued the according command execution)
+    handles recoverable errors.
+  </Description>
+
+  <Property>
+    <Identifier>RecoverableErrors</Identifier>
+    <DisplayName>Recoverable Errors</DisplayName>
+    <Description>A list of all recoverable errors that occurred during execution and have not been handled yet.</Description>
+    <Observable>Yes</Observable>
+    <DataType>
+      <List>
+        <DataType>
+          <DataTypeIdentifier>RecoverableError</DataTypeIdentifier>
+        </DataType>
+      </List>
+    </DataType>
+  </Property>
+
+  <Command>
+    <Identifier>ExecuteContinuationOption</Identifier>
+    <DisplayName>Execute Continuation Option</DisplayName>
+    <Description>Executes the selected option to recover the error.</Description>
+    <Observable>No</Observable>
+    <Parameter>
+      <Identifier>CommandExecutionUUID</Identifier>
+      <DisplayName>CommandExecutionUUID</DisplayName>
+      <Description>The UUID of the observable command execution for which the error shall be handled.</Description>
+      <DataType>
+        <Basic>String</Basic>
+      </DataType>
+    </Parameter>
+    <Parameter>
+      <Identifier>ContinuationOption</Identifier>
+      <DisplayName>Continuation Option</DisplayName>
+      <Description>
+        The identifier of the continuation option to be executed. It must match the identifier of one of the continuation options
+        specified in the 'ContinuationOptions' list of the according 'RecoverableError' object.
+      </Description>
+      <DataType>
+        <Basic>String</Basic>
+      </DataType>
+    </Parameter>
+    <Parameter>
+      <Identifier>AdditionalData</Identifier>
+      <DisplayName>Additional Data</DisplayName>
+      <Description>
+        This parameter can contain data which has to be sent along with a continuation option in order to execute the requested recovery
+        option. The kind of the data as well as the required format must be described in the respective continuation option description.
+      </Description>
+      <DataType>
+        <Basic>String</Basic>
+      </DataType>
+    </Parameter>
+    <DefinedExecutionErrors>
+      <Identifier>InvalidCommandExecutionUUID</Identifier>
+      <Identifier>UnknownContinuationOption</Identifier>
+    </DefinedExecutionErrors>
+  </Command>
+
+  <DataTypeDefinition>
+    <Identifier>RecoverableError</Identifier>
+    <DisplayName>Recoverable Error</DisplayName>
     <Description>
-		This feature enables SiLA error handling during the execution of observable commands.
-		A client can subscribe to the property 'RecoverableErrors' which contains a list of recoverable errors that occurred and are not
-		handled yet.
-		If a recoverable error occurs during the execution of an observable command, an error object will be added to the list of the
-		property 'RecoverableErrors'. Each error object contains the error description, the CommandExecutionUUID of the observable command
-		execution during which the error occurred and a list of possible continuation options.
-		To handle the error, the client sends one of the provided continuation options together with the commandExecutionUUID, using the
-		command 'ExecuteContinuationOption'. Optionally the client can send additional data that might be required to execute a certain
-		continuation option, e.g. an adjusted parameter value.
-		When the server receives the continuation option the according error object will be removed from the list of the property
-		'RecoverableErrors'.
-	</Description>
-
-    <Property>
-        <Identifier>RecoverableErrors</Identifier>
-        <DisplayName>Recoverable Errors</DisplayName>
-        <Description>A list of all recoverable errors that occurred during execution and have not been handled yet.</Description>
-        <Observable>Yes</Observable>
-		<DataType>
-			<List>
-				<DataType>
-					<DataTypeIdentifier>RecoverableError</DataTypeIdentifier>
-				</DataType>
-			</List>
-		</DataType>
-    </Property>
-
-    <Command>
-        <Identifier>ExecuteContinuationOption</Identifier>
-        <DisplayName>Execute Continuation Option</DisplayName>
-        <Description>Executes the selected option to recover the error.</Description>
-        <Observable>No</Observable>
-        <Parameter>
-	        <Identifier>CommandExecutionUUID</Identifier>
-	        <DisplayName>CommandExecutionUUID</DisplayName>
-	        <Description>The UUID of the observable command execution for which the error shall be handled.</Description>
-	        <DataType>
-		        <Basic>String</Basic>
-	        </DataType>
-        </Parameter>
-        <Parameter>
-            <Identifier>ContinuationOption</Identifier>
-            <DisplayName>Continuation Option</DisplayName>
-            <Description>
-                The identifier of the continuation option to be executed. It must match the identifier of one of the continuation options 
-                specified in the 'ContinuationOptions' list of the according 'RecoverableError' object.
-            </Description>
-            <DataType>
+      Describes an error that can be recovered by error handling. It contains error information (such as the command execution during
+      which the error occurred, the time when the error occurred and the description of the error situation) and a list of possible
+      continuation options.
+      One of the continuation options can be marked as default option. A timeout can be specified for the automatic execution of
+      that option if the client doesn't send a continuation option during the specified duration.
+    </Description>
+    <DataType>
+      <Structure>
+        <Element>
+          <Identifier>CommandIdentifier</Identifier>
+          <DisplayName>Command Identifier</DisplayName>
+          <Description>The fully qualified identifier of the command whose execution produced the error.</Description>
+          <DataType>
+            <Constrained>
+              <DataType>
                 <Basic>String</Basic>
-            </DataType>
-        </Parameter>
-        <Parameter>
-            <Identifier>AdditionalData</Identifier>
-            <DisplayName>Additional Data</DisplayName>
-            <Description>
-                This parameter can contain data which has to be sent along with a continuation option in order to execute the requested recovery 
-                option. The kind of the data as well as the required format must be described in the respective continuation option description.
-            </Description>
-            <DataType>
-                <Basic>String</Basic>
-            </DataType>
-        </Parameter>
-        <DefinedExecutionErrors>
-            <Identifier>InvalidErrorId</Identifier>
-            <Identifier>UnknownContinuationOption</Identifier>
-        </DefinedExecutionErrors>
-    </Command>
+              </DataType>
+              <Constraints>
+                <FullyQualifiedIdentifier>CommandIdentifier</FullyQualifiedIdentifier>
+              </Constraints>
+            </Constrained>
+          </DataType>
+        </Element>
+        <Element>
+          <Identifier>CommandExecutionUUID</Identifier>
+          <DisplayName>CommandExecutionUUID</DisplayName>
+          <Description>The UUID of the observable command execution during which the error occured.</Description>
+          <DataType>
+            <Basic>String</Basic>
+          </DataType>
+        </Element>
+        <Element>
+          <Identifier>ErrorMessage</Identifier>
+          <DisplayName>Error Message</DisplayName>
+          <Description>
+            This message describes the error situation. It should contain the reason of the error and additional error handling
+            explanation.
+          </Description>
+          <DataType>
+            <Basic>String</Basic>
+          </DataType>
+        </Element>
+        <Element>
+          <Identifier>ContinuationOptions</Identifier>
+          <DisplayName>Continuation Options</DisplayName>
+          <Description>A list of possible options to recover the error and continue the command execution.</Description>
+          <DataType>
+            <List>
+              <DataType>
+                <DataTypeIdentifier>ContinuationOption</DataTypeIdentifier>
+              </DataType>
+            </List>
+          </DataType>
+        </Element>
+        <Element>
+          <Identifier>DefaultOption</Identifier>
+          <DisplayName>Default Option</DisplayName>
+          <Description>
+            The identifier of a continuation option that is marked as the preferred option. It must be an identifier of one of the
+            continuation options of the 'ContinuationOptions' list.
+            It can also be defined to be automatically executed after a timeout specified by the 'AutomaticExecutionTimeout' element.
+          </Description>
+          <DataType>
+            <Basic>String</Basic>
+          </DataType>
+        </Element>
+        <Element>
+          <Identifier>AutomaticExecutionTimeout</Identifier>
+          <DisplayName>Automatic Execution Timeout</DisplayName>
+          <Description>
+            Specifies a timeout (in seconds) for handling the error by the client. If the client does not send a continuation option
+            within the specified duration, the defined default option will automatically be executed.
+            A value of -1 means, that no automatic execution will be done by the server.
+            This timeout only takes effect if a default option is specified, otherwise it will be ignored.
+          </Description>
+          <DataType>
+            <Constrained>
+              <DataType>
+                <Basic>Integer</Basic>
+              </DataType>
+              <Constraints>
+                <MinimalInclusive>-1</MinimalInclusive>
+              </Constraints>
+            </Constrained>
+          </DataType>
+        </Element>
+      </Structure>
+    </DataType>
+  </DataTypeDefinition>
 
-    <DataTypeDefinition>
-        <Identifier>RecoverableError</Identifier>
-        <DisplayName>Recoverable Error</DisplayName>
-        <Description>
-            Describes an error that can be recovered by error handling. It contains error information (such as the command execution during
-            which the error occurred, the time when the error occurred and the description of the error situation) and a list of possible
-            continuation options.
-            One of the continuation options can be marked as default option. A timeout can be specified for the automatic execution of
-            that option if the client doesn't send a continuation option during the specified duration.
-        </Description>
-        <DataType>
-            <Structure>
-                <Element>
-                    <Identifier>CommandIdentifier</Identifier>
-                    <DisplayName>Command Identifier</DisplayName>
-                    <Description>The fully qualified identifier of the command whose execution produced the error.</Description>
-                    <DataType>
-                        <Constrained>
-                            <DataType>
-                                <Basic>String</Basic>
-                            </DataType>
-                            <Constraints>
-                                <FullyQualifiedIdentifier>CommandIdentifier</FullyQualifiedIdentifier>
-                            </Constraints>
-                        </Constrained>
-                    </DataType>
-                </Element>
-                <Element>
-                    <Identifier>CommandExecutionUUID</Identifier>
-                    <DisplayName>CommandExecutionUUID</DisplayName>
-                    <Description>The UUID of the observable command execution during which the error occured.</Description>
-                    <DataType>
-                        <Basic>String</Basic>
-                    </DataType>
-                </Element>
-                <Element>
-                    <Identifier>ErrorMessage</Identifier>
-                    <DisplayName>Error Message</DisplayName>
-                    <Description>
-                        This message describes the error situation. It should contain the reason of the error and additional error handling
-                        explanation.
-                    </Description>
-                    <DataType>
-                        <Basic>String</Basic>
-                    </DataType>
-                </Element>
-                <Element>
-                    <Identifier>ContinuationOptions</Identifier>
-                    <DisplayName>Continuation Options</DisplayName>
-                    <Description>A list of possible options to recover the error and continue the command execution.</Description>
-                    <DataType>
-                        <List>
-                            <DataType>
-                                <DataTypeIdentifier>ContinuationOption</DataTypeIdentifier>
-                            </DataType>
-                        </List>
-                    </DataType>
-                </Element>
-                <Element>
-                    <Identifier>DefaultOption</Identifier>
-                    <DisplayName>Default Option</DisplayName>
-                    <Description>
-						The identifier of a continuation option that is marked as the preferred option. It must be an identifier of one of the
-						continuation options of the 'ContinuationOptions' list.
-						It can also be defined to be automatically executed after a timeout specified by the 'AutomaticExecutionTimeout' element.
-					</Description>
-                    <DataType>
-                        <Basic>String</Basic>
-                    </DataType>
-                </Element>
-                <Element>
-                    <Identifier>AutomaticExecutionTimeout</Identifier>
-                    <DisplayName>Automatic Execution Timeout</DisplayName>
-                    <Description>
-                        Specifies a timeout (in seconds) for handling the error by the client. If the client does not send a continuation option
-                        within the specified duration, the defined default option will automatically be executed. This timeout only takes effect
-                        if a default option is specified, otherwise it will be ignored.
-                    </Description>
-                    <DataType>
-                        <Basic>Integer</Basic>
-                    </DataType>
-                </Element>
-            </Structure>
-        </DataType>
-    </DataTypeDefinition>
+  <DataTypeDefinition>
+    <Identifier>ContinuationOption</Identifier>
+    <DisplayName>Continuation Option</DisplayName>
+    <Description>Describes a possible option to recover an occurred error.</Description>
+    <DataType>
+      <Structure>
+        <Element>
+          <Identifier>Identifier</Identifier>
+          <DisplayName>Identifier</DisplayName>
+          <Description>The identifier of the continuation option. It must be unique within the RecoverableError object.</Description>
+          <DataType>
+            <Basic>String</Basic>
+          </DataType>
+        </Element>
+        <Element>
+          <Identifier>Description</Identifier>
+          <DisplayName>Description</DisplayName>
+          <Description>
+            A human readable text describing the continuation option. It must explain all required manual actions by the operator
+            as well as the actions that will be executed by the server and the expectable results when this option is selected.
+            If there is additional data that can be sent along with the continuation option, the kind of the data as well as the
+            required format must be described as well.
+          </Description>
+          <DataType>
+            <Basic>String</Basic>
+          </DataType>
+        </Element>
+      </Structure>
+    </DataType>
+  </DataTypeDefinition>
 
-    <DataTypeDefinition>
-        <Identifier>ContinuationOption</Identifier>
-        <DisplayName>Continuation Option</DisplayName>
-        <Description>Describes a possible option to recover an occurred error.</Description>
-        <DataType>
-            <Structure>
-                <Element>
-                    <Identifier>Identifier</Identifier>
-                    <DisplayName>Identifier</DisplayName>
-                    <Description>The identifier of the continuation option. It must be unique within the RecoverableError object.</Description>
-                    <DataType>
-                        <Basic>String</Basic>
-                    </DataType>
-                </Element>
-                <Element>
-                    <Identifier>Description</Identifier>
-                    <DisplayName>Description</DisplayName>
-                    <Description>
-						A human readable text describing the continuation option. It must explain all required manual actions by the operator
-						as well as the actions that will be executed by the server and the expectable results when this option is selected.
-						If there is additional data that can be sent along with the continuation option, the kind of the data as well as the 
-						required format must be described as well.
-					</Description>
-                    <DataType>
-                        <Basic>String</Basic>
-                    </DataType>
-                </Element>
-            </Structure>
-        </DataType>
-    </DataTypeDefinition>
+  <DefinedExecutionError>
+    <Identifier>InvalidCommandExecutionUUID</Identifier>
+    <DisplayName>Invalid Command Execution UUID</DisplayName>
+    <Description>
+      The specified command execution UUID is not valid for error recovery. There is currently no unhandled recoverable error related
+      to the specified command execution. A possibly occurred error might have been handled already by another client.
+    </Description>
+  </DefinedExecutionError>
 
-    <DefinedExecutionError>
-        <Identifier>InvalidCommandExecutionUUID</Identifier>
-        <DisplayName>Invalid Command Execution UUID</DisplayName>
-        <Description>
-	        The specified command execution UUID is not valid for error recovery. There is currently no unhandled recoverable error related 
-	        to the specified command execution. A possibly occurred error might have been handled already by another client.
-        </Description>
-    </DefinedExecutionError>
-
-    <DefinedExecutionError>
-        <Identifier>UnknownContinuationOption</Identifier>
-        <DisplayName>Unknown Continuation Option</DisplayName>
-        <Description>The specified continuation option is not defined for the given recoverable error.</Description>
-    </DefinedExecutionError>
+  <DefinedExecutionError>
+    <Identifier>UnknownContinuationOption</Identifier>
+    <DisplayName>Unknown Continuation Option</DisplayName>
+    <Description>The specified continuation option is not defined for the given recoverable error.</Description>
+  </DefinedExecutionError>
 </Feature>
