@@ -17,6 +17,10 @@
     continuation option, e.g. an adjusted parameter value.
     When the server receives the continuation option the according error object will be removed from the list of the property
     'RecoverableErrors'.
+    Via 'SetErrorHandlingTimeout' the maximum time can be specified that the server will wait for a continuation option before it sets itself
+    into an internal error state and answers all following requests with an unrecoverable error. This can be used if an instrument must not
+    be in a (blocked) waiting state in order to keep its functionality alive, because some service actions have to be performed within a
+    certain time.
     In case of multi client access it is recommended that only one client (preferably the one that issued the according command execution)
     handles recoverable errors.
   </Description>
@@ -74,6 +78,41 @@
       <Identifier>InvalidCommandExecutionUUID</Identifier>
       <Identifier>UnknownContinuationOption</Identifier>
     </DefinedExecutionErrors>
+  </Command>
+
+  <Command>
+    <Identifier>SetErrorHandlingTimeout</Identifier>
+    <DisplayName>Set Error Handling Timeout</DisplayName>
+    <Description>
+      Sets the maximum time that the server will wait for a continuation option in case of a recoverable error. If no continuation option is
+      within the specified time all following requests will be answered with an unrecoverable error.
+      A value of zero specifies an indefinite time, meaning that the server will wait till a continuation options is sent.
+    </Description>
+    <Observable>No</Observable>
+    <Parameter>
+      <Identifier>ErrorHandlingTimeout</Identifier>
+      <DisplayName>Error Handling Timeout</DisplayName>
+      <Description></Description>
+      <DataType>
+        <Constrained>
+          <DataType>
+            <Basic>Integer</Basic>
+          </DataType>
+          <Constraints>
+            <MinimalInclusive>0</MinimalInclusive>
+            <Unit>
+              <Label>s</Label>
+              <Factor>1</Factor>
+              <Offset>0</Offset>
+              <UnitComponent>
+                <SIUnit>Second</SIUnit>
+                <Exponent>1</Exponent>
+              </UnitComponent>
+            </Unit>
+          </Constraints>
+        </Constrained>
+      </DataType>
+    </Parameter>
   </Command>
 
   <DataTypeDefinition>
@@ -152,7 +191,7 @@
           <Description>
             Specifies a timeout (in seconds) for handling the error by the client. If the client does not send a continuation option
             within the specified duration, the defined default option will automatically be executed.
-            A value of -1 means, that no automatic execution will be done by the server.
+            A value of 0 means, that no automatic execution will be done by the server.
             This timeout only takes effect if a default option is specified, otherwise it will be ignored.
           </Description>
           <DataType>
@@ -161,7 +200,16 @@
                 <Basic>Integer</Basic>
               </DataType>
               <Constraints>
-                <MinimalInclusive>-1</MinimalInclusive>
+                <MinimalInclusive>0</MinimalInclusive>
+                <Unit>
+                  <Label>s</Label>
+                  <Factor>1</Factor>
+                  <Offset>0</Offset>
+                  <UnitComponent>
+                    <SIUnit>Second</SIUnit>
+                    <Exponent>1</Exponent>
+                  </UnitComponent>
+                </Unit>
               </Constraints>
             </Constrained>
           </DataType>
