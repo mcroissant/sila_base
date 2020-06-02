@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Feature SiLA2Version="1.0" FeatureVersion="1.0" MaturityLevel="Draft" Originator="de.tuberlin.bioprocess" Category="briefing"
-        xmlns="http://www.sila-standard.org" 
+        xmlns="http://www.sila-standard.org"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_features/raw/master/schema/FeatureDefinition.xsd">
+        xsi:schemaLocation="http://www.sila-standard.org https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd">
     <Identifier>DeviceInformationProvider</Identifier>
     <DisplayName>Device Information Provider</DisplayName>
     <Description>Provides meta data about the hardware device of the used SiLA Server</Description>
