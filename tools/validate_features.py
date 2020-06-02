@@ -27,11 +27,11 @@ def validate_feature(qualified_filename):
     # Check use case and correct location
     originator_path = convert_to_path(feature_xml.xpath("@Originator"))
     category_path = convert_to_path(feature_xml.xpath("@Category"))
-    schemaLocation = convert_to_path(feature_xml.xpath("//*/@xsi:schemaLocation", namespaces={'xsi': XSI}))
+    schemaLocations = ' '.join(feature_xml.xpath("//*/@xsi:schemaLocation", namespaces={'xsi': XSI}))
 
-    if SILA_SCHEMA_LOC.replace(".", "\\") not in schemaLocation:
+    if SILA_SCHEMA_LOC not in schemaLocations:
         raise Exception("Features schema location must contain `" + SILA_SCHEMA_LOC +
-                       "` but found `" + schemaLocation.replace("\\", ".") + "` in feature `" + qualified_filename + "`.")
+                       "` but found `" + schemaLocations + "` in feature `" + qualified_filename + "`.")
 
     expected_directory = os.path.join(
         schema_parent_dir,
