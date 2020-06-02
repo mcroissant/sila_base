@@ -3,10 +3,11 @@
 import os
 from lxml import etree
 
-SILA_VERSION="1.0"
+XSI = "http://www.w3.org/2001/XMLSchema-instance"
+SILA_VERSION = "1.0"
+SILA_SCHEMA_LOC = "https://gitlab.com/SiLA2/sila_base/raw/master/schema/FeatureDefinition.xsd"
 
 schema_parent_dir =  ".."
-
 
 def validate_feature(qualified_filename):
     print( 'Validating: ' + qualified_filename )
@@ -21,11 +22,17 @@ def validate_feature(qualified_filename):
     # SiLA Version Check
     sila_version = feature_xml.xpath("@SiLA2Version")[0]
     if sila_version != SILA_VERSION:
-        raise StandardError("Features in sila_base must be of version " + SILA_VERSION)
+        raise Exception("Features in sila_base must be of version " + SILA_VERSION)
 
     # Check use case and correct location
     originator_path = convert_to_path(feature_xml.xpath("@Originator"))
     category_path = convert_to_path(feature_xml.xpath("@Category"))
+    schemaLocation = convert_to_path(feature_xml.xpath("//*/@xsi:schemaLocation", namespaces={'xsi': XSI}))\
+        .replace("\\", ".")
+
+    if SILA_SCHEMA_LOC not in schemaLocation:
+        raise Exception("Features schema location must contain `" + SILA_SCHEMA_LOC +
+                       "` but found `" + schemaLocation + "` in feature `" + qualified_filename + "`.")
 
     expected_directory = os.path.join(
         schema_parent_dir,
@@ -41,11 +48,9 @@ def validate_feature(qualified_filename):
     )
 
     if expected_filename != qualified_filename:
-        raise StandardError("Features need to be located in an originator + category folder structure. " +
+        raise Exception("Features need to be located in an originator + category folder structure. " +
                             filename + " needs to be located in " + expected_directory)
-
     print('Validated')
-
 
 def convert_to_path(feature_namespace):
     if feature_namespace:
@@ -53,7 +58,6 @@ def convert_to_path(feature_namespace):
         return namespace.replace(".", os.sep)
     else:
         return ""
-
 
 def main():
     for (dirpath, dirnames, filenames) in os.walk(os.path.join(schema_parent_dir, "feature_definitions")):
@@ -63,9 +67,8 @@ def main():
                 if filename.endswith(".sila.xml"):
                     validate_feature(qualified_filename)
                 else:
-                    raise Exception("\n\tOnly feature definitions with '*.sila.xml' are allowed !!\n\tfound: " +
-                                        qualified_filename)
-
+                    raise Exception("Only feature definitions ending with '.sila.xml' are allowed ! but found : ''" +
+                                        qualified_filename + "'")
 
 if __name__ == "__main__":
     main()
