@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button";
 import React from "react";
 import { ReactComponent as SiLALogo } from "../assets/imgs/sila_logo.svg";
 import ProgressBar from "./ProgressBar";
-import ScrollTopTop from "./ScrollTopTop";
+import ScrollTopTop from "./ScrollToTop";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -62,8 +62,8 @@ export default function Footer() {
                 <div className={classes.footer}>
                     <div id="footer-sidebar-left" className={classes.footerSidebar}>
                         <div>
-                            <h2 className="widget-title">Association</h2>
-                            <div className="menu-association-container">
+                            <h2>Association</h2>
+                            <div>
                                 <ul id="menu-association" className={classes.menu}>
                                     <li id="menu-item-663" className={classes.menuItem}>
                                         <a className={classes.link} href="https://sila-standard.com/standards/">Standards</a>
@@ -85,8 +85,8 @@ export default function Footer() {
                     </div>
                     <div id="footer-sidebar-center" className={classes.footerSidebar}>
                         <div>
-                            <h2 className="widget-title">Resources</h2>
-                            <div className="menu-resources-container">
+                            <h2>Resources</h2>
+                            <div>
                                 <ul id="menu-resources" className={classes.menu}>
                                     <li id="menu-item-1045" className={classes.menuItem}>
                                         <a className={classes.link} href="https://sila-standard.com/news-and-events/">News &amp; Events</a>
@@ -107,8 +107,8 @@ export default function Footer() {
                         </div>
                     </div>
                     <div id="footer-sidebar-right-1" className={classes.footerSidebar}>
-                        <div><h2 className="widget-title">Contact us</h2>
-                            <div className="textwidget">
+                        <div><h2>Contact us</h2>
+                            <div>
                                 <p>
                                     Spinnereistrasse 38<br/>
                                     CH-8645 Rapperswill-Jona<br/>
@@ -120,16 +120,16 @@ export default function Footer() {
                     </div>
                     <div id="footer-sidebar-right-2" className={classes.footerSidebar}>
                         <div>
-                            <h2 className="widget-title">
+                            <h2>
                                 Join our community!
                             </h2>
-                            <div className="textwidget">
+                            <div>
                                 <p>Our team is happy to answer any of your questions.</p>
                             </div>
                         </div>
                         <div>
-                            <div className="textwidget custom-html-widget">
-                                <div className="vc_btn3-container vc_btn3-left">
+                            <div>
+                                <div>
                                     <a className={classes.link} href="https://sila-standard.com/join-us/">
                                         Join us
                                     </a>
@@ -141,7 +141,7 @@ export default function Footer() {
                         <h2>
                             <Button color="inherit" className={classes.silaLogo} >
                                 <a href={"https://sila-standard.com/"} target={"_blank"}>
-                                    <SiLALogo style={{ width: 56, paddingRight: 5 }} />
+                                    <SiLALogo width={56} padding-right={5} />
                                 </a>
                             </Button>
                         </h2>

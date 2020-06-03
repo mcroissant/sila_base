@@ -6,7 +6,7 @@ import { Typography } from "@material-ui/core";
 const Identifier: React.FC<IXmlToJsxProps> = ({ content, style }) => {
     return (
         <Box paddingTop={1} paddingLeft={1} paddingRight={1} style={style}>
-            <Box p={1} style={{ border: "1px solid grey" }}>
+            <Box p={1} border={"1px solid grey"}>
                 <XmlToJsxTitle content={content} variant="body1" style={{fontWeight: 400}} />
                 <Typography variant="body1" component="span" style={{fontWeight: 600}}>
                     {content.textContent}

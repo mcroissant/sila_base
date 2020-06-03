@@ -6,16 +6,23 @@ import { IconButton } from "@material-ui/core";
 const styles = (theme: any) => ({
     scroll: {
         backgroundColor: "#dcdcdc8c",
-        width: "40px",
-        height: "40px",
         position: "fixed",
         bottom: "40px",
         right: "40px",
-        zIndex: 3
+        zIndex: 3,
+        width: '72px',
+        height: '72px',
+        padding: '18px',
+        color: "#3f51b5"
+    },
+    arrow: {
+        width: "72px",
+        height: "72px",
+        paddingBottom:"36px"
     }
 });
 
-class ScrollTopTop extends Component {
+class ScrollToTop extends Component {
     state = {
         intervalId: 0
     };
@@ -36,16 +43,12 @@ class ScrollTopTop extends Component {
         // @ts-ignore
         const { classes } = this.props;
         return (
-            <IconButton title="Back to top"
-                        style={{width: '72px', height: '72px', padding: '18px', color: "#3f51b5"}}
-                        className={classes.scroll}
-                        onClick={() => { this.scrollToTop();}}
-            >
-                <ArrowDropUpIcon style={{width: '72px', height: '72px', paddingBottom: '36px'}}/>
+            <IconButton title="Back to top" className={classes.scroll} onClick={() => { this.scrollToTop();}}>
+                <ArrowDropUpIcon className={classes.arrow}/>
             </IconButton>
         );
     }
 }
 
 // @ts-ignore
-export default withStyles(styles, { withTheme: true })(ScrollTopTop);
+export default withStyles(styles, { withTheme: true })(ScrollToTop);

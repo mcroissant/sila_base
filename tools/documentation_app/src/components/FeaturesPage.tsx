@@ -1,5 +1,5 @@
 import React, {ChangeEvent, Component} from "react";
-import {Tabs} from "@material-ui/core";
+import {Tabs, Divider} from "@material-ui/core";
 import Tab from "@material-ui/core/Tab";
 import FeatureList, {FeatureMode} from "./FeatureList";
 
@@ -22,6 +22,7 @@ class FeaturesPage extends Component {
                     <Tab label="All Features" value={FeatureMode.Alphabetical}/>
                     <Tab label="Features by category" value={FeatureMode.Category}/>
                 </Tabs>
+                <Divider />
                 {/* TODO add search bar to search features by name */}
                 <FeatureList mode={this.state.currentTab}/>
             </>

@@ -6,6 +6,7 @@ import React from "react";
 import { fade } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
 import { ReactComponent as SiLALogo } from "../assets/imgs/sila_logo.svg";
+import {IconButton} from "@material-ui/core";
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -21,11 +22,16 @@ const useStyles = makeStyles((theme: Theme) =>
             marginRight:"auto",
         },
         silaLogo: {
+            borderRadius: 0,
             display: "none",
             [theme.breakpoints.up("sm")]: {
                 display: "block",
             },
+            "& svg": {
+                width: 48,
+            }
         },
+
         search: {
             position: "relative",
             borderRadius: theme.shape.borderRadius,
@@ -82,11 +88,14 @@ export default function Header() {
                             Features
                         </Button>
                     </div>
-                    <Button color="inherit" className={classes.silaLogo} >
-                        <a href={"https://sila-standard.org"} target={"_blank"}>
-                            <SiLALogo style={{ width: 55, paddingRight: 5 }} />
-                        </a>
-                    </Button>
+                    <IconButton
+                        color="inherit"
+                        className={classes.silaLogo}
+                        href={"https://sila-standard.org"}
+                        target={"_blank"}
+                    >
+                        <SiLALogo />
+                    </IconButton>
                 </Toolbar>
 
             </AppBar>

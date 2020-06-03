@@ -74,7 +74,7 @@ class ProgressBar extends Component {
             <>
                 <VisibilitySensor onChange={this.onComponentVisibilityChange}>
                     {/* Just so the viz sensor works and thinks there is something displayed */}
-                    <div style={{visibility: "hidden", border: "transparent solid 1px"}}/>
+                    <div hidden={true} style={{border: "transparent solid 1px"}}/>
                 </VisibilitySensor>
                 <LinearProgress className={classes.bar} value={this.state.scrollPosition} variant="determinate"/>
 

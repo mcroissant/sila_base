@@ -19,7 +19,7 @@ import Footer from "./components/Footer";
 const App: React.FunctionComponent = () => (
     <MuiThemeProvider theme={defaultMaterialTheme}>
         <Router basename={`${process.env.PUBLIC_URL}`}>
-            <div className={style.gridWrapper} style={{flexDirection: "column", minHeight: "100vh"}}>
+            <div className={style.gridWrapper}>
                 <CssBaseline />
                 <Header />
 
