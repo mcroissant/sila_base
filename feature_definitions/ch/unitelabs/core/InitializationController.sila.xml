@@ -6,7 +6,7 @@
     <Identifier>InitializationController</Identifier>
     <DisplayName>Initialization Controller</DisplayName>
     <Description>
-        Exposes the ability to Initialize an instrument or driver.
+        Sets the instrument to be ready to use, resets any state for example state changes caused by human intervention.
     </Description>
     <!-- Commands -->
     <Command>
