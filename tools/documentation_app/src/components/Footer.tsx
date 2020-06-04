@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme: Theme) =>
             marginRight:"auto",
         },
         footerSidebar: {
-            display: "table-cell",
+            display: "inline-block",
             verticalAlign: "top",
             paddingRight: "10px",
         },

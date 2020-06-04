@@ -1,33 +1,23 @@
-import React, {ChangeEvent, Component} from "react";
-import {Tabs, Divider} from "@material-ui/core";
+import React, {ChangeEvent, Component, useState} from "react";
+import {Tabs, Divider, useMediaQuery, Theme} from "@material-ui/core";
 import Tab from "@material-ui/core/Tab";
 import FeatureList, {FeatureMode} from "./FeatureList";
 
-class FeaturesPage extends Component {
-    state = {
-        currentTab: FeatureMode.Core,
-    }
+export default function FeaturesPage() {
+    const [currentTab, setCurrentTab] = useState(() => FeatureMode.Core);
+    const matches = useMediaQuery((theme: Theme) => theme.breakpoints.up('sm'));
 
-    handleChange = (event: ChangeEvent<{}>, newValue: FeatureMode) => {
-        this.setState({
-            currentTab: newValue
-        });
-    };
-
-    render(): React.ReactNode {
-        return (
-            <>
-                <Tabs value={this.state.currentTab} onChange={this.handleChange} aria-label="simple tabs example">
-                    <Tab label="Core Features" value={FeatureMode.Core}/>
-                    <Tab label="All Features" value={FeatureMode.Alphabetical}/>
-                    <Tab label="Features by category" value={FeatureMode.Category}/>
-                </Tabs>
-                <Divider />
-                {/* TODO add search bar to search features by name */}
-                <FeatureList mode={this.state.currentTab}/>
-            </>
-        );
-    }
+    return (
+        <>
+            <Tabs value={currentTab} onChange={(event, newValue) => setCurrentTab(newValue)}
+                  variant={matches ? "standard" : "fullWidth"} aria-label="simple tabs example">
+                <Tab label="Core Features" value={FeatureMode.Core}/>
+                <Tab label="All Features" value={FeatureMode.Alphabetical}/>
+                <Tab label="Features by category" value={FeatureMode.Category}/>
+            </Tabs>
+            <Divider />
+            {/* TODO add search bar to search features by name */}
+            <FeatureList mode={currentTab}/>
+        </>
+    );
 }
-
-export default FeaturesPage;
