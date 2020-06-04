@@ -1,4 +1,4 @@
-import React, {ChangeEvent, Component, useState} from "react";
+import React, {useState} from "react";
 import {Tabs, Divider, useMediaQuery, Theme} from "@material-ui/core";
 import Tab from "@material-ui/core/Tab";
 import FeatureList, {FeatureMode} from "./FeatureList";
