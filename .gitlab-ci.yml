@@ -9,9 +9,10 @@ stages:
   - deploy
 
 feature_test:
-    image: moeryomenko/python-docker-lxml
+    image: lgatica/python-alpine:3.6.3
     stage: test_python
     before_script:
+      - pip install lxml
       - cd tools
     script:
       - python validate_features.py
