@@ -60,52 +60,6 @@ export default function Footer() {
             <ProgressBar/>
             <div className={classes.root}>
                 <div className={classes.footer}>
-                    <div id="footer-sidebar-left" className={classes.footerSidebar}>
-                        <div>
-                            <h2>Association</h2>
-                            <div>
-                                <ul id="menu-association" className={classes.menu}>
-                                    <li id="menu-item-663" className={classes.menuItem}>
-                                        <a className={classes.link} href="https://sila-standard.com/standards/">Standards</a>
-                                    </li>
-                                    <li id="menu-item-52637" className={classes.menuItem}>
-                                        <a className={classes.link} href="https://sila-standard.com/initiatives/">Initiatives</a>
-                                    </li>
-                                    <li id="menu-item-38" className={classes.menuItem}>
-                                        <a className={classes.link} href="https://sila-standard.com/product-store/">Products &amp; Drivers</a></li>
-                                    <li id="menu-item-664" className={classes.menuItem}>
-                                        <a className={classes.link} href="https://sila-standard.com/about-us/">About Us</a>
-                                    </li>
-                                    <li id="menu-item-52553" className={classes.menuItem}>
-                                        <a className={classes.link} href="https://sila-standard.com/join-us/">Join Us</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="footer-sidebar-center" className={classes.footerSidebar}>
-                        <div>
-                            <h2>Resources</h2>
-                            <div>
-                                <ul id="menu-resources" className={classes.menu}>
-                                    <li id="menu-item-1045" className={classes.menuItem}>
-                                        <a className={classes.link} href="https://sila-standard.com/news-and-events/">News &amp; Events</a>
-                                    </li>
-                                    <li id="menu-item-52647" className={classes.menuItem}>
-                                        <a className={classes.link} href="https://sila-standard.com/training/">Training</a>
-                                    </li>
-                                    <li id="menu-item-665" className={classes.menuItem}>
-                                        <a className={classes.link} href="https://sila-standard.com/certification/">Certification</a>
-                                    </li>
-                                    <li id="menu-item-53616" className={classes.menuItem}>
-                                        <a className={classes.link} href="https://sila-standard.com/faq/">FAQ</a></li>
-                                    <li id="menu-item-52806" className={classes.menuItem}>
-                                        <a className={classes.link} href="https://sila-standard.com/downloads/">Downloads</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
                     <div id="footer-sidebar-right-1" className={classes.footerSidebar}>
                         <div><h2>Contact us</h2>
                             <div>
