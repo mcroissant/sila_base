@@ -1,0 +1,37 @@
+.gridWrapper {
+    display: grid;
+    grid-template-rows: 64px 1fr;
+    height: 100%;
+    width: 100%;
+    min-height: 100vh
+}
+
+pre > code {
+    display: block;
+    font-family: monospace;
+    font-size: 13px;
+    line-height: 1.6em;
+    padding: 8px 12px;
+    margin: 0;
+    margin-bottom: 16px;
+    word-break: break-all;
+    word-wrap: break-word;
+    color: #2e2e2e;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    overflow-x: auto;
+}
+
+code {
+    font-weight: inherit;
+    font-family: monospace;
+    white-space: pre-wrap;
+    word-wrap: normal;
+    word-break: keep-all;
+    padding: 2px 4px;
+    color: #c0341d;
+    background-color: #fbe5e1;
+    border-radius: 4px;
+    font-size: 90%;
+}
