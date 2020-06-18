@@ -49,7 +49,15 @@
       <DisplayName>CommandExecutionUUID</DisplayName>
       <Description>The UUID of the observable command execution for which the error shall be handled.</Description>
       <DataType>
-        <Basic>String</Basic>
+        <Constrained>
+          <DataType>
+            <Basic>String</Basic>
+          </DataType>
+          <Constraints>
+            <Length>36</Length>
+            <Pattern>[0-9a-f]{8}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{12}</Pattern>
+          </Constraints>
+        </Constrained>
       </DataType>
     </Parameter>
     <Parameter>
@@ -92,7 +100,7 @@
     <Parameter>
       <Identifier>ErrorHandlingTimeout</Identifier>
       <DisplayName>Error Handling Timeout</DisplayName>
-      <Description></Description>
+      <Description>The timeout in seconds.</Description>
       <DataType>
         <Constrained>
           <DataType>
@@ -147,7 +155,15 @@
           <DisplayName>CommandExecutionUUID</DisplayName>
           <Description>The UUID of the observable command execution during which the error occured.</Description>
           <DataType>
-            <Basic>String</Basic>
+            <Constrained>
+              <DataType>
+                <Basic>String</Basic>
+              </DataType>
+              <Constraints>
+                <Length>36</Length>
+                <Pattern>[0-9a-f]{8}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{4}\-[0-9a-f]{12}</Pattern>
+              </Constraints>
+            </Constrained>
           </DataType>
         </Element>
         <Element>
